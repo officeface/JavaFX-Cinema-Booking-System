@@ -2,9 +2,9 @@ package screensframework;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +25,17 @@ public class TextFileManager {
 		this.loginDetails = FileToArray("LoginDetails");
 		this.filmList = FileToArray("FilmList");
 		this.filmTimes = FileToArray("FilmTimes");
+	}
+	
+	public static InputStream inputStreamFromFile(String path) {
+		
+		try {
+			InputStream inputStream = TextFileManager.class.getResourceAsStream(path);
+			return inputStream;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 

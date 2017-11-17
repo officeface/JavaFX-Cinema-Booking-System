@@ -1,2 +1,10 @@
 FILMLIST IS IN THE FORMAT TITLE, IMGurl, DESCRIPTION
-Batman batman.jpg "Batman is the greatest film of all time!!"
+Title: Batman, Image: batman.jpg, Description: "Batman is the greatest film of all time!!"
+Title: , Image: , Description:
+Title: , Image: , Description:
+Title: , Image: , Description:
+Title: , Image: , Description:
+Title: , Image: , Description:
+Title: , Image: , Description:
+Title: , Image: , Description:
+
