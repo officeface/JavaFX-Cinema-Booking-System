@@ -1,4 +1,5 @@
 File is in format EMAIL PASSWORD STAFF/CUSTOMER.  Do not add empty lines or trailing/leading whitespace!
+admin admin S
 mark@live.co.uk pa$$word S
 bob@hotmail.com hello C
 nigel@gmail.co.uk pass C
