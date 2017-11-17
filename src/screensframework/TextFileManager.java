@@ -27,8 +27,8 @@ public class TextFileManager {
 	
 	public TextFileManager() throws IOException {
 		this.loginDetails = LoginDetailsToArrayList();
-		//this.filmList = FileToArray("FilmList");
-		//this.filmTimes = FileToArray("FilmTimes");
+		this.filmList = FilmListToArrayList();
+		this.filmTimes = FilmTimesToArrayList();
 	}
 	
 	public static InputStream inputStreamFromFile(String path) {
@@ -60,6 +60,46 @@ public class TextFileManager {
 		}
 		
 		return loginDetails;
+	}
+	
+	public static List<String[]> FilmListToArrayList() throws IOException {
+		JSONObject obj = JSONUtils.getJSONObjectFromFile("/database.json");
+		JSONArray jsonArray = obj.getJSONArray("FilmList");
+		List<String[]> filmList = new ArrayList<String[]>();
+		
+		
+		for (int i = 0; i < jsonArray.length(); i++) {
+			String[] tempArray = new String[3];
+			
+			tempArray[0] = jsonArray.getJSONObject(i).getString("title");
+			tempArray[1] = jsonArray.getJSONObject(i).getString("image");
+			tempArray[2] = jsonArray.getJSONObject(i).getString("description");
+			
+			filmList.add(tempArray);
+			
+		}
+		
+		return filmList;
+	}
+	
+	public static List<String[]> FilmTimesToArrayList() throws IOException {
+		JSONObject obj = JSONUtils.getJSONObjectFromFile("/database.json");
+		JSONArray jsonArray = obj.getJSONArray("FilmTimes");
+		List<String[]> filmTimes = new ArrayList<String[]>();
+		
+		
+		for (int i = 0; i < jsonArray.length(); i++) {
+			String[] tempArray = new String[3];
+			
+			tempArray[0] = jsonArray.getJSONObject(i).getString("title");
+			tempArray[1] = jsonArray.getJSONObject(i).getString("date");
+			tempArray[2] = jsonArray.getJSONObject(i).getString("time");
+			
+			filmTimes.add(tempArray);
+			
+		}
+		
+		return filmTimes;
 	}
 
 	public List<String[]> getLoginDetails() {
