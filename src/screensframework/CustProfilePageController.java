@@ -8,12 +8,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 
-/**
- * FXML Controller class
- *
- */
-public class CustHomeController implements Initializable, ControlledScreen {
-
+public class CustProfilePageController implements Initializable, ControlledScreen {
+	
 	@FXML
 	private Button btnLogout, btnHome, btnMyProfile, btnMyBookings;
 

@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" minWidth="174.0" prefHeight="150.0" prefWidth="200.0" xmlns:fx="http://javafx.com/fxml" fx:controller="screensframework.StaffChoicePageController">
+<AnchorPane id="AnchorPane" minWidth="174.0" prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/9.0.1" fx:controller="screensframework.StaffChoicePageController">
   <children>
     <VBox alignment="CENTER" prefHeight="153.0" prefWidth="174.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <children>
@@ -16,7 +15,7 @@
             <Font size="18.0" />
           </font>
         </Label>
-        <Button mnemonicParsing="false" onAction="#goToLogin" text="Login as a Customer" />
+        <Button mnemonicParsing="false" onAction="#goToCustHome" text="Login as a Customer" />
         <Button mnemonicParsing="false" onAction="#goToStaffHome" text="Login as a Staff member" />
       </children>
     </VBox>

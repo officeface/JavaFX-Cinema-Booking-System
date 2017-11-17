@@ -19,6 +19,8 @@ public class ScreensFramework extends Application {
     public static String staffChoiceFile = "StaffChoicePage.fxml";
     public static String custHomeID = "custHome";
     public static String custHomeFile = "CustHome.fxml";
+    public static String custProfilePageID = "custProfilePage";
+    public static String custProfilePageFile = "CustProfilePage.fxml";
     
     
     @Override
@@ -29,6 +31,7 @@ public class ScreensFramework extends Application {
         mainContainer.loadScreen(ScreensFramework.staffHomeID, ScreensFramework.staffHomeFile);
         mainContainer.loadScreen(ScreensFramework.staffChoiceID, ScreensFramework.staffChoiceFile);
         mainContainer.loadScreen(ScreensFramework.custHomeID, ScreensFramework.custHomeFile);
+        mainContainer.loadScreen(ScreensFramework.custProfilePageID, ScreensFramework.custProfilePageFile);
         
         mainContainer.setScreen(ScreensFramework.loginID);
         

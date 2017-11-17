@@ -9,13 +9,13 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="screensframework.CustHomeController">
-  <children>
+   <children>
       <ToolBar prefHeight="30.0" prefWidth="800.0">
-        <items>
+         <items>
             <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="250.0" spacing="30.0">
                <children>
-              <Button fx:id="btnLogout" mnemonicParsing="false" onAction="#goToLogin" text="Logout" />
-                  <Button fx:id="btnHome" mnemonicParsing="false" text="Home" />
+                  <Button fx:id="btnLogout" mnemonicParsing="false" onAction="#goToLogin" text="Logout" />
+                  <Button fx:id="btnHome" mnemonicParsing="false" onAction="#goToCustHome" text="Home" />
                </children>
                <padding>
                   <Insets left="30.0" />
@@ -23,20 +23,20 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="30.0" prefWidth="250.0">
                <children>
-              <Label alignment="CENTER" text="Home Page">
-                <font>
-                  <Font size="18.0" />
-                </font>
-              </Label>
+                  <Label alignment="CENTER" text="My Profile">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
                </children>
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="250.0" spacing="30.0">
                <children>
-                <Button fx:id="btnMyProfile" mnemonicParsing="false" onAction="#goToCustProfilePage" text="My Profile" />
+                  <Button fx:id="btnMyProfile" mnemonicParsing="false" onAction="#goToCustProfilePage" text="My Profile" />
                   <Button fx:id="btnMyBookings" mnemonicParsing="false" text="My Bookings" />
                </children>
             </HBox>
-        </items>
+         </items>
       </ToolBar>
-  </children>
+   </children>
 </AnchorPane>

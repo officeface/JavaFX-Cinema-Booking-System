@@ -46,29 +46,6 @@ public class LoginController implements Initializable, ControlledScreen {
 		myController = screenParent;
 	}
 
-//	private static List<String[]> loginDetails() throws IOException {
-//		List<String> list = new ArrayList<String>();
-//		List<String[]> loginDetails = new ArrayList<String[]>();
-//		String line = null;
-//
-//		File file = new File("\\ScreensFramework\\LoginDetails.txt");
-//		FileReader fileReader = new FileReader(file.getName());
-//		BufferedReader lineReader = new BufferedReader(fileReader);
-//
-//		// Extract all lines from .txt file
-//		while ((line = lineReader.readLine()) != null) {
-//			list.add(line);
-//		}
-//
-//		// Add emails/passwords/SorC to separate columns in arraylist
-//		for (String user : list) {
-//			loginDetails.add(user.split("\\s+"));
-//		}
-//		loginDetails.remove(0); // Remove first line of .txt file (not relevant)
-//
-//		lineReader.close();
-//		return loginDetails;
-//	}
 
 	@FXML
 	private void login(ActionEvent event) throws IOException {
@@ -81,7 +58,7 @@ public class LoginController implements Initializable, ControlledScreen {
 			for (int i = 0; i < loginDetails.size(); i++) {
 				if ((loginDetails.get(i))[0].equals(txtEmail.getText())
 						&& (loginDetails.get(i))[1].equals(txtPassword.getText())) {
-					lblStatus.setText("Login successful");
+					//lblStatus.setText("Login successful");
 					successCheck = 1;
 
 					// Open Main scene upon successful customer login
@@ -91,6 +68,7 @@ public class LoginController implements Initializable, ControlledScreen {
 						// Open Customer/Staff option screen upon successful staff login
 						myController.setScreen(ScreensFramework.staffChoiceID);
 					}
+					txtPassword.setText(""); // Password cleared after successful login and must be retyped after logging out
 					continue;
 				}
 			}
