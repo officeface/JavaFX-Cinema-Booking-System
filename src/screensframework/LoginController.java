@@ -46,35 +46,36 @@ public class LoginController implements Initializable, ControlledScreen {
 		myController = screenParent;
 	}
 
-	private static List<String[]> loginDetails() throws IOException {
-		List<String> list = new ArrayList<String>();
-		List<String[]> loginDetails = new ArrayList<String[]>();
-		String line = null;
-
-		File file = new File("\\ScreensFramework\\LoginDetails.txt");
-		FileReader fileReader = new FileReader(file.getName());
-		BufferedReader lineReader = new BufferedReader(fileReader);
-
-		// Extract all lines from .txt file
-		while ((line = lineReader.readLine()) != null) {
-			list.add(line);
-		}
-
-		// Add emails/passwords/SorC to separate columns in arraylist
-		for (String user : list) {
-			loginDetails.add(user.split("\\s+"));
-		}
-		loginDetails.remove(0); // Remove first line of .txt file (not relevant)
-
-		lineReader.close();
-		return loginDetails;
-	}
+//	private static List<String[]> loginDetails() throws IOException {
+//		List<String> list = new ArrayList<String>();
+//		List<String[]> loginDetails = new ArrayList<String[]>();
+//		String line = null;
+//
+//		File file = new File("\\ScreensFramework\\LoginDetails.txt");
+//		FileReader fileReader = new FileReader(file.getName());
+//		BufferedReader lineReader = new BufferedReader(fileReader);
+//
+//		// Extract all lines from .txt file
+//		while ((line = lineReader.readLine()) != null) {
+//			list.add(line);
+//		}
+//
+//		// Add emails/passwords/SorC to separate columns in arraylist
+//		for (String user : list) {
+//			loginDetails.add(user.split("\\s+"));
+//		}
+//		loginDetails.remove(0); // Remove first line of .txt file (not relevant)
+//
+//		lineReader.close();
+//		return loginDetails;
+//	}
 
 	@FXML
 	private void login(ActionEvent event) throws IOException {
 		// myController.setScreen(ScreensFramework.screen2ID);
 		try {
-			List<String[]> loginDetails = loginDetails(); // Get login details as arraylist
+			TextFileManager fileManager = new TextFileManager();
+			List<String[]> loginDetails = fileManager.getLoginDetails(); // Get login details as arraylist
 			int successCheck = 0; // Success check
 
 			for (int i = 0; i < loginDetails.size(); i++) {
