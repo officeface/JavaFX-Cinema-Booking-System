@@ -8,6 +8,10 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /**
  * This class manages the various text files of the application by reading their
  * contents and storing them inside ArrayLists for usage from other classes.
@@ -22,9 +26,9 @@ public class TextFileManager {
 	private List<String[]> filmTimes;
 	
 	public TextFileManager() throws IOException {
-		this.loginDetails = FileToArray("LoginDetails");
-		this.filmList = FileToArray("FilmList");
-		this.filmTimes = FileToArray("FilmTimes");
+		this.loginDetails = LoginDetailsToArrayList();
+		//this.filmList = FileToArray("FilmList");
+		//this.filmTimes = FileToArray("FilmTimes");
 	}
 	
 	public static InputStream inputStreamFromFile(String path) {
@@ -38,38 +42,24 @@ public class TextFileManager {
 		return null;
 	}
 	
-
-	/**
-	 * 
-	 * @param fileName the file to be read.
-	 * @return each row of a text file as elements in an ArrayList. The first line
-	 *         in each .txt file is omitted and reserved as a descriptor of the
-	 *         file.
-	 * @throws IOException 
-	 */
-	public static List<String[]> FileToArray(String fileName) throws IOException {
+	public static List<String[]> LoginDetailsToArrayList() throws IOException {
+		JSONObject obj = JSONUtils.getJSONObjectFromFile("/database.json");
+		JSONArray jsonArray = obj.getJSONArray("LoginDetails");
+		List<String[]> loginDetails = new ArrayList<String[]>();
 		
-		List<String> list = new ArrayList<String>();
-		List<String[]> arr = new ArrayList<String[]>();
-		String line = null;
-
-		File file = new File("\\ScreensFramework\\" + fileName + ".txt");
-		FileReader fileReader = new FileReader(file.getName());
-		BufferedReader lineReader = new BufferedReader(fileReader);
-
-		// Extract all lines from .txt file
-		while ((line = lineReader.readLine()) != null) {
-			list.add(line);
+		
+		for (int i = 0; i < jsonArray.length(); i++) {
+			String[] tempArray = new String[3];
+			
+			tempArray[0] = jsonArray.getJSONObject(i).getString("email");
+			tempArray[1] = jsonArray.getJSONObject(i).getString("password");
+			tempArray[2] = jsonArray.getJSONObject(i).getString("type");
+			
+			loginDetails.add(tempArray);
+			
 		}
-
-		// Add emails/passwords/SorC to separate columns in arraylist
-		for (String row : list) {
-			arr.add(row.split("\\s+"));
-		}
-		arr.remove(0); // Remove first line of .txt file (not relevant)
-
-		lineReader.close();
-		return arr;
+		
+		return loginDetails;
 	}
 
 	public List<String[]> getLoginDetails() {
