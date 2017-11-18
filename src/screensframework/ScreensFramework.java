@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 
 public class ScreensFramework extends Application {
     
-//	Declaring the files
+    //Declaring the files
     public static String loginID = "main";
     public static String loginFile = "Login.fxml";
     public static String staffHomeID = "staffHome";
@@ -20,6 +20,18 @@ public class ScreensFramework extends Application {
     public static String custHomeFile = "CustHome.fxml";
     public static String custProfilePageID = "custProfilePage";
     public static String custProfilePageFile = "CustProfilePage.fxml";
+    
+    //Staff only files Excluding: staff home
+    public static String staffExportID = "staffExport";
+    public static String staffExportFile = "StaffExport.fxml";
+    public static String bookingSummaryID = "bookingSummary";
+    public static String bookingSummaryFile = "BookingSummary.fxml";
+    public static String addFilmPageID = "addFilmPage";
+    public static String addFilmPageFile = "AddFilmPage.fxml";
+    public static String addFilmListingsID = "addFilmListings";
+    public static String addFilmListingsFile = "AddFilmListings.fxml";
+    
+    
     
     
     
@@ -33,6 +45,14 @@ public class ScreensFramework extends Application {
         mainContainer.loadScreen(ScreensFramework.custHomeID, ScreensFramework.custHomeFile);
         mainContainer.loadScreen(ScreensFramework.custProfilePageID, ScreensFramework.custProfilePageFile);
         
+        //for staff screens Excluding: staff home
+        mainContainer.loadScreen(ScreensFramework.staffExportID, ScreensFramework.staffExportFile);
+        mainContainer.loadScreen(ScreensFramework.bookingSummaryID, ScreensFramework.bookingSummaryFile);
+        mainContainer.loadScreen(ScreensFramework.addFilmPageID, ScreensFramework.addFilmPageFile);
+        mainContainer.loadScreen(ScreensFramework.addFilmListingsID, ScreensFramework.addFilmListingsFile);
+        
+        
+        //First loading screen
         mainContainer.setScreen(ScreensFramework.loginID);
         
         Group root = new Group();
