@@ -24,7 +24,7 @@ public class TextFileManager {
 	private List<String[]> loginDetails;
 	private List<String[]> filmList;
 	private List<String[]> filmTimes;
-	private static File database = new File("./assets/database.json");
+	static File database = new File("./assets/database.json");
 
 	public TextFileManager() throws IOException {
 		this.loginDetails = LoginDetailsToArrayList();
@@ -127,12 +127,28 @@ public class TextFileManager {
 
 		return filmTimes;
 	}
-	
-	public static List<String[]> FilmsFilteredByDate(String date) throws IOException {
+
+	/**
+	 * 
+	 * @param date in the format dd/MM/yyyy
+	 * @return A list of film titles that are playing on a specified date
+	 * @throws IOException
+	 */
+	public static List<String> filmsFilteredByDate(String date) throws IOException {
+
 		JSONObject obj = JSONUtils.getJSONObjectFromFile(TextFileManager.database);
-		JSONArray jsonArray = obj.getJSONArray("FilmList");
-		List<String[]> films = new ArrayList<String[]>();
-		
+		JSONArray filmListArray = obj.getJSONArray("FilmList");
+		JSONArray filmTimesArray = obj.getJSONArray("FilmTimes");
+		List<String> films = new ArrayList<String>();
+
+		for (int j = 0; j < filmTimesArray.length(); j++) {
+			if (obj.getJSONArray("FilmTimes").getJSONObject(j).getString("date").equals(date)) {
+				if (!films.contains(obj.getJSONArray("FilmTimes").getJSONObject(j).getString("title"))) {
+					films.add(obj.getJSONArray("FilmTimes").getJSONObject(j).getString("title"));
+				}
+			}
+		}
+
 		return films;
 	}
 

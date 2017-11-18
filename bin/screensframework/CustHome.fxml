@@ -58,7 +58,7 @@
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="250.0" spacing="10.0">
                            <children>
                               <Label text="Date:" />
-                              <DatePicker fx:id="selectDate" prefWidth="150.0" />
+                              <DatePicker fx:id="selectDate" onAction="#setFilmList" prefWidth="150.0" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="250.0" spacing="10.0">
