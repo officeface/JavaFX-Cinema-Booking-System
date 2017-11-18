@@ -27,12 +27,14 @@ public class StaffChoicePageController implements Initializable, ControlledScree
     }
 
     @FXML
+    private void goToStaffHome(ActionEvent event){
+       myController.setScreen(ScreensFramework.staffHomeID);
+    }
+    
+    @FXML
     private void goToCustHome(ActionEvent event){
        myController.setScreen(ScreensFramework.custHomeID);
     }
     
-    @FXML
-    private void goToStaffHome(ActionEvent event){
-       myController.setScreen(ScreensFramework.staffHomeID);
-    }
+    
 }
