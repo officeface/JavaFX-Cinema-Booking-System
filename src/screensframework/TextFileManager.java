@@ -27,9 +27,9 @@ public class TextFileManager {
 	static File database = new File("./assets/database.json");
 
 	public TextFileManager() throws IOException {
-		this.loginDetails = LoginDetailsToArrayList();
-		this.filmList = FilmListToArrayList();
-		this.filmTimes = FilmTimesToArrayList();
+		this.loginDetails = loginDetailsToArrayList();
+		this.filmList = filmListToArrayList();
+		this.filmTimes = filmTimesToArrayList();
 	}
 
 	/**
@@ -58,7 +58,7 @@ public class TextFileManager {
 	 * @throws IOException
 	 *             if an input/output exception occurs
 	 */
-	public static List<String[]> LoginDetailsToArrayList() throws IOException {
+	public static List<String[]> loginDetailsToArrayList() throws IOException {
 
 		JSONObject obj = JSONUtils.getJSONObjectFromFile(TextFileManager.database);
 		JSONArray jsonArray = obj.getJSONArray("LoginDetails");
@@ -83,7 +83,7 @@ public class TextFileManager {
 	 * @return The list of films, their img URLs and descriptions in an array list.
 	 * @throws IOException
 	 */
-	public static List<String[]> FilmListToArrayList() throws IOException {
+	public static List<String[]> filmListToArrayList() throws IOException {
 		JSONObject obj = JSONUtils.getJSONObjectFromFile(TextFileManager.database);
 		JSONArray jsonArray = obj.getJSONArray("FilmList");
 		List<String[]> filmList = new ArrayList<String[]>();
@@ -108,7 +108,7 @@ public class TextFileManager {
 	 *         collection of dates and times attributed to it.
 	 * @throws IOException
 	 */
-	public static List<String[]> FilmTimesToArrayList() throws IOException {
+	public static List<String[]> filmTimesToArrayList() throws IOException {
 		JSONObject obj = JSONUtils.getJSONObjectFromFile(TextFileManager.database);
 		JSONArray jsonArray = obj.getJSONArray("FilmTimes");
 		List<String[]> filmTimes = new ArrayList<String[]>();
@@ -130,7 +130,8 @@ public class TextFileManager {
 
 	/**
 	 * 
-	 * @param date in the format dd/MM/yyyy
+	 * @param date
+	 *            in the format dd/MM/yyyy
 	 * @return A list of film titles that are playing on a specified date
 	 * @throws IOException
 	 */
@@ -150,6 +151,30 @@ public class TextFileManager {
 		}
 
 		return films;
+	}
+
+	/**
+	 * 
+	 * @param date Date of the film listing
+	 * @param film Title of the film listing
+	 * @return All times that this film is showing on this date
+	 * @throws IOException
+	 */
+	public static List<String> timesFilteredByDateAndFilm(String date, String film) throws IOException {
+		JSONObject obj = JSONUtils.getJSONObjectFromFile(TextFileManager.database);
+		JSONArray filmTimesArray = obj.getJSONArray("FilmTimes");
+		List<String> times = new ArrayList<String>();
+
+		for (int i = 0; i < filmTimesArray.length(); i++) {
+			if (obj.getJSONArray("FilmTimes").getJSONObject(i).getString("date").equals(date)
+					&& obj.getJSONArray("FilmTimes").getJSONObject(i).getString("title").equals(film)) {
+
+				times.add(obj.getJSONArray("FilmTimes").getJSONObject(i).getString("time"));
+
+			}
+		}
+
+		return times;
 	}
 
 	public List<String[]> getLoginDetails() {

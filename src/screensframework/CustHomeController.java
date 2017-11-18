@@ -2,6 +2,7 @@ package screensframework;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -14,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.TitledPane;
 
 /**
  * FXML Controller class
@@ -23,6 +25,9 @@ public class CustHomeController implements Initializable, ControlledScreen {
 
 	@FXML
 	private Button btnLogout, btnHome, btnMyProfile, btnMyBookings;
+	
+	@FXML
+	private TitledPane day1Label, day2Label, day3Label, day4Label, day5Label, day6Label, day7Label;
 
 	@FXML
 	private ComboBox<String> selectFilm;
@@ -35,26 +40,24 @@ public class CustHomeController implements Initializable, ControlledScreen {
 
 	ScreensController myController;
 
-	private ObservableList<String> filmNames = FXCollections.observableArrayList();
-	private ObservableList<String> timeList = FXCollections.observableArrayList();
-	private DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+	private ObservableList<String> filmNames = FXCollections.observableArrayList(); // Container for film titles
+	private ObservableList<String> timeList = FXCollections.observableArrayList(); // Container for film times
+	private DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy"); // Formatting dates
+	
 
 	/**
 	 * Initializes the controller class.
 	 */
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-
-		// Populate times list
-		for (int i = 0; i < 24; i++) {
-			if (i < 10) {
-				timeList.add("0" + i + ":00");
-			} else {
-				timeList.add(i + ":00");
-			}
-		}
-		selectTime.setItems(timeList);
-
+		// Set the values on the labels
+		day1Label.setText("Today");
+		day2Label.setText("Tomorrow");
+		day3Label.setText(dateTimeFormatter.format(LocalDate.now().plusDays(2)));
+		day4Label.setText(dateTimeFormatter.format(LocalDate.now().plusDays(3)));
+		day5Label.setText(dateTimeFormatter.format(LocalDate.now().plusDays(4)));
+		day6Label.setText(dateTimeFormatter.format(LocalDate.now().plusDays(5)));
+		day7Label.setText(dateTimeFormatter.format(LocalDate.now().plusDays(6)));
 	}
 
 	/**
@@ -67,6 +70,22 @@ public class CustHomeController implements Initializable, ControlledScreen {
 			String date = dateTimeFormatter.format(selectDate.getValue());
 			TextFileManager fileManager = new TextFileManager();
 			return fileManager.filmsFilteredByDate(date);
+		} catch (IOException e) {
+			return null;
+		}
+	}
+	
+	/**
+	 * 
+	 * @return A list of times for a given date and film.
+	 * @throws IOException
+	 */
+	public List<String> getTimesList() throws IOException {
+		try {
+			String date = dateTimeFormatter.format(selectDate.getValue());
+			String film = selectFilm.getValue();
+			TextFileManager fileManager = new TextFileManager();
+			return fileManager.timesFilteredByDateAndFilm(date, film);
 		} catch (IOException e) {
 			return null;
 		}
@@ -89,6 +108,21 @@ public class CustHomeController implements Initializable, ControlledScreen {
 				filmNames.add(filmList.get(i));
 			}
 			selectFilm.setItems(filmNames);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@FXML
+	private void setTimesList(ActionEvent event) throws IOException {
+		selectTime.getItems().clear();
+		// Populate times list
+		try {
+			List<String> times = getTimesList();
+			for (int i = 0; i < times.size(); i++) {
+				timeList.add(times.get(i));
+			}
+			selectTime.setItems(timeList);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
