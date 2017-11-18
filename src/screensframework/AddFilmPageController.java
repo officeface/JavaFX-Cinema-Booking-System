@@ -1,4 +1,4 @@
-package application;
+package screensframework;
 
 import java.io.File;
 import java.net.URL;

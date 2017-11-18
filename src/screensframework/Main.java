@@ -1,4 +1,4 @@
-package application;
+package screensframework;
 	
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 
+//CAN DELETE THIS AS WE ALREADY HAVE A MAIN IN SCREENSFRAMEWORK
 
 public class Main extends Application {
 	@Override
