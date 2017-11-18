@@ -2,7 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ToolBar?>
@@ -64,13 +64,13 @@
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="250.0" spacing="10.0">
                            <children>
                               <Label text="Film:" />
-                              <ChoiceBox fx:id="selectFilm" prefWidth="150.0" />
+                              <ComboBox fx:id="selectFilm" prefWidth="150.0" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="250.0" spacing="10.0">
                            <children>
                               <Label text="Time:" />
-                              <ChoiceBox fx:id="selectTime" prefWidth="150.0" />
+                              <ComboBox fx:id="selectTime" layoutX="147.0" layoutY="24.0" prefWidth="150.0" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="50.0">

@@ -28,8 +28,8 @@ public class TextFileManager {
 
 	public TextFileManager() throws IOException {
 		this.loginDetails = LoginDetailsToArrayList();
-		// this.filmList = FilmListToArrayList();
-		// this.filmTimes = FilmTimesToArrayList();
+		this.filmList = FilmListToArrayList();
+		this.filmTimes = FilmTimesToArrayList();
 	}
 
 	/**
@@ -126,6 +126,14 @@ public class TextFileManager {
 		}
 
 		return filmTimes;
+	}
+	
+	public static List<String[]> FilmsFilteredByDate(String date) throws IOException {
+		JSONObject obj = JSONUtils.getJSONObjectFromFile(TextFileManager.database);
+		JSONArray jsonArray = obj.getJSONArray("FilmList");
+		List<String[]> films = new ArrayList<String[]>();
+		
+		return films;
 	}
 
 	public List<String[]> getLoginDetails() {

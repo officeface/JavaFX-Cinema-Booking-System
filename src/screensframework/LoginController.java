@@ -65,6 +65,7 @@ public class LoginController implements Initializable, ControlledScreen {
 					}
 					txtPassword.setText(""); // Password cleared after successful login and must be retyped after
 												// logging out
+					lblStatus.setText("");
 					continue;
 				}
 			}
