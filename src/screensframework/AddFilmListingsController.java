@@ -6,22 +6,30 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 
-public class StaffHomeController implements Initializable, ControlledScreen {
-	
+
+/**
+ * FXML Controller class
+ *
+ */
+
+public class AddFilmListingsController implements Initializable, ControlledScreen {
+
     ScreensController myController; 
-   
-    @FXML
-    private Button btnAddFilm; //go to add film PAGE
     
     @FXML
-    private Button btnAddListening; //go to add film LISTINGS
+    private ComboBox<String> comboSelectFilm; //Select from a list of films 
     
     @FXML
-    private Button btnBookingSummary; //go to BOOKING SUMMARY
-    
+    private ComboBox<String> comboChooseTime; //Select appropriate times
+
     @FXML
-    private Button btnExportFilms; //go to EXPORT FILMS
+    private DatePicker listingsDatepicker; //Select a date
+    
+    @FXML 
+    private Button btnAddListings; //Once form complete - press button to add to records
     
     /**
 	 * Initialises the controller class.
@@ -31,6 +39,7 @@ public class StaffHomeController implements Initializable, ControlledScreen {
 		// TODO Auto-generated method stub
 		
 	}
+	
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
 	}
