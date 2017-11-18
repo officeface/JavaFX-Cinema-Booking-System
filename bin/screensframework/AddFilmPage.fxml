@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AddFilmPageController">
+   <children>
+      <Label fx:id="lbladdnewfilm" layoutX="271.0" layoutY="68.0" text="ADD A NEW FILM ">
+         <font>
+            <Font size="33.0" />
+         </font>
+      </Label>
+      <GridPane layoutX="120.0" layoutY="130.0" prefHeight="348.0" prefWidth="606.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="337.3115234375" minWidth="10.0" prefWidth="123.5244140625" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="504.9100341796875" minWidth="10.0" prefWidth="482.4755859375" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="207.0" minHeight="10.0" prefHeight="117.06564331054688" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="148.0" minHeight="0.0" prefHeight="119.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="67.40164184570312" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="67.40164184570312" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label fx:id="lblnewfilmtitle" text="TITLE" />
+            <Label fx:id="lbluploadimg" text="UPLOAD IMAGE" GridPane.rowIndex="1" />
+            <Label fx:id="lblfilmdescription" text="DESCRIPTION" GridPane.rowIndex="2" />
+            <TextField fx:id="txtnamefilm" prefHeight="27.0" prefWidth="254.0" GridPane.columnIndex="1" />
+            <Button fx:id="btnselectimg" mnemonicParsing="false" prefHeight="27.0" prefWidth="206.0" text="SELECT IMAGE" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextArea fx:id="txtfieldfilmdescription" prefHeight="93.0" prefWidth="483.0" promptText="Add film description here" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Button fx:id="btnAddFilm" mnemonicParsing="false" prefHeight="27.0" prefWidth="207.0" text="ADD FILM" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>

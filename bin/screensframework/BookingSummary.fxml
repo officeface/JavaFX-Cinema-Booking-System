@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="application.BookingSummaryController">
+   <children>
+      <Label fx:id="lblBookingSummary" layoutX="269.0" layoutY="52.0" text="BOOKING SUMMARY">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnScreenInfo" layoutX="612.0" layoutY="186.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="150.0" text="SCREEN INFO">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <ComboBox fx:id="comboListOfFilms" layoutX="104.0" layoutY="138.0" prefWidth="150.0" promptText="Select film" />
+      <ComboBox fx:id="comboTimeSelector" layoutX="612.0" layoutY="138.0" prefWidth="150.0" promptText="Select time" />
+      <Label fx:id="lblFilmSelect" layoutX="45.0" layoutY="140.0" text="FILM:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDateSelector" layoutX="302.0" layoutY="140.0" text="DATE:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblTimeSelector" layoutX="553.0" layoutY="140.0" text="TIME:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Line endX="100.0" layoutX="-50.0" layoutY="248.0" startX="812.0" strokeWidth="3.0" />
+      <Label fx:id="lblTotalSeatsTag" layoutX="127.0" layoutY="260.0" text="Total Seats:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblTotalSeats" layoutX="237.0" layoutY="260.0" text="100">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblBookedSeatsTag" layoutX="335.0" layoutY="261.0" text="Booked seats:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblBookedSeats" layoutX="462.0" layoutY="261.0" text="##">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblFreeSeatsTag" layoutX="541.0" layoutY="261.0" text="Free seats:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblFreeSeats" layoutX="648.0" layoutY="261.0" text="##">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="DatePickerSelector" layoutX="369.0" layoutY="136.0" prefHeight="29.0" prefWidth="155.0" promptText="Pick date" />
+   </children>
+</AnchorPane>
