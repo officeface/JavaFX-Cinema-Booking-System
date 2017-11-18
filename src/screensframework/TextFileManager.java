@@ -24,11 +24,12 @@ public class TextFileManager {
 	private List<String[]> loginDetails;
 	private List<String[]> filmList;
 	private List<String[]> filmTimes;
+	private static File database = new File("./assets/database.json");
 
 	public TextFileManager() throws IOException {
 		this.loginDetails = LoginDetailsToArrayList();
-		this.filmList = FilmListToArrayList();
-		this.filmTimes = FilmTimesToArrayList();
+		// this.filmList = FilmListToArrayList();
+		// this.filmTimes = FilmTimesToArrayList();
 	}
 
 	/**
@@ -58,20 +59,18 @@ public class TextFileManager {
 	 *             if an input/output exception occurs
 	 */
 	public static List<String[]> LoginDetailsToArrayList() throws IOException {
-		JSONObject obj = JSONUtils.getJSONObjectFromFile("/database.json");
+
+		JSONObject obj = JSONUtils.getJSONObjectFromFile(TextFileManager.database);
 		JSONArray jsonArray = obj.getJSONArray("LoginDetails");
 		List<String[]> loginDetails = new ArrayList<String[]>();
 
 		for (int i = 0; i < jsonArray.length(); i++) {
 			String[] tempArray = new String[3];
 
-//			tempArray[0] = jsonArray.getJSONObject(i).getString("email");
-//			tempArray[1] = jsonArray.getJSONObject(i).getString("password");
-//			tempArray[2] = jsonArray.getJSONObject(i).getString("type");
-//			loginDetails.add(tempArray);
-			tempArray[0] = "admin";
-			tempArray[1] = "admin";
-			tempArray[2] = "S";
+			tempArray[0] = jsonArray.getJSONObject(i).getString("email");
+			tempArray[1] = jsonArray.getJSONObject(i).getString("password");
+			tempArray[2] = jsonArray.getJSONObject(i).getString("type");
+
 			loginDetails.add(tempArray);
 
 		}
@@ -85,7 +84,7 @@ public class TextFileManager {
 	 * @throws IOException
 	 */
 	public static List<String[]> FilmListToArrayList() throws IOException {
-		JSONObject obj = JSONUtils.getJSONObjectFromFile("/database.json");
+		JSONObject obj = JSONUtils.getJSONObjectFromFile(TextFileManager.database);
 		JSONArray jsonArray = obj.getJSONArray("FilmList");
 		List<String[]> filmList = new ArrayList<String[]>();
 
@@ -110,7 +109,7 @@ public class TextFileManager {
 	 * @throws IOException
 	 */
 	public static List<String[]> FilmTimesToArrayList() throws IOException {
-		JSONObject obj = JSONUtils.getJSONObjectFromFile("/database.json");
+		JSONObject obj = JSONUtils.getJSONObjectFromFile(TextFileManager.database);
 		JSONArray jsonArray = obj.getJSONArray("FilmTimes");
 		List<String[]> filmTimes = new ArrayList<String[]>();
 

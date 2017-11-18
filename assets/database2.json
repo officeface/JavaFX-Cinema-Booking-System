@@ -1,0 +1,34 @@
+{
+	"LoginDetails": [
+		{
+			"email": "admin",
+			"password": "admin",
+			"type": "S"
+		},
+		{
+			"email": "cust",
+			"password": "cust",
+			"type": "C"
+		},
+		{
+			"email": "mark@live.com",
+			"password": "mark",
+			"type": "S"
+		},
+		{
+			"email": "fraz@yahoo.com",
+			"password": "fraz",
+			"type": "S"
+		},
+		{
+			"email": "example@email",
+			"password": "example",
+			"type": "C"
+		},
+		{
+			"email": "hello@hello.org",
+			"password": "hello do spaces work?",
+			"type": "C"
+		}
+	]
+}
