@@ -65,10 +65,13 @@ public class TextFileManager {
 		for (int i = 0; i < jsonArray.length(); i++) {
 			String[] tempArray = new String[3];
 
-			tempArray[0] = jsonArray.getJSONObject(i).getString("email");
-			tempArray[1] = jsonArray.getJSONObject(i).getString("password");
-			tempArray[2] = jsonArray.getJSONObject(i).getString("type");
-
+//			tempArray[0] = jsonArray.getJSONObject(i).getString("email");
+//			tempArray[1] = jsonArray.getJSONObject(i).getString("password");
+//			tempArray[2] = jsonArray.getJSONObject(i).getString("type");
+//			loginDetails.add(tempArray);
+			tempArray[0] = "admin";
+			tempArray[1] = "admin";
+			tempArray[2] = "S";
 			loginDetails.add(tempArray);
 
 		}
