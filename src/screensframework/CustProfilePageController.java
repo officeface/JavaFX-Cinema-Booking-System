@@ -16,7 +16,7 @@ public class CustProfilePageController extends ToolbarController implements Init
 	private Button btnLogout, btnHome, btnMyProfile, btnMyBookings, btnUpdate;
 
 	@FXML
-	private static TextField txtEmail, txtFirstName, txtLastName;
+	public TextField txtEmail, txtFirstName, txtLastName;
 
 	@FXML
 	private Label lblUpdateStatus, lblFetchDetails;
@@ -34,27 +34,13 @@ public class CustProfilePageController extends ToolbarController implements Init
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
 	}
-
-	public static void setTxtEmail(String email) {
-		txtEmail.setText(email);
-	}
-
-	public static void setTxtFirstName(String firstName) {
-		txtFirstName.setText(firstName);
-	}
-
-	public static void setTxtLastName(String lastName) {
-		txtLastName.setText(lastName);
-	}
 	
 	@FXML
 	private void getDetails(ActionEvent event) {
 		try {
-//			this.txtEmail.setText("EMAIL");
-//			this.txtFirstName.setText("BOB");
-//			this.txtLastName.setText("");
-			//txtEmail.setPromptText("HELLO");
-			lblUpdateStatus.setText(LoginController.USER.getEmail());
+			this.txtEmail.setText(LoginController.USER.getEmail());
+			this.txtFirstName.setText(LoginController.USER.getFirstName());
+			this.txtLastName.setText(LoginController.USER.getLastName());
 		} catch (Exception e) {
 			System.out.println(e);
 		}

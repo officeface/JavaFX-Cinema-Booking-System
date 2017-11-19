@@ -111,6 +111,9 @@ public class LoginController implements Initializable, ControlledScreen {
 
 						// Open Main scene upon successful customer login
 						if (loginDetails.get(i)[2].equals("C")) {
+							// Set details:
+							USER = new Customer(txtEmail.getText(), txtPassword.getText(), "BOB", "SONOFBOB");
+							
 							myController.setScreen(ScreensFramework.custHomeID);
 						} else if (loginDetails.get(i)[2].equals("S")) {
 							// Open Customer/Staff option screen upon successful staff login

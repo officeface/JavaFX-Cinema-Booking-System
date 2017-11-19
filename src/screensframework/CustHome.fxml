@@ -20,7 +20,7 @@
             <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="250.0" spacing="30.0">
                <children>
               <Button fx:id="btnLogout" mnemonicParsing="false" onAction="#goToLogin" text="Logout" />
-                  <Button fx:id="btnHome" disable="true" mnemonicParsing="false" text="Home" />
+                  <Button fx:id="btnHome" mnemonicParsing="false" text="Home" />
                </children>
                <padding>
                   <Insets left="30.0" />
