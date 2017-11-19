@@ -35,7 +35,7 @@
             <Label fx:id="lblfilmdescription" text="DESCRIPTION" GridPane.rowIndex="2" />
             <TextField fx:id="txtnamefilm" prefHeight="27.0" prefWidth="254.0" GridPane.columnIndex="1" />
             <Button fx:id="btnselectimg" mnemonicParsing="false" prefHeight="27.0" prefWidth="206.0" text="SELECT IMAGE" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextArea fx:id="txtfieldfilmdescription" prefHeight="93.0" prefWidth="483.0" promptText="Add film description here" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextArea fx:id="txtareafilmdescription" prefHeight="93.0" prefWidth="483.0" promptText="Add film description here" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Button fx:id="btnAddFilm" mnemonicParsing="false" prefHeight="27.0" prefWidth="207.0" text="ADD FILM" GridPane.columnIndex="1" GridPane.rowIndex="4" />
          </children>
       </GridPane>

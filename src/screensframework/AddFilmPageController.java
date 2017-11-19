@@ -32,7 +32,7 @@ public class AddFilmPageController implements Initializable, ControlledScreen {
 	private Button btnselectimg; //Upload a new promotional image (png)
 
 	@FXML
-	private TextArea txtfieldfilmdescription; //Type in description of the film 
+	private TextArea txtareafilmdescription; //Type in description of the film 
 	
 	@FXML
 	private Button btnAddFilm; //After form complete, when pressed adds to records

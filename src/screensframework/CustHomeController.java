@@ -138,6 +138,11 @@ public class CustHomeController extends ToolbarController implements Initializab
 	}
 
 	@FXML
+	public void goToCustBookFilmPage(ActionEvent event) {
+		myController.setScreen(ScreensFramework.custBookFilmPageID);
+	}
+	
+	@FXML
 	public void goToStaffChoicePage(ActionEvent event) {
 		myController.setScreen(ScreensFramework.staffChoiceID);
 	}
