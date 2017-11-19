@@ -150,6 +150,7 @@ public class CustHomeController extends ToolbarController implements Initializab
 	@FXML
 	public void goToCustProfilePage(ActionEvent event) {
 		myController.setScreen(ScreensFramework.custProfilePageID);
+		
 	}
 
 	@FXML

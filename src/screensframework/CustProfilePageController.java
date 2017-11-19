@@ -7,11 +7,19 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 
 public class CustProfilePageController extends ToolbarController implements Initializable, ControlledScreen {
 
 	@FXML
-	private Button btnLogout, btnHome, btnMyProfile, btnMyBookings;
+	private Button btnLogout, btnHome, btnMyProfile, btnMyBookings, btnUpdate;
+
+	@FXML
+	private static TextField txtEmail, txtFirstName, txtLastName;
+
+	@FXML
+	private Label lblUpdateStatus, lblFetchDetails;
 
 	ScreensController myController;
 
@@ -20,11 +28,36 @@ public class CustProfilePageController extends ToolbarController implements Init
 	 */
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-		// TODO
+		
 	}
 
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
+	}
+
+	public static void setTxtEmail(String email) {
+		txtEmail.setText(email);
+	}
+
+	public static void setTxtFirstName(String firstName) {
+		txtFirstName.setText(firstName);
+	}
+
+	public static void setTxtLastName(String lastName) {
+		txtLastName.setText(lastName);
+	}
+	
+	@FXML
+	private void getDetails(ActionEvent event) {
+		try {
+//			this.txtEmail.setText("EMAIL");
+//			this.txtFirstName.setText("BOB");
+//			this.txtLastName.setText("");
+			//txtEmail.setPromptText("HELLO");
+			lblUpdateStatus.setText(LoginController.USER.getEmail());
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 	}
 
 	@FXML

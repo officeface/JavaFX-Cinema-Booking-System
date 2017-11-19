@@ -22,6 +22,7 @@ import javafx.scene.input.KeyEvent;
 public class LoginController implements Initializable, ControlledScreen {
 
 	ScreensController myController;
+	public static User USER;
 
 	@FXML
 	private Label lblStatus; // Lets user know if their login was successful
@@ -60,11 +61,7 @@ public class LoginController implements Initializable, ControlledScreen {
 					if (loginDetails.get(i)[2].equals("C")) {
 						
 						// Set details:
-//						user = new Customer();
-//						user.setEmail(email);
-//						user.setPassword(password);
-//						user.setFirstName(firstName);
-//						user.setLastName(lastName);
+						USER = new Customer(txtEmail.getText(), txtPassword.getText(), "BOB", "SONOFBOB");
 						
 						// Set correct screens:
 						myController.setScreen(ScreensFramework.custHomeID);
