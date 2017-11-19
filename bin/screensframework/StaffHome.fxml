@@ -5,16 +5,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1"  fx:controller="screensframework.StaffHomeController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="screensframework.StaffHomeController">
    <children>
       <Label fx:id="lblStaffHome" layoutX="284.0" layoutY="77.0" text="STAFF HOME">
          <font>
             <Font size="36.0" />
          </font>
       </Label>
-      <Button fx:id="btnAddFilm" layoutX="214.0" layoutY="192.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="160.0" text="ADD NEW FILM" />
-      <Button fx:id="btnAddListening" layoutX="432.0" layoutY="189.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="160.0" text="ADD NEW LISTENING" />
-      <Button fx:id="btnBookingSummary" layoutX="218.0" layoutY="319.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="373.0" text="BOOKING SUMMARY" />
-      <Button fx:id="btnExportFilms" layoutX="216.0" layoutY="434.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="373.0" text="EXPORT FILMS" />
+      <Button fx:id="btnAddFilm" layoutX="214.0" layoutY="192.0" mnemonicParsing="false" onAction="#goToAddFilmPage" prefHeight="60.0" prefWidth="160.0" text="ADD NEW FILM" />
+      <Button fx:id="btnAddListings" layoutX="432.0" layoutY="189.0" mnemonicParsing="false" onAction="#goToAddListings" prefHeight="60.0" prefWidth="160.0" text="ADD NEW LISTINGS" />
+      <Button fx:id="btnBookingSummary" layoutX="218.0" layoutY="319.0" mnemonicParsing="false" onAction="#goToBookingSummary" prefHeight="60.0" prefWidth="373.0" text="BOOKING SUMMARY" />
+      <Button fx:id="btnExportFilms" layoutX="216.0" layoutY="434.0" mnemonicParsing="false" onAction="#goToStaffExport" prefHeight="60.0" prefWidth="373.0" text="EXPORT FILMS" />
    </children>
 </AnchorPane>
