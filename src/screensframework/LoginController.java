@@ -114,8 +114,23 @@ public class LoginController implements Initializable, ControlledScreen {
 							// Set details:
 							USER = new Customer(txtEmail.getText(), txtPassword.getText(), "BOB", "SONOFBOB");
 							
+							myController.loadScreen(ScreensFramework.custHomeID, ScreensFramework.custHomeFile);
+					        myController.loadScreen(ScreensFramework.custProfilePageID, ScreensFramework.custProfilePageFile);
+					        myController.loadScreen(ScreensFramework.custBookFilmPageID, ScreensFramework.custBookFilmPageFile);
+					        myController.loadScreen(ScreensFramework.custConfirmPageID, ScreensFramework.custConfirmPageFile);
+							
 							myController.setScreen(ScreensFramework.custHomeID);
 						} else if (loginDetails.get(i)[2].equals("S")) {
+							// Set details:
+							USER = new Employee(txtEmail.getText(), txtPassword.getText(), "BOB", "SONOFBOB");
+							
+							myController.loadScreen(ScreensFramework.staffChoiceID, ScreensFramework.staffChoiceFile);
+					        myController.loadScreen(ScreensFramework.staffHomeID, ScreensFramework.staffHomeFile);
+					        myController.loadScreen(ScreensFramework.staffExportID, ScreensFramework.staffExportFile);
+					        myController.loadScreen(ScreensFramework.bookingSummaryID, ScreensFramework.bookingSummaryFile);
+					        myController.loadScreen(ScreensFramework.addFilmPageID, ScreensFramework.addFilmPageFile);
+					        myController.loadScreen(ScreensFramework.addFilmListingsID, ScreensFramework.addFilmListingsFile);
+					        
 							// Open Customer/Staff option screen upon successful staff login
 							myController.setScreen(ScreensFramework.staffChoiceID);
 						}

@@ -45,19 +45,19 @@ public class ScreensFramework extends Application {
         mainContainer.loadScreen(ScreensFramework.loginID, ScreensFramework.loginFile);
         
         //for customer screens
-        mainContainer.loadScreen(ScreensFramework.custHomeID, ScreensFramework.custHomeFile);
-        mainContainer.loadScreen(ScreensFramework.custProfilePageID, ScreensFramework.custProfilePageFile);
-        mainContainer.loadScreen(ScreensFramework.custBookFilmPageID, ScreensFramework.custBookFilmPageFile);
-        mainContainer.loadScreen(ScreensFramework.custConfirmPageID, ScreensFramework.custConfirmPageFile);
+//        mainContainer.loadScreen(ScreensFramework.custHomeID, ScreensFramework.custHomeFile);
+//        mainContainer.loadScreen(ScreensFramework.custProfilePageID, ScreensFramework.custProfilePageFile);
+//        mainContainer.loadScreen(ScreensFramework.custBookFilmPageID, ScreensFramework.custBookFilmPageFile);
+//        mainContainer.loadScreen(ScreensFramework.custConfirmPageID, ScreensFramework.custConfirmPageFile);
 
         
         //for staff screens
-        mainContainer.loadScreen(ScreensFramework.staffChoiceID, ScreensFramework.staffChoiceFile);
-        mainContainer.loadScreen(ScreensFramework.staffHomeID, ScreensFramework.staffHomeFile);
-        mainContainer.loadScreen(ScreensFramework.staffExportID, ScreensFramework.staffExportFile);
-        mainContainer.loadScreen(ScreensFramework.bookingSummaryID, ScreensFramework.bookingSummaryFile);
-        mainContainer.loadScreen(ScreensFramework.addFilmPageID, ScreensFramework.addFilmPageFile);
-        mainContainer.loadScreen(ScreensFramework.addFilmListingsID, ScreensFramework.addFilmListingsFile);
+//        mainContainer.loadScreen(ScreensFramework.staffChoiceID, ScreensFramework.staffChoiceFile);
+//        mainContainer.loadScreen(ScreensFramework.staffHomeID, ScreensFramework.staffHomeFile);
+//        mainContainer.loadScreen(ScreensFramework.staffExportID, ScreensFramework.staffExportFile);
+//        mainContainer.loadScreen(ScreensFramework.bookingSummaryID, ScreensFramework.bookingSummaryFile);
+//        mainContainer.loadScreen(ScreensFramework.addFilmPageID, ScreensFramework.addFilmPageFile);
+//        mainContainer.loadScreen(ScreensFramework.addFilmListingsID, ScreensFramework.addFilmListingsFile);
         
         
         //First loading screen

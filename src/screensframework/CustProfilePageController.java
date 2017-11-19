@@ -28,13 +28,13 @@ public class CustProfilePageController extends ToolbarController implements Init
 	 */
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-		
+
 	}
 
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
 	}
-	
+
 	@FXML
 	private void getDetails(ActionEvent event) {
 		try {
@@ -69,6 +69,9 @@ public class CustProfilePageController extends ToolbarController implements Init
 		myController.unloadScreen(ScreensFramework.staffHomeID);
 		myController.unloadScreen(ScreensFramework.custHomeID);
 		myController.unloadScreen(ScreensFramework.custProfilePageID);
+		myController.unloadScreen(ScreensFramework.custBookFilmPageID);
+		myController.unloadScreen(ScreensFramework.custConfirmPageID);
+
 		myController.unloadScreen(ScreensFramework.staffExportID);
 		myController.unloadScreen(ScreensFramework.bookingSummaryID);
 		myController.unloadScreen(ScreensFramework.addFilmPageID);
@@ -76,16 +79,6 @@ public class CustProfilePageController extends ToolbarController implements Init
 		myController.unloadScreen(ScreensFramework.staffChoiceID);
 
 		myController.loadScreen(ScreensFramework.loginID, ScreensFramework.loginFile);
-		myController.loadScreen(ScreensFramework.staffHomeID, ScreensFramework.staffHomeFile);
-		myController.loadScreen(ScreensFramework.staffChoiceID, ScreensFramework.staffChoiceFile);
-		myController.loadScreen(ScreensFramework.custHomeID, ScreensFramework.custHomeFile);
-		myController.loadScreen(ScreensFramework.custProfilePageID, ScreensFramework.custProfilePageFile);
-
-		// for staff screens Excluding: staff home
-		myController.loadScreen(ScreensFramework.staffExportID, ScreensFramework.staffExportFile);
-		myController.loadScreen(ScreensFramework.bookingSummaryID, ScreensFramework.bookingSummaryFile);
-		myController.loadScreen(ScreensFramework.addFilmPageID, ScreensFramework.addFilmPageFile);
-		myController.loadScreen(ScreensFramework.addFilmListingsID, ScreensFramework.addFilmListingsFile);
 		myController.setScreen(ScreensFramework.loginID);
 	}
 

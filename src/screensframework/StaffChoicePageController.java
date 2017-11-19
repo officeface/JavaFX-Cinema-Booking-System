@@ -33,6 +33,11 @@ public class StaffChoicePageController implements Initializable, ControlledScree
     
     @FXML
     private void goToCustHome(ActionEvent event){
+		
+		myController.loadScreen(ScreensFramework.custHomeID, ScreensFramework.custHomeFile);
+        myController.loadScreen(ScreensFramework.custProfilePageID, ScreensFramework.custProfilePageFile);
+        myController.loadScreen(ScreensFramework.custBookFilmPageID, ScreensFramework.custBookFilmPageFile);
+        myController.loadScreen(ScreensFramework.custConfirmPageID, ScreensFramework.custConfirmPageFile);
        myController.setScreen(ScreensFramework.custHomeID);
     }
     

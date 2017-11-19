@@ -23,7 +23,7 @@ import javafx.scene.control.TitledPane;
  *
  */
 public class CustHomeController extends ToolbarController implements Initializable, ControlledScreen {
-	
+
 	@FXML
 	private Label lblHomePage;
 
@@ -47,7 +47,6 @@ public class CustHomeController extends ToolbarController implements Initializab
 	private ObservableList<String> filmNames = FXCollections.observableArrayList(); // Container for film titles
 	private ObservableList<String> timeList = FXCollections.observableArrayList(); // Container for film times
 	private DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy"); // Formatting dates
-	
 
 	/**
 	 * Initializes the controller class.
@@ -141,7 +140,7 @@ public class CustHomeController extends ToolbarController implements Initializab
 	public void goToCustBookFilmPage(ActionEvent event) {
 		myController.setScreen(ScreensFramework.custBookFilmPageID);
 	}
-	
+
 	@FXML
 	public void goToStaffChoicePage(ActionEvent event) {
 		myController.setScreen(ScreensFramework.staffChoiceID);
@@ -155,7 +154,7 @@ public class CustHomeController extends ToolbarController implements Initializab
 	@FXML
 	public void goToCustProfilePage(ActionEvent event) {
 		myController.setScreen(ScreensFramework.custProfilePageID);
-		
+
 	}
 
 	@FXML
@@ -166,6 +165,9 @@ public class CustHomeController extends ToolbarController implements Initializab
 		myController.unloadScreen(ScreensFramework.staffHomeID);
 		myController.unloadScreen(ScreensFramework.custHomeID);
 		myController.unloadScreen(ScreensFramework.custProfilePageID);
+		myController.unloadScreen(ScreensFramework.custBookFilmPageID);
+		myController.unloadScreen(ScreensFramework.custConfirmPageID);
+
 		myController.unloadScreen(ScreensFramework.staffExportID);
 		myController.unloadScreen(ScreensFramework.bookingSummaryID);
 		myController.unloadScreen(ScreensFramework.addFilmPageID);
@@ -173,16 +175,6 @@ public class CustHomeController extends ToolbarController implements Initializab
 		myController.unloadScreen(ScreensFramework.staffChoiceID);
 
 		myController.loadScreen(ScreensFramework.loginID, ScreensFramework.loginFile);
-		myController.loadScreen(ScreensFramework.staffHomeID, ScreensFramework.staffHomeFile);
-		myController.loadScreen(ScreensFramework.staffChoiceID, ScreensFramework.staffChoiceFile);
-		myController.loadScreen(ScreensFramework.custHomeID, ScreensFramework.custHomeFile);
-		myController.loadScreen(ScreensFramework.custProfilePageID, ScreensFramework.custProfilePageFile);
-
-		// for staff screens Excluding: staff home
-		myController.loadScreen(ScreensFramework.staffExportID, ScreensFramework.staffExportFile);
-		myController.loadScreen(ScreensFramework.bookingSummaryID, ScreensFramework.bookingSummaryFile);
-		myController.loadScreen(ScreensFramework.addFilmPageID, ScreensFramework.addFilmPageFile);
-		myController.loadScreen(ScreensFramework.addFilmListingsID, ScreensFramework.addFilmListingsFile);
 		myController.setScreen(ScreensFramework.loginID);
 	}
 
