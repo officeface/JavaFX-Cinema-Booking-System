@@ -58,22 +58,36 @@ public class LoginController implements Initializable, ControlledScreen {
 
 					// Open Main scene upon successful customer login
 					if (loginDetails.get(i)[2].equals("C")) {
-				        myController.loadScreen(ScreensFramework.custHomeID, ScreensFramework.custHomeFile);
+						
+						// Set details:
+//						user = new Customer();
+//						user.setEmail(email);
+//						user.setPassword(password);
+//						user.setFirstName(firstName);
+//						user.setLastName(lastName);
+						
+						// Set correct screens:
 						myController.setScreen(ScreensFramework.custHomeID);
+						
+						
 					} else if (loginDetails.get(i)[2].equals("S")) {
+						
+						// Set details:
+//						user = new Employee();
+//						user.setEmail(email);
+//						user.setPassword(password);
+//						user.setFirstName(firstName);
+//						user.setLastName(lastName);	
+						
 						// Open Customer/Staff option screen upon successful staff login
-				        myController.loadScreen(ScreensFramework.staffChoiceID, ScreensFramework.staffChoiceFile);
 						myController.setScreen(ScreensFramework.staffChoiceID);
 					}
-					//txtPassword.setText(""); // Password cleared after successful login and must be retyped after
-												// logging out
-					//lblStatus.setText("");
 					continue;
 				}
 			}
 
 			if (successCheck == 0) {
-				lblStatus.setText("Login failed");
+				lblStatus.setText("Login failed"); // If email/password pair not found
 			}
 		} catch (FileNotFoundException e) {
 			System.out.println(e);
@@ -105,9 +119,9 @@ public class LoginController implements Initializable, ControlledScreen {
 							// Open Customer/Staff option screen upon successful staff login
 							myController.setScreen(ScreensFramework.staffChoiceID);
 						}
-						txtPassword.setText(""); // Password cleared after successful login and must be retyped after
-													// logging out
-						lblStatus.setText("");
+//						txtPassword.setText(""); // Password cleared after successful login and must be retyped after
+//													// logging out
+//						lblStatus.setText("");
 						continue;
 					}
 				}
