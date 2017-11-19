@@ -45,7 +45,7 @@ public class ScreensController  extends StackPane {
             System.out.println(name + " was loaded.");
             return true;
         } catch (Exception e) {
-            System.out.println("Failed to load: " + e.getMessage());
+            System.err.println("Failed to load: " + e.getMessage());
             return false;
         }
     }
@@ -84,7 +84,7 @@ public class ScreensController  extends StackPane {
             }
             return true;
         } else {
-            System.out.println(name + " hasn't been loaded.");
+            System.err.println(name + " hasn't been loaded.");
             return false;
         }
 

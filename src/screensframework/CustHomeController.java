@@ -132,40 +132,40 @@ public class CustHomeController extends ToolbarController implements Initializab
 		myController = screenParent;
 	}
 
-	@FXML
-	public void goToLogin(ActionEvent event) {
-		// myController.setScreen(ScreensFramework.loginID);
-		// Unload screens:
-		myController.unloadScreen(ScreensFramework.loginID);
-		myController.unloadScreen(ScreensFramework.staffHomeID);
-		myController.unloadScreen(ScreensFramework.custHomeID);
-		myController.unloadScreen(ScreensFramework.custProfilePageID);
-		myController.unloadScreen(ScreensFramework.staffExportID);
-		myController.unloadScreen(ScreensFramework.bookingSummaryID);
-		myController.unloadScreen(ScreensFramework.addFilmPageID);
-		myController.unloadScreen(ScreensFramework.addFilmListingsID);
+//	@FXML
+//	public void goToLogin(ActionEvent event) {
+//		// myController.setScreen(ScreensFramework.loginID);
+//		// Unload screens:
+//		myController.unloadScreen(ScreensFramework.loginID);
+//		myController.unloadScreen(ScreensFramework.staffHomeID);
+//		myController.unloadScreen(ScreensFramework.custHomeID);
+//		myController.unloadScreen(ScreensFramework.custProfilePageID);
+//		myController.unloadScreen(ScreensFramework.staffExportID);
+//		myController.unloadScreen(ScreensFramework.bookingSummaryID);
+//		myController.unloadScreen(ScreensFramework.addFilmPageID);
+//		myController.unloadScreen(ScreensFramework.addFilmListingsID);
+//
+//		myController.loadScreen(ScreensFramework.loginID, ScreensFramework.loginFile);
+//		myController.setScreen(ScreensFramework.loginID);
+//	}
 
-		myController.loadScreen(ScreensFramework.loginID, ScreensFramework.loginFile);
-		myController.setScreen(ScreensFramework.loginID);
-	}
-
-	@FXML
-	public void goToStaffChoicePage(ActionEvent event) {
-
-		myController.setScreen(ScreensFramework.staffChoiceID);
-	}
-
-	@FXML
-	public void goToCustHome(ActionEvent event) {
-
-		myController.setScreen(ScreensFramework.custHomeID);
-	}
-
-	@FXML
-	public void goToCustProfilePage(ActionEvent event) {
-        myController.loadScreen(ScreensFramework.custProfilePageID, ScreensFramework.custProfilePageFile);
-
-		myController.setScreen(ScreensFramework.custProfilePageID);
-	}
+//	@FXML
+//	public void goToStaffChoicePage(ActionEvent event) {
+//
+//		myController.setScreen(ScreensFramework.staffChoiceID);
+//	}
+//
+//	@FXML
+//	public void goToCustHome(ActionEvent event) {
+//
+//		myController.setScreen(ScreensFramework.custHomeID);
+//	}
+//
+//	@FXML
+//	public void goToCustProfilePage(ActionEvent event) {
+//        myController.loadScreen(ScreensFramework.custProfilePageID, ScreensFramework.custProfilePageFile);
+//
+//		myController.setScreen(ScreensFramework.custProfilePageID);
+//	}
 
 }
