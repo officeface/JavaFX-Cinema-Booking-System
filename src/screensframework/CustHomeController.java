@@ -21,11 +21,11 @@ import javafx.scene.control.TitledPane;
  * FXML Controller class
  *
  */
-public class CustHomeController implements Initializable, ControlledScreen {
+public class CustHomeController extends ToolbarController implements Initializable, ControlledScreen {
 
 	@FXML
 	private Button btnLogout, btnHome, btnMyProfile, btnMyBookings;
-	
+
 	@FXML
 	private TitledPane day1Label, day2Label, day3Label, day4Label, day5Label, day6Label, day7Label;
 
@@ -38,12 +38,11 @@ public class CustHomeController implements Initializable, ControlledScreen {
 	@FXML
 	private DatePicker selectDate;
 
-	ScreensController myController;
+	// ScreensController myController;
 
 	private ObservableList<String> filmNames = FXCollections.observableArrayList(); // Container for film titles
 	private ObservableList<String> timeList = FXCollections.observableArrayList(); // Container for film times
 	private DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy"); // Formatting dates
-	
 
 	/**
 	 * Initializes the controller class.
@@ -74,7 +73,7 @@ public class CustHomeController implements Initializable, ControlledScreen {
 			return null;
 		}
 	}
-	
+
 	/**
 	 * 
 	 * @return A list of times for a given date and film.
@@ -95,7 +94,8 @@ public class CustHomeController implements Initializable, ControlledScreen {
 	 * Sets the films list after a date has been selected. Films are those that will
 	 * be showing on the specified date.
 	 * 
-	 * @param event date selection from DatePicker box
+	 * @param event
+	 *            date selection from DatePicker box
 	 * @throws IOException
 	 */
 	@FXML
@@ -112,7 +112,7 @@ public class CustHomeController implements Initializable, ControlledScreen {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@FXML
 	private void setTimesList(ActionEvent event) throws IOException {
 		selectTime.getItems().clear();
@@ -133,22 +133,38 @@ public class CustHomeController implements Initializable, ControlledScreen {
 	}
 
 	@FXML
-	private void goToLogin(ActionEvent event) {
+	public void goToLogin(ActionEvent event) {
+		// myController.setScreen(ScreensFramework.loginID);
+		// Unload screens:
+		myController.unloadScreen(ScreensFramework.loginID);
+		myController.unloadScreen(ScreensFramework.staffHomeID);
+		myController.unloadScreen(ScreensFramework.custHomeID);
+		myController.unloadScreen(ScreensFramework.custProfilePageID);
+		myController.unloadScreen(ScreensFramework.staffExportID);
+		myController.unloadScreen(ScreensFramework.bookingSummaryID);
+		myController.unloadScreen(ScreensFramework.addFilmPageID);
+		myController.unloadScreen(ScreensFramework.addFilmListingsID);
+
+		myController.loadScreen(ScreensFramework.loginID, ScreensFramework.loginFile);
 		myController.setScreen(ScreensFramework.loginID);
 	}
 
 	@FXML
-	private void goToStaffChoicePage(ActionEvent event) {
+	public void goToStaffChoicePage(ActionEvent event) {
+
 		myController.setScreen(ScreensFramework.staffChoiceID);
 	}
 
 	@FXML
-	private void goToCustHome(ActionEvent event) {
+	public void goToCustHome(ActionEvent event) {
+
 		myController.setScreen(ScreensFramework.custHomeID);
 	}
 
 	@FXML
-	private void goToCustProfilePage(ActionEvent event) {
+	public void goToCustProfilePage(ActionEvent event) {
+        myController.loadScreen(ScreensFramework.custProfilePageID, ScreensFramework.custProfilePageFile);
+
 		myController.setScreen(ScreensFramework.custProfilePageID);
 	}
 

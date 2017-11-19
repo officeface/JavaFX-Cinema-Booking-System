@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.StaffExportController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="screensframework.StaffExportController">
    <children>
       <Button fx:id="btnexportselectedfilm" layoutX="300.0" layoutY="298.0" mnemonicParsing="false" text="Export film" />
       <Button fx:id="btnexportall" layoutX="413.0" layoutY="298.0" mnemonicParsing="false" text="Export all films" />
