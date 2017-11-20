@@ -3,6 +3,7 @@ package screensframework;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -49,6 +50,34 @@ public class TextFileManager {
 		return null;
 	}
 
+	public static void updateUserDetails(User user) throws JSONException, IOException {
+		String userID = user.getUserID();
+		String newEmail = user.getEmail();
+		String password = user.getPassword();
+		String type = user.getType();
+		String newFirstName = user.getFirstName();
+		String newLastName = user.getLastName();
+
+		JSONObject obj = JSONUtils.getJSONObjectFromFile(TextFileManager.database);
+		JSONArray jsonArray = obj.getJSONArray("LoginDetails");
+
+		for (int i = 0; i < jsonArray.length(); i++) {
+			if (jsonArray.getJSONObject(i).getString("userID").equals(userID)) {
+				jsonArray.getJSONObject(i).put("email", newEmail);
+				jsonArray.getJSONObject(i).put("firstname", newFirstName);
+				jsonArray.getJSONObject(i).put("surname", newLastName);
+			}
+		}
+
+		// try-with-resources statement based on post comment below :)
+		try (FileWriter file = new FileWriter("./assets/database.json")) {
+			file.write(obj.toString());
+			System.out.println("Successfully Copied JSON Object to File...");
+			System.out.println("\nJSON Object: " + obj);
+		}
+
+	}
+
 	/**
 	 * 
 	 * @return An array of login details for users of the cinema booking system. The
@@ -65,11 +94,14 @@ public class TextFileManager {
 		List<String[]> loginDetails = new ArrayList<String[]>();
 
 		for (int i = 0; i < jsonArray.length(); i++) {
-			String[] tempArray = new String[3];
+			String[] tempArray = new String[6];
 
-			tempArray[0] = jsonArray.getJSONObject(i).getString("email");
-			tempArray[1] = jsonArray.getJSONObject(i).getString("password");
-			tempArray[2] = jsonArray.getJSONObject(i).getString("type");
+			tempArray[0] = jsonArray.getJSONObject(i).getString("userID");
+			tempArray[1] = jsonArray.getJSONObject(i).getString("email");
+			tempArray[2] = jsonArray.getJSONObject(i).getString("password");
+			tempArray[3] = jsonArray.getJSONObject(i).getString("type");
+			tempArray[4] = jsonArray.getJSONObject(i).getString("firstname");
+			tempArray[5] = jsonArray.getJSONObject(i).getString("surname");
 
 			loginDetails.add(tempArray);
 
@@ -155,8 +187,10 @@ public class TextFileManager {
 
 	/**
 	 * 
-	 * @param date Date of the film listing
-	 * @param film Title of the film listing
+	 * @param date
+	 *            Date of the film listing
+	 * @param film
+	 *            Title of the film listing
 	 * @return All times that this film is showing on this date
 	 * @throws IOException
 	 */

@@ -1,7 +1,10 @@
 package screensframework;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import org.json.JSONException;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -45,6 +48,22 @@ public class CustProfilePageController extends ToolbarController implements Init
 			this.txtLastName.setText(LoginController.USER.getLastName());
 		} catch (Exception e) {
 			System.out.println(e);
+		}
+	}
+
+	@FXML
+	private void update(ActionEvent event) throws JSONException, IOException {
+		if (!this.txtEmail.getText().isEmpty() && !this.txtFirstName.getText().isEmpty()
+				&& !this.txtLastName.getText().isEmpty()) {
+			LoginController.USER.setEmail(this.txtEmail.getText());
+			LoginController.USER.setFirstName(this.txtFirstName.getText());
+			LoginController.USER.setLastName(this.txtLastName.getText());
+			
+			TextFileManager.updateUserDetails(LoginController.USER); // Update information in database
+			
+			this.lblUpdateStatus.setText("Updated details!");
+		} else {
+			this.lblUpdateStatus.setText("Field missing! Try again.");
 		}
 	}
 

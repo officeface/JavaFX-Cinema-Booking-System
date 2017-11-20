@@ -12,11 +12,13 @@ import java.util.List;
  */
 public class Customer extends User {
 
+	public Customer(String userID, String email, String password, String firstName, String lastName) {
+		super(userID, email, password, firstName, lastName);
+	}
+
 	private List<Booking> bookingHistory = new ArrayList<Booking>();
 
-	public Customer(String email, String password, String firstName, String lastName) {
-		super(email, password, firstName, lastName);
-	}
+	
 
 	public List<Booking> getBookingHistory() {
 		return bookingHistory;

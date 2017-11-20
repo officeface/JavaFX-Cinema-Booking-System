@@ -7,18 +7,29 @@ package screensframework;
  */
 public class User {
 	
+	private String userID;
 	private String email;
 	private String password;
+	private String type;
 	private String firstName;
 	private String lastName;
 	
-	public User(String email, String password, String firstName, String lastName) {
+	public User(String userID, String email, String password, String firstName, String lastName) {
+		this.userID = userID;
 		this.email = email;
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
 	}
+	
+	public String getUserID() {
+		return userID;
+	}
 
+	public String getType() {
+		return type;
+	}
+	
 	public void setEmail(String email) {
 		this.email = email;
 	}

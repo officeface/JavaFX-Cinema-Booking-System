@@ -53,29 +53,48 @@ public class LoginController implements Initializable, ControlledScreen {
 			int successCheck = 0; // Success check
 
 			for (int i = 0; i < loginDetails.size(); i++) {
-				if ((loginDetails.get(i))[0].equals(txtEmail.getText())
-						&& (loginDetails.get(i))[1].equals(txtPassword.getText())) {
+				if ((loginDetails.get(i))[1].equals(txtEmail.getText())
+						&& (loginDetails.get(i))[2].equals(txtPassword.getText())) {
 					successCheck = 1;
 
 					// Open Main scene upon successful customer login
-					if (loginDetails.get(i)[2].equals("C")) {
+					if (loginDetails.get(i)[3].equals("C")) {
+						String userID = loginDetails.get(i)[0];
+						String email = loginDetails.get(i)[1];
+						String password = loginDetails.get(i)[2];
+						String firstName = loginDetails.get(i)[4];
+						String lastName = loginDetails.get(i)[5];
 						
 						// Set details:
-						USER = new Customer(txtEmail.getText(), txtPassword.getText(), "BOB", "SONOFBOB");
+						USER = new Customer(userID, email, password, firstName, lastName);
 						
 						// Set correct screens:
+						myController.loadScreen(ScreensFramework.custHomeID, ScreensFramework.custHomeFile);
+				        myController.loadScreen(ScreensFramework.custProfilePageID, ScreensFramework.custProfilePageFile);
+				        myController.loadScreen(ScreensFramework.custBookFilmPageID, ScreensFramework.custBookFilmPageFile);
+				        myController.loadScreen(ScreensFramework.custConfirmPageID, ScreensFramework.custConfirmPageFile);
+						
 						myController.setScreen(ScreensFramework.custHomeID);
 						
 						
-					} else if (loginDetails.get(i)[2].equals("S")) {
+					} else if (loginDetails.get(i)[3].equals("S")) {
+						String userID = loginDetails.get(i)[0];
+						String email = loginDetails.get(i)[1];
+						String password = loginDetails.get(i)[2];
+						String firstName = loginDetails.get(i)[4];
+						String lastName = loginDetails.get(i)[5];
 						
 						// Set details:
-//						user = new Employee();
-//						user.setEmail(email);
-//						user.setPassword(password);
-//						user.setFirstName(firstName);
-//						user.setLastName(lastName);	
-						
+						USER = new Employee(userID, email, password, firstName, lastName);
+												
+						// Open Customer/Staff option screen upon successful staff login
+						myController.loadScreen(ScreensFramework.staffChoiceID, ScreensFramework.staffChoiceFile);
+				        myController.loadScreen(ScreensFramework.staffHomeID, ScreensFramework.staffHomeFile);
+				        myController.loadScreen(ScreensFramework.staffExportID, ScreensFramework.staffExportFile);
+				        myController.loadScreen(ScreensFramework.bookingSummaryID, ScreensFramework.bookingSummaryFile);
+				        myController.loadScreen(ScreensFramework.addFilmPageID, ScreensFramework.addFilmPageFile);
+				        myController.loadScreen(ScreensFramework.addFilmListingsID, ScreensFramework.addFilmListingsFile);
+				        
 						// Open Customer/Staff option screen upon successful staff login
 						myController.setScreen(ScreensFramework.staffChoiceID);
 					}
@@ -105,14 +124,20 @@ public class LoginController implements Initializable, ControlledScreen {
 				int successCheck = 0; // Success check
 
 				for (int i = 0; i < loginDetails.size(); i++) {
-					if ((loginDetails.get(i))[0].equals(txtEmail.getText())
-							&& (loginDetails.get(i))[1].equals(txtPassword.getText())) {
+					if ((loginDetails.get(i))[1].equals(txtEmail.getText())
+							&& (loginDetails.get(i))[2].equals(txtPassword.getText())) {
 						successCheck = 1;
 
 						// Open Main scene upon successful customer login
-						if (loginDetails.get(i)[2].equals("C")) {
+						if (loginDetails.get(i)[3].equals("C")) {
+							String userID = loginDetails.get(i)[0];
+							String email = loginDetails.get(i)[1];
+							String password = loginDetails.get(i)[2];
+							String firstName = loginDetails.get(i)[4];
+							String lastName = loginDetails.get(i)[5];
+							
 							// Set details:
-							USER = new Customer(txtEmail.getText(), txtPassword.getText(), "BOB", "SONOFBOB");
+							USER = new Customer(userID, email, password, firstName, lastName);
 							
 							myController.loadScreen(ScreensFramework.custHomeID, ScreensFramework.custHomeFile);
 					        myController.loadScreen(ScreensFramework.custProfilePageID, ScreensFramework.custProfilePageFile);
@@ -120,9 +145,15 @@ public class LoginController implements Initializable, ControlledScreen {
 					        myController.loadScreen(ScreensFramework.custConfirmPageID, ScreensFramework.custConfirmPageFile);
 							
 							myController.setScreen(ScreensFramework.custHomeID);
-						} else if (loginDetails.get(i)[2].equals("S")) {
+						} else if (loginDetails.get(i)[3].equals("S")) {
+							String userID = loginDetails.get(i)[0];
+							String email = loginDetails.get(i)[1];
+							String password = loginDetails.get(i)[2];
+							String firstName = loginDetails.get(i)[4];
+							String lastName = loginDetails.get(i)[5];
+							
 							// Set details:
-							USER = new Employee(txtEmail.getText(), txtPassword.getText(), "BOB", "SONOFBOB");
+							USER = new Employee(userID, email, password, firstName, lastName);
 							
 							myController.loadScreen(ScreensFramework.staffChoiceID, ScreensFramework.staffChoiceFile);
 					        myController.loadScreen(ScreensFramework.staffHomeID, ScreensFramework.staffHomeFile);
