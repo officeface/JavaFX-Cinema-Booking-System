@@ -28,7 +28,9 @@ public class CustProfilePageController extends ToolbarController implements Init
 	 */
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-
+		this.txtEmail.setText(LoginController.USER.getEmail());
+		this.txtFirstName.setText(LoginController.USER.getFirstName());
+		this.txtLastName.setText(LoginController.USER.getLastName());
 	}
 
 	public void setScreenParent(ScreensController screenParent) {
