@@ -13,7 +13,7 @@ public class StaffExportController implements Initializable, ControlledScreen {
     ScreensController myController; 
     
     @FXML
-    private ComboBox filmdropdown; //Lists of films to export
+    private ComboBox<String> filmdropdown; //Lists of films to export
     
     @FXML
     private Button btnexportselectedfilm; //Export to txt the selected film in the combobox 

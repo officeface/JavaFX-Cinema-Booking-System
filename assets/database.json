@@ -1,1 +1,237 @@
-{"FilmList":[{"image":"","description":"After the rebels are overpowered by the Empire on their newly established base, Luke Skywalker begins Jedi training with Yoda. His friends accept shelter from a questionable ally as Darth Vader hunts them in a plan to capture Luke.","title":"Star Wars: Episode V - The Empire Strikes Back"},{"image":"","description":"Two boys growing up in a violent neighborhood of Rio de Janeiro take different paths: one becomes a photographer, the other a drug dealer.","title":"City of God"},{"image":"","description":"In Detroit, a lonely pop culture geek marries a call girl, steals cocaine from her pimp, and tries to sell it in Hollywood. Meanwhile, the owners of the cocaine - the Mob - track them down in an attempt to reclaim it.","title":"True Romance"},{"image":"","description":"On a journey to find the cure for a Tatarigami's curse, Ashitaka finds himself in the middle of a war between the forest gods and Tatara, a mining colony. In this quest he also meets San, the Mononoke Hime.","title":"Princess Mononoke"},{"image":"","description":"The lives of two mob hit men, a boxer, a gangster's wife, and a pair of diner bandits intertwine in four tales of violence and redemption.","title":"Pulp Fiction"},{"image":"","description":"While Frodo and Sam edge closer to Mordor with the help of the shifty Gollum, the divided fellowship makes a stand against Sauron's new ally, Saruman, and his hordes of Isengard.","title":"The Lord of the Rings: The Two Towers"},{"image":"","description":"Pulp novelist Holly Martins travels to shadowy, postwar Vienna, only to find himself investigating the mysterious death of an old friend, Harry Lime.","title":"The Third Man"},{"image":"","description":"The story of Henry Hill and his life through the teen years into the years of mafia, covering his relationship with his wife Karen Hill and his Mob partners Jimmy Conway and Tommy DeVito in the Italian-American crime syndicate.","title":"Goodfellas"},{"image":"","description":"A jury holdout attempts to prevent a miscarriage of justice by forcing his colleagues to reconsider the evidence.","title":"12 Angry Men"},{"image":"","description":"A criminal pleads insanity after getting into trouble again and once in the mental institution rebels against the oppressive nurse and rallies up the scared patients.","title":"One Flew Over the Cuckoo's Nest"},{"image":"","description":"After a simple jewelry heist goes terribly wrong, the surviving criminals begin to suspect that one of them is a police informant.","title":"Reservoir Dogs"}],"FilmTimes":[{"date":"15/12/2017","showingID":"1","time":"19:00","title":"Star Wars: Episode V - The Empire Strikes Back"},{"date":"08/12/2017","showingID":"2","time":"20:00","title":"Star Wars: Episode V - The Empire Strikes Back"},{"date":"09/12/2017","showingID":"3","time":"20:00","title":"Star Wars: Episode V - The Empire Strikes Back"},{"date":"15/12/2017","showingID":"4","time":"20:00","title":"True Romance"},{"date":"08/12/2017","showingID":"5","time":"16:00","title":"True Romance"},{"date":"14/12/2017","showingID":"6","time":"23:00","title":"True Romance"},{"date":"13/12/2017","showingID":"7","time":"22:00","title":"True Romance"},{"date":"13/12/2017","showingID":"8","time":"18:00","title":"True Romance"},{"date":"13/12/2017","showingID":"9","time":"20:00","title":"Goodfellas"},{"date":"06/12/2017","showingID":"10","time":"20:00","title":"Goodfellas"},{"date":"30/11/2017","showingID":"11","time":"20:00","title":"Goodfellas"},{"date":"23/11/2017","showingID":"12","time":"20:00","title":"Goodfellas"},{"date":"16/11/2017","showingID":"13","time":"20:00","title":"Goodfellas"},{"date":"09/11/2017","showingID":"14","time":"20:00","title":"Goodfellas"},{"date":"22/11/2017","showingID":"15","time":"21:00","title":"Princess Mononoke"},{"date":"23/11/2017","showingID":"16","time":"21:00","title":"Princess Mononoke"},{"date":"30/11/2017","showingID":"17","time":"21:00","title":"Princess Mononoke"},{"date":"01/12/2017","showingID":"18","time":"21:00","title":"Princess Mononoke"},{"date":"05/12/2017","showingID":"19","time":"21:00","title":"Princess Mononoke"},{"date":"31/10/2017","showingID":"20","time":"00:00","title":"One Flew Over the Cuckoo's Nest"},{"date":"25/12/2017","showingID":"21","time":"12:00","title":"One Flew Over the Cuckoo's Nest"}],"LoginDetails":[{"password":"admin","firstname":"Bob","surname":"Sonofbob","type":"S","userID":"001","email":"admin"},{"password":"cust","firstname":"LUCIODALESSANDRO","surname":"IS BETTER THAN DIMITRIS","type":"C","userID":"002","email":"cust","lastname":"Nigelson"},{"password":"mark","firstname":"Mark","surname":"Backhouse","type":"S","userID":"003","email":"mark@live.com"},{"password":"fraz","firstname":"Fraz","surname":"Ahmad","type":"S","userID":"004","email":"fraz@yahoo.com"},{"password":"example","firstname":"Jimbob","surname":"Pockett","type":"C","userID":"005","email":"example@email"},{"password":"hello do spaces work?","firstname":"","surname":"","type":"C","userID":"006","email":"hello@hello.org"}]}
+{
+	"FilmList": [
+		{
+			"image": "",
+			"description": "After the rebels are overpowered by the Empire on their newly established base, Luke Skywalker begins Jedi training with Yoda. His friends accept shelter from a questionable ally as Darth Vader hunts them in a plan to capture Luke.",
+			"title": "Star Wars: Episode V - The Empire Strikes Back"
+		},
+		{
+			"image": "",
+			"description": "Two boys growing up in a violent neighborhood of Rio de Janeiro take different paths: one becomes a photographer, the other a drug dealer.",
+			"title": "City of God"
+		},
+		{
+			"image": "",
+			"description": "In Detroit, a lonely pop culture geek marries a call girl, steals cocaine from her pimp, and tries to sell it in Hollywood. Meanwhile, the owners of the cocaine - the Mob - track them down in an attempt to reclaim it.",
+			"title": "True Romance"
+		},
+		{
+			"image": "",
+			"description": "On a journey to find the cure for a Tatarigami's curse, Ashitaka finds himself in the middle of a war between the forest gods and Tatara, a mining colony. In this quest he also meets San, the Mononoke Hime.",
+			"title": "Princess Mononoke"
+		},
+		{
+			"image": "",
+			"description": "The lives of two mob hit men, a boxer, a gangster's wife, and a pair of diner bandits intertwine in four tales of violence and redemption.",
+			"title": "Pulp Fiction"
+		},
+		{
+			"image": "",
+			"description": "While Frodo and Sam edge closer to Mordor with the help of the shifty Gollum, the divided fellowship makes a stand against Sauron's new ally, Saruman, and his hordes of Isengard.",
+			"title": "The Lord of the Rings: The Two Towers"
+		},
+		{
+			"image": "",
+			"description": "Pulp novelist Holly Martins travels to shadowy, postwar Vienna, only to find himself investigating the mysterious death of an old friend, Harry Lime.",
+			"title": "The Third Man"
+		},
+		{
+			"image": "",
+			"description": "The story of Henry Hill and his life through the teen years into the years of mafia, covering his relationship with his wife Karen Hill and his Mob partners Jimmy Conway and Tommy DeVito in the Italian-American crime syndicate.",
+			"title": "Goodfellas"
+		},
+		{
+			"image": "",
+			"description": "A jury holdout attempts to prevent a miscarriage of justice by forcing his colleagues to reconsider the evidence.",
+			"title": "12 Angry Men"
+		},
+		{
+			"image": "",
+			"description": "A criminal pleads insanity after getting into trouble again and once in the mental institution rebels against the oppressive nurse and rallies up the scared patients.",
+			"title": "One Flew Over the Cuckoo's Nest"
+		},
+		{
+			"image": "",
+			"description": "After a simple jewelry heist goes terribly wrong, the surviving criminals begin to suspect that one of them is a police informant.",
+			"title": "Reservoir Dogs"
+		}
+	],
+	"FilmTimes": [
+		{
+			"date": "15/12/2017",
+			"showingID": "1",
+			"time": "19:00",
+			"title": "Star Wars: Episode V - The Empire Strikes Back"
+		},
+		{
+			"date": "08/12/2017",
+			"showingID": "2",
+			"time": "20:00",
+			"title": "Star Wars: Episode V - The Empire Strikes Back"
+		},
+		{
+			"date": "09/12/2017",
+			"showingID": "3",
+			"time": "20:00",
+			"title": "Star Wars: Episode V - The Empire Strikes Back"
+		},
+		{
+			"date": "15/12/2017",
+			"showingID": "4",
+			"time": "20:00",
+			"title": "True Romance"
+		},
+		{
+			"date": "08/12/2017",
+			"showingID": "5",
+			"time": "16:00",
+			"title": "True Romance"
+		},
+		{
+			"date": "14/12/2017",
+			"showingID": "6",
+			"time": "23:00",
+			"title": "True Romance"
+		},
+		{
+			"date": "13/12/2017",
+			"showingID": "7",
+			"time": "22:00",
+			"title": "True Romance"
+		},
+		{
+			"date": "13/12/2017",
+			"showingID": "8",
+			"time": "18:00",
+			"title": "True Romance"
+		},
+		{
+			"date": "13/12/2017",
+			"showingID": "9",
+			"time": "20:00",
+			"title": "Goodfellas"
+		},
+		{
+			"date": "06/12/2017",
+			"showingID": "10",
+			"time": "20:00",
+			"title": "Goodfellas"
+		},
+		{
+			"date": "30/11/2017",
+			"showingID": "11",
+			"time": "20:00",
+			"title": "Goodfellas"
+		},
+		{
+			"date": "23/11/2017",
+			"showingID": "12",
+			"time": "20:00",
+			"title": "Goodfellas"
+		},
+		{
+			"date": "16/11/2017",
+			"showingID": "13",
+			"time": "20:00",
+			"title": "Goodfellas"
+		},
+		{
+			"date": "09/11/2017",
+			"showingID": "14",
+			"time": "20:00",
+			"title": "Goodfellas"
+		},
+		{
+			"date": "22/11/2017",
+			"showingID": "15",
+			"time": "21:00",
+			"title": "Princess Mononoke"
+		},
+		{
+			"date": "23/11/2017",
+			"showingID": "16",
+			"time": "21:00",
+			"title": "Princess Mononoke"
+		},
+		{
+			"date": "30/11/2017",
+			"showingID": "17",
+			"time": "21:00",
+			"title": "Princess Mononoke"
+		},
+		{
+			"date": "01/12/2017",
+			"showingID": "18",
+			"time": "21:00",
+			"title": "Princess Mononoke"
+		},
+		{
+			"date": "05/12/2017",
+			"showingID": "19",
+			"time": "21:00",
+			"title": "Princess Mononoke"
+		},
+		{
+			"date": "31/10/2017",
+			"showingID": "20",
+			"time": "00:00",
+			"title": "One Flew Over the Cuckoo's Nest"
+		},
+		{
+			"date": "25/12/2017",
+			"showingID": "21",
+			"time": "12:00",
+			"title": "One Flew Over the Cuckoo's Nest"
+		}
+	],
+	"LoginDetails": [
+		{
+			"password": "admin",
+			"firstname": "Bob",
+			"surname": "Sonofbob",
+			"type": "S",
+			"userID": "001",
+			"email": "admin"
+		},
+		{
+			"password": "cust",
+			"firstname": "Dimitris",
+			"surname": "IsACunt",
+			"type": "C",
+			"userID": "002",
+			"email": "cust"
+		},
+		{
+			"password": "mark",
+			"firstname": "Mark",
+			"surname": "Backhouse",
+			"type": "S",
+			"userID": "003",
+			"email": "mark@live.com"
+		},
+		{
+			"password": "fraz",
+			"firstname": "Fraz",
+			"surname": "Ahmad",
+			"type": "S",
+			"userID": "004",
+			"email": "fraz@yahoo.com"
+		},
+		{
+			"password": "example",
+			"firstname": "Emma",
+			"surname": "Cholwill",
+			"type": "C",
+			"userID": "005",
+			"email": "example@email"
+		},
+		{
+			"password": "hello do spaces work?",
+			"firstname": "",
+			"surname": "",
+			"type": "C",
+			"userID": "006",
+			"email": "hello@hello.org"
+		}
+	]
+}

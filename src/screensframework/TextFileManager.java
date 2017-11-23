@@ -1,8 +1,6 @@
 package screensframework;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
@@ -53,8 +51,6 @@ public class TextFileManager {
 	public static void updateUserDetails(User user) throws JSONException, IOException {
 		String userID = user.getUserID();
 		String newEmail = user.getEmail();
-		String password = user.getPassword();
-		String type = user.getType();
 		String newFirstName = user.getFirstName();
 		String newLastName = user.getLastName();
 
@@ -170,7 +166,6 @@ public class TextFileManager {
 	public static List<String> filmsFilteredByDate(String date) throws IOException {
 
 		JSONObject obj = JSONUtils.getJSONObjectFromFile(TextFileManager.database);
-		JSONArray filmListArray = obj.getJSONArray("FilmList");
 		JSONArray filmTimesArray = obj.getJSONArray("FilmTimes");
 		List<String> films = new ArrayList<String>();
 

@@ -48,6 +48,8 @@ public class CustHomeController extends ToolbarController implements Initializab
 	private ObservableList<String> timeList = FXCollections.observableArrayList(); // Container for film times
 	private DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy"); // Formatting dates
 
+	public static Booking BOOKING; // Customer's booking
+
 	/**
 	 * Initializes the controller class.
 	 */
@@ -71,8 +73,7 @@ public class CustHomeController extends ToolbarController implements Initializab
 	public List<String> getFilmList() throws IOException {
 		try {
 			String date = dateTimeFormatter.format(selectDate.getValue());
-			TextFileManager fileManager = new TextFileManager();
-			return fileManager.filmsFilteredByDate(date);
+			return TextFileManager.filmsFilteredByDate(date);
 		} catch (IOException e) {
 			return null;
 		}
@@ -87,8 +88,7 @@ public class CustHomeController extends ToolbarController implements Initializab
 		try {
 			String date = dateTimeFormatter.format(selectDate.getValue());
 			String film = selectFilm.getValue();
-			TextFileManager fileManager = new TextFileManager();
-			return fileManager.timesFilteredByDateAndFilm(date, film);
+			return TextFileManager.timesFilteredByDateAndFilm(date, film);
 		} catch (IOException e) {
 			return null;
 		}
@@ -138,7 +138,21 @@ public class CustHomeController extends ToolbarController implements Initializab
 
 	@FXML
 	public void goToCustBookFilmPage(ActionEvent event) {
-		myController.setScreen(ScreensFramework.custBookFilmPageID);
+		try {
+			int PlaceHolderBookingID = 0;
+			Seat SeatNotPickedYet = new Seat(1000, 1000, 1000);
+
+			Listing listing = new Listing("Placeholder", this.selectFilm.getValue(),
+					dateTimeFormatter.format(selectDate.getValue()), this.selectTime.getValue());
+			BOOKING = new Booking(PlaceHolderBookingID, listing, SeatNotPickedYet, (Customer) LoginController.USER);
+			
+			myController.loadScreen(ScreensFramework.custBookFilmPageID, ScreensFramework.custBookFilmPageFile);
+	        myController.loadScreen(ScreensFramework.custConfirmPageID, ScreensFramework.custConfirmPageFile);
+
+			myController.setScreen(ScreensFramework.custBookFilmPageID);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@FXML
@@ -159,7 +173,6 @@ public class CustHomeController extends ToolbarController implements Initializab
 
 	@FXML
 	public void goToLogin(ActionEvent event) {
-
 		// Unload screens:
 		myController.unloadScreen(ScreensFramework.loginID);
 		myController.unloadScreen(ScreensFramework.staffHomeID);

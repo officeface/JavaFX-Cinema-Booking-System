@@ -37,7 +37,7 @@ public class StaffHomeController implements Initializable, ControlledScreen {
 	}
 	
 	
-	@FXML
+	
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
 	}

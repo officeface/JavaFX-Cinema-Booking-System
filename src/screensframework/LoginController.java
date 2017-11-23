@@ -64,37 +64,36 @@ public class LoginController implements Initializable, ControlledScreen {
 						String password = loginDetails.get(i)[2];
 						String firstName = loginDetails.get(i)[4];
 						String lastName = loginDetails.get(i)[5];
-						
+
 						// Set details:
 						USER = new Customer(userID, email, password, firstName, lastName);
-						
+
 						// Set correct screens:
 						myController.loadScreen(ScreensFramework.custHomeID, ScreensFramework.custHomeFile);
-				        myController.loadScreen(ScreensFramework.custProfilePageID, ScreensFramework.custProfilePageFile);
-				        myController.loadScreen(ScreensFramework.custBookFilmPageID, ScreensFramework.custBookFilmPageFile);
-				        myController.loadScreen(ScreensFramework.custConfirmPageID, ScreensFramework.custConfirmPageFile);
-						
+						myController.loadScreen(ScreensFramework.custProfilePageID,
+								ScreensFramework.custProfilePageFile);
+
 						myController.setScreen(ScreensFramework.custHomeID);
-						
-						
+
 					} else if (loginDetails.get(i)[3].equals("S")) {
 						String userID = loginDetails.get(i)[0];
 						String email = loginDetails.get(i)[1];
 						String password = loginDetails.get(i)[2];
 						String firstName = loginDetails.get(i)[4];
 						String lastName = loginDetails.get(i)[5];
-						
+
 						// Set details:
 						USER = new Employee(userID, email, password, firstName, lastName);
-												
+
 						// Open Customer/Staff option screen upon successful staff login
 						myController.loadScreen(ScreensFramework.staffChoiceID, ScreensFramework.staffChoiceFile);
-				        myController.loadScreen(ScreensFramework.staffHomeID, ScreensFramework.staffHomeFile);
-				        myController.loadScreen(ScreensFramework.staffExportID, ScreensFramework.staffExportFile);
-				        myController.loadScreen(ScreensFramework.bookingSummaryID, ScreensFramework.bookingSummaryFile);
-				        myController.loadScreen(ScreensFramework.addFilmPageID, ScreensFramework.addFilmPageFile);
-				        myController.loadScreen(ScreensFramework.addFilmListingsID, ScreensFramework.addFilmListingsFile);
-				        
+						myController.loadScreen(ScreensFramework.staffHomeID, ScreensFramework.staffHomeFile);
+						myController.loadScreen(ScreensFramework.staffExportID, ScreensFramework.staffExportFile);
+						myController.loadScreen(ScreensFramework.bookingSummaryID, ScreensFramework.bookingSummaryFile);
+						myController.loadScreen(ScreensFramework.addFilmPageID, ScreensFramework.addFilmPageFile);
+						myController.loadScreen(ScreensFramework.addFilmListingsID,
+								ScreensFramework.addFilmListingsFile);
+
 						// Open Customer/Staff option screen upon successful staff login
 						myController.setScreen(ScreensFramework.staffChoiceID);
 					}
@@ -135,15 +134,14 @@ public class LoginController implements Initializable, ControlledScreen {
 							String password = loginDetails.get(i)[2];
 							String firstName = loginDetails.get(i)[4];
 							String lastName = loginDetails.get(i)[5];
-							
+
 							// Set details:
 							USER = new Customer(userID, email, password, firstName, lastName);
-							
+
 							myController.loadScreen(ScreensFramework.custHomeID, ScreensFramework.custHomeFile);
-					        myController.loadScreen(ScreensFramework.custProfilePageID, ScreensFramework.custProfilePageFile);
-					        myController.loadScreen(ScreensFramework.custBookFilmPageID, ScreensFramework.custBookFilmPageFile);
-					        myController.loadScreen(ScreensFramework.custConfirmPageID, ScreensFramework.custConfirmPageFile);
-							
+							myController.loadScreen(ScreensFramework.custProfilePageID,
+									ScreensFramework.custProfilePageFile);
+
 							myController.setScreen(ScreensFramework.custHomeID);
 						} else if (loginDetails.get(i)[3].equals("S")) {
 							String userID = loginDetails.get(i)[0];
@@ -151,23 +149,22 @@ public class LoginController implements Initializable, ControlledScreen {
 							String password = loginDetails.get(i)[2];
 							String firstName = loginDetails.get(i)[4];
 							String lastName = loginDetails.get(i)[5];
-							
+
 							// Set details:
 							USER = new Employee(userID, email, password, firstName, lastName);
-							
+
 							myController.loadScreen(ScreensFramework.staffChoiceID, ScreensFramework.staffChoiceFile);
-					        myController.loadScreen(ScreensFramework.staffHomeID, ScreensFramework.staffHomeFile);
-					        myController.loadScreen(ScreensFramework.staffExportID, ScreensFramework.staffExportFile);
-					        myController.loadScreen(ScreensFramework.bookingSummaryID, ScreensFramework.bookingSummaryFile);
-					        myController.loadScreen(ScreensFramework.addFilmPageID, ScreensFramework.addFilmPageFile);
-					        myController.loadScreen(ScreensFramework.addFilmListingsID, ScreensFramework.addFilmListingsFile);
-					        
+							myController.loadScreen(ScreensFramework.staffHomeID, ScreensFramework.staffHomeFile);
+							myController.loadScreen(ScreensFramework.staffExportID, ScreensFramework.staffExportFile);
+							myController.loadScreen(ScreensFramework.bookingSummaryID,
+									ScreensFramework.bookingSummaryFile);
+							myController.loadScreen(ScreensFramework.addFilmPageID, ScreensFramework.addFilmPageFile);
+							myController.loadScreen(ScreensFramework.addFilmListingsID,
+									ScreensFramework.addFilmListingsFile);
+
 							// Open Customer/Staff option screen upon successful staff login
 							myController.setScreen(ScreensFramework.staffChoiceID);
 						}
-//						txtPassword.setText(""); // Password cleared after successful login and must be retyped after
-//													// logging out
-//						lblStatus.setText("");
 						continue;
 					}
 				}

@@ -10,14 +10,14 @@ package screensframework;
 public class Booking {
 
 	private int bookingID;
-	private String title;
+	private Listing movie;
 	private Seat seat;
 	private Customer customer;
 
-	public Booking(int bookingID, String title, Seat seat, Customer customer) {
+	public Booking(int bookingID, Listing movie, Seat seat, Customer customer) {
 		super();
 		this.bookingID = bookingID;
-		this.title = title;
+		this.movie = movie;
 		this.seat = seat;
 		this.customer = customer;
 	}
@@ -30,12 +30,14 @@ public class Booking {
 		this.bookingID = bookingID;
 	}
 
-	public String getTitle() {
-		return title;
+	
+
+	public Listing getMovie() {
+		return movie;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
+	public void setMovie(Listing movie) {
+		this.movie = movie;
 	}
 
 	public Seat getSeat() {

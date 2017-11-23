@@ -34,9 +34,9 @@ public class Customer extends User {
 		bookingHistory = null;
 	}
 	
-	public void newBooking(int bookingID, String title, Seat seat, Customer customer) {
-		Booking booking = new Booking(bookingID, title, seat, customer);
-		bookingHistory.add(booking);
-	}
+//	public void newBooking(int bookingID, Listing movie, Seat seat, Customer customer) {
+//		Booking booking = new Booking(bookingID, movie, seat, customer);
+//		bookingHistory.add(booking);
+//	}
 
 }

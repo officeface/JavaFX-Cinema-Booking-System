@@ -21,10 +21,10 @@ public class BookingSummaryController implements Initializable, ControlledScreen
     
     // 1) Variables to change the summary info below 
     @FXML 
-    private ComboBox comboListOfFilms; //Lists of films to find summary booking of
+    private ComboBox<String> comboListOfFilms; //Lists of films to find summary booking of
     
     @FXML
-    private ComboBox comboTimeSelector; //Selected time of booking
+    private ComboBox<String> comboTimeSelector; //Selected time of booking
     
     @FXML
     private DatePicker DatePickerSelector; //Selected date of booking 
