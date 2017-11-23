@@ -16,12 +16,14 @@ public class Listing {
 	private String title;
 	private String date;
 	private String time;
+	private String[][] seats;
 
-	public Listing(String showingID, String title, String date, String time) {
+	public Listing(String showingID, String title, String date, String time, String[][] seats) {
 		this.showingID = showingID;
 		this.title = title;
 		this.date = date;
 		this.time = time;
+		this.seats = seats;
 	}
 
 	public String getShowingID() {
@@ -42,6 +44,14 @@ public class Listing {
 		}
 		return null;
 
+	}
+
+	public String[][] getSeats() {
+		return seats;
+	}
+
+	public void setSeats(String[][] seats) {
+		this.seats = seats;
 	}
 
 	public void setShowingID(String showingID) {

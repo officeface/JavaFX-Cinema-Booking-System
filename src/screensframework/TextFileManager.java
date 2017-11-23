@@ -48,17 +48,21 @@ public class TextFileManager {
 		return null;
 	}
 
-	public static String[][] getSeatInformation(Listing listing) throws JSONException, IOException {
-		String id = listing.getShowingID();
+	public static String[][] getSeatInformation(String id) throws JSONException, IOException {
+		
+		
 		JSONObject obj = JSONUtils.getJSONObjectFromFile(TextFileManager.database);
 		JSONArray jsonArray = obj.getJSONArray("FilmTimes");
+		String title;
 
 		// CHANGE SIZE OF ARRAY AT LATER DATE IF NECESSARY!!!
-		String[][] seatInformation = new String[2][10];
+		String[][] seatInformation = new String[6][10];
 
 		for (int i = 0; i < jsonArray.length(); i++) {
 			if (jsonArray.getJSONObject(i).getString("showingID").equals(id)) {
 				JSONObject seats = jsonArray.getJSONObject(i).getJSONObject("seats");
+				
+				title = jsonArray.getJSONObject(i).getString("title");
 
 				for (int j = 0; j < seatInformation.length; j++) {
 					for (int k = 0; k < seatInformation[0].length; k++) {
@@ -68,11 +72,12 @@ public class TextFileManager {
 
 					}
 				}
-
+				
+				System.out.println("Loaded information for " + title);
+				break;
 			}
 		}
 
-		System.out.println("Loaded information for " + listing.getTitle());
 		return seatInformation;
 	}
 

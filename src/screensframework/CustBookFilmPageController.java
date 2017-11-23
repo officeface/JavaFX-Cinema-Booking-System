@@ -9,10 +9,12 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 
 public class CustBookFilmPageController implements Initializable, ControlledScreen {
 
@@ -34,8 +36,14 @@ public class CustBookFilmPageController implements Initializable, ControlledScre
 
 	@FXML
 	private ImageView imgShowFilmImage;
-
+	Image image;
+	
 	// Seating
+	String[][] seats = CustHomeController.LISTING.getSeats();
+	
+	@FXML
+	private GridPane seatLayout;
+	
 
 	@FXML
 	private Button btnResetSeats;
@@ -47,7 +55,7 @@ public class CustBookFilmPageController implements Initializable, ControlledScre
 	@FXML
 	private Button btnContinue;
 	
-	Image image;
+	
 
 	/**
 	 * Initialises the controller class.
@@ -66,11 +74,36 @@ public class CustBookFilmPageController implements Initializable, ControlledScre
 			File file = new File(getImage(CustHomeController.BOOKING.getMovie().getTitle()));
 	        Image image = new Image(file.toURI().toString());
 	        this.imgShowFilmImage.setImage(image);
-//			image = new Image(getImage(CustHomeController.BOOKING.getMovie().getTitle()));
-//			this.imgShowFilmImage.setImage(image);
+	        
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+		// Generate the seats according to the listing information:
+		for (int i = 0; i < seatLayout.getRowCount(); i++) {
+			for (int j = 0; j < seatLayout.getColumnCount(); j++) {
+				Button btn = new Button();
+				Integer I = (Integer)i;
+				Integer J = (Integer)j;
+				seatLayout.add(btn, j, i);
+				btn.setPrefSize(40, 30);
+				btn.setId("btn" + I.toString() + J.toString());				
+				
+				// Check if seat is available:
+				if (seats[i][j].equals("Free")) {
+				} else {
+					btn.setStyle("-fx-base: #ff0000;");
+				}
+				
+				btn.setOnAction(e -> {
+					if (seats[I][J].equals("Free")) {
+						btn.setStyle("-fx-base: #b6e7c9;");
+					}
+				});
+			}
+		}
+		
+		
 		
 		
 
@@ -79,6 +112,11 @@ public class CustBookFilmPageController implements Initializable, ControlledScre
 	@Override
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
+	}
+	
+	@FXML
+	public void seatClicked(ActionEvent event) {
+		
 	}
 
 	@FXML
@@ -108,6 +146,22 @@ public class CustBookFilmPageController implements Initializable, ControlledScre
 			}
 		}
 		return null;
+	}
+	
+	/**
+	 * 
+	 * @param gridPane GridPane to be iterated through
+	 * @param col Column index
+	 * @param row Row index
+	 * @return The node at the specified GridPane index
+	 */
+	private Node getNodeFromGridPane(GridPane gridPane, int col, int row) {
+	    for (Node node : gridPane.getChildren()) {
+	        if (GridPane.getColumnIndex(node) == col && GridPane.getRowIndex(node) == row) {
+	            return node;
+	        }
+	    }
+	    return null;
 	}
 
 }

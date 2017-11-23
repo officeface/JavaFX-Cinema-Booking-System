@@ -49,6 +49,7 @@ public class CustHomeController extends ToolbarController implements Initializab
 	private DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy"); // Formatting dates
 
 	public static Booking BOOKING; // Customer's booking
+	public static Listing LISTING; // Film listing
 
 	/**
 	 * Initializes the controller class.
@@ -145,12 +146,13 @@ public class CustHomeController extends ToolbarController implements Initializab
 			String date = dateTimeFormatter.format(selectDate.getValue());
 			String time = this.selectTime.getValue();
 			String listingID = Listing.findShowingID(title, date, time);
+			String[][] seats = TextFileManager.getSeatInformation(listingID);
 			
 			// Placeholder:
 			Seat SeatNotPickedYet = new Seat(1000, 1000, 1000);
 
-			Listing listing = new Listing(listingID, title, date, time);
-			BOOKING = new Booking(PlaceHolderBookingID, listing, SeatNotPickedYet, (Customer) LoginController.USER);
+			LISTING = new Listing(listingID, title, date, time, seats);
+			BOOKING = new Booking(PlaceHolderBookingID, LISTING, SeatNotPickedYet, (Customer) LoginController.USER);
 
 
 			myController.loadScreen(ScreensFramework.custBookFilmPageID, ScreensFramework.custBookFilmPageFile);
