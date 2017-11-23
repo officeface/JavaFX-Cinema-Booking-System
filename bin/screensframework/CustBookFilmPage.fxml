@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="screensframework.CustBookFilmPageController">
+   <children>
+      <ImageView fx:id="ImgShowFilmImage" fitHeight="225.0" fitWidth="293.0" layoutX="495.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../testimg/testimage.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="lblTitletag" layoutX="31.0" layoutY="66.0" text="Title:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDatetag" layoutX="31.0" layoutY="101.0" text="Date:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblViewingTimetag" layoutX="246.0" layoutY="102.0" text="Viewing Time:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblYouhaveSelected" layoutX="27.0" layoutY="25.0" text="You have selected...">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDescriptiontag" layoutX="31.0" layoutY="134.0" text="Description:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="textareaDescription" layoutX="139.0" layoutY="140.0" prefHeight="105.0" prefWidth="346.0" />
+      <Label fx:id="lblFilmSelected" layoutX="78.0" layoutY="66.0" text="##">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDateSelected" layoutX="81.0" layoutY="101.0" text="##">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblTimeSelected" layoutX="370.0" layoutY="103.0" text="##">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Line endX="100.0" layoutX="-61.0" layoutY="262.0" startX="800.0" />
+      <Label fx:id="lblSeatsTitletag" layoutX="35.0" layoutY="271.0" text="Please choose available seats by clicking them">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblPricestag" layoutX="658.0" layoutY="270.0" prefHeight="23.0" prefWidth="68.0" text="PRICES">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnResetSeats" layoutX="35.0" layoutY="540.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="220.0" text="RESET BOOKED SEATS">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+      <Label fx:id="lblSubtotaltag" layoutX="368.0" layoutY="544.0" text="Subtotal: £">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblSubtotal" layoutX="474.0" layoutY="544.0" text="##">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnContinue" layoutX="658.0" layoutY="540.0" mnemonicParsing="false" onAction="#goToCustConfirmPage" prefHeight="34.0" prefWidth="119.0" text="CONTINUE">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
