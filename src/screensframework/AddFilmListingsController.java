@@ -40,6 +40,7 @@ public class AddFilmListingsController implements Initializable, ControlledScree
 		
 	}
 	
+	@Override
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
 	}

@@ -1,6 +1,9 @@
 package screensframework;
 
+import java.io.File;
+import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -8,7 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class CustBookFilmPageController implements Initializable, ControlledScreen {
@@ -27,10 +30,10 @@ public class CustBookFilmPageController implements Initializable, ControlledScre
 	private Label lblFilmSelected;
 
 	@FXML
-	private TextArea textareaDescription;
+	private Label lblDescription;
 
 	@FXML
-	private ImageView ImgShowFilmImage;
+	private ImageView imgShowFilmImage;
 
 	// Seating
 
@@ -43,6 +46,8 @@ public class CustBookFilmPageController implements Initializable, ControlledScre
 
 	@FXML
 	private Button btnContinue;
+	
+	Image image;
 
 	/**
 	 * Initialises the controller class.
@@ -54,9 +59,24 @@ public class CustBookFilmPageController implements Initializable, ControlledScre
 		this.lblFilmSelected.setText(CustHomeController.BOOKING.getMovie().getTitle());
 		this.lblDateSelected.setText(CustHomeController.BOOKING.getMovie().getDate());
 		this.lblTimeSelected.setText(CustHomeController.BOOKING.getMovie().getTime());
+		
+		try {
+			this.lblDescription.setText(getDescription(CustHomeController.BOOKING.getMovie().getTitle()));
+			
+			File file = new File(getImage(CustHomeController.BOOKING.getMovie().getTitle()));
+	        Image image = new Image(file.toURI().toString());
+	        this.imgShowFilmImage.setImage(image);
+//			image = new Image(getImage(CustHomeController.BOOKING.getMovie().getTitle()));
+//			this.imgShowFilmImage.setImage(image);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		
 
 	}
 
+	@Override
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
 	}
@@ -66,16 +86,28 @@ public class CustBookFilmPageController implements Initializable, ControlledScre
 		myController.setScreen(ScreensFramework.custConfirmPageID);
 	}
 
-	public void setLblTimeSelected(String time) {
-		this.lblTimeSelected.setText(time);
+	public static String getDescription(String title) throws IOException {
+		TextFileManager fileManager = new TextFileManager();
+		List<String[]> filmList = fileManager.getFilmList();
+		
+		for (int i = 0; i < filmList.size(); i++) {
+			if (filmList.get(i)[0].equals(title)) {
+				return filmList.get(i)[2];
+			}
+		}
+		return null;
 	}
-
-	public void setLblDateSelected(String date) {
-		this.lblDateSelected.setText(date);
-	}
-
-	public void setLblFilmSelected(String film) {
-		this.lblFilmSelected.setText(film);
+	
+	public static String getImage(String title) throws IOException {
+		TextFileManager fileManager = new TextFileManager();
+		List<String[]> filmList = fileManager.getFilmList();
+		
+		for (int i = 0; i < filmList.size(); i++) {
+			if (filmList.get(i)[0].equals(title)) {
+				return filmList.get(i)[1];
+			}
+		}
+		return null;
 	}
 
 }

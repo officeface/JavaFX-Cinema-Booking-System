@@ -22,7 +22,8 @@ public class StaffChoicePageController implements Initializable, ControlledScree
         // TODO
     }    
     
-    public void setScreenParent(ScreensController screenParent){
+    @Override
+	public void setScreenParent(ScreensController screenParent){
         myController = screenParent;
     }
 

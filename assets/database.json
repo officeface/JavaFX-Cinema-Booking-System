@@ -16,7 +16,7 @@
 			"title": "True Romance"
 		},
 		{
-			"image": "",
+			"image": "./assets/princessmononoke.jpg",
 			"description": "On a journey to find the cure for a Tatarigami's curse, Ashitaka finds himself in the middle of a war between the forest gods and Tatara, a mining colony. In this quest he also meets San, the Mononoke Hime.",
 			"title": "Princess Mononoke"
 		},
@@ -36,7 +36,7 @@
 			"title": "The Third Man"
 		},
 		{
-			"image": "",
+			"image": "./assets/goodfellas.jpg",
 			"description": "The story of Henry Hill and his life through the teen years into the years of mafia, covering his relationship with his wife Karen Hill and his Mob partners Jimmy Conway and Tommy DeVito in the Italian-American crime syndicate.",
 			"title": "Goodfellas"
 		},
@@ -61,7 +61,29 @@
 			"date": "15/12/2017",
 			"showingID": "1",
 			"time": "19:00",
-			"title": "Star Wars: Episode V - The Empire Strikes Back"
+			"title": "Star Wars: Episode V - The Empire Strikes Back",
+			"seats": {
+				"00": "Free",
+				"01": "001",
+				"02": "Free",
+				"03": "003",
+				"04": "003",
+				"05": "Free",
+				"06": "Free",
+				"07": "005",
+				"08": "Free",
+				"09": "Free",
+				"10": "Free",
+				"11": "Free",
+				"12": "Free",
+				"13": "Free",
+				"14": "Free",
+				"15": "Free",
+				"16": "Free",
+				"17": "Free",
+				"18": "Free",
+				"19": "Free"
+			}
 		},
 		{
 			"date": "08/12/2017",
@@ -195,8 +217,8 @@
 		},
 		{
 			"password": "cust",
-			"firstname": "Dimitris",
-			"surname": "IsACunt",
+			"firstname": "Frederick",
+			"surname": "Blob",
 			"type": "C",
 			"userID": "002",
 			"email": "cust"

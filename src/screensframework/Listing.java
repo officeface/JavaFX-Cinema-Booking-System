@@ -1,5 +1,8 @@
 package screensframework;
 
+import java.io.IOException;
+import java.util.List;
+
 /**
  * Class contains a specific listing of a film, the date that the film will be
  * shown, as well as its time of showing.
@@ -20,11 +23,27 @@ public class Listing {
 		this.date = date;
 		this.time = time;
 	}
-	
+
 	public String getShowingID() {
 		return showingID;
 	}
-	
+
+	public static String findShowingID(String title, String date, String time) throws IOException {
+		
+		TextFileManager fileManager = new TextFileManager();
+		List<String[]> filmTimes = fileManager.getFilmTimes();
+
+		for (int i = 0; i < filmTimes.size(); i++) {
+			if (filmTimes.get(i)[1].equals(title) && filmTimes.get(i)[2].equals(date)
+					&& filmTimes.get(i)[3].equals(time)) {
+				System.out.println("Successfully found ID");
+				return filmTimes.get(i)[0];
+			}
+		}
+		return null;
+
+	}
+
 	public void setShowingID(String showingID) {
 		this.showingID = showingID;
 	}

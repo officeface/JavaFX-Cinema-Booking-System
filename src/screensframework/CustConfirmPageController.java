@@ -57,6 +57,7 @@ public class CustConfirmPageController implements Initializable, ControlledScree
 		// TODO Auto-generated method stub
 		
 	}
+	@Override
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
 	}

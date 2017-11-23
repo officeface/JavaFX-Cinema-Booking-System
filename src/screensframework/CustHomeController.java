@@ -132,6 +132,7 @@ public class CustHomeController extends ToolbarController implements Initializab
 		}
 	}
 
+	@Override
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
 	}
@@ -140,37 +141,47 @@ public class CustHomeController extends ToolbarController implements Initializab
 	public void goToCustBookFilmPage(ActionEvent event) {
 		try {
 			int PlaceHolderBookingID = 0;
+			String title = this.selectFilm.getValue();
+			String date = dateTimeFormatter.format(selectDate.getValue());
+			String time = this.selectTime.getValue();
+			String listingID = Listing.findShowingID(title, date, time);
+			
+			// Placeholder:
 			Seat SeatNotPickedYet = new Seat(1000, 1000, 1000);
 
-			Listing listing = new Listing("Placeholder", this.selectFilm.getValue(),
-					dateTimeFormatter.format(selectDate.getValue()), this.selectTime.getValue());
+			Listing listing = new Listing(listingID, title, date, time);
 			BOOKING = new Booking(PlaceHolderBookingID, listing, SeatNotPickedYet, (Customer) LoginController.USER);
-			
+
+
 			myController.loadScreen(ScreensFramework.custBookFilmPageID, ScreensFramework.custBookFilmPageFile);
-	        myController.loadScreen(ScreensFramework.custConfirmPageID, ScreensFramework.custConfirmPageFile);
+			myController.loadScreen(ScreensFramework.custConfirmPageID, ScreensFramework.custConfirmPageFile);
 
 			myController.setScreen(ScreensFramework.custBookFilmPageID);
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println(e);
 		}
 	}
 
+	@Override
 	@FXML
 	public void goToStaffChoicePage(ActionEvent event) {
 		myController.setScreen(ScreensFramework.staffChoiceID);
 	}
 
+	@Override
 	@FXML
 	public void goToCustHome(ActionEvent event) {
 		myController.setScreen(ScreensFramework.custHomeID);
 	}
 
+	@Override
 	@FXML
 	public void goToCustProfilePage(ActionEvent event) {
 		myController.setScreen(ScreensFramework.custProfilePageID);
 
 	}
 
+	@Override
 	@FXML
 	public void goToLogin(ActionEvent event) {
 		// Unload screens:

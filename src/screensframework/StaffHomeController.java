@@ -38,6 +38,7 @@ public class StaffHomeController implements Initializable, ControlledScreen {
 	
 	
 	
+	@Override
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
 	}

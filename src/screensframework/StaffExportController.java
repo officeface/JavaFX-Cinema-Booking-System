@@ -30,6 +30,7 @@ public class StaffExportController implements Initializable, ControlledScreen {
 		// TODO Auto-generated method stub
 		
 	}
+	@Override
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
 	}

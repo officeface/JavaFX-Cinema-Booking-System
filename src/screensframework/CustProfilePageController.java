@@ -36,6 +36,7 @@ public class CustProfilePageController extends ToolbarController implements Init
 		this.txtLastName.setText(LoginController.USER.getLastName());
 	}
 
+	@Override
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
 	}
@@ -67,21 +68,25 @@ public class CustProfilePageController extends ToolbarController implements Init
 		}
 	}
 
+	@Override
 	@FXML
 	public void goToStaffChoicePage(ActionEvent event) {
 		myController.setScreen(ScreensFramework.staffChoiceID);
 	}
 
+	@Override
 	@FXML
 	public void goToCustHome(ActionEvent event) {
 		myController.setScreen(ScreensFramework.custHomeID);
 	}
 
+	@Override
 	@FXML
 	public void goToCustProfilePage(ActionEvent event) {
 		myController.setScreen(ScreensFramework.custProfilePageID);
 	}
 
+	@Override
 	@FXML
 	public void goToLogin(ActionEvent event) {
 

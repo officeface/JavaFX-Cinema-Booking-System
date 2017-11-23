@@ -48,6 +48,36 @@ public class TextFileManager {
 		return null;
 	}
 
+	public static String[][] getSeatInformation(Listing listing) throws JSONException, IOException {
+		String id = listing.getShowingID();
+		JSONObject obj = JSONUtils.getJSONObjectFromFile(TextFileManager.database);
+		JSONArray jsonArray = obj.getJSONArray("FilmTimes");
+
+		// CHANGE SIZE OF ARRAY AT LATER DATE IF NECESSARY!!!
+		String[][] seatInformation = new String[2][10];
+
+		for (int i = 0; i < jsonArray.length(); i++) {
+			if (jsonArray.getJSONObject(i).getString("showingID").equals(id)) {
+				JSONObject seats = jsonArray.getJSONObject(i).getJSONObject("seats");
+
+				for (int j = 0; j < seatInformation.length; j++) {
+					for (int k = 0; k < seatInformation[0].length; k++) {
+						Integer J = (Integer) j;
+						Integer K = (Integer) k;
+						seatInformation[j][k] = seats.getString(J.toString() + K.toString());
+
+					}
+				}
+
+			}
+		}
+
+		System.out.println("Loaded information for " + listing.getTitle());
+		return seatInformation;
+	}
+
+	
+
 	public static void updateUserDetails(User user) throws JSONException, IOException {
 		String userID = user.getUserID();
 		String newEmail = user.getEmail();
