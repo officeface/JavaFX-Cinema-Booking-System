@@ -54,9 +54,25 @@ public class CustConfirmPageController implements Initializable, ControlledScree
     
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
 		
+		//Labels have been updated in the confirm page from the booking page
+		this.lblTitle.setText(CustHomeController.BOOKING.getMovie().getTitle());
+		this.lblDate.setText(CustHomeController.BOOKING.getMovie().getDate());
+		this.lblTime.setText(CustHomeController.BOOKING.getMovie().getTime());
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	@Override
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
