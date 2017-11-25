@@ -264,5 +264,38 @@ public class TextFileManager {
 	public void setFilmTimes(List<String[]> filmTimes) {
 		this.filmTimes = filmTimes;
 	}
+	
+	
+	
+	/**
+	 * 
+	 * @return Lists of all film titles in the database
+	 * @throws IOException
+	 */
+	public static List<String[]> getFilmTitles() throws IOException {
+		JSONObject obj = JSONUtils.getJSONObjectFromFile(TextFileManager.database);
+		JSONArray jsonArray = obj.getJSONArray("FilmList");
+		List<String[]> filmListofTitles = new ArrayList<String[]>();
+		for (int i = 0; i < jsonArray.length(); i++) {
+			String[] tempArray = new String[1];
+			tempArray[0] = jsonArray.getJSONObject(i).getString("title");
+			filmListofTitles.add(tempArray);
+		}
+		return filmListofTitles;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }

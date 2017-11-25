@@ -1,8 +1,13 @@
 package screensframework;
 
+import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -14,6 +19,9 @@ public class StaffExportController implements Initializable, ControlledScreen {
     
     @FXML
     private ComboBox<String> filmdropdown; //Lists of films to export
+	private ObservableList<String> filmNames = FXCollections.observableArrayList(); // Container for film titles
+
+
     
     @FXML
     private Button btnexportselectedfilm; //Export to txt the selected film in the combobox 
@@ -24,14 +32,48 @@ public class StaffExportController implements Initializable, ControlledScreen {
     /**
 	 * Initialises the controller class.
 	 */
+ 
     
-	@Override
+    
+    
+    @Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
+    		
+		List<String[]> filmList=null;
+		try {
+			filmList = TextFileManager.getFilmTitles();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    		
+		for (int i = 0; i < filmList.size(); i++) {
+			filmNames.addAll(filmList.get(i));
+		}
+		filmdropdown.setItems(filmNames);
+    }
+    		
+    		
+    		
 		
-	}
+    
+
+    
+    
+
 	@Override
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
 	}
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
