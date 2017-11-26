@@ -7,9 +7,12 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.json.CDL;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import sun.rmi.runtime.Log;
 
 /**
  * This class manages the various text files of the application by reading their
@@ -23,7 +26,9 @@ public class TextFileManager {
 	private List<String[]> loginDetails;
 	private List<String[]> filmList;
 	private List<String[]> filmTimes;
-	static File database = new File("./assets/database.json");
+	static File database = new File("./assets/database.json");	
+	static File database2 = new File("./assets/database2.json");
+
 
 	public TextFileManager() throws IOException {
 		this.loginDetails = loginDetailsToArrayList();
@@ -108,6 +113,94 @@ public class TextFileManager {
 		}
 
 	}
+	
+	
+	
+	/**
+	 * 
+	 * @return Adds films to the database - IN THIS CASE DATABASE 2	
+	 * @throws IOException
+	 */
+	public static void addFilmDetails(Movie newmovie) throws JSONException, IOException {
+		
+		//TEST OF ADDING A NEW FILM IN  - - DATABASE 2!
+        String title = newmovie.getTitle();
+		String image = newmovie.getImage();
+		String description = newmovie.getDescription();
+
+		JSONObject obj = JSONUtils.getJSONObjectFromFile(TextFileManager.database2); //testing in database 2 
+		JSONArray jsonArray = obj.getJSONArray("FilmList");
+		
+		//APPENDS TO THE END OF THE FILELIST! - HOWEVER DB GOES CRAZY
+	    		JSONObject templist = new JSONObject();
+	    		templist.put("title",title);
+	    		templist.put("image",image);
+	    		templist.put("description",description);
+	            jsonArray.put(templist);
+		
+//		// try-with-resources statement based on post comment below :)
+		try (FileWriter file = new FileWriter("./assets/database2.json")) {
+			file.write(obj.toString());
+			System.out.println("Successfully Added JSON Object to File...");
+			System.out.println("\nJSON Object: " + obj);
+		}
+
+	}
+	
+
+	
+	
+	
+	/**
+	 * 
+	 * @return Adds film listing to the database - IN THIS CASE DATABASE 1	
+	 * @throws IOException
+	 */
+	public static void addFilmListings(Listing newlisting) throws JSONException, IOException {
+		
+		String showingID = newlisting.getShowingID();
+		String title = newlisting.getTitle();
+		String date = newlisting.getDate();
+		String time = newlisting.getTime();
+		String[][] seats = newlisting.getSeats();
+
+		JSONObject obj = JSONUtils.getJSONObjectFromFile(TextFileManager.database); //testing in database 2 
+		JSONArray jsonArray = obj.getJSONArray("FilmTimes");
+		
+		//APPENDS TO THE END OF THE FILETIMES! - HOWEVER DB GOES CRAZY
+	    		JSONObject templist = new JSONObject();
+	    		templist.put("date",date);
+	    		templist.put("showingID",showingID);
+	    		templist.put("time",time);
+	    		templist.put("title",title);
+	    		templist.put("seats",seats);
+	        jsonArray.put(templist);
+		
+	            
+	            
+	            
+//		// try-with-resources statement based on post comment below :)
+		try (FileWriter file = new FileWriter("./assets/database.json")) {
+			file.write(obj.toString());
+			System.out.println("Successfully Added JSON Object to File...");
+			System.out.println("\nJSON Object: " + obj);
+		}
+
+	}
+	
+	
+//	public static void ExportAllFilmDetails () throws JSONException, IOException {
+//		JSONObject obj = JSONUtils.getJSONObjectFromFile(TextFileManager.database);
+//		JSONArray jsonArray = obj.getJSONArray("FilmList");
+//		
+//        File file=new File("/tmp2/fromJSON.csv");
+//        String csv = CDL.toString(jsonArray);
+//        
+//	}
+	
+	
+	
+	
 
 	/**
 	 * 
@@ -191,6 +284,20 @@ public class TextFileManager {
 		return filmTimes;
 	}
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	/**
 	 * 
 	 * @param date
@@ -283,10 +390,32 @@ public class TextFileManager {
 		}
 		return filmListofTitles;
 	}
+
 	
 	
 	
-	
+	/**
+	 * 
+	 * @return Lists of all timings available by the cinema
+	 * @throws IOException
+	 */
+	public static String[] getFilmTimings() throws IOException {
+//		
+		String[] filmListofTimings = new String[11];
+		filmListofTimings[0] = "12:00";
+		filmListofTimings[1] = "13:00";
+		filmListofTimings[2] = "14:00";
+		filmListofTimings[3] = "15:00";
+		filmListofTimings[4] = "16:00";
+		filmListofTimings[5] = "17:00";
+		filmListofTimings[6] = "18:00";
+		filmListofTimings[7] = "19:00";
+		filmListofTimings[8] = "20:00";
+		filmListofTimings[9] = "21:00";
+		filmListofTimings[10] = "22:00";
+		filmListofTimings[10] = "23:00";
+		return filmListofTimings;
+	}
 	
 	
 	

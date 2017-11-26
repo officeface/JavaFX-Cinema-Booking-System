@@ -52,6 +52,12 @@ public class CustProfilePageController extends ToolbarController implements Init
 		}
 	}
 
+	
+	
+	
+	
+	
+	
 	@FXML
 	private void update(ActionEvent event) throws JSONException, IOException {
 		if (!this.txtEmail.getText().isEmpty() && !this.txtFirstName.getText().isEmpty()
@@ -68,6 +74,19 @@ public class CustProfilePageController extends ToolbarController implements Init
 		}
 	}
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	@Override
 	@FXML
 	public void goToStaffChoicePage(ActionEvent event) {
