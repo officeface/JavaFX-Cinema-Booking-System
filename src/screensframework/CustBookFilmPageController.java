@@ -98,15 +98,15 @@ public class CustBookFilmPageController implements Initializable, ControlledScre
 
 				// Check if seat is available:
 				if (seats[i][j].equals("Free")) {
-					btn.setStyle("-fx-base: #ffffff;");
+					btn.setStyle("-fx-base: lightgreen;");
 				} else {
-					btn.setStyle("-fx-base: #ff0000;");
+					btn.setStyle("-fx-base: lightpink;");
 				}
 
 				btn.setOnAction(e -> {
 					if (seats[I][J].equals("Free")) {
-						btn.setStyle("-fx-base: #b6e7c9;");
-						seats[I][J] = "Temp";
+						btn.setStyle("-fx-base: deepskyblue;");
+						seats[I][J] = LoginController.USER.getUserID();
 
 						// Set seat summary using HashSet:
 						seatSummary.getItems().clear();
@@ -114,12 +114,11 @@ public class CustBookFilmPageController implements Initializable, ControlledScre
 						for (String values : set) {
 							seatList.add(values);
 						}
-						// Reorder for attractiveness!
 						seatSummary.setItems(seatList);
 						lblSubtotal.setText("£" + 5 * seatList.size() + ".00");
 
-					} else if (seats[I][J].equals("Temp")) {
-						btn.setStyle("-fx-base: #ffffff;");
+					} else if (seats[I][J].equals(LoginController.USER.getUserID()) && btn.getStyle().equals("-fx-base: deepskyblue;")) {
+						btn.setStyle("-fx-base: lightgreen;");
 						seats[I][J] = "Free";
 
 						// Set seat summary using HashSet:
@@ -128,7 +127,6 @@ public class CustBookFilmPageController implements Initializable, ControlledScre
 						for (String values : set) {
 							seatList.add(values);
 						}
-						// Reorder for attractiveness!
 						seatSummary.setItems(seatList);
 						lblSubtotal.setText("£" + 5 * seatList.size() + ".00");
 
@@ -179,6 +177,7 @@ public class CustBookFilmPageController implements Initializable, ControlledScre
 			}
 			
 			CustHomeController.BOOKING.setSeats(custSeats);
+			CustHomeController.LISTING.setSeats(seats);
 			
 			myController.loadScreen(ScreensFramework.custConfirmPageID, ScreensFramework.custConfirmPageFile);
 			myController.setScreen(ScreensFramework.custConfirmPageID);

@@ -49,6 +49,16 @@ public class TextFileManager {
 		return null;
 	}
 
+	/**
+	 * 
+	 * @param id
+	 *            Listing ID for a particular listing
+	 * @return A 2-dimensional array of information about the availability of seats.
+	 *         If the seat is free, its value will be "Free". If the seat is booked,
+	 *         its value will be the User ID of the user who has booked it.
+	 * @throws JSONException
+	 * @throws IOException
+	 */
 	public static String[][] getSeatInformation(String id) throws JSONException, IOException {
 
 		JSONObject obj = JSONUtils.getJSONObjectFromFile(TextFileManager.database);
@@ -81,6 +91,15 @@ public class TextFileManager {
 		return seatInformation;
 	}
 
+	/**
+	 * Rewrites the database with new information for a user whose details will be
+	 * updated
+	 * 
+	 * @param user
+	 *            Customer whose details are to be updated
+	 * @throws JSONException
+	 * @throws IOException
+	 */
 	public static void updateUserDetails(User user) throws JSONException, IOException {
 		String userID = user.getUserID();
 		String newEmail = user.getEmail();
@@ -104,7 +123,54 @@ public class TextFileManager {
 			System.out.println("Successfully Copied JSON Object to File...");
 			System.out.println("\nJSON Object: " + obj);
 		}
+	}
 
+	/**
+	 * Updates an existing listing with new seat information (normally after a
+	 * customer has made a new booking and seating changes must reflect this)
+	 * 
+	 * @param listing
+	 *            the Listing to be updated
+	 * @throws IOException
+	 * @throws JSONException
+	 */
+	public static void updateListing(Listing listing) throws JSONException, IOException {
+		JSONObject obj = JSONUtils.getJSONObjectFromFile(TextFileManager.database);
+		JSONArray jsonArray = obj.getJSONArray("FilmTimes");
+		String[][] seats = listing.getSeats();
+
+		JSONObject seatList = new JSONObject();
+
+		// Fill out new seat object
+		for (int i = 0; i < 6; i++) {
+			for (int j = 0; j < 10; j++) {
+				seatList.put(((Integer) i).toString() + ((Integer) j).toString(), seats[i][j]);
+			}
+		}
+
+		// Find Showing, then add in seat object
+		for (int k = 0; k < jsonArray.length(); k++) {
+			if (jsonArray.getJSONObject(k).getString("showingID").equals(listing.getShowingID())) {
+				jsonArray.getJSONObject(k).put("seats", seatList);
+			}
+		}
+
+		// Write object to database file
+		try (FileWriter file = new FileWriter("./assets/database.json")) {
+			file.write(obj.toString());
+			System.out.println("Successfully updated JSON Object in File...");
+			System.out.println("\nJSON Object: " + obj);
+		}
+	}
+
+	/**
+	 * Updates a User's booking history with a new booking.
+	 * 
+	 * @param booking
+	 *            The Booking to be added
+	 */
+	public static void updateBookingHistory(Booking booking) {
+		// TESTING IN DATABASE 2 FOR NOW
 	}
 
 	/**
@@ -114,7 +180,8 @@ public class TextFileManager {
 	 */
 	public static void addFilmDetails(Movie newmovie) throws JSONException, IOException {
 
-		// TEST OF ADDING A NEW FILM IN - - DATABASE 2! - moved now to database 1 since it works! (mark)
+		// TEST OF ADDING A NEW FILM IN - - DATABASE 2! - moved now to database 1 since
+		// it works! (mark)
 		String title = newmovie.getTitle();
 		String image = newmovie.getImage();
 		String description = newmovie.getDescription();

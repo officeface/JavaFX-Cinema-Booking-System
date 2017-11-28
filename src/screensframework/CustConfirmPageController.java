@@ -1,7 +1,10 @@
 package screensframework;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import org.json.JSONException;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -65,13 +68,11 @@ public class CustConfirmPageController implements Initializable, ControlledScree
 	}
 	
 	
-	
-	
-	
-	
-	
-	
-	
+	@FXML
+	private void book(ActionEvent event) throws JSONException, IOException {
+		TextFileManager.updateListing(CustHomeController.LISTING);
+		System.out.println("Booked!");
+	}
 	
 	
 	

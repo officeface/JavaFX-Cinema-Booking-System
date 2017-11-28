@@ -85,7 +85,7 @@
             <Font size="27.0" />
          </font>
       </Label>
-      <Button fx:id="btnBook" layoutX="551.0" layoutY="507.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="214.0" text="BOOK">
+      <Button fx:id="btnBook" layoutX="551.0" layoutY="507.0" mnemonicParsing="false" onAction="#book" prefHeight="48.0" prefWidth="214.0" text="BOOK">
          <font>
             <Font size="25.0" />
          </font>
