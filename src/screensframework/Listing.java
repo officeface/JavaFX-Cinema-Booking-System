@@ -16,9 +16,9 @@ public class Listing {
 	private String title;
 	private String date;
 	private String time;
-	private String[] seats;
+	private String[][] seats;
 
-	public Listing(String showingID, String title, String date, String time, String[] seats) {
+	public Listing(String showingID, String title, String date, String time, String[][] seats) {
 		this.showingID = showingID;
 		this.title = title;
 		this.date = date;
@@ -46,11 +46,11 @@ public class Listing {
 
 	}
 
-	public String[] getSeats() {
+	public String[][] getSeats() {
 		return seats;
 	}
 
-	public void setSeats(String[] seats) {
+	public void setSeats(String[][] seats) {
 		this.seats = seats;
 	}
 

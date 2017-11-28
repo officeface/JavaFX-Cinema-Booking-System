@@ -114,15 +114,14 @@ public class TextFileManager {
 	 */
 	public static void addFilmDetails(Movie newmovie) throws JSONException, IOException {
 
-		// TEST OF ADDING A NEW FILM IN - - DATABASE 2!
+		// TEST OF ADDING A NEW FILM IN - - DATABASE 2! - moved now to database 1 since it works! (mark)
 		String title = newmovie.getTitle();
 		String image = newmovie.getImage();
 		String description = newmovie.getDescription();
 
-		JSONObject obj = JSONUtils.getJSONObjectFromFile(TextFileManager.database2); // testing
-																						// in
-																						// database
-																						// 2
+		JSONObject obj = JSONUtils.getJSONObjectFromFile(TextFileManager.database); // works! Switched to database 1
+																					// (mark)
+
 		JSONArray jsonArray = obj.getJSONArray("FilmList");
 
 		// APPENDS TO THE END OF THE FILELIST! - HOWEVER DB GOES CRAZY
@@ -152,26 +151,22 @@ public class TextFileManager {
 		String title = newlisting.getTitle();
 		String date = newlisting.getDate();
 		String time = newlisting.getTime();
-		String[] seats = newlisting.getSeats();
 
 		JSONObject obj = JSONUtils.getJSONObjectFromFile(TextFileManager.database); // testing
 																					// in
 																					// database
 																					// 2
 		JSONArray jsonArray = obj.getJSONArray("FilmTimes");
-		
-		
-		
+
 		JSONObject seatList = new JSONObject();
-		for (int i = 0; i<60; i++){
-			Integer I = (Integer)i;
-			if(i<10){
+		for (int i = 0; i < 60; i++) {
+			Integer I = (Integer) i;
+			if (i < 10) {
 				seatList.put("0" + I.toString(), "Free");
 			} else {
 				seatList.put(I.toString(), "Free");
 			}
 		}
-		
 
 		// APPENDS TO THE END OF THE FILETIMES! - HOWEVER DB GOES CRAZY
 		JSONObject templist = new JSONObject();
@@ -180,10 +175,8 @@ public class TextFileManager {
 		templist.put("time", time);
 		templist.put("title", title);
 		templist.put("seats", seatList);
-		
-		
+
 		jsonArray.put(templist);
-		
 
 		// // try-with-resources statement based on post comment below :)
 		try (FileWriter file = new FileWriter("./assets/database.json")) {
@@ -207,10 +200,10 @@ public class TextFileManager {
 
 	/**
 	 * 
-	 * @return An array of login details for users of the cinema booking system.
-	 *         The array columns signify email-address/username, password and a
-	 *         staff/customer choice that tells the system to point the user in
-	 *         the correct direction.
+	 * @return An array of login details for users of the cinema booking system. The
+	 *         array columns signify email-address/username, password and a
+	 *         staff/customer choice that tells the system to point the user in the
+	 *         correct direction.
 	 * @throws IOException
 	 *             if an input/output exception occurs
 	 */
@@ -239,8 +232,7 @@ public class TextFileManager {
 
 	/**
 	 * 
-	 * @return The list of films, their img URLs and descriptions in an array
-	 *         list.
+	 * @return The list of films, their img URLs and descriptions in an array list.
 	 * @throws IOException
 	 */
 	public static List<String[]> filmListToArrayList() throws IOException {
@@ -395,18 +387,18 @@ public class TextFileManager {
 				filmListofTimings[i] = i + ":00";
 			}
 		}
-//		filmListofTimings[0] = "12:00";
-//		filmListofTimings[1] = "13:00";
-//		filmListofTimings[2] = "14:00";
-//		filmListofTimings[3] = "15:00";
-//		filmListofTimings[4] = "16:00";
-//		filmListofTimings[5] = "17:00";
-//		filmListofTimings[6] = "18:00";
-//		filmListofTimings[7] = "19:00";
-//		filmListofTimings[8] = "20:00";
-//		filmListofTimings[9] = "21:00";
-//		filmListofTimings[10] = "22:00";
-//		filmListofTimings[11] = "23:00";
+		// filmListofTimings[0] = "12:00";
+		// filmListofTimings[1] = "13:00";
+		// filmListofTimings[2] = "14:00";
+		// filmListofTimings[3] = "15:00";
+		// filmListofTimings[4] = "16:00";
+		// filmListofTimings[5] = "17:00";
+		// filmListofTimings[6] = "18:00";
+		// filmListofTimings[7] = "19:00";
+		// filmListofTimings[8] = "20:00";
+		// filmListofTimings[9] = "21:00";
+		// filmListofTimings[10] = "22:00";
+		// filmListofTimings[11] = "23:00";
 		return filmListofTimings;
 	}
 
