@@ -168,9 +168,31 @@ public class TextFileManager {
 	 * 
 	 * @param booking
 	 *            The Booking to be added
+	 * @throws IOException
+	 * @throws JSONException
 	 */
-	public static void updateBookingHistory(Booking booking) {
-		// TESTING IN DATABASE 2 FOR NOW
+	public static void updateBookingHistory(Booking booking) throws JSONException, IOException {
+		JSONObject obj = JSONUtils.getJSONObjectFromFile(TextFileManager.database);
+		JSONArray jsonArray = obj.getJSONArray("LoginDetails");
+
+		JSONArray seatInfo = new JSONArray();
+		for (int i = 0; i < booking.getSeats().size(); i++) {
+			System.out.println(booking.getSeats().get(i));
+			seatInfo.put(booking.getSeats().get(i));
+		}
+
+		for (int i = 0; i < jsonArray.length(); i++) {
+			if (jsonArray.getJSONObject(i).getString("userID").equals(booking.getCustomer().getUserID())) {
+				jsonArray.getJSONObject(i).getJSONObject("bookings").put(booking.getMovie().getShowingID(), seatInfo);
+
+			}
+		}
+		// Write object to database file
+		try (FileWriter file = new FileWriter("./assets/database.json")) {
+			file.write(obj.toString());
+			System.out.println("Successfully updated Booking History in File...");
+			System.out.println("\nJSON Object: " + obj);
+		}
 	}
 
 	/**

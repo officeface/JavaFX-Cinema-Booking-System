@@ -71,6 +71,7 @@ public class CustConfirmPageController implements Initializable, ControlledScree
 	@FXML
 	private void book(ActionEvent event) throws JSONException, IOException {
 		TextFileManager.updateListing(CustHomeController.LISTING);
+		TextFileManager.updateBookingHistory(CustHomeController.BOOKING);
 		System.out.println("Booked!");
 	}
 	
