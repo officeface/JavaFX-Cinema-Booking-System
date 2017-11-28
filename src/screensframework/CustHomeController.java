@@ -148,11 +148,8 @@ public class CustHomeController extends ToolbarController implements Initializab
 			String listingID = Listing.findShowingID(title, date, time);
 			String[][] seats = TextFileManager.getSeatInformation(listingID);
 			
-			// Placeholder:
-			Seat SeatNotPickedYet = new Seat(1000, 1000, 1000);
-
 			LISTING = new Listing(listingID, title, date, time, seats);
-			BOOKING = new Booking(PlaceHolderBookingID, LISTING, SeatNotPickedYet, (Customer) LoginController.USER);
+			BOOKING = new Booking(PlaceHolderBookingID, LISTING, null, (Customer) LoginController.USER);
 
 
 			myController.loadScreen(ScreensFramework.custBookFilmPageID, ScreensFramework.custBookFilmPageFile);

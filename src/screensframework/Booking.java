@@ -1,5 +1,7 @@
 package screensframework;
 
+import java.util.List;
+
 /**
  * Contains information about a booking, including a booking ID, film title,
  * seat number and customer details.
@@ -11,14 +13,14 @@ public class Booking {
 
 	private int bookingID;
 	private Listing movie;
-	private Seat seat;
+	private List<Seat> seats;
 	private Customer customer;
 
-	public Booking(int bookingID, Listing movie, Seat seat, Customer customer) {
+	public Booking(int bookingID, Listing movie, List<Seat> seats, Customer customer) {
 		super();
 		this.bookingID = bookingID;
 		this.movie = movie;
-		this.seat = seat;
+		this.seats = seats;
 		this.customer = customer;
 	}
 
@@ -40,12 +42,12 @@ public class Booking {
 		this.movie = movie;
 	}
 
-	public Seat getSeat() {
-		return seat;
+	public List<Seat> getSeats() {
+		return seats;
 	}
 
-	public void setSeat(Seat seat) {
-		this.seat = seat;
+	public void setSeats(List<Seat> seats) {
+		this.seats = seats;
 	}
 
 	public Customer getCustomer() {
