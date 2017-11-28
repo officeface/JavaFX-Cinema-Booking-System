@@ -11,34 +11,34 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="screensframework.CustBookFilmPageController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="screensframework.CustBookFilmPageController">
    <children>
       <ImageView fx:id="imgShowFilmImage" fitHeight="225.0" fitWidth="293.0" layoutX="495.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../testimg/testimage.png" />
          </image>
       </ImageView>
-      <Label fx:id="lblTitletag" layoutX="31.0" layoutY="66.0" text="Film:">
+      <Label layoutX="31.0" layoutY="66.0" text="Film:">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lblDatetag" layoutX="31.0" layoutY="101.0" text="Date:">
+      <Label layoutX="31.0" layoutY="101.0" text="Date:">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lblViewingTimetag" layoutX="246.0" layoutY="103.0" text="Time:">
+      <Label layoutX="246.0" layoutY="103.0" text="Time:">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lblYouhaveSelected" layoutX="27.0" layoutY="25.0" text="You have selected:">
+      <Label layoutX="27.0" layoutY="25.0" text="You have selected:">
          <font>
             <Font size="26.0" />
          </font>
       </Label>
-      <Label fx:id="lblDescriptiontag" layoutX="31.0" layoutY="134.0" text="Description:">
+      <Label layoutX="31.0" layoutY="134.0" text="Description:">
          <font>
             <Font size="18.0" />
          </font>
@@ -59,12 +59,12 @@
          </font>
       </Label>
       <Line endX="100.0" layoutX="-61.0" layoutY="262.0" startX="800.0" />
-      <Label fx:id="lblSeatsTitletag" layoutX="35.0" layoutY="271.0" text="Please choose available seats by clicking them">
+      <Label layoutX="35.0" layoutY="271.0" text="Please choose available seats by clicking them">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lblPricestag" layoutX="658.0" layoutY="270.0" prefHeight="23.0" prefWidth="68.0" text="PRICES">
+      <Label layoutX="658.0" layoutY="270.0" prefHeight="23.0" prefWidth="68.0" text="PRICES">
          <font>
             <Font size="18.0" />
          </font>
@@ -74,7 +74,7 @@
             <Font size="17.0" />
          </font>
       </Button>
-      <Label fx:id="lblSubtotaltag" layoutX="368.0" layoutY="544.0" text="Subtotal: £">
+      <Label layoutX="368.0" layoutY="544.0" text="Subtotal: £">
          <font>
             <Font size="20.0" />
          </font>

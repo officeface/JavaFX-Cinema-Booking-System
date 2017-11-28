@@ -63,7 +63,6 @@ public class CustBookFilmPageController implements Initializable, ControlledScre
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
 		this.lblFilmSelected.setText(CustHomeController.BOOKING.getMovie().getTitle());
 		this.lblDateSelected.setText(CustHomeController.BOOKING.getMovie().getDate());
 		this.lblTimeSelected.setText(CustHomeController.BOOKING.getMovie().getTime());
@@ -80,26 +79,27 @@ public class CustBookFilmPageController implements Initializable, ControlledScre
 		}
 		
 		// Generate the seats according to the listing information:
-		for (int i = 0; i < seatLayout.getRowCount(); i++) {
-			for (int j = 0; j < seatLayout.getColumnCount(); j++) {
+		for (int i = 0; i < 10; i++) {
+			for (int j = 0; j < 6; j++) {
 				Button btn = new Button();
 				Integer I = (Integer)i;
 				Integer J = (Integer)j;
-				seatLayout.add(btn, j, i);
+				seatLayout.add(btn, i, j);
 				btn.setPrefSize(40, 30);
-				btn.setId("btn" + I.toString() + J.toString());				
+				btn.setId("btn" + I.toString() + J.toString());	
+				
 				
 				// Check if seat is available:
-				if (seats[i][j].equals("Free")) {
-				} else {
-					btn.setStyle("-fx-base: #ff0000;");
-				}
-				
-				btn.setOnAction(e -> {
-					if (seats[I][J].equals("Free")) {
-						btn.setStyle("-fx-base: #b6e7c9;");
-					}
-				});
+//				if (seats[i][j].get.equals("Free")) {
+//				} else {
+//					btn.setStyle("-fx-base: #ff0000;");
+//				}
+//				
+//				btn.setOnAction(e -> {
+//					if (seats[I][J].equals("Free")) {
+//						btn.setStyle("-fx-base: #b6e7c9;");
+//					}
+//				});
 			}
 		}
 		
