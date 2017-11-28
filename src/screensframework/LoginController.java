@@ -73,6 +73,8 @@ public class LoginController implements Initializable, ControlledScreen {
 						myController.loadScreen(ScreensFramework.custHomeID, ScreensFramework.custHomeFile);
 						myController.loadScreen(ScreensFramework.custProfilePageID,
 								ScreensFramework.custProfilePageFile);
+						myController.loadScreen(ScreensFramework.custBookingHistoryPageID,
+								ScreensFramework.custBookingHistoryPageFile);
 
 						myController.setScreen(ScreensFramework.custHomeID);
 
@@ -142,6 +144,8 @@ public class LoginController implements Initializable, ControlledScreen {
 							myController.loadScreen(ScreensFramework.custHomeID, ScreensFramework.custHomeFile);
 							myController.loadScreen(ScreensFramework.custProfilePageID,
 									ScreensFramework.custProfilePageFile);
+							myController.loadScreen(ScreensFramework.custBookingHistoryPageID,
+									ScreensFramework.custBookingHistoryPageFile);
 
 							myController.setScreen(ScreensFramework.custHomeID);
 						} else if (loginDetails.get(i)[3].equals("S")) {

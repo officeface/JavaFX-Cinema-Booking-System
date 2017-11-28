@@ -178,6 +178,12 @@ public class CustHomeController extends ToolbarController implements Initializab
 		myController.setScreen(ScreensFramework.custProfilePageID);
 
 	}
+	
+	@FXML
+	public void goToCustBookingHistoryPage(ActionEvent event) {
+		myController.setScreen(ScreensFramework.custBookingHistoryPageID);
+
+	}
 
 	@Override
 	@FXML

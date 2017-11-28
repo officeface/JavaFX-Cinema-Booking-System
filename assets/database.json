@@ -73,9 +73,9 @@
 				"47": "005",
 				"04": "003",
 				"48": "Free",
-				"05": "Free",
+				"05": "002",
 				"49": "Free",
-				"06": "Free",
+				"06": "002",
 				"07": "005",
 				"08": "Free",
 				"09": "Free",
@@ -790,14 +790,14 @@
 				"28": "Free",
 				"29": "Free",
 				"30": "Free",
-				"31": "Free",
-				"32": "Free",
-				"33": "Free",
-				"34": "Free",
-				"35": "Free",
-				"36": "Free",
-				"37": "Free",
-				"38": "Free",
+				"31": "002",
+				"32": "002",
+				"33": "002",
+				"34": "002",
+				"35": "002",
+				"36": "002",
+				"37": "002",
+				"38": "002",
 				"39": "Free",
 				"40": "Free",
 				"41": "001",
@@ -887,7 +887,7 @@
 				"46": "Free",
 				"03": "Free",
 				"47": "005",
-				"04": "Free",
+				"04": "002",
 				"48": "Free",
 				"05": "Free",
 				"49": "Free",
@@ -1423,29 +1423,29 @@
 			"time": "12:00",
 			"title": "One Flew Over the Cuckoo's Nest",
 			"seats": {
-				"00": "Free",
+				"00": "005",
 				"44": "003",
-				"01": "Free",
+				"01": "005",
 				"45": "Free",
-				"02": "Free",
+				"02": "005",
 				"46": "Free",
-				"03": "Free",
+				"03": "005",
 				"47": "005",
-				"04": "Free",
+				"04": "005",
 				"48": "Free",
-				"05": "Free",
+				"05": "005",
 				"49": "Free",
-				"06": "Free",
-				"07": "Free",
-				"08": "Free",
-				"09": "Free",
-				"50": "Free",
+				"06": "005",
+				"07": "005",
+				"08": "005",
+				"09": "005",
+				"50": "005",
 				"51": "Free",
 				"52": "Free",
 				"53": "Free",
-				"10": "Free",
+				"10": "005",
 				"54": "Free",
-				"11": "Free",
+				"11": "005",
 				"55": "Free",
 				"12": "Free",
 				"56": "Free",
@@ -1459,7 +1459,7 @@
 				"17": "Free",
 				"18": "Free",
 				"19": "Free",
-				"20": "Free",
+				"20": "005",
 				"21": "001",
 				"22": "Free",
 				"23": "003",
@@ -1469,7 +1469,7 @@
 				"27": "005",
 				"28": "Free",
 				"29": "Free",
-				"30": "Free",
+				"30": "005",
 				"31": "Free",
 				"32": "Free",
 				"33": "Free",
@@ -1479,7 +1479,7 @@
 				"37": "Free",
 				"38": "Free",
 				"39": "Free",
-				"40": "Free",
+				"40": "005",
 				"41": "001",
 				"42": "Free",
 				"43": "003"
@@ -1492,6 +1492,8 @@
 			"firstname": "Bob",
 			"surname": "Sonofbob",
 			"type": "S",
+			"bookings": {
+			},
 			"userID": "001",
 			"email": "admin"
 		},
@@ -1501,18 +1503,20 @@
 			"surname": "Blob",
 			"type": "C",
 			"bookings": {
-				"01": {
-					"01": [
-						"01",
-						"02",
-						"03"
-					]
-				},
-				"02": {
-					"03": [
-						"04"
-					]
-				}
+				"11": [
+					"Seat D7",
+					"Seat D8",
+					"Seat D9",
+					"Seat D2",
+					"Seat D6"
+				],
+				"1": [
+					"Seat A6",
+					"Seat A7"
+				],
+				"13": [
+					"Seat A5"
+				]
 			},
 			"userID": "002",
 			"email": "cust"
@@ -1522,6 +1526,8 @@
 			"firstname": "Mark",
 			"surname": "Backhouse",
 			"type": "S",
+			"bookings": {
+			},
 			"userID": "003",
 			"email": "mark@live.com"
 		},
@@ -1530,6 +1536,8 @@
 			"firstname": "Fraz",
 			"surname": "Ahmad",
 			"type": "S",
+			"bookings": {
+			},
 			"userID": "004",
 			"email": "fraz@yahoo.com"
 		},
@@ -1538,16 +1546,28 @@
 			"firstname": "Bob",
 			"surname": "Bobb",
 			"type": "C",
+			"bookings": {
+				"21": [
+					"Seat B1",
+					"Seat B2",
+					"Seat D1",
+					"Seat C1",
+					"Seat F1",
+					"Seat E1"
+				]
+			},
 			"userID": "005",
 			"email": "example@email"
 		},
 		{
-			"password": "hello do spaces work?",
+			"password": "hi",
 			"firstname": "",
 			"surname": "",
 			"type": "C",
+			"bookings": {
+			},
 			"userID": "006",
-			"email": "hello@hello.org"
+			"email": "hi"
 		}
 	]
 }

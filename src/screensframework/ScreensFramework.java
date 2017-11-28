@@ -16,6 +16,8 @@ public class ScreensFramework extends Application {
 	public static String custHomeFile = "CustHome.fxml";
 	public static String custProfilePageID = "custProfilePage";
 	public static String custProfilePageFile = "CustProfilePage.fxml";
+	public static String custBookingHistoryPageID = "custBookingHistoryPage";
+	public static String custBookingHistoryPageFile = "CustBookingHistoryPage.fxml";
 	public static String custBookFilmPageID = "custBookFilmPage";
 	public static String custBookFilmPageFile = "CustBookFilmPage.fxml";
 	public static String custConfirmPageID = "custConfirmPage";

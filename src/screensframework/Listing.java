@@ -30,8 +30,19 @@ public class Listing {
 		return showingID;
 	}
 
+	/**
+	 * 
+	 * @param title
+	 *            Film title
+	 * @param date
+	 *            Date of listing
+	 * @param time
+	 *            Time of listing
+	 * @return The Listing's ID as a String
+	 * @throws IOException
+	 */
 	public static String findShowingID(String title, String date, String time) throws IOException {
-		
+
 		TextFileManager fileManager = new TextFileManager();
 		List<String[]> filmTimes = fileManager.getFilmTimes();
 
@@ -40,6 +51,47 @@ public class Listing {
 					&& filmTimes.get(i)[3].equals(time)) {
 				System.out.println("Successfully found ID");
 				return filmTimes.get(i)[0];
+			}
+		}
+		return null;
+
+	}
+
+	/**
+	 * 
+	 * @param showingID
+	 *            The Listing's ID as a String
+	 * @return the title of the movie
+	 * @throws IOException
+	 */
+	public static String findMovieTitle(String showingID) throws IOException {
+
+		TextFileManager fileManager = new TextFileManager();
+		List<String[]> filmTimes = fileManager.getFilmTimes();
+
+		for (int i = 0; i < filmTimes.size(); i++) {
+			if (filmTimes.get(i)[0].equals(showingID)) {
+				return filmTimes.get(i)[1];
+			}
+		}
+		return null;
+
+	}
+
+	/**
+	 * 
+	 * @param showingID The Listing's ID as a String
+	 * @return the date and time of the listing, formatted. e.g. "12/11/2017, 19:00"
+	 * @throws IOException
+	 */
+	public static String findMovieDateAndTime(String showingID) throws IOException {
+
+		TextFileManager fileManager = new TextFileManager();
+		List<String[]> filmTimes = fileManager.getFilmTimes();
+
+		for (int i = 0; i < filmTimes.size(); i++) {
+			if (filmTimes.get(i)[0].equals(showingID)) {
+				return filmTimes.get(i)[2] + ", " + filmTimes.get(i)[3];
 			}
 		}
 		return null;

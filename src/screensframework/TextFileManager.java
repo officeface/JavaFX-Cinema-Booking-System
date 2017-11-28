@@ -174,8 +174,19 @@ public class TextFileManager {
 	public static void updateBookingHistory(Booking booking) throws JSONException, IOException {
 		JSONObject obj = JSONUtils.getJSONObjectFromFile(TextFileManager.database);
 		JSONArray jsonArray = obj.getJSONArray("LoginDetails");
-
-		JSONArray seatInfo = new JSONArray();
+		JSONArray seatInfo;
+		try {
+			seatInfo = new JSONArray();
+			
+			for (int i = 0; i < jsonArray.length(); i++) {
+				if (jsonArray.getJSONObject(i).getString("userID").equals(booking.getCustomer().getUserID())) {
+					seatInfo = jsonArray.getJSONObject(i).getJSONObject("bookings").getJSONArray(booking.getMovie().getShowingID());
+				}
+			}
+			
+		} catch (Exception e) {
+			seatInfo = new JSONArray();
+		}
 		for (int i = 0; i < booking.getSeats().size(); i++) {
 			System.out.println(booking.getSeats().get(i));
 			seatInfo.put(booking.getSeats().get(i));
