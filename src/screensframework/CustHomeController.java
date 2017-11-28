@@ -153,7 +153,6 @@ public class CustHomeController extends ToolbarController implements Initializab
 
 
 			myController.loadScreen(ScreensFramework.custBookFilmPageID, ScreensFramework.custBookFilmPageFile);
-			myController.loadScreen(ScreensFramework.custConfirmPageID, ScreensFramework.custConfirmPageFile);
 
 			myController.setScreen(ScreensFramework.custBookFilmPageID);
 		} catch (Exception e) {

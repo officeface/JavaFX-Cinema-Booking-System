@@ -13,10 +13,10 @@ public class Booking {
 
 	private int bookingID;
 	private Listing movie;
-	private List<Seat> seats;
+	private List<String> seats;
 	private Customer customer;
 
-	public Booking(int bookingID, Listing movie, List<Seat> seats, Customer customer) {
+	public Booking(int bookingID, Listing movie, List<String> seats, Customer customer) {
 		super();
 		this.bookingID = bookingID;
 		this.movie = movie;
@@ -42,11 +42,11 @@ public class Booking {
 		this.movie = movie;
 	}
 
-	public List<Seat> getSeats() {
+	public List<String> getSeats() {
 		return seats;
 	}
 
-	public void setSeats(List<Seat> seats) {
+	public void setSeats(List<String> seats) {
 		this.seats = seats;
 	}
 

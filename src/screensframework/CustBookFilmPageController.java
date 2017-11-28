@@ -3,6 +3,7 @@ package screensframework;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -54,12 +55,11 @@ public class CustBookFilmPageController implements Initializable, ControlledScre
 	@FXML
 	private ListView<String> seatSummary;
 	private ObservableList<String> seatList = FXCollections.observableArrayList(); // Container for selected seats
-	private HashSet<String> set = new HashSet<String>();
+	public HashSet<String> set = new HashSet<String>();
 
 	// Subtotal and continue
 	@FXML
 	private Label lblSubtotal;
-	
 
 	@FXML
 	private Button btnContinue;
@@ -116,12 +116,12 @@ public class CustBookFilmPageController implements Initializable, ControlledScre
 						}
 						// Reorder for attractiveness!
 						seatSummary.setItems(seatList);
-						lblSubtotal.setText("£" + 5*seatList.size() + ".00");
+						lblSubtotal.setText("£" + 5 * seatList.size() + ".00");
 
 					} else if (seats[I][J].equals("Temp")) {
 						btn.setStyle("-fx-base: #ffffff;");
 						seats[I][J] = "Free";
-						
+
 						// Set seat summary using HashSet:
 						seatSummary.getItems().clear();
 						set.remove(btn.getId());
@@ -130,8 +130,8 @@ public class CustBookFilmPageController implements Initializable, ControlledScre
 						}
 						// Reorder for attractiveness!
 						seatSummary.setItems(seatList);
-						lblSubtotal.setText("£" + 5*seatList.size() + ".00");
-						
+						lblSubtotal.setText("£" + 5 * seatList.size() + ".00");
+
 					}
 				});
 			}
@@ -170,7 +170,19 @@ public class CustBookFilmPageController implements Initializable, ControlledScre
 
 	@FXML
 	public void goToCustConfirmPage(ActionEvent event) {
-		myController.setScreen(ScreensFramework.custConfirmPageID);
+
+		if (seatList.size() > 0) { // Can only progress if seats have been selected
+			
+			List<String> custSeats = new ArrayList<String>();
+			for (String i : seatList) {
+				custSeats.add(i);
+			}
+			
+			CustHomeController.BOOKING.setSeats(custSeats);
+			
+			myController.loadScreen(ScreensFramework.custConfirmPageID, ScreensFramework.custConfirmPageFile);
+			myController.setScreen(ScreensFramework.custConfirmPageID);
+		}
 	}
 
 	public static String getDescription(String title) throws IOException {

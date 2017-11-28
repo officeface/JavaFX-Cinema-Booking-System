@@ -59,6 +59,9 @@ public class CustConfirmPageController implements Initializable, ControlledScree
 		this.lblTitle.setText(CustHomeController.BOOKING.getMovie().getTitle());
 		this.lblDate.setText(CustHomeController.BOOKING.getMovie().getDate());
 		this.lblTime.setText(CustHomeController.BOOKING.getMovie().getTime());
+		Integer numberOfSeats = (Integer)CustHomeController.BOOKING.getSeats().size();
+		this.lblNoOfSeats.setText(numberOfSeats.toString());
+		this.lblOverallPrice.setText("£" + 5*numberOfSeats + ".00");
 	}
 	
 	

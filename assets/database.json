@@ -63,11 +63,11 @@
 			"time": "19:00",
 			"title": "Star Wars: Episode V - The Empire Strikes Back",
 			"seats": {
-				"00": "Free",
+				"00": "002",
 				"44": "003",
-				"01": "001",
+				"01": "002",
 				"45": "Free",
-				"02": "Free",
+				"02": "002",
 				"46": "Free",
 				"03": "003",
 				"47": "005",
@@ -207,7 +207,7 @@
 				"46": "Free",
 				"03": "Free",
 				"47": "005",
-				"04": "Free",
+				"04": "002",
 				"48": "Free",
 				"05": "Free",
 				"49": "Free",
@@ -1501,7 +1501,15 @@
 			"surname": "Blob",
 			"type": "C",
 			"userID": "002",
-			"email": "cust"
+			"email": "cust",
+			"bookings": {
+				"01": { 
+					"01" : ["01", "02", "03"]
+				},
+				"02": {
+					"03" : ["04"]
+				}
+			}
 		},
 		{
 			"password": "mark",
@@ -1521,8 +1529,8 @@
 		},
 		{
 			"password": "example",
-			"firstname": "Emma",
-			"surname": "Cholwill",
+			"firstname": "Bob",
+			"surname": "Bobb",
 			"type": "C",
 			"userID": "005",
 			"email": "example@email"
