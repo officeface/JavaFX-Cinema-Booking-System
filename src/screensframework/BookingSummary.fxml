@@ -128,7 +128,7 @@
         </rowConstraints>
       </GridPane>
       <DatePicker fx:id="DatePickerSelector" layoutX="126.0" layoutY="137.0" onAction="#setFilmList" prefHeight="29.0" prefWidth="155.0" promptText="Pick date" />
-      <Label fx:id="lblScreentag" layoutX="357.0" layoutY="550.0" text="SCREEN">
+      <Label fx:id="lblScreentag" layoutX="223.0" layoutY="550.0" text="CINEMA SCREEN CURRENT SEATING">
          <font>
             <Font size="20.0" />
          </font>
