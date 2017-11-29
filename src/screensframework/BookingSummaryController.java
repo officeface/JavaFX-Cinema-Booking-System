@@ -187,6 +187,7 @@ public class BookingSummaryController implements Initializable, ControlledScreen
 					seatLayout.add(btn, j, i);
 					btn.setPrefSize(38, 28);
 					btn.setId(getSeatName(I, J));
+					
 
 					// Check if seat is available:
 					if (seats[i][j].equals("Free")) {
@@ -205,6 +206,7 @@ public class BookingSummaryController implements Initializable, ControlledScreen
 					
 			};
 			
+			//Setting the labels to their respective numbers  
 			lblBookedSeats.setText(bookedseatscounter.toString());
 			lblFreeSeats.setText(freeseatscounter.toString());
 			
