@@ -242,7 +242,7 @@ public class TextFileManager {
 		jsonArray.put(templist);
 
 		// // try-with-resources statement based on post comment below :)
-		try (FileWriter file = new FileWriter("./assets/database2.json")) {
+		try (FileWriter file = new FileWriter("./assets/database.json")) {
 			file.write(obj.toString());
 			System.out.println("Successfully Added JSON Object to File...");
 			System.out.println("\nJSON Object: " + obj);

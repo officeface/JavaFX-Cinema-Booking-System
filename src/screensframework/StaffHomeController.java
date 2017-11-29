@@ -76,6 +76,8 @@ public class StaffHomeController implements Initializable, ControlledScreen {
 	//go to export films
 	@FXML
     private void goToStaffExport(ActionEvent event){
+	   myController.unloadScreen(ScreensFramework.staffExportID);
+	   myController.loadScreen(ScreensFramework.staffExportID, ScreensFramework.staffExportFile);
        myController.setScreen(ScreensFramework.staffExportID);
     }
 	

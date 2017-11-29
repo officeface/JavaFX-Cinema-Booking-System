@@ -162,8 +162,11 @@ public class AddFilmPageController implements Initializable, ControlledScreen {
 		}
 	
 		
+		
 		@FXML
 	    private void goToAddListings(ActionEvent event){
+		   myController.unloadScreen(ScreensFramework.addFilmListingsID);
+		   myController.loadScreen(ScreensFramework.addFilmListingsID, ScreensFramework.addFilmListingsFile);
 	       myController.setScreen(ScreensFramework.addFilmListingsID);
 	    }
 		
