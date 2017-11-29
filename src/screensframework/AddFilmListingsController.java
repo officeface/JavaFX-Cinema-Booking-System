@@ -52,6 +52,19 @@ public class AddFilmListingsController implements Initializable, ControlledScree
 
 	@FXML
 	private Label lblFeedback;
+	
+	
+	//Toolbar variables
+	@FXML
+	private Button btnLogout;
+	
+	@FXML
+	private Button btnHome;
+	
+	@FXML
+	private Button btnGoToNewFilm;
+	
+	
 
 	/**
 	 * Initialises the controller class.
@@ -124,5 +137,43 @@ public class AddFilmListingsController implements Initializable, ControlledScree
 			this.lblFeedback.setText("Try again.");
 		}
 	}
+	
+	
+	
+	
+	
+	//Toolbar methods
+	
+	@FXML
+	public void goToStaffHome(ActionEvent event) {
+		myController.setScreen(ScreensFramework.staffHomeID);
+	}
+	
+	
+	@FXML
+    private void goToAddFilmPage(ActionEvent event){
+       myController.setScreen(ScreensFramework.addFilmPageID);
+    }
+	
+	
+	@FXML
+	public void goToLogin(ActionEvent event) {
+		// Unload screens:
+		myController.unloadScreen(ScreensFramework.loginID);
+		myController.unloadScreen(ScreensFramework.staffHomeID);
+		myController.unloadScreen(ScreensFramework.custHomeID);
+		myController.unloadScreen(ScreensFramework.custProfilePageID);
+		myController.unloadScreen(ScreensFramework.custBookFilmPageID);
+		myController.unloadScreen(ScreensFramework.custConfirmPageID);
+		myController.unloadScreen(ScreensFramework.staffExportID);
+		myController.unloadScreen(ScreensFramework.bookingSummaryID);
+		myController.unloadScreen(ScreensFramework.addFilmPageID);
+		myController.unloadScreen(ScreensFramework.addFilmListingsID);
+		myController.unloadScreen(ScreensFramework.staffChoiceID);
+
+		myController.loadScreen(ScreensFramework.loginID, ScreensFramework.loginFile);
+		myController.setScreen(ScreensFramework.loginID);
+	}
+	
 
 }

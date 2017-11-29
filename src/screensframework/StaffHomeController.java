@@ -24,6 +24,15 @@ public class StaffHomeController implements Initializable, ControlledScreen {
     @FXML
     private Button btnExportFilms; //go to EXPORT FILMS
     
+    //INITILISE TOOLBAR BUTTONS
+    @FXML 
+    private Button btnLogout; 
+    
+    @FXML
+    private Button btnMyProfile;
+    
+    @FXML
+    private Button btnHome; //not in use as in the home page already
     
     
     
@@ -69,6 +78,28 @@ public class StaffHomeController implements Initializable, ControlledScreen {
     private void goToStaffExport(ActionEvent event){
        myController.setScreen(ScreensFramework.staffExportID);
     }
+	
+	
+	//TOOLBAR ACTIONS
+	
+	@FXML
+	public void goToLogin(ActionEvent event) {
+		// Unload screens:
+		myController.unloadScreen(ScreensFramework.loginID);
+		myController.unloadScreen(ScreensFramework.staffHomeID);
+		myController.unloadScreen(ScreensFramework.custHomeID);
+		myController.unloadScreen(ScreensFramework.custProfilePageID);
+		myController.unloadScreen(ScreensFramework.custBookFilmPageID);
+		myController.unloadScreen(ScreensFramework.custConfirmPageID);
+		myController.unloadScreen(ScreensFramework.staffExportID);
+		myController.unloadScreen(ScreensFramework.bookingSummaryID);
+		myController.unloadScreen(ScreensFramework.addFilmPageID);
+		myController.unloadScreen(ScreensFramework.addFilmListingsID);
+		myController.unloadScreen(ScreensFramework.staffChoiceID);
+
+		myController.loadScreen(ScreensFramework.loginID, ScreensFramework.loginFile);
+		myController.setScreen(ScreensFramework.loginID);
+	}
 
 		
 	

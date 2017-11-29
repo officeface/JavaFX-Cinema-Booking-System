@@ -3,6 +3,7 @@ package screensframework;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -50,6 +51,20 @@ public class BookingSummaryController implements Initializable, ControlledScreen
     
     
     
+    
+    
+    
+  //Toolbar variables
+  		@FXML
+  		private Button btnLogout;
+  		
+  		@FXML
+  		private Button btnHome;
+  		
+  		@FXML
+  		private Button btnGoToExport;
+    
+    
     /**
 	 * Initialises the controller class.
 	 */
@@ -62,4 +77,45 @@ public class BookingSummaryController implements Initializable, ControlledScreen
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
 	}
+	
+	
+	
+	
+	//Toolbar methods
+	
+			@FXML
+			public void goToStaffHome(ActionEvent event) {
+				myController.setScreen(ScreensFramework.staffHomeID);
+			}
+			
+			@FXML
+			public void goToLogin(ActionEvent event) {
+				// Unload screens:
+				myController.unloadScreen(ScreensFramework.loginID);
+				myController.unloadScreen(ScreensFramework.staffHomeID);
+				myController.unloadScreen(ScreensFramework.custHomeID);
+				myController.unloadScreen(ScreensFramework.custProfilePageID);
+				myController.unloadScreen(ScreensFramework.custBookFilmPageID);
+				myController.unloadScreen(ScreensFramework.custConfirmPageID);
+				myController.unloadScreen(ScreensFramework.staffExportID);
+				myController.unloadScreen(ScreensFramework.bookingSummaryID);
+				myController.unloadScreen(ScreensFramework.addFilmPageID);
+				myController.unloadScreen(ScreensFramework.addFilmListingsID);
+				myController.unloadScreen(ScreensFramework.staffChoiceID);
+
+				myController.loadScreen(ScreensFramework.loginID, ScreensFramework.loginFile);
+				myController.setScreen(ScreensFramework.loginID);
+			}
+			
+			@FXML
+		    private void goToStaffExport(ActionEvent event){
+		       myController.setScreen(ScreensFramework.staffExportID);
+		    }
+	
+	
+	
+	
+	
+	
+	
 }
