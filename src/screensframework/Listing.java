@@ -91,7 +91,7 @@ public class Listing {
 
 		for (int i = 0; i < filmTimes.size(); i++) {
 			if (filmTimes.get(i)[0].equals(showingID)) {
-				return filmTimes.get(i)[2] + ", " + filmTimes.get(i)[3];
+				return filmTimes.get(i)[2] + " " + filmTimes.get(i)[3];
 			}
 		}
 		return null;

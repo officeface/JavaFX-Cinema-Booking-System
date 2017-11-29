@@ -218,6 +218,7 @@ public class CustBookFilmPageController implements Initializable, ControlledScre
 	 *            Row index
 	 * @return The node at the specified GridPane index
 	 */
+	@SuppressWarnings("unused")
 	private Node getNodeFromGridPane(GridPane gridPane, int col, int row) {
 		for (Node node : gridPane.getChildren()) {
 			if (GridPane.getColumnIndex(node) == col && GridPane.getRowIndex(node) == row) {

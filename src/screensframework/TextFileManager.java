@@ -205,6 +205,16 @@ public class TextFileManager {
 			System.out.println("\nJSON Object: " + obj);
 		}
 	}
+	
+	/**
+	 * Removes a specified booking from the User's history
+	 * @param user The User whose booking should be removed
+	 * @param listingID The ID for the listing to be removes
+	 */
+	public static void removeBooking(User user, String listingID) {
+		System.out.println("Fuck you " + user.getFirstName() + ", why would you get rid of booking " + listingID + "?");
+		
+	}
 
 	/**
 	 * 
