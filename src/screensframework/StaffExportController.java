@@ -3,6 +3,9 @@ package screensframework;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -94,9 +97,16 @@ public class StaffExportController implements Initializable, ControlledScreen {
 	public void getDatabaseToCSV(ActionEvent event) throws IOException {
 		
 		JSONObject obj = JSONUtils.getJSONObjectFromFile(TextFileManager.database);
+		
+		//Creating a new csv file with FilmList from database at the start
 		String x = (CDL.toString(new JSONArray(obj.get("FilmList").toString())));
-		FileUtils.writeStringToFile(new File("testofexport1.txt"), x, "UTF-8");	
-				
+		FileUtils.writeStringToFile(new File("testofexport1.text"), x, "UTF-8");	
+		
+		//Appending FilmTimes to the file
+		String y = (CDL.toString(new JSONArray(obj.get("FilmTimes").toString())));
+		Files.write(Paths.get("testofexport1.text"), y.getBytes(), StandardOpenOption.APPEND);
+
+		
 		System.out.println("Database has been exported!");
 		
 	}
