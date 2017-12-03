@@ -1,9 +1,16 @@
 package screensframework;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+
+import org.apache.commons.io.FileUtils;
+import org.json.CDL;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -67,18 +74,40 @@ public class StaffExportController implements Initializable, ControlledScreen {
 		filmdropdown.setItems(filmNames);
     }
     		
-    		
-    		
-		
-    
-
-    
     
 
 	@Override
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
 	}
+	
+
+	
+	//Export specific film
+	
+	
+	
+	
+	//Export all films -> save to a csv file
+	
+	@FXML
+	public void getDatabaseToCSV(ActionEvent event) throws IOException {
+		
+		JSONObject obj = JSONUtils.getJSONObjectFromFile(TextFileManager.database);
+		String x = (CDL.toString(new JSONArray(obj.get("FilmList").toString())));
+		FileUtils.writeStringToFile(new File("testofexport1.txt"), x, "UTF-8");	
+				
+		System.out.println("Database has been exported!");
+		
+	}
+	
+	
+	     
+	
+	
+	
+	
+	
 	
 	
 	
