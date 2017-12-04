@@ -6,6 +6,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import org.json.JSONObject;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -187,6 +189,10 @@ public class BookingSummaryController implements Initializable, ControlledScreen
 					seatLayout.add(btn, j, i);
 					btn.setPrefSize(38, 28);
 					btn.setId(getSeatName(I, J));
+					
+					//Seats labels
+					String seatlabel = I.toString() + J.toString();
+					btn.setText(seatlabel);
 					
 
 					// Check if seat is available:
