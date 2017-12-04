@@ -31,6 +31,8 @@ public class StaffExportController implements Initializable, ControlledScreen {
     @FXML
     private ComboBox<String> filmdropdown; //Lists of films to export
 	private ObservableList<String> filmNames = FXCollections.observableArrayList(); // Container for film titles
+	private String selectedfilmforexport; // Holds selected Film for export
+
 
 
     
@@ -88,6 +90,86 @@ public class StaffExportController implements Initializable, ControlledScreen {
 
 	
 	//Export specific film
+	@FXML
+	public void getSelectedFilmDetailsToCSV(ActionEvent event) throws IOException {
+		
+		//Getting specific film name to export to csv
+		this.selectedfilmforexport = filmdropdown.getValue();
+		JSONObject objSF = JSONUtils.getJSONObjectFromFile(TextFileManager.database);
+		
+		//New json array to hold title,free and bookseats info
+				JSONObject objSF2 = new JSONObject();
+				JSONArray seatsarrySF = new JSONArray();
+				JSONObject itemSF = new JSONObject();
+				itemSF.put("title", "");
+				itemSF.put("FreeSeats", "");
+				itemSF.put("BookedSeats", "");
+				itemSF.put("date", "");
+				itemSF.put("time", "");
+				seatsarrySF.put(itemSF);
+				objSF2.put("SelectedFilmInfo", seatsarrySF);
+		
+		
+		
+		
+		JSONArray jsonArraySF = objSF.getJSONArray("FilmTimes");
+		for (int z = 0; z < jsonArraySF.length(); z++) {
+			if (jsonArraySF.getJSONObject(z).getString("title").equals(this.selectedfilmforexport)){
+				
+				//Get selected title
+				String[] temptitleArraySF = new String[1];
+				temptitleArraySF[0] = jsonArraySF.getJSONObject(z).getString("title");
+				
+				//Get date
+				String[] tempdateArraySF = new String[1];
+				tempdateArraySF[0] = jsonArraySF.getJSONObject(z).getString("date");
+				
+				
+				//Get time
+				String[] temptimeArraySF = new String[1];
+				temptimeArraySF[0] = jsonArraySF.getJSONObject(z).getString("time");
+				
+				//Getting seats values for each title
+				String title = temptitleArraySF[0];
+				Integer getseatinfoSF = z + 1;
+				String[][] seats = TextFileManager.getSeatInformation(getseatinfoSF.toString());
+				Integer bookedseatscounterSF = 0;
+				Integer freeseatscounterSF = 0;
+					// Generate the seats according to the listing information:
+					for (int i = 0; i < 6; i++) {
+						for (int j = 0; j < 10; j++) {
+							// Check if seat is available:
+							if (seats[i][j].equals("Free")) {
+								freeseatscounterSF = freeseatscounterSF + 1;
+							} else {
+								bookedseatscounterSF = bookedseatscounterSF + 1;
+							}
+						}
+					};
+				//Setting the labels to their respective numbers  
+				String bscSF = bookedseatscounterSF.toString();
+				String fscSF = freeseatscounterSF.toString();
+				
+				JSONObject templistSF = new JSONObject();
+				templistSF.put("title", temptitleArraySF[0]);
+				templistSF.put("FreeSeats", fscSF);
+				templistSF.put("BookedSeats", bscSF);
+				templistSF.put("date", tempdateArraySF[0]);
+				templistSF.put("time", temptimeArraySF[0]);
+				seatsarrySF.put(templistSF);
+			
+			}//End of conditional statement
+		
+		}//End of loop 
+		
+		String o = (CDL.toString(new JSONArray(objSF2.get("SelectedFilmInfo").toString())));
+		FileUtils.writeStringToFile(new File("testofselectedfilmexport1.text"), o, "UTF-8");
+		System.out.println(this.selectedfilmforexport + " information has been exported!");
+		
+	}//End of method
+	
+	
+	
 	
 	
 	
@@ -109,7 +191,6 @@ public class StaffExportController implements Initializable, ControlledScreen {
 		//New json array to hold title,free and bookseats info
 		JSONObject obj2 = new JSONObject();
 		JSONArray seatsarry = new JSONArray();
-		
 		JSONObject item = new JSONObject();
 		item.put("title", "");
 		item.put("FreeSeats", "");
@@ -117,7 +198,6 @@ public class StaffExportController implements Initializable, ControlledScreen {
 		item.put("date", "");
 		item.put("time", "");
 		seatsarry.put(item);
-
 		obj2.put("SeatsInfo", seatsarry);
 
 		
