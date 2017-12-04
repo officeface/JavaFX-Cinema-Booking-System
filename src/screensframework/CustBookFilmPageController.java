@@ -95,6 +95,10 @@ public class CustBookFilmPageController implements Initializable, ControlledScre
 				seatLayout.add(btn, j, i);
 				btn.setPrefSize(38, 28);
 				btn.setId(getSeatName(I, J));
+				
+				//Seats labels
+				String seatlabel = I.toString() + J.toString();
+				btn.setText(seatlabel);
 
 				// Check if seat is available:
 				if (seats[i][j].equals("Free")) {
