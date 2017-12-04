@@ -6,6 +6,9 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -125,8 +128,16 @@ public class AddFilmListingsController implements Initializable, ControlledScree
 	private void addfilmListing(ActionEvent event) throws IOException {
 
 		if (btnAddListings.isArmed()) {
-
-			Listing newlisting = new Listing("99", this.selectedfilmforlisting, this.selecteddateforlisting,
+			
+			
+			//New seating ID
+			JSONObject obj = JSONUtils.getJSONObjectFromFile(TextFileManager.database);
+			JSONArray jsonArray = obj.getJSONArray("FilmTimes");
+			int filmtimeslength = jsonArray.length();
+			Integer newshowingIDnumber = filmtimeslength + 1; 
+			String newshowingID = newshowingIDnumber.toString();
+			
+			Listing newlisting = new Listing(newshowingID, this.selectedfilmforlisting, this.selecteddateforlisting,
 					this.selectedTimeforlisting, null);
 
 			TextFileManager.addFilmListings(newlisting); // Update film listing
