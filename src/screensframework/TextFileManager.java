@@ -23,6 +23,9 @@ public class TextFileManager {
 	private List<String[]> loginDetails;
 	private List<String[]> filmList;
 	private List<String[]> filmTimes;
+	// static String filePath = new File("").getAbsolutePath();
+	// static File database = new File(filePath +
+	// "/CinemaBookingSystem/assets/database.json");
 	static File database = new File("./assets/database.json");
 	static File database2 = new File("./assets/database2.json");
 
@@ -177,13 +180,14 @@ public class TextFileManager {
 		JSONArray seatInfo;
 		try {
 			seatInfo = new JSONArray();
-			
+
 			for (int i = 0; i < jsonArray.length(); i++) {
 				if (jsonArray.getJSONObject(i).getString("userID").equals(booking.getCustomer().getUserID())) {
-					seatInfo = jsonArray.getJSONObject(i).getJSONObject("bookings").getJSONArray(booking.getMovie().getShowingID());
+					seatInfo = jsonArray.getJSONObject(i).getJSONObject("bookings")
+							.getJSONArray(booking.getMovie().getShowingID());
 				}
 			}
-			
+
 		} catch (Exception e) {
 			seatInfo = new JSONArray();
 		}
@@ -205,15 +209,95 @@ public class TextFileManager {
 			System.out.println("\nJSON Object: " + obj);
 		}
 	}
-	
+
 	/**
 	 * Removes a specified booking from the User's history
-	 * @param user The User whose booking should be removed
-	 * @param listingID The ID for the listing to be removes
+	 * 
+	 * @param user
+	 *            The User whose booking should be removed
+	 * @param listingID
+	 *            The ID for the listing to be removes
+	 * @throws IOException
+	 * @throws JSONException
 	 */
-	public static void removeBooking(User user, String listingID) {
-		System.out.println("Fuck you " + user.getFirstName() + ", why would you get rid of booking " + listingID + "?");
+	public static void removeBooking(User user, String listingID) throws JSONException, IOException {
+		// Steps: remove listing from user's part of database
+		// Find steps inside listing part of database and reset them to "Free"
+
+		JSONObject obj = JSONUtils.getJSONObjectFromFile(TextFileManager.database);
+		JSONArray loginArray = obj.getJSONArray("LoginDetails");
+		JSONArray listingsArray = obj.getJSONArray("FilmTimes");
+		JSONObject listingToBeChanged = null;
+		JSONObject listingSeats = null; // Initialise
+		int indexOfListing = -1;
+
+		// Set listing seats:
+		for (int i = 0; i < listingsArray.length(); i++) {
+			if (listingsArray.getJSONObject(i).getString("showingID").equals(listingID)) {
+				listingToBeChanged = listingsArray.getJSONObject(i);
+				listingSeats = listingToBeChanged.getJSONObject("seats");
+				indexOfListing = i;
+			}
+		}
+
+		// Find user's seats for the booking to be deleted:
+		for (int i = 0; i < loginArray.length(); i++) {
+
+			JSONObject JSONUser = loginArray.getJSONObject(i);
+			if (JSONUser.getString("userID").equals(user.getUserID())) { // Find the user in the database
+
+				// Convert the User's seats for this listing into array format:
+				JSONArray seats = JSONUser.getJSONObject("bookings").getJSONArray(listingID); // The seats in question
+
+				// Modify listing's seats by setting each of this user's seats to "Free":
+				for (int j = 0; j < seats.length(); j++) {
+					System.out.println(seatToCoordinate(seats.get(j).toString()));
+					String seatToChange = seatToCoordinate(seats.getString(j).toString());
+					listingSeats.put(seatToChange, "Free");
+
+				}
+
+				// Put this seat information back into the listings array:
+				listingToBeChanged.put("seats", listingSeats);
+				listingsArray.remove(indexOfListing);
+				listingsArray.put(listingToBeChanged);
+
+				// Delete user's seats for this listing:
+				JSONUser.getJSONObject("bookings").remove(listingID);
+
+			}
+		}
+
+		// Write object to database file
+		try (FileWriter file = new FileWriter("./assets/database.json")) {
+			file.write(obj.toString());
+			System.out.println("Successfully updated Booking History in File...");
+			System.out.println("\nJSON Object: " + obj);
+		}
+
+	}
+
+	/**
+	 * 
+	 * @param seat
+	 *            A String in the form "Seat A7"
+	 * @return The coordinates of a booking of the form "Seat A7". In this case the
+	 *         returned value would be "06", since Seat A7 is in row 0 and column 6.
+	 */
+	public static String seatToCoordinate(String seat) {
+		String coordinates = "";
+		char row;
+		String col;
+		Integer colAsNumber;
+
+		String letterNumberCombo = seat.split(" ")[1];
+		row = (char) (letterNumberCombo.charAt(0) - 17);
 		
+		colAsNumber = Integer.parseInt(letterNumberCombo.substring(1, letterNumberCombo.length())) - 1;
+		col = colAsNumber.toString();
+		
+
+		return ((Character) (row)).toString() + col;
 	}
 
 	/**
