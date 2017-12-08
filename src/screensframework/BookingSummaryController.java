@@ -172,11 +172,11 @@ public class BookingSummaryController implements Initializable, ControlledScreen
 				Integer I = (Integer) i;
 				Integer J = (Integer) j;
 				seatLayout.add(btn, j, i);
-				btn.setPrefSize(38, 28);
+				btn.setPrefSize(58, 28);
 				btn.setId(getSeatName(I, J));
 
 				// Seats labels
-				String seatLabel = I.toString() + J.toString();
+				String seatLabel = getSeatName(I, J);
 				btn.setText(seatLabel);
 
 				// Check if seat is available:
@@ -217,7 +217,7 @@ public class BookingSummaryController implements Initializable, ControlledScreen
 		Integer colShift = col + 1;
 		String colAnswer = colShift.toString();
 
-		return "Seat " + rowAnswer + colAnswer;
+		return rowAnswer + colAnswer;
 	}
 
 	// Toolbar methods
