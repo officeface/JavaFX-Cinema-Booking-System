@@ -26,72 +26,65 @@ import javafx.scene.layout.GridPane;
 
 public class BookingSummaryController implements Initializable, ControlledScreen {
 
-    ScreensController myController; 
-    
-    // 1) Variables to change the summary info below 
-    @FXML 
-    private ComboBox<String> comboListOfFilms; //Lists of films to find summary booking of
-    
-    @FXML
-    private ComboBox<String> comboTimeSelector; //Selected time of booking
-    
-    @FXML
-    private DatePicker DatePickerSelector; //Selected date of booking 
-    
-    @FXML
-    private Button btnScreenInfo; //Once form fill, pressing button will show the summary data
+	ScreensController myController;
 
-    // To store data from TextFileManager
-    private ObservableList<String> filmNames = FXCollections.observableArrayList(); // Container for film titles
+	// 1) Variables to change the summary info below
+	@FXML
+	private ComboBox<String> comboListOfFilms; // Lists of films to find summary booking of
+
+	@FXML
+	private ComboBox<String> comboTimeSelector; // Selected time of booking
+
+	@FXML
+	private DatePicker datePickerSelector; // Selected date of booking
+
+	@FXML
+	private Button btnScreenInfo; // Once form fill, pressing button will show the summary data
+
+	// To store data from TextFileManager
+	private ObservableList<String> filmNames = FXCollections.observableArrayList(); // Container for film titles
 	private ObservableList<String> timeList = FXCollections.observableArrayList(); // Container for film times
 	private DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy"); // Formatting dates
-    
-    
-    // 2) Displaying seat numbers
-    @FXML 
-    private Label lblBookedSeats; //Label describing the number of booked seats
-    
-    @FXML
-    private Label lblFreeSeats; //Label describing the number of free seats
-    
-    
-    // 3) VARIABLES INVOLVED IN THE GRAPHICAL REPRESENTATION OF THE SCREEN
-    
-    // Seating
- 	String[][] seats; 
-    
- 	@FXML
+
+	// 2) Displaying seat numbers
+	@FXML
+	private Label lblBookedSeats; // Label describing the number of booked seats
+
+	@FXML
+	private Label lblFreeSeats; // Label describing the number of free seats
+
+	// 3) VARIABLES INVOLVED IN THE GRAPHICAL REPRESENTATION OF THE SCREEN
+
+	// Seating
+	String[][] seats;
+
+	@FXML
 	private GridPane seatLayout;
-    
-    
-    
-  //Toolbar variables
-  		@FXML
-  		private Button btnLogout;
-  		
-  		@FXML
-  		private Button btnHome;
-  		
-  		@FXML
-  		private Button btnGoToExport;
-    
-    
-    /**
+
+	// Toolbar variables
+	@FXML
+	private Button btnLogout;
+
+	@FXML
+	private Button btnHome;
+
+	@FXML
+	private Button btnGoToExport;
+
+	/**
 	 * Initialises the controller class.
 	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		
+
 	}
+
 	@Override
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
 	}
-	
 
-	
-	
 	// Find current listings based on date -> METHODS @author: Mark
 	/**
 	 * 
@@ -100,14 +93,13 @@ public class BookingSummaryController implements Initializable, ControlledScreen
 	 */
 	public List<String> getFilmList() throws IOException {
 		try {
-			String date = dateTimeFormatter.format(DatePickerSelector.getValue());
+			String date = dateTimeFormatter.format(datePickerSelector.getValue());
 			return TextFileManager.filmsFilteredByDate(date);
 		} catch (IOException e) {
 			return null;
 		}
 	}
 
-	
 	/**
 	 * 
 	 * @return A list of times for a given date and film.
@@ -115,7 +107,7 @@ public class BookingSummaryController implements Initializable, ControlledScreen
 	 */
 	public List<String> getTimesList() throws IOException {
 		try {
-			String date = dateTimeFormatter.format(DatePickerSelector.getValue());
+			String date = dateTimeFormatter.format(datePickerSelector.getValue());
 			String film = comboListOfFilms.getValue();
 			return TextFileManager.timesFilteredByDateAndFilm(date, film);
 		} catch (IOException e) {
@@ -123,10 +115,9 @@ public class BookingSummaryController implements Initializable, ControlledScreen
 		}
 	}
 
-	
 	/**
 	 * Sets the films list after a date has been selected. Films are those that will
-
+	 * 
 	 * be showing on the specified date.
 	 * 
 	 * @param event
@@ -147,7 +138,6 @@ public class BookingSummaryController implements Initializable, ControlledScreen
 			e.printStackTrace();
 		}
 	}
-	
 
 	@FXML
 	private void setTimesList(ActionEvent event) throws IOException {
@@ -163,63 +153,56 @@ public class BookingSummaryController implements Initializable, ControlledScreen
 			e.printStackTrace();
 		}
 	}
-	
-	
-	
-	//WHEN SCREEN INFO BUTTON PRESSED - BOOKING SUMMARY UPDATED BELOW 
+
+	// WHEN SCREEN INFO BUTTON PRESSED - BOOKING SUMMARY UPDATED BELOW
 	@FXML
 	public void getScreenInfo(ActionEvent event) throws IOException {
-		
-			String title = this.comboListOfFilms.getValue();
-			String date = dateTimeFormatter.format(DatePickerSelector.getValue());
-			String time = this.comboTimeSelector.getValue();
-			String listingID = Listing.findShowingID(title, date, time);
-			String[][] seats = TextFileManager.getSeatInformation(listingID);
-			
-			Integer bookedseatscounter = 0;
-			Integer freeseatscounter = 0;
-		
-			
-			// Generate the seats according to the listing information:
-			for (int i = 0; i < 6; i++) {
-				for (int j = 0; j < 10; j++) {
-					Button btn = new Button();
-					Integer I = (Integer) i;
-					Integer J = (Integer) j;
-					seatLayout.add(btn, j, i);
-					btn.setPrefSize(38, 28);
-					btn.setId(getSeatName(I, J));
-					
-					//Seats labels
-					String seatlabel = I.toString() + J.toString();
-					btn.setText(seatlabel);
-					
 
-					// Check if seat is available:
-					if (seats[i][j].equals("Free")) {
-						btn.setStyle("-fx-base: lightgreen;");
-						freeseatscounter = freeseatscounter + 1;
-						
-					} else {
-						btn.setStyle("-fx-base: lightpink;");
-						bookedseatscounter = bookedseatscounter + 1;
-						
-					}
+		String title = this.comboListOfFilms.getValue();
+		String date = dateTimeFormatter.format(datePickerSelector.getValue());
+		String time = this.comboTimeSelector.getValue();
+		String listingID = Listing.findShowingID(title, date, time);
+		String[][] seats = TextFileManager.getSeatInformation(listingID);
 
-					
-					
+		Integer bookedSeatsCounter = 0;
+		Integer freeSeatsCounter = 0;
+
+		// Generate the seats according to the listing information:
+		for (int i = 0; i < 6; i++) {
+			for (int j = 0; j < 10; j++) {
+				Button btn = new Button();
+				Integer I = (Integer) i;
+				Integer J = (Integer) j;
+				seatLayout.add(btn, j, i);
+				btn.setPrefSize(38, 28);
+				btn.setId(getSeatName(I, J));
+
+				// Seats labels
+				String seatLabel = I.toString() + J.toString();
+				btn.setText(seatLabel);
+
+				// Check if seat is available:
+				if (seats[i][j].equals("Free")) {
+					btn.setStyle("-fx-base: lightgreen;");
+					freeSeatsCounter = freeSeatsCounter + 1;
+
+				} else {
+					btn.setStyle("-fx-base: lightpink;");
+					bookedSeatsCounter = bookedSeatsCounter + 1;
+
 				}
-					
-			};
-			
-			//Setting the labels to their respective numbers  
-			lblBookedSeats.setText(bookedseatscounter.toString());
-			lblFreeSeats.setText(freeseatscounter.toString());
-			
+
+			}
+
 		}
-			
-	
-	
+		;
+
+		// Setting the labels to their respective numbers
+		lblBookedSeats.setText(bookedSeatsCounter.toString());
+		lblFreeSeats.setText(freeSeatsCounter.toString());
+
+	}
+
 	/**
 	 * 
 	 * @param row
@@ -238,15 +221,14 @@ public class BookingSummaryController implements Initializable, ControlledScreen
 
 		return "Seat " + rowAnswer + colAnswer;
 	}
-	
 
-	//Toolbar methods
-	
+	// Toolbar methods
+
 	@FXML
 	public void goToStaffHome(ActionEvent event) {
 		myController.setScreen(ScreensFramework.staffHomeID);
 	}
-	
+
 	@FXML
 	public void goToLogin(ActionEvent event) {
 		// Unload screens:
@@ -265,11 +247,10 @@ public class BookingSummaryController implements Initializable, ControlledScreen
 		myController.loadScreen(ScreensFramework.loginID, ScreensFramework.loginFile);
 		myController.setScreen(ScreensFramework.loginID);
 	}
-	
-	@FXML
-    private void goToStaffExport(ActionEvent event){
-       myController.setScreen(ScreensFramework.staffExportID);
-    }
 
-	
+	@FXML
+	private void goToStaffExport(ActionEvent event) {
+		myController.setScreen(ScreensFramework.staffExportID);
+	}
+
 }
