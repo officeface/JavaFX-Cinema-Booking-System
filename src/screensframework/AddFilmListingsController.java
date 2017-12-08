@@ -55,19 +55,16 @@ public class AddFilmListingsController implements Initializable, ControlledScree
 
 	@FXML
 	private Label lblFeedback;
-	
-	
-	//Toolbar variables
+
+	// Toolbar variables
 	@FXML
 	private Button btnLogout;
-	
+
 	@FXML
 	private Button btnHome;
-	
+
 	@FXML
 	private Button btnGoToNewFilm;
-	
-	
 
 	/**
 	 * Initialises the controller class.
@@ -127,16 +124,15 @@ public class AddFilmListingsController implements Initializable, ControlledScree
 	@FXML
 	private void addfilmListing(ActionEvent event) throws IOException {
 
-		if (5 < 4) {
-			
-			
-			//New seating ID
+		if (readyToSelect() && showingTimeIsFree(this.selecteddateforlisting, this.selectedTimeforlisting)) {
+
+			// New seating ID
 			JSONObject obj = JSONUtils.getJSONObjectFromFile(TextFileManager.database);
 			JSONArray jsonArray = obj.getJSONArray("FilmTimes");
 			int filmtimeslength = jsonArray.length();
-			Integer newshowingIDnumber = filmtimeslength + 1; 
+			Integer newshowingIDnumber = filmtimeslength + 1;
 			String newshowingID = newshowingIDnumber.toString();
-			
+
 			Listing newlisting = new Listing(newshowingID, this.selectedfilmforlisting, this.selecteddateforlisting,
 					this.selectedTimeforlisting, null);
 
@@ -144,29 +140,72 @@ public class AddFilmListingsController implements Initializable, ControlledScree
 															// in database
 
 			this.lblFeedback.setText("Added Film Listing!");
+		} else if (!readyToSelect()) {
+
+			this.lblFeedback.setText("No fields should be empty!");
 		} else {
-			this.lblFeedback.setText("Try again.");
+			this.lblFeedback.setText("A film is already playing at this time!");
 		}
 	}
-	
-	
-	
-	
-	
-	//Toolbar methods
-	
+
+	/**
+	 * 
+	 * @param date
+	 *            Selected date for new showing
+	 * @param time
+	 *            Selected time for new showing
+	 * @return True if there is no showing in the database for the selected date and
+	 *         time. False if there is currently a showing at the selected date and
+	 *         time.
+	 * @throws IOException
+	 *             If the database file cannot be found
+	 */
+	public boolean showingTimeIsFree(String date, String time) throws IOException {
+		TextFileManager fileManager = new TextFileManager();
+		List<String[]> filmTimes = fileManager.getFilmTimes();
+
+		for (int i = 0; i < filmTimes.size(); i++) {
+			if (filmTimes.get(i)[2].equals(date) && filmTimes.get(i)[3].equals(time)) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	/**
+	 * 
+	 * @return True if something has been selected in each of the "Select film",
+	 *         "Select date" and "Select time" of showing. Will return false if any
+	 *         one of these has been left empty.
+	 */
+	public boolean readyToSelect() {
+
+		try {
+			if (!comboSelectFilm.getValue().equals(null) && !listingsDatepicker.getValue().toString().equals(null)
+					&& !comboChooseTime.getValue().equals(null)) {
+				return true;
+			} else {
+				return false;
+			}
+
+		} catch (Exception e) {
+			System.out.println(e);
+			return false;
+		}
+	}
+
+	// Toolbar methods
+
 	@FXML
 	public void goToStaffHome(ActionEvent event) {
 		myController.setScreen(ScreensFramework.staffHomeID);
 	}
-	
-	
+
 	@FXML
-    private void goToAddFilmPage(ActionEvent event){
-       myController.setScreen(ScreensFramework.addFilmPageID);
-    }
-	
-	
+	private void goToAddFilmPage(ActionEvent event) {
+		myController.setScreen(ScreensFramework.addFilmPageID);
+	}
+
 	@FXML
 	public void goToLogin(ActionEvent event) {
 		// Unload screens:
@@ -185,6 +224,5 @@ public class AddFilmListingsController implements Initializable, ControlledScree
 		myController.loadScreen(ScreensFramework.loginID, ScreensFramework.loginFile);
 		myController.setScreen(ScreensFramework.loginID);
 	}
-	
 
 }

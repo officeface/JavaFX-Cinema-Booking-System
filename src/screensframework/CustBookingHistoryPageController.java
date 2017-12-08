@@ -138,7 +138,6 @@ public class CustBookingHistoryPageController extends ToolbarController implemen
 	public void goToLogin(ActionEvent event) {
 
 		// Unload screens:
-		System.out.println("Poop");
 		myController.unloadScreen(ScreensFramework.loginID);
 		myController.unloadScreen(ScreensFramework.staffHomeID);
 		myController.unloadScreen(ScreensFramework.custHomeID);
