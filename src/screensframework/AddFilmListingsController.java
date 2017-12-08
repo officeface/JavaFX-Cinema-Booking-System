@@ -127,7 +127,7 @@ public class AddFilmListingsController implements Initializable, ControlledScree
 	@FXML
 	private void addfilmListing(ActionEvent event) throws IOException {
 
-		if (btnAddListings.isArmed()) {
+		if (5 < 4) {
 			
 			
 			//New seating ID

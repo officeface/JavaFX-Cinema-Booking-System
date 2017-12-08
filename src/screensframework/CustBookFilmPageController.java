@@ -93,12 +93,12 @@ public class CustBookFilmPageController implements Initializable, ControlledScre
 				Integer I = (Integer) i;
 				Integer J = (Integer) j;
 				seatLayout.add(btn, j, i);
-				btn.setPrefSize(38, 28);
-				btn.setId(getSeatName(I, J));
+				btn.setPrefSize(50, 28);
+				btn.setId("Seat " + getSeatName(I, J));
 				
 				//Seats labels
-				String seatlabel = I.toString() + J.toString();
-				btn.setText(seatlabel);
+				btn.setText(getSeatName(I, J));
+				
 
 				// Check if seat is available:
 				if (seats[i][j].equals("Free")) {
@@ -162,7 +162,7 @@ public class CustBookFilmPageController implements Initializable, ControlledScre
 		Integer colShift = col + 1;
 		String colAnswer = colShift.toString();
 
-		return "Seat " + rowAnswer + colAnswer;
+		return rowAnswer + colAnswer;
 	}
 
 	@FXML

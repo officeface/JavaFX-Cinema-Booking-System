@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="screensframework.CustBookFilmPageController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="screensframework.CustBookFilmPageController">
    <children>
       <ImageView fx:id="imgShowFilmImage" fitHeight="225.0" fitWidth="293.0" layoutX="495.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -44,17 +44,17 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lblFilmSelected" layoutX="78.0" layoutY="66.0" text="##">
+      <Label fx:id="lblFilmSelected" layoutX="78.0" layoutY="66.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lblDateSelected" layoutX="81.0" layoutY="101.0" text="##">
+      <Label fx:id="lblDateSelected" layoutX="81.0" layoutY="101.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lblTimeSelected" layoutX="310.0" layoutY="103.0" text="##">
+      <Label fx:id="lblTimeSelected" layoutX="310.0" layoutY="103.0">
          <font>
             <Font size="18.0" />
          </font>
@@ -65,7 +65,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="658.0" layoutY="270.0" prefHeight="23.0" prefWidth="68.0" text="Summary">
+      <Label layoutX="578.0" layoutY="271.0" prefHeight="27.0" prefWidth="126.0" text="Summary">
          <font>
             <Font size="18.0" />
          </font>
@@ -80,7 +80,7 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="lblSubtotal" layoutX="474.0" layoutY="544.0" text="##">
+      <Label fx:id="lblSubtotal" layoutX="474.0" layoutY="544.0">
          <font>
             <Font size="20.0" />
          </font>
@@ -92,16 +92,16 @@
       </Button>
       <GridPane fx:id="seatLayout" layoutX="39.0" layoutY="313.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="40.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="40.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="40.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="40.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="40.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="40.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="40.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="40.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="40.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="40.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="45.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="45.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="45.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="45.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="45.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="45.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="45.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="45.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="45.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="50.0" />
         </columnConstraints>
         <rowConstraints>
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
