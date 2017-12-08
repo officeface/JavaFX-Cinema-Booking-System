@@ -6,14 +6,12 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
 import org.apache.commons.io.FileUtils;
 import org.json.CDL;
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import javafx.collections.FXCollections;
@@ -129,8 +127,6 @@ public class StaffExportController implements Initializable, ControlledScreen {
 				String[] temptimeArraySF = new String[1];
 				temptimeArraySF[0] = jsonArraySF.getJSONObject(z).getString("time");
 				
-				//Getting seats values for each title
-				String title = temptitleArraySF[0];
 				Integer getseatinfoSF = z + 1;
 				String[][] seats = TextFileManager.getSeatInformation(getseatinfoSF.toString());
 				Integer bookedseatscounterSF = 0;
@@ -220,7 +216,6 @@ public class StaffExportController implements Initializable, ControlledScreen {
 			temptimeArray[0] = jsonArray.getJSONObject(z).getString("time");
 		
 			//Getting seats values for each title
-			String title = temptitleArray[0];
 			Integer getseatinfo = z + 1;
 			String[][] seats = TextFileManager.getSeatInformation(getseatinfo.toString());
 			Integer bookedseatscounter = 0;
