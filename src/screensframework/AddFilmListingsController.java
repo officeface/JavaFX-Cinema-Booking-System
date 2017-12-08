@@ -34,20 +34,20 @@ public class AddFilmListingsController implements Initializable, ControlledScree
 																					// for
 																					// film
 																					// titles
-	private String selectedfilmforlisting; // Holds selected Film
+	private String selectedFilmForListing; // Holds selected Film
 
 	@FXML
 	private ComboBox<String> comboChooseTime; // Select appropriate times
-	private ObservableList<String> TimesAvailable = FXCollections.observableArrayList(); // Container
+	private ObservableList<String> timesAvailable = FXCollections.observableArrayList(); // Container
 																							// for
 																							// timings
-	private String selectedTimeforlisting;
+	private String selectedTimeForListing;
 
 	@FXML
-	private DatePicker listingsDatepicker; // Select a date
+	private DatePicker listingsDatePicker; // Select a date
 	private DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy"); // Formatting
 																								// dates
-	private String selecteddateforlisting;// Holds selected date
+	private String selectedDateForListing;// Holds selected date
 
 	@FXML
 	private Button btnAddListings; // Once form complete - press button to add
@@ -92,9 +92,9 @@ public class AddFilmListingsController implements Initializable, ControlledScree
 		}
 
 		for (int i = 0; i < timeList.length; i++) {
-			TimesAvailable.add(timeList[i]);
+			timesAvailable.add(timeList[i]);
 		}
-		comboChooseTime.setItems(TimesAvailable);
+		comboChooseTime.setItems(timesAvailable);
 
 	}
 
@@ -105,38 +105,38 @@ public class AddFilmListingsController implements Initializable, ControlledScree
 
 	@FXML
 	private void getSelectedFilm(ActionEvent event) throws IOException {
-		this.selectedfilmforlisting = comboSelectFilm.getValue();
-		System.out.println(selectedfilmforlisting);
+		this.selectedFilmForListing = comboSelectFilm.getValue();
+		System.out.println(selectedFilmForListing);
 	}
 
 	@FXML
 	private void getSelectedDate(ActionEvent event) throws IOException {
-		this.selecteddateforlisting = dateTimeFormatter.format(listingsDatepicker.getValue());
-		System.out.println(selecteddateforlisting);
+		this.selectedDateForListing = dateTimeFormatter.format(listingsDatePicker.getValue());
+		System.out.println(selectedDateForListing);
 	}
 
 	@FXML
 	private void getSelectedTime(ActionEvent event) throws IOException {
-		this.selectedTimeforlisting = comboChooseTime.getValue();
-		System.out.println(selectedTimeforlisting);
+		this.selectedTimeForListing = comboChooseTime.getValue();
+		System.out.println(selectedTimeForListing);
 	}
 
 	@FXML
 	private void addfilmListing(ActionEvent event) throws IOException {
 
-		if (readyToSelect() && showingTimeIsFree(this.selecteddateforlisting, this.selectedTimeforlisting)) {
+		if (readyToSelect() && showingTimeIsFree(this.selectedDateForListing, this.selectedTimeForListing)) {
 
 			// New seating ID
 			JSONObject obj = JSONUtils.getJSONObjectFromFile(TextFileManager.database);
 			JSONArray jsonArray = obj.getJSONArray("FilmTimes");
-			int filmtimeslength = jsonArray.length();
-			Integer newshowingIDnumber = filmtimeslength + 1;
-			String newshowingID = newshowingIDnumber.toString();
+			int filmTimeslength = jsonArray.length();
+			Integer newShowingIDNumber = filmTimeslength + 1;
+			String newShowingID = newShowingIDNumber.toString();
 
-			Listing newlisting = new Listing(newshowingID, this.selectedfilmforlisting, this.selecteddateforlisting,
-					this.selectedTimeforlisting, null);
+			Listing newListing = new Listing(newShowingID, this.selectedFilmForListing, this.selectedDateForListing,
+					this.selectedTimeForListing, null);
 
-			TextFileManager.addFilmListings(newlisting); // Update film listing
+			TextFileManager.addFilmListings(newListing); // Update film listing
 															// in database
 
 			this.lblFeedback.setText("Added Film Listing!");
@@ -181,7 +181,7 @@ public class AddFilmListingsController implements Initializable, ControlledScree
 	public boolean readyToSelect() {
 
 		try {
-			if (!comboSelectFilm.getValue().equals(null) && !listingsDatepicker.getValue().toString().equals(null)
+			if (!comboSelectFilm.getValue().equals(null) && !listingsDatePicker.getValue().toString().equals(null)
 					&& !comboChooseTime.getValue().equals(null)) {
 				return true;
 			} else {

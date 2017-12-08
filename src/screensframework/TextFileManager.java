@@ -285,7 +285,6 @@ public class TextFileManager {
 	 *         returned value would be "06", since Seat A7 is in row 0 and column 6.
 	 */
 	public static String seatToCoordinate(String seat) {
-		String coordinates = "";
 		char row;
 		String col;
 		Integer colAsNumber;

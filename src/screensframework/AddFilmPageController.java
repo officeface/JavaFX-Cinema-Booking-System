@@ -33,25 +33,25 @@ public class AddFilmPageController implements Initializable, ControlledScreen {
 	ScreensController myController; 
     
 	@FXML
-	private TextField txtnamefilm; //Type in the name of new film 
+	private TextField txtNameFilm; //Type in the name of new film 
 	
 	@FXML
-	private Button btnselectimg; //Upload a new promotional image (png)
+	private Button btnSelectImg; //Upload a new promotional image (png)
 
 	@FXML
-	private TextArea txtareafilmdescription; //Type in description of the film 
+	private TextArea txtAreaFilmDescription; //Type in description of the film 
 	
 	@FXML
 	private Button btnAddFilm; //After form complete, when pressed adds to records
 	
 	@FXML
-	private Label lbladdfilmchecker; //Tells user if the updating is successful! 
+	private Label lblAddFilmChecker; //Tells user if the updating is successful! 
 	
 	@FXML
-	private ImageView ImgvfilmImage; //Image of the movie
+	private ImageView imgViewFilmImage; //Image of the movie
 	
 	
-	private String imagepathway;
+	private String imagePathway;
 	
 	
 	//Toolbar variables
@@ -80,8 +80,8 @@ public class AddFilmPageController implements Initializable, ControlledScreen {
 	
 	
 	@FXML
-	private void uploadimg (ActionEvent event) throws IOException {
-		if (btnselectimg.isArmed()) {
+	private void uploadImg (ActionEvent event) throws IOException {
+		if (btnSelectImg.isArmed()) {
 			
 			
 			FileChooser fileChooser = new FileChooser();
@@ -98,35 +98,35 @@ public class AddFilmPageController implements Initializable, ControlledScreen {
 			try {
                 BufferedImage bufferedImage = ImageIO.read(file);
                 Image image = SwingFXUtils.toFXImage(bufferedImage, null);
-                ImgvfilmImage.setImage(image);
+                imgViewFilmImage.setImage(image);
                 
-                String imagepathway = file.getAbsolutePath(); //Retuns the pathway of an image that has been selected
-                this.imagepathway = imagepathway;
+                String imagePathway = file.getAbsolutePath(); //Retuns the pathway of an image that has been selected
+                this.imagePathway = imagePathway;
                 
                 
             } catch (IOException ex) {
                 System.out.println("Could not upload image");
             }
 			
-			this.lbladdfilmchecker.setText("Uploaded Image!");
+			this.lblAddFilmChecker.setText("Uploaded Image!");
 		
 		} else {
-			this.lbladdfilmchecker.setText("Try again!");
+			this.lblAddFilmChecker.setText("Try again!");
 		}
 	}
 	
 	
 	@FXML
-	private void addfilm (ActionEvent event) throws JSONException, IOException {
-		if (!this.txtnamefilm.getText().isEmpty() && !this.txtareafilmdescription.getText().isEmpty()) {
+	private void addFilm (ActionEvent event) throws JSONException, IOException {
+		if (!this.txtNameFilm.getText().isEmpty() && !this.txtAreaFilmDescription.getText().isEmpty()) {
 			
 		
-			Movie newmovie = new Movie(this.txtnamefilm.getText(), imagepathway , this.txtareafilmdescription.getText());
-			TextFileManager.addFilmDetails(newmovie); // Update information in database
+			Movie newMovie = new Movie(this.txtNameFilm.getText(), imagePathway , this.txtAreaFilmDescription.getText());
+			TextFileManager.addFilmDetails(newMovie); // Update information in database
 			
-			this.lbladdfilmchecker.setText("Added Film!");
+			this.lblAddFilmChecker.setText("Added Film!");
 		} else {
-			this.lbladdfilmchecker.setText("Field missing! Try again.");
+			this.lblAddFilmChecker.setText("Field missing! Try again.");
 		}
 	}
 	

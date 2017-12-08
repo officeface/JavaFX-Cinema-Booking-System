@@ -1,19 +1,23 @@
 package screensframework;
 
+import java.awt.Component;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 import org.apache.commons.io.FileUtils;
 import org.json.CDL;
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import javafx.collections.FXCollections;
@@ -23,6 +27,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.stage.FileChooser;
+import javafx.stage.Window;
 
 public class StaffExportController implements Initializable, ControlledScreen {
 
@@ -129,8 +135,6 @@ public class StaffExportController implements Initializable, ControlledScreen {
 				String[] temptimeArraySF = new String[1];
 				temptimeArraySF[0] = jsonArraySF.getJSONObject(z).getString("time");
 				
-				//Getting seats values for each title
-				String title = temptitleArraySF[0];
 				Integer getseatinfoSF = z + 1;
 				String[][] seats = TextFileManager.getSeatInformation(getseatinfoSF.toString());
 				Integer bookedseatscounterSF = 0;
@@ -163,7 +167,7 @@ public class StaffExportController implements Initializable, ControlledScreen {
 		}//End of loop 
 		
 		String o = (CDL.toString(new JSONArray(objSF2.get("SelectedFilmInfo").toString())));
-		FileUtils.writeStringToFile(new File("testofselectedfilmexport1.text"), o, "UTF-8");
+		FileUtils.writeStringToFile(new File(this.selectedfilmforexport + " DataExport.text"), o, "UTF-8");
 		System.out.println(this.selectedfilmforexport + " information has been exported!");
 		
 	}//End of method
@@ -181,11 +185,11 @@ public class StaffExportController implements Initializable, ControlledScreen {
 		
 		JSONObject obj = JSONUtils.getJSONObjectFromFile(TextFileManager.database);
 		//Creating a new csv file with FilmList from database at the start
-		String x = (CDL.toString(new JSONArray(obj.get("FilmList").toString())));
-		FileUtils.writeStringToFile(new File("testofexport1.text"), x, "UTF-8");	
+		String x = (CDL.toString(new JSONArray(obj.get("FilmList").toString())));	
+		FileUtils.writeStringToFile(new File("FilmDataExported.text"), x, "UTF-8");	
 		//Appending FilmTimes to the file
 		String y = (CDL.toString(new JSONArray(obj.get("FilmTimes").toString())));
-		Files.write(Paths.get("testofexport1.text"), y.getBytes(), StandardOpenOption.APPEND);
+		Files.write(Paths.get("FilmDataExported.text"), y.getBytes(), StandardOpenOption.APPEND);
 
 	
 		//New json array to hold title,free and bookseats info
@@ -220,7 +224,6 @@ public class StaffExportController implements Initializable, ControlledScreen {
 			temptimeArray[0] = jsonArray.getJSONObject(z).getString("time");
 		
 			//Getting seats values for each title
-			String title = temptitleArray[0];
 			Integer getseatinfo = z + 1;
 			String[][] seats = TextFileManager.getSeatInformation(getseatinfo.toString());
 			Integer bookedseatscounter = 0;
@@ -251,11 +254,12 @@ public class StaffExportController implements Initializable, ControlledScreen {
 		}//End of loop
 	
 		String z = (CDL.toString(new JSONArray(obj2.get("SeatsInfo").toString())));
-		Files.write(Paths.get("testofexport1.text"), z.getBytes(), StandardOpenOption.APPEND);
+		Files.write(Paths.get("FilmDataExported.text"), z.getBytes(), StandardOpenOption.APPEND);
 		
 		System.out.println("Database has been exported!");
 		
 	}//End of overall method
+	
 	
 	
 	     
