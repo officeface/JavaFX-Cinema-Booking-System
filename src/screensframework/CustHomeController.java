@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -12,11 +13,14 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Accordion;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TitledPane;
+import javafx.scene.layout.HBox;
 
 /**
  * FXML Controller class
@@ -42,6 +46,9 @@ public class CustHomeController extends ToolbarController implements Initializab
 	@FXML
 	private DatePicker selectDate;
 
+	@FXML
+	private Accordion accWeeklyFilms;
+
 	ScreensController myController;
 
 	private ObservableList<String> filmNames = FXCollections.observableArrayList(); // Container for film titles
@@ -64,6 +71,64 @@ public class CustHomeController extends ToolbarController implements Initializab
 		day5Label.setText(dateTimeFormatter.format(LocalDate.now().plusDays(4)));
 		day6Label.setText(dateTimeFormatter.format(LocalDate.now().plusDays(5)));
 		day7Label.setText(dateTimeFormatter.format(LocalDate.now().plusDays(6)));
+
+		// Set the contents of the Accordion panes:
+		int i = 0; // To iterate through Dates
+		for (TitledPane day : accWeeklyFilms.getPanes()) {
+
+			String date = dateTimeFormatter.format(LocalDate.now().plusDays(i));
+
+			try {
+
+				TextFileManager fileManager = new TextFileManager();
+				List<String[]> filmTimes = fileManager.getFilmTimes();
+				List<HBox> filmList = new ArrayList<HBox>();
+
+				for (String[] listing : filmTimes) {
+					if (listing[2].equals(date)) {
+						HBox container = new HBox();
+						Label info = new Label(listing[1]);
+						Button btn = new Button(listing[3]);
+
+						btn.setOnAction((ActionEvent e) -> {
+							try {
+								int PlaceHolderBookingID = 0;
+								String title = listing[1];
+								String time = listing[3];
+								String listingID = Listing.findShowingID(title, date, time);
+								String[][] seats = TextFileManager.getSeatInformation(listingID);
+
+								LISTING = new Listing(listingID, title, date, time, seats);
+								BOOKING = new Booking(PlaceHolderBookingID, LISTING, null,
+										(Customer) LoginController.USER);
+
+								myController.loadScreen(ScreensFramework.custBookFilmPageID,
+										ScreensFramework.custBookFilmPageFile);
+
+								myController.setScreen(ScreensFramework.custBookFilmPageID);
+							} catch (IOException e1) {
+								System.out.println(e1);
+							}
+
+						});
+
+						container.getChildren().add(info);
+						container.getChildren().add(btn);
+						filmList.add(container);
+					}
+				}
+
+				ObservableList<HBox> oFilmList = FXCollections.observableArrayList(filmList);
+
+				ListView<HBox> filmsPlayingToday = new ListView<HBox>(oFilmList);
+
+				day.setContent(filmsPlayingToday);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+			i++;
+		}
 	}
 
 	/**
@@ -147,10 +212,9 @@ public class CustHomeController extends ToolbarController implements Initializab
 			String time = this.selectTime.getValue();
 			String listingID = Listing.findShowingID(title, date, time);
 			String[][] seats = TextFileManager.getSeatInformation(listingID);
-			
+
 			LISTING = new Listing(listingID, title, date, time, seats);
 			BOOKING = new Booking(PlaceHolderBookingID, LISTING, null, (Customer) LoginController.USER);
-
 
 			myController.loadScreen(ScreensFramework.custBookFilmPageID, ScreensFramework.custBookFilmPageFile);
 
@@ -178,7 +242,7 @@ public class CustHomeController extends ToolbarController implements Initializab
 		myController.setScreen(ScreensFramework.custProfilePageID);
 
 	}
-	
+
 	@FXML
 	public void goToCustBookingHistoryPage(ActionEvent event) {
 		myController.setScreen(ScreensFramework.custBookingHistoryPageID);
