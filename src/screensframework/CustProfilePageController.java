@@ -104,6 +104,14 @@ public class CustProfilePageController extends ToolbarController implements Init
 	public void goToCustProfilePage(ActionEvent event) {
 		myController.setScreen(ScreensFramework.custProfilePageID);
 	}
+	
+	
+	@FXML
+	public void goToCustBookingHistoryPage(ActionEvent event) {
+		myController.setScreen(ScreensFramework.custBookingHistoryPageID);
+
+	}
+
 
 	@Override
 	@FXML

@@ -37,7 +37,7 @@
             <HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="250.0" spacing="30.0">
                <children>
                 <Button fx:id="btnMyProfile" disable="true" mnemonicParsing="false" text="My Profile" />
-                  <Button fx:id="btnMyBookings" mnemonicParsing="false" text="My Bookings" />
+                  <Button fx:id="btnMyBookings" mnemonicParsing="false" onAction="#goToCustBookingHistoryPage" text="My Bookings" />
                </children>
             </HBox>
         </items>
