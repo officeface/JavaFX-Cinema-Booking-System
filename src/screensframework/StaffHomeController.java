@@ -28,8 +28,7 @@ public class StaffHomeController implements Initializable, ControlledScreen {
     @FXML 
     private Button btnLogout; 
     
-    @FXML
-    private Button btnMyProfile;
+
     
     @FXML
     private Button btnHome; //not in use as in the home page already
