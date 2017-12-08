@@ -47,11 +47,11 @@
       </ToolBar>
       
       
-      <Button fx:id="btnexportselectedfilm" layoutX="300.0" layoutY="298.0" mnemonicParsing="false"  onAction="#getSelectedFilmDetailsToCSV" text="Export film" />
-      <Button fx:id="btnexportall" layoutX="413.0" layoutY="298.0" mnemonicParsing="false"  onAction="#getDatabaseToCSV" text="Export all films" />
-      <ComboBox fx:id="filmdropdown" layoutX="358.0" layoutY="237.0" prefWidth="150.0" />
-      <Label fx:id="lblselectfilm" layoutX="277.0" layoutY="244.0" text="Select film" />
-      <Label fx:id="lblexport" layoutX="314.0" layoutY="192.0" text="EXPORT FILM DETAILS">
+      <Button fx:id="btnExportSelectedFilm" layoutX="300.0" layoutY="298.0" mnemonicParsing="false"  onAction="#getSelectedFilmDetailsToCSV" text="Export film" />
+      <Button fx:id="btnExportAll" layoutX="413.0" layoutY="298.0" mnemonicParsing="false"  onAction="#getDatabaseToCSV" text="Export all films" />
+      <ComboBox fx:id="filmDropDown" layoutX="358.0" layoutY="237.0" prefWidth="150.0" />
+      <Label fx:id="lblSelectFilm" layoutX="277.0" layoutY="244.0" text="Select film" />
+      <Label fx:id="lblExport" layoutX="314.0" layoutY="192.0" text="EXPORT FILM DETAILS">
          <font>
             <Font size="18.0" />
          </font>
