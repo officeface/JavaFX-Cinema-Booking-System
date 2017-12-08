@@ -63,7 +63,17 @@ public class CustBookFilmPageController implements Initializable, ControlledScre
 
 	@FXML
 	private Button btnContinue;
+	
+	
+	//Toolbar butttons
+	@FXML
+	private Button btnLogout , btnHome , btnMyProfile , btnMyBookings;
+	
+	@FXML
+	private Label lblBookFilmPage;
 
+	
+	
 	/**
 	 * Initialises the controller class.
 	 */
@@ -231,5 +241,49 @@ public class CustBookFilmPageController implements Initializable, ControlledScre
 		}
 		return null;
 	}
+	
+	
+	
+	//Toolbar methods
+
+	@FXML
+	public void goToCustHome(ActionEvent event) {
+		myController.setScreen(ScreensFramework.custHomeID);
+	}
+
+	
+	@FXML
+	public void goToCustProfilePage(ActionEvent event) {
+		myController.setScreen(ScreensFramework.custProfilePageID);
+
+	}
+	
+	@FXML
+	public void goToCustBookingHistoryPage(ActionEvent event) {
+		myController.setScreen(ScreensFramework.custBookingHistoryPageID);
+
+	}
+
+	
+	@FXML
+	public void goToLogin(ActionEvent event) {
+		// Unload screens:
+		myController.unloadScreen(ScreensFramework.loginID);
+		myController.unloadScreen(ScreensFramework.staffHomeID);
+		myController.unloadScreen(ScreensFramework.custHomeID);
+		myController.unloadScreen(ScreensFramework.custProfilePageID);
+		myController.unloadScreen(ScreensFramework.custBookFilmPageID);
+		myController.unloadScreen(ScreensFramework.custConfirmPageID);
+
+		myController.unloadScreen(ScreensFramework.staffExportID);
+		myController.unloadScreen(ScreensFramework.bookingSummaryID);
+		myController.unloadScreen(ScreensFramework.addFilmPageID);
+		myController.unloadScreen(ScreensFramework.addFilmListingsID);
+		myController.unloadScreen(ScreensFramework.staffChoiceID);
+
+		myController.loadScreen(ScreensFramework.loginID, ScreensFramework.loginFile);
+		myController.setScreen(ScreensFramework.loginID);
+	}
+
 
 }
