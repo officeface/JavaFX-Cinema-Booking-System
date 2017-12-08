@@ -13,47 +13,60 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="screensframework.StaffHomeController">
-   <children>
-   
-   		<!-- STAFF TOOLBAR -->
-   		<ToolBar prefHeight="30.0" prefWidth="800.0">
-        <items>
-            <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="250.0" spacing="30.0">
-               <children>
-              <Button fx:id="btnLogout" mnemonicParsing="false" onAction="#goToLogin" text="Logout" />
-                  <Button fx:id="btnHome" mnemonicParsing="false" text="Go to Staff Home" />
-               </children>
-               <padding>
-                  <Insets left="30.0" />
-               </padding>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="30.0" prefWidth="250.0">
-               <children>
-              <Label fx:id="lblHomePage" alignment="CENTER" text="Staff Home Page">
-                <font>
-                  <Font size="18.0" />
-                </font>
-              </Label>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="250.0" spacing="30.0">
-               <children>
-                <Button fx:id="btnMyProfile" mnemonicParsing="false" text="My Profile" />
-               </children>
-            </HBox>
-        </items>
-      </ToolBar>
-      
-      
-      <Label fx:id="lblStaffHome" layoutX="284.0" layoutY="77.0" text="STAFF HOME">
-         <font>
-            <Font size="36.0" />
-         </font>
-      </Label>
-      <Button fx:id="btnAddFilm" layoutX="214.0" layoutY="192.0" mnemonicParsing="false" onAction="#goToAddFilmPage" prefHeight="60.0" prefWidth="160.0" text="ADD NEW FILM" />
-      <Button fx:id="btnAddListings" layoutX="432.0" layoutY="189.0" mnemonicParsing="false" onAction="#goToAddListings" prefHeight="60.0" prefWidth="160.0" text="ADD NEW LISTINGS" />
-      <Button fx:id="btnBookingSummary" layoutX="218.0" layoutY="319.0" mnemonicParsing="false" onAction="#goToBookingSummary" prefHeight="60.0" prefWidth="373.0" text="BOOKING SUMMARY" />
-      <Button fx:id="btnExportFilms" layoutX="216.0" layoutY="434.0" mnemonicParsing="false" onAction="#goToStaffExport" prefHeight="60.0" prefWidth="373.0" text="EXPORT FILMS" />
-   </children>
+<AnchorPane prefHeight="600.0" prefWidth="800.0"
+	xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="screensframework.StaffHomeController">
+	<children>
+
+		<!-- STAFF TOOLBAR -->
+		<ToolBar prefHeight="30.0" prefWidth="800.0">
+			<items>
+				<HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="250.0"
+					spacing="30.0">
+					<children>
+						<Button fx:id="btnLogout" mnemonicParsing="false" onAction="#goToLogin"
+							text="Logout" />
+						<Button fx:id="btnHome" mnemonicParsing="false" text="Go to Staff Home" />
+					</children>
+					<padding>
+						<Insets left="30.0" />
+					</padding>
+				</HBox>
+				<HBox alignment="CENTER" prefHeight="30.0" prefWidth="250.0">
+					<children>
+						<Label fx:id="lblHomePage" alignment="CENTER" text="Staff Home Page">
+							<font>
+								<Font size="18.0" />
+							</font>
+						</Label>
+					</children>
+				</HBox>
+				<HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="250.0"
+					spacing="30.0">
+					<children>
+						<Button fx:id="btnMyProfile" mnemonicParsing="false" text="My Profile" />
+					</children>
+				</HBox>
+			</items>
+		</ToolBar>
+
+
+		<Label fx:id="lblStaffHome" layoutX="284.0" layoutY="77.0" text="STAFF HOME">
+			<font>
+				<Font size="36.0" />
+			</font>
+		</Label>
+		<Button fx:id="btnAddFilm" layoutX="214.0" layoutY="192.0"
+			mnemonicParsing="false" onAction="#goToAddFilmPage" prefHeight="60.0"
+			prefWidth="160.0" text="ADD NEW FILM" />
+		<Button fx:id="btnAddListings" layoutX="432.0" layoutY="189.0"
+			mnemonicParsing="false" onAction="#goToAddListings" prefHeight="60.0"
+			prefWidth="160.0" text="ADD NEW LISTINGS" />
+		<Button fx:id="btnBookingSummary" layoutX="218.0" layoutY="319.0"
+			mnemonicParsing="false" onAction="#goToBookingSummary" prefHeight="60.0"
+			prefWidth="373.0" text="BOOKING SUMMARY" />
+		<Button fx:id="btnExportFilms" layoutX="216.0" layoutY="434.0"
+			mnemonicParsing="false" onAction="#goToStaffExport" prefHeight="60.0"
+			prefWidth="373.0" text="EXPORT FILMS" />
+	</children>
 </AnchorPane>

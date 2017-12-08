@@ -39,7 +39,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="30.0" prefWidth="250.0">
                <children>
-              <Label fx:id="lblTitletag" alignment="CENTER" text="Add new film listings">
+              <Label fx:id="lblTitleTag" alignment="CENTER" text="Add new film listings">
                 <font>
                   <Font size="18.0" />
                 </font>
@@ -54,7 +54,7 @@
         </items>
       </ToolBar>
    
-      <Label fx:id="lbladdfilmlistings" layoutX="231.0" layoutY="81.0" text="ADD FILM LISTINGS">
+      <Label fx:id="lblAddFilmListings" layoutX="231.0" layoutY="81.0" text="ADD FILM LISTINGS">
          <font>
             <Font size="32.0" />
          </font>
@@ -72,7 +72,7 @@
         </rowConstraints>
          <children>
             <ComboBox fx:id="comboSelectFilm" onAction="#getSelectedFilm" prefHeight="27.0" prefWidth="332.0" promptText="Select film" GridPane.columnIndex="1" />
-            <DatePicker fx:id="listingsDatepicker" onAction="#getSelectedDate" prefHeight="27.0" prefWidth="334.0" promptText="Choose available date" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <DatePicker fx:id="listingsDatePicker" onAction="#getSelectedDate" prefHeight="27.0" prefWidth="334.0" promptText="Choose available date" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Label fx:id="lblFilm" text="FILM">
                <font>
                   <Font size="22.0" />
@@ -86,7 +86,7 @@
             <ButtonBar prefHeight="63.0" prefWidth="566.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
               <buttons>
                   <ComboBox fx:id="comboChooseTime" onAction="#getSelectedTime" prefHeight="27.0" prefWidth="258.0" promptText="Choose available time slot" />
-                <Button fx:id="btnAddListings" minWidth="26.0" mnemonicParsing="false" onAction="#addfilmListing" prefHeight="13.0" text="ADD LISTINGS" />
+                <Button fx:id="btnAddListings" minWidth="26.0" mnemonicParsing="false" onAction="#addFilmListing" prefHeight="13.0" text="ADD LISTINGS" />
               </buttons>
             </ButtonBar>
             <Label fx:id="lblSelectTime" text="SELECT TIME" GridPane.rowIndex="2">

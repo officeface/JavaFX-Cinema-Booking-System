@@ -13,134 +13,158 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="screensframework.CustHomeController">
-  <children>
-      <ToolBar prefHeight="30.0" prefWidth="800.0">
-        <items>
-            <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="250.0" spacing="30.0">
-               <children>
-              <Button fx:id="btnLogout" mnemonicParsing="false" onAction="#goToLogin" text="Logout" />
-                  <Button fx:id="btnHome" disable="true" mnemonicParsing="false" text="Home" />
-               </children>
-               <padding>
-                  <Insets left="30.0" />
-               </padding>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="30.0" prefWidth="250.0">
-               <children>
-              <Label fx:id="lblHomePage" alignment="CENTER" text="Home Page">
-                <font>
-                  <Font size="18.0" />
-                </font>
-              </Label>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="250.0" spacing="30.0">
-               <children>
-                <Button fx:id="btnMyProfile" mnemonicParsing="false" onAction="#goToCustProfilePage" text="My Profile" />
-                  <Button fx:id="btnMyBookings" mnemonicParsing="false" onAction="#goToCustBookingHistoryPage" text="My Bookings" />
-               </children>
-            </HBox>
-        </items>
-      </ToolBar>
-      <VBox layoutY="41.0" prefHeight="570.0" prefWidth="800.0">
-         <children>
-            <VBox prefHeight="100.0" prefWidth="800.0">
-               <children>
-                  <Label text="See all films playing on a certain date:">
-                     <VBox.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Label>
-                  <HBox prefHeight="100.0" prefWidth="800.0">
-                     <children>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="250.0" spacing="10.0">
-                           <children>
-                              <Label text="Date:" />
-                              <DatePicker fx:id="selectDate" onAction="#setFilmList" prefWidth="150.0" />
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="250.0" spacing="10.0">
-                           <children>
-                              <Label text="Film:" />
-                              <ComboBox fx:id="selectFilm" onAction="#setTimesList" prefWidth="150.0" />
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="250.0" spacing="10.0">
-                           <children>
-                              <Label text="Time:" />
-                              <ComboBox fx:id="selectTime" layoutX="147.0" layoutY="24.0" prefWidth="150.0" />
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="50.0">
-                           <children>
-                              <Button fx:id="btnGo" mnemonicParsing="false" onAction="#goToCustBookFilmPage" prefWidth="50.0" text="Go" />
-                           </children>
-                        </HBox>
-                     </children>
-                  </HBox>
-               </children>
-               <VBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </VBox.margin>
-            </VBox>
-            <Label text="Or see what's on this week:">
-               <padding>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </padding>
-               <VBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </VBox.margin>
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <Accordion fx:id="accWeeklyFilms" prefHeight="360.0" prefWidth="700.0">
-              <panes>
-                <TitledPane fx:id="day1Label" animated="false">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                  </content>
-                </TitledPane>
-                <TitledPane fx:id="day2Label" animated="false">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                  </content>
-                </TitledPane>
-                  <TitledPane fx:id="day3Label" animated="false">
-                     <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                     </content>
-                  </TitledPane>
-                  <TitledPane fx:id="day4Label" animated="false">
-                     <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                     </content>
-                  </TitledPane>
-                  <TitledPane fx:id="day5Label" animated="false">
-                     <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                     </content>
-                  </TitledPane>
-                  <TitledPane fx:id="day6Label" animated="false">
-                     <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                     </content>
-                  </TitledPane>
-                  <TitledPane fx:id="day7Label" animated="false" prefWidth="700.0">
-                     <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                     </content>
-                  </TitledPane>
-              </panes>
-               <padding>
-                  <Insets bottom="10.0" left="50.0" right="50.0" top="10.0" />
-               </padding>
-            </Accordion>
-         </children>
-      </VBox>
-  </children>
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0"
+	xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="screensframework.CustHomeController">
+	<children>
+		<ToolBar prefHeight="30.0" prefWidth="800.0">
+			<items>
+				<HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="250.0"
+					spacing="30.0">
+					<children>
+						<Button fx:id="btnLogout" mnemonicParsing="false" onAction="#goToLogin"
+							text="Logout" />
+						<Button fx:id="btnHome" disable="true" mnemonicParsing="false"
+							text="Home" />
+					</children>
+					<padding>
+						<Insets left="30.0" />
+					</padding>
+				</HBox>
+				<HBox alignment="CENTER" prefHeight="30.0" prefWidth="250.0">
+					<children>
+						<Label fx:id="lblHomePage" alignment="CENTER" text="Home Page">
+							<font>
+								<Font size="18.0" />
+							</font>
+						</Label>
+					</children>
+				</HBox>
+				<HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="250.0"
+					spacing="30.0">
+					<children>
+						<Button fx:id="btnMyProfile" mnemonicParsing="false"
+							onAction="#goToCustProfilePage" text="My Profile" />
+						<Button fx:id="btnMyBookings" mnemonicParsing="false"
+							onAction="#goToCustBookingHistoryPage" text="My Bookings" />
+					</children>
+				</HBox>
+			</items>
+		</ToolBar>
+		<VBox layoutY="41.0" prefHeight="570.0" prefWidth="800.0">
+			<children>
+				<VBox prefHeight="100.0" prefWidth="800.0">
+					<children>
+						<Label text="See all films playing on a certain date:">
+							<VBox.margin>
+								<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+							</VBox.margin>
+							<font>
+								<Font size="16.0" />
+							</font>
+						</Label>
+						<HBox prefHeight="100.0" prefWidth="800.0">
+							<children>
+								<HBox alignment="CENTER" prefHeight="100.0" prefWidth="250.0"
+									spacing="10.0">
+									<children>
+										<Label text="Date:" />
+										<DatePicker fx:id="selectDate" onAction="#setFilmList"
+											prefWidth="150.0" />
+									</children>
+								</HBox>
+								<HBox alignment="CENTER" prefHeight="100.0" prefWidth="250.0"
+									spacing="10.0">
+									<children>
+										<Label text="Film:" />
+										<ComboBox fx:id="selectFilm" onAction="#setTimesList"
+											prefWidth="150.0" />
+									</children>
+								</HBox>
+								<HBox alignment="CENTER" prefHeight="100.0" prefWidth="250.0"
+									spacing="10.0">
+									<children>
+										<Label text="Time:" />
+										<ComboBox fx:id="selectTime" layoutX="147.0" layoutY="24.0"
+											prefWidth="150.0" />
+									</children>
+								</HBox>
+								<HBox alignment="CENTER" prefHeight="100.0" prefWidth="50.0">
+									<children>
+										<Button fx:id="btnGo" mnemonicParsing="false"
+											onAction="#goToCustBookFilmPage" prefWidth="50.0" text="Go" />
+									</children>
+								</HBox>
+							</children>
+						</HBox>
+					</children>
+					<VBox.margin>
+						<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+					</VBox.margin>
+				</VBox>
+				<Label text="Or see what's on this week:">
+					<padding>
+						<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+					</padding>
+					<VBox.margin>
+						<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+					</VBox.margin>
+					<font>
+						<Font size="16.0" />
+					</font>
+				</Label>
+				<Accordion fx:id="accWeeklyFilms" prefHeight="360.0"
+					prefWidth="700.0">
+					<panes>
+						<TitledPane fx:id="day1Label" animated="false">
+							<content>
+								<AnchorPane minHeight="0.0" minWidth="0.0"
+									prefHeight="180.0" prefWidth="200.0" />
+							</content>
+						</TitledPane>
+						<TitledPane fx:id="day2Label" animated="false">
+							<content>
+								<AnchorPane minHeight="0.0" minWidth="0.0"
+									prefHeight="180.0" prefWidth="200.0" />
+							</content>
+						</TitledPane>
+						<TitledPane fx:id="day3Label" animated="false">
+							<content>
+								<AnchorPane minHeight="0.0" minWidth="0.0"
+									prefHeight="180.0" prefWidth="200.0" />
+							</content>
+						</TitledPane>
+						<TitledPane fx:id="day4Label" animated="false">
+							<content>
+								<AnchorPane minHeight="0.0" minWidth="0.0"
+									prefHeight="180.0" prefWidth="200.0" />
+							</content>
+						</TitledPane>
+						<TitledPane fx:id="day5Label" animated="false">
+							<content>
+								<AnchorPane minHeight="0.0" minWidth="0.0"
+									prefHeight="180.0" prefWidth="200.0" />
+							</content>
+						</TitledPane>
+						<TitledPane fx:id="day6Label" animated="false">
+							<content>
+								<AnchorPane minHeight="0.0" minWidth="0.0"
+									prefHeight="180.0" prefWidth="200.0" />
+							</content>
+						</TitledPane>
+						<TitledPane fx:id="day7Label" animated="false"
+							prefWidth="700.0">
+							<content>
+								<AnchorPane minHeight="0.0" minWidth="0.0"
+									prefHeight="180.0" prefWidth="200.0" />
+							</content>
+						</TitledPane>
+					</panes>
+					<padding>
+						<Insets bottom="10.0" left="50.0" right="50.0" top="10.0" />
+					</padding>
+				</Accordion>
+			</children>
+		</VBox>
+	</children>
 </AnchorPane>

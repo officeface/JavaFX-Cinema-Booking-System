@@ -122,7 +122,7 @@ public class AddFilmListingsController implements Initializable, ControlledScree
 	}
 
 	@FXML
-	private void addfilmListing(ActionEvent event) throws IOException {
+	private void addFilmListing(ActionEvent event) throws IOException {
 
 		if (readyToSelect() && showingTimeIsFree(this.selectedDateForListing, this.selectedTimeForListing)) {
 
