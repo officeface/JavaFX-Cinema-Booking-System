@@ -1,5 +1,6 @@
 package screensframework;
 
+
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -8,6 +9,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.List;
 import java.util.ResourceBundle;
+
 
 import org.apache.commons.io.FileUtils;
 import org.json.CDL;
@@ -21,6 +23,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.stage.FileChooser;
+import javafx.stage.Window;
 
 public class StaffExportController implements Initializable, ControlledScreen {
 
@@ -83,7 +87,7 @@ public class StaffExportController implements Initializable, ControlledScreen {
 	 */
 	@FXML
 	public void getSelectedFilmDetailsToCSV(ActionEvent event) throws IOException {
-
+		
 		// Getting specific film name to export to csv
 		this.selectedFilmForExport = filmDropDown.getValue();
 		JSONObject objSF = JSONUtils.getJSONObjectFromFile(TextFileManager.database); // New json object is the database for scanning
@@ -152,7 +156,17 @@ public class StaffExportController implements Initializable, ControlledScreen {
 		}
 
 		String o = (CDL.toString(new JSONArray(objSF2.get("SelectedFilmInfo").toString()))); // Conversion from json array to csv format and then into a new string
-		FileUtils.writeStringToFile(new File(this.selectedFilmForExport.replaceAll(" ", "") + "DataExport.text"), o, "UTF-8"); // New csv file created - previous string (which was json) written to new text file
+		
+		// Opens dialogue to ask user to specify a directory to save the exported data 
+		FileChooser fileChooser = new FileChooser();
+		fileChooser.setTitle("Save file");
+		fileChooser.setInitialFileName(this.selectedFilmForExport.replaceAll(" ", "") + "DataExport.text"); // Initial file name 
+		Window savedStage = null;
+		File savedFile = fileChooser.showSaveDialog(savedStage);
+		
+		
+		FileUtils.writeStringToFile(savedFile, o, "UTF-8"); // New csv file created - previous string (which was json) written to new text file
+		
 		System.out.println(this.selectedFilmForExport + " information has been exported!");
 
 	}
@@ -168,14 +182,26 @@ public class StaffExportController implements Initializable, ControlledScreen {
 	@FXML
 	public void getDatabaseToCSV(ActionEvent event) throws IOException {
 		
+		// Opens dialogue to ask user to specify a directory to save the exported data 
+		FileChooser fileChooser = new FileChooser();
+		fileChooser.setTitle("Save file");
+		fileChooser.setInitialFileName("FilmDataExported.text"); // Initial file name 
+		Window savedStage = null;
+		File savedFile = fileChooser.showSaveDialog(savedStage);
+		
 		// Creating new json object from the database
 		JSONObject obj = JSONUtils.getJSONObjectFromFile(TextFileManager.database);
+		
 		// Creating a new csv file with FilmList from database at the start
 		String x = (CDL.toString(new JSONArray(obj.get("FilmList").toString())));
-		FileUtils.writeStringToFile(new File("FilmDataExported.text"), x, "UTF-8");
+		FileUtils.writeStringToFile(savedFile, x, "UTF-8");
+		
+		// Getting absolute path of file 
+		String savedfilepath = savedFile.getAbsolutePath();
+		
 		// Appending FilmTimes to the file
 		String y = (CDL.toString(new JSONArray(obj.get("FilmTimes").toString())));
-		Files.write(Paths.get("FilmDataExported.text"), y.getBytes(), StandardOpenOption.APPEND);
+		Files.write(Paths.get(savedfilepath), y.getBytes(), StandardOpenOption.APPEND);
 
 		// New json array to hold title,free and bookseats info
 		JSONObject obj2 = new JSONObject();
@@ -237,11 +263,15 @@ public class StaffExportController implements Initializable, ControlledScreen {
 		} // End of loop
 
 		String z = (CDL.toString(new JSONArray(obj2.get("SeatsInfo").toString())));
-		Files.write(Paths.get("FilmDataExported.text"), z.getBytes(), StandardOpenOption.APPEND);
-
+		Files.write(Paths.get(savedfilepath), z.getBytes(), StandardOpenOption.APPEND);
+		
 		System.out.println("Database has been exported!");
 
 	}// End of overall method
+
+
+	
+
 
 	// Toolbar methods
 
