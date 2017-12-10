@@ -69,12 +69,21 @@ public class ScreensFramework extends Application {
 
 		// First loading screen
 		mainContainer.setScreen(ScreensFramework.loginID);
+		
+		
 
 		Group root = new Group();
 		root.getChildren().addAll(mainContainer);
 		Scene scene = new Scene(root);
 		primaryStage.setScene(scene);
 		primaryStage.show();
+		
+		
+		//Defining the stylesheet 
+		// load the stylesheet
+		String style = getClass().getResource("ScreensFramework.css").toExternalForm();
+		// apply stylesheet to the scene graph
+		scene.getStylesheets().addAll(style);
 
 	}
 
