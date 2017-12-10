@@ -152,7 +152,7 @@ public class StaffExportController implements Initializable, ControlledScreen {
 		}
 
 		String o = (CDL.toString(new JSONArray(objSF2.get("SelectedFilmInfo").toString()))); // Conversion from json array to csv format and then into a new string
-		FileUtils.writeStringToFile(new File(this.selectedFilmForExport + "DataExport.text"), o, "UTF-8"); // New csv file created - previous string (which was json) written to new text file
+		FileUtils.writeStringToFile(new File(this.selectedFilmForExport.replaceAll(" ", "") + "DataExport.text"), o, "UTF-8"); // New csv file created - previous string (which was json) written to new text file
 		System.out.println(this.selectedFilmForExport + " information has been exported!");
 
 	}
