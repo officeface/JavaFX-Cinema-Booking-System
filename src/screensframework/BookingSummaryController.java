@@ -61,10 +61,10 @@ public class BookingSummaryController implements Initializable, ControlledScreen
 
 	// Toolbar variables
 	@FXML
-	private Button btnLogout;
+	private Button btnSLogout;
 
 	@FXML
-	private Button btnHome;
+	private Button btnSHome;
 
 	@FXML
 	private Button btnGoToExport;
@@ -245,7 +245,6 @@ public class BookingSummaryController implements Initializable, ControlledScreen
 		myController.unloadScreen(ScreensFramework.bookingSummaryID);
 		myController.unloadScreen(ScreensFramework.addFilmPageID);
 		myController.unloadScreen(ScreensFramework.addFilmListingsID);
-		myController.unloadScreen(ScreensFramework.staffChoiceID);
 
 		myController.loadScreen(ScreensFramework.loginID, ScreensFramework.loginFile);
 		myController.setScreen(ScreensFramework.loginID);

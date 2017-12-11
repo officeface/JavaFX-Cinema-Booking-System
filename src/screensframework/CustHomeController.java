@@ -2,9 +2,12 @@ package screensframework;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -21,6 +24,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.Region;
 
 /**
  * FXML Controller class
@@ -63,6 +68,7 @@ public class CustHomeController extends ToolbarController implements Initializab
 	 */
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
+
 		// Set the values on the labels
 		day1Label.setText("Today");
 		day2Label.setText("Tomorrow");
@@ -86,9 +92,30 @@ public class CustHomeController extends ToolbarController implements Initializab
 
 				for (String[] listing : filmTimes) {
 					if (listing[2].equals(date)) {
-						HBox container = new HBox();
+						// Labels, buttons:
 						Label info = new Label(listing[1]);
+						Label seatsLeft = new Label(listing[0]);
 						Button btn = new Button(listing[3]);
+						
+						// For spacing:
+						Region region = new Region();
+						region.setPrefWidth(50);
+						Region region1 = new Region();
+				        HBox.setHgrow(region1, Priority.ALWAYS);
+				        Region region2 = new Region();
+				        region2.setPrefWidth(100);
+				        
+				        // Seat information for listing on display:
+				        int freeSeatCount = 0;
+				        String[][] seats = TextFileManager.getSeatInformation(listing[0]);
+				        for (String[] row : seats) {
+				        	for (String seat : row) {
+				        		if (seat.equals("Free")) {
+				        			freeSeatCount++;
+				        		}
+				        	}
+				        }
+				        seatsLeft.setText(freeSeatCount + " seats left.");
 
 						btn.setOnAction((ActionEvent e) -> {
 							try {
@@ -96,7 +123,7 @@ public class CustHomeController extends ToolbarController implements Initializab
 								String title = listing[1];
 								String time = listing[3];
 								String listingID = Listing.findShowingID(title, date, time);
-								String[][] seats = TextFileManager.getSeatInformation(listingID);
+								//String[][] seats = TextFileManager.getSeatInformation(listingID);
 
 								LISTING = new Listing(listingID, title, date, time, seats);
 								BOOKING = new Booking(PlaceHolderBookingID, LISTING, null,
@@ -111,9 +138,8 @@ public class CustHomeController extends ToolbarController implements Initializab
 							}
 
 						});
-
-						container.getChildren().add(info);
-						container.getChildren().add(btn);
+						
+						HBox container = new HBox(info, region1, seatsLeft, region, btn, region2);
 						filmList.add(container);
 					}
 				}
@@ -204,24 +230,49 @@ public class CustHomeController extends ToolbarController implements Initializab
 	}
 
 	@FXML
-	public void goToCustBookFilmPage(ActionEvent event) {
-		try {
-			int PlaceHolderBookingID = 0;
-			String title = this.selectFilm.getValue();
-			String date = dateTimeFormatter.format(selectDate.getValue());
-			String time = this.selectTime.getValue();
-			String listingID = Listing.findShowingID(title, date, time);
-			String[][] seats = TextFileManager.getSeatInformation(listingID);
+	public void goToCustBookFilmPage(ActionEvent event) throws ParseException {
+		if (isValidListingSelection(selectDate.getValue().toString(), selectFilm.getValue(),
+				selectTime.getValue())) { // If the selections have been made AND the date is not in the past
+			try {
 
-			LISTING = new Listing(listingID, title, date, time, seats);
-			BOOKING = new Booking(PlaceHolderBookingID, LISTING, null, (Customer) LoginController.USER);
+				int PlaceHolderBookingID = 0;
+				String title = this.selectFilm.getValue();
+				String date = dateTimeFormatter.format(selectDate.getValue());
+				String time = this.selectTime.getValue();
+				String listingID = Listing.findShowingID(title, date, time);
+				String[][] seats = TextFileManager.getSeatInformation(listingID);
 
-			myController.loadScreen(ScreensFramework.custBookFilmPageID, ScreensFramework.custBookFilmPageFile);
+				LISTING = new Listing(listingID, title, date, time, seats);
+				BOOKING = new Booking(PlaceHolderBookingID, LISTING, null, (Customer) LoginController.USER);
 
-			myController.setScreen(ScreensFramework.custBookFilmPageID);
-		} catch (Exception e) {
-			System.out.println(e);
+				myController.loadScreen(ScreensFramework.custBookFilmPageID, ScreensFramework.custBookFilmPageFile);
+
+				myController.setScreen(ScreensFramework.custBookFilmPageID);
+
+			} catch (Exception e) {
+				System.out.println(e);
+			}
 		}
+	}
+
+	private Boolean isValidListingSelection(String date, String movie, String time) throws ParseException {
+		
+		// Missing values:
+		if (date.equals(null) || movie.equals(null) || time.equals(null)) {
+			return false;
+		}
+
+		String timeNowString = new SimpleDateFormat("dd/MM/yyyy HH:mm").format(new Date());
+		date = dateTimeFormatter.format(selectDate.getValue());
+		Date timeNow = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(timeNowString);
+		Date timeListing = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(date + " " + time);
+
+		if (timeListing.before(timeNow)) {
+			System.out.println("Can't book a film listed before today.");
+			return false;
+		}
+
+		return true;
 	}
 
 	@Override
@@ -254,6 +305,7 @@ public class CustHomeController extends ToolbarController implements Initializab
 	public void goToLogin(ActionEvent event) {
 		// Unload screens:
 		myController.unloadScreen(ScreensFramework.loginID);
+		myController.unloadScreen(ScreensFramework.registrationID);
 		myController.unloadScreen(ScreensFramework.staffHomeID);
 		myController.unloadScreen(ScreensFramework.custHomeID);
 		myController.unloadScreen(ScreensFramework.custProfilePageID);
@@ -264,7 +316,6 @@ public class CustHomeController extends ToolbarController implements Initializab
 		myController.unloadScreen(ScreensFramework.bookingSummaryID);
 		myController.unloadScreen(ScreensFramework.addFilmPageID);
 		myController.unloadScreen(ScreensFramework.addFilmListingsID);
-		myController.unloadScreen(ScreensFramework.staffChoiceID);
 
 		myController.loadScreen(ScreensFramework.loginID, ScreensFramework.loginFile);
 		myController.setScreen(ScreensFramework.loginID);

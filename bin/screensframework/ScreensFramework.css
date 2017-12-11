@@ -1,8 +1,18 @@
-/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
-/* 
+<<<<<<< HEAD
+/**
+ * Authors: Fraz and Mark
+ * Style sheet for this application. The login/staff/customer pages are styled separately. 
+ * 
+ */
 
+/*
+ * 
+ *    
+ * 
+ */
+=======
 
-*/
+>>>>>>> c5a2d0eb118dcce81b8ae8706a72c4645b068327
 
 
 
@@ -11,16 +21,224 @@
 	-fx-background-color: rgb(85,209,255);
     -fx-text-fill: white;
     -fx-background-radius: 16px;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
+}
+#btnlogin:hover {
+	-fx-background-color: rgb(0,144,254);
 }
    
+/* Login labels */
 
-
-
-
+#txtEmail {
+    -fx-text-fill   : #01579B;
+    -fx-font-weight : bolder;
+    -fx-font-size   : 16px;
+    }
+    
+ #txtPassword {
+    -fx-text-fill   : #01579B;
+    -fx-font-weight : bolder;
+    -fx-font-size   : 16px;
+    }
+  
+  
+ 
+/*----------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------STAFF-----------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------------------------------------*/
+ 
+  
+  
+  
+  
+  
+  
 /* STAFF BUTTONS */
+/* Staff toolbar */
+/*btnSLogout
+btnSHome
+btnGoToNewListing
+btnGoToNewFilm
+btnGoToBookingSummary
+btnGoToExport
+*/
+
+
+
+
+
+
+
+
+/* staff home */
+
+#btnAddFilm{
+	-fx-background-color: rgb(59,243,131);
+    -fx-text-fill: white;
+    -fx-background-radius: 16px;
+}
+#btnAddFilm:hover {
+	-fx-background-color: rgb(42,228,13);
+}
+#btnAddListings{
+	-fx-background-color: rgb(59,243,131);
+    -fx-text-fill: white;
+    -fx-background-radius: 16px;
+}
+#btnBookingSummary{
+	-fx-background-color: rgb(59,243,131);
+    -fx-text-fill: white;
+    -fx-background-radius: 16px;
+}
+#btnExportFilms{
+	-fx-background-color: rgb(59,243,131);
+    -fx-text-fill: white;
+    -fx-background-radius: 16px;
+}
+
+/* staff add film */
+/* staff add listings */
+/* staff booking summary */
+/* staff export */
+
+
 
 
 /* STAFF LABELS */
+
+
+
+
+/*----------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------CUSTOMER-----------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+/* CUST BUTTONS */
+
+/* Cust toolbar */
+#btnLogout {
+	-fx-background-color: rgb(85,209,255);
+    -fx-text-fill: white;
+    -fx-background-radius: 16px;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
+}
+#btnLogout:hover {
+	-fx-background-color: rgb(0,144,254);
+}
+
+#btnHome {
+	-fx-background-color: rgb(85,209,255);
+    -fx-text-fill: white;
+    -fx-background-radius: 16px;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
+}
+#btnHome:hover {
+	-fx-background-color: rgb(0,144,254);
+}
+
+#btnMyProfile {
+	-fx-background-color: rgb(85,209,255);
+    -fx-text-fill: white;
+    -fx-background-radius: 16px;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
+}
+#btnMyProfile:hover {
+	-fx-background-color: rgb(0,144,254);
+}
+
+#btnMyBookings {
+	-fx-background-color: rgb(85,209,255);
+    -fx-text-fill: white;
+    -fx-background-radius: 16px;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
+}
+#btnMyBookings:hover {
+	-fx-background-color: rgb(0,144,254);
+}
+
+
+
+
+/* Cust home */
+#btnGo {
+	-fx-background-color: rgb(85,209,255);
+    -fx-text-fill: white;
+    -fx-background-radius: 16px;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
+}
+#btnGo:hover {
+	-fx-background-color: rgb(0,144,254);
+}
+
+/* Cust booking film page */
+#btnResetSeats {
+	-fx-background-color: rgb(85,209,255);
+    -fx-text-fill: white;
+    -fx-background-radius: 16px;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
+}
+#btnResetSeats:hover {
+	-fx-background-color: rgb(0,144,254);
+}
+
+#btnContinue {
+	-fx-background-color: rgb(85,209,255);
+    -fx-text-fill: white;
+    -fx-background-radius: 16px;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
+}
+#btnContinue:hover {
+	-fx-background-color: rgb(0,144,254);
+}
+
+/* Cust confirm page */
+
+#btnBook {
+	-fx-background-color: rgb(85,209,255);
+    -fx-text-fill: white;
+    -fx-background-radius: 16px;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
+}
+#btnBook:hover {
+	-fx-background-color: rgb(0,144,254);
+}
+
+#btnBack {
+	-fx-background-color: rgb(85,209,255);
+    -fx-text-fill: white;
+    -fx-background-radius: 16px;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
+}
+#btnBack:hover {
+	-fx-background-color: rgb(0,144,254);
+}
+
+/* Cust profile page */
+
+#btnUpdate{
+	-fx-background-color: rgb(85,209,255);
+    -fx-text-fill: white;
+    -fx-background-radius: 16px;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
+}
+#btnUpdate:hover {
+	-fx-background-color: rgb(0,144,254);
+}
+
+#btnRefresh {
+	-fx-background-color: rgb(85,209,255);
+    -fx-text-fill: white;
+    -fx-background-radius: 16px;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
+}
+#btnRefresh:hover {
+	-fx-background-color: rgb(0,144,254);
+}
+
+
+
+/* CUST LABELS */
 
 
 

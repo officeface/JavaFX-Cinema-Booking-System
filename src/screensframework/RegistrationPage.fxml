@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="screensframework.RegistrationPageController">
+   <children>
+      <VBox alignment="CENTER" prefHeight="600.0" prefWidth="800.0" spacing="20.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <Label text="Register">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER" prefHeight="60.0" prefWidth="600.0" spacing="20.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="50.0" prefWidth="300.0" text="Email/Username*:">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtEmail" prefHeight="50.0" prefWidth="300.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+                  <Label fx:id="lblEmail" alignment="CENTER" prefHeight="50.0" prefWidth="300.0">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="60.0" prefWidth="600.0" spacing="20.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="50.0" prefWidth="300.0" text="Password*:">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <PasswordField fx:id="txtPassword" prefHeight="50.0" prefWidth="300.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </PasswordField>
+                  <Label fx:id="lblPassword" alignment="CENTER" prefHeight="50.0" prefWidth="300.0">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="60.0" prefWidth="600.0" spacing="20.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="50.0" prefWidth="300.0" text="Repeat password*:">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <PasswordField fx:id="txtPasswordRepeat" prefHeight="50.0" prefWidth="300.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </PasswordField>
+                  <Label fx:id="lblPasswordRepeat" alignment="CENTER" prefHeight="50.0" prefWidth="300.0">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="60.0" prefWidth="600.0" spacing="20.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="50.0" prefWidth="300.0" text="First name*:">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtFirstName" prefHeight="50.0" prefWidth="300.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+                  <Label fx:id="lblFirstName" alignment="CENTER" prefHeight="50.0" prefWidth="300.0">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="60.0" prefWidth="600.0" spacing="20.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="50.0" prefWidth="300.0" text="Last name*:">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtLastName" prefHeight="50.0" prefWidth="300.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+                  <Label fx:id="lblLastName" alignment="CENTER" prefHeight="50.0" prefWidth="300.0">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="60.0" prefWidth="281.0" spacing="20.0">
+               <children>
+                  <Button fx:id="btnBackToLogin" mnemonicParsing="false" onAction="#returnToLogin" prefHeight="50.0" prefWidth="300.0" text="Back">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="lblStatus" alignment="CENTER" prefHeight="50.0" prefWidth="300.0" textFill="#8a8686">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="btnRegister" mnemonicParsing="false" onAction="#register" prefHeight="50.0" prefWidth="300.0" text="Register">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>

@@ -30,8 +30,8 @@
         <items>
             <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="250.0" spacing="30.0">
                <children>
-              <Button fx:id="btnLogout" mnemonicParsing="false" onAction="#goToLogin" text="Logout" />
-                  <Button fx:id="btnHome" mnemonicParsing="false" onAction="#goToStaffHome" text="Go to Staff Home" />
+              <Button fx:id="btnSLogout" mnemonicParsing="false" onAction="#goToLogin" text="Logout" />
+                  <Button fx:id="btnSHome" mnemonicParsing="false" onAction="#goToStaffHome" text="Go to Staff Home" />
                </children>
                <padding>
                   <Insets left="30.0" />

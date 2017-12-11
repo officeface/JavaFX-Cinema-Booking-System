@@ -26,12 +26,12 @@ public class StaffHomeController implements Initializable, ControlledScreen {
     
     //INITILISE TOOLBAR BUTTONS
     @FXML 
-    private Button btnLogout; 
+    private Button btnSLogout; 
     
 
     
     @FXML
-    private Button btnHome; //not in use as in the home page already
+    private Button btnSHome; //not in use as in the home page already
     
     
     

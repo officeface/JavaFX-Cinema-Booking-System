@@ -61,6 +61,20 @@
 						</Button>
 					</children>
 				</HBox>
+            <HBox alignment="CENTER" prefHeight="57.0" prefWidth="281.0" spacing="20.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="50.0" prefWidth="300.0" textFill="#8a8686">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="btnRegister" mnemonicParsing="false" onAction="#goToRegistrationPage" onKeyPressed="#buttonPressed" prefHeight="50.0" prefWidth="300.0" text="Register">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
 			</children>
 			<padding>
 				<Insets />

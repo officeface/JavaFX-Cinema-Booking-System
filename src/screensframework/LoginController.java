@@ -1,10 +1,15 @@
 package screensframework;
 
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+
+import org.json.JSONObject;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -33,12 +38,47 @@ public class LoginController implements Initializable, ControlledScreen {
 	@FXML
 	private PasswordField txtPassword; // Password
 
+	// Setting up the database file location:
+	File currentDir = new File(".");
+	File parentDir = currentDir.getAbsoluteFile().getParentFile();
+	File database = new File(parentDir, "database.json");
+	File assets = new File(parentDir, "assets");
+
 	/**
 	 * Initializes the controller class.
 	 */
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-		// TODO
+
+		try {
+			// Initialise the database JSON file:
+			if (!database.exists()) {
+				System.out.println("database.json does not exist in parent directory, creating now!"); // If the
+																										// database is
+																										// not currently
+																										// being stored
+																										// locally
+
+				InputStream in = getClass().getResourceAsStream("/database.json"); // database shell
+				JSONObject obj = JSONUtils.getJSONObjectFromFile(in);
+				FileWriter write = new FileWriter(database); // Add the assets-folder-database-contents into the newly
+																// created database
+				write.write(obj.toString());
+				write.close();
+			}
+			
+			// Folder for images:
+			// if (assets.exists() && assets.isDirectory()) {
+			// System.out.println("Assets folder exists!");
+			// } else {
+			// new File(parentDir, "assets").mkdir();
+			//
+			// }
+
+		} catch (IOException e) {
+			System.out.println(e);
+		}
+
 	}
 
 	@Override
@@ -46,6 +86,16 @@ public class LoginController implements Initializable, ControlledScreen {
 		myController = screenParent;
 	}
 
+	/**
+	 * Checks user's login details against the database. If the user is of type
+	 * "Customer", creates a new Customer object and initialises it with the
+	 * database data. If the user is of type "Employee", creates a new Employee
+	 * object and initialises it. The user is then sent to the correct follow-on
+	 * screen depending on their permission level. Triggered by clicking Login.
+	 * 
+	 * @param event
+	 * @throws IOException
+	 */
 	@FXML
 	private void login(ActionEvent event) throws IOException {
 		try {
@@ -88,8 +138,7 @@ public class LoginController implements Initializable, ControlledScreen {
 						// Set details:
 						USER = new Employee(userID, email, password, firstName, lastName);
 
-						// Open Customer/Staff option screen upon successful staff login
-						myController.loadScreen(ScreensFramework.staffChoiceID, ScreensFramework.staffChoiceFile);
+						// Open staff home screen upon successful staff login
 						myController.loadScreen(ScreensFramework.staffHomeID, ScreensFramework.staffHomeFile);
 						myController.loadScreen(ScreensFramework.staffExportID, ScreensFramework.staffExportFile);
 						myController.loadScreen(ScreensFramework.bookingSummaryID, ScreensFramework.bookingSummaryFile);
@@ -97,8 +146,8 @@ public class LoginController implements Initializable, ControlledScreen {
 						myController.loadScreen(ScreensFramework.addFilmListingsID,
 								ScreensFramework.addFilmListingsFile);
 
-						// Open Customer/Staff option screen upon successful staff login
-						myController.setScreen(ScreensFramework.staffChoiceID);
+						// Open staff home upon successful staff login
+						myController.setScreen(ScreensFramework.staffHomeID);
 					}
 					continue;
 				}
@@ -113,10 +162,20 @@ public class LoginController implements Initializable, ControlledScreen {
 	}
 
 	@FXML
-	private void goToStaffChoicePage(ActionEvent event) {
-		myController.setScreen(ScreensFramework.staffChoiceID);
+	private void goToStaffHomePage(ActionEvent event) {
+		myController.setScreen(ScreensFramework.staffHomeID);
 	}
 
+	/**
+	 * Checks user's login details against the database. If the user is of type
+	 * "Customer", creates a new Customer object and initialises it with the
+	 * database data. If the user is of type "Employee", creates a new Employee
+	 * object and initialises it. The user is then sent to the correct follow-on
+	 * screen depending on their permission level. Triggered by pressing Enter.
+	 * 
+	 * @param ke
+	 * @throws IOException
+	 */
 	@FXML
 	public void buttonPressed(KeyEvent ke) throws IOException {
 		if (ke.getCode() == KeyCode.ENTER) {
@@ -158,7 +217,6 @@ public class LoginController implements Initializable, ControlledScreen {
 							// Set details:
 							USER = new Employee(userID, email, password, firstName, lastName);
 
-							myController.loadScreen(ScreensFramework.staffChoiceID, ScreensFramework.staffChoiceFile);
 							myController.loadScreen(ScreensFramework.staffHomeID, ScreensFramework.staffHomeFile);
 							myController.loadScreen(ScreensFramework.staffExportID, ScreensFramework.staffExportFile);
 							myController.loadScreen(ScreensFramework.bookingSummaryID,
@@ -167,8 +225,8 @@ public class LoginController implements Initializable, ControlledScreen {
 							myController.loadScreen(ScreensFramework.addFilmListingsID,
 									ScreensFramework.addFilmListingsFile);
 
-							// Open Customer/Staff option screen upon successful staff login
-							myController.setScreen(ScreensFramework.staffChoiceID);
+							// Open staff home screen upon successful staff login
+							myController.setScreen(ScreensFramework.staffHomeID);
 						}
 						continue;
 					}
@@ -181,5 +239,11 @@ public class LoginController implements Initializable, ControlledScreen {
 				System.out.println(e);
 			}
 		}
+	}
+
+	@FXML
+	private void goToRegistrationPage(ActionEvent event) {
+		myController.loadScreen(ScreensFramework.registrationID, ScreensFramework.registrationFile);
+		myController.setScreen(ScreensFramework.registrationID);
 	}
 }

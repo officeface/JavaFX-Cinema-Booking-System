@@ -23,11 +23,10 @@ public class TextFileManager {
 	private List<String[]> loginDetails;
 	private List<String[]> filmList;
 	private List<String[]> filmTimes;
-	// static String filePath = new File("").getAbsolutePath();
-	// static File database = new File(filePath +
-	// "/CinemaBookingSystem/assets/database.json");
-	static File database = new File("./assets/database.json");
-	static File database2 = new File("./assets/database2.json");
+
+	static File currentDir = new File(".");
+	static File parentDir = currentDir.getAbsoluteFile().getParentFile();
+	static File database = new File(parentDir, "database.json");
 
 	public TextFileManager() throws IOException {
 		this.loginDetails = loginDetailsToArrayList();
@@ -64,7 +63,7 @@ public class TextFileManager {
 	 */
 	public static String[][] getSeatInformation(String id) throws JSONException, IOException {
 
-		JSONObject obj = JSONUtils.getJSONObjectFromFile(TextFileManager.database);
+		JSONObject obj = JSONUtils.getJSONObjectFromFile(database);
 		JSONArray jsonArray = obj.getJSONArray("FilmTimes");
 		String title;
 
@@ -109,7 +108,7 @@ public class TextFileManager {
 		String newFirstName = user.getFirstName();
 		String newLastName = user.getLastName();
 
-		JSONObject obj = JSONUtils.getJSONObjectFromFile(TextFileManager.database);
+		JSONObject obj = JSONUtils.getJSONObjectFromFile(database);
 		JSONArray jsonArray = obj.getJSONArray("LoginDetails");
 
 		for (int i = 0; i < jsonArray.length(); i++) {
@@ -117,14 +116,44 @@ public class TextFileManager {
 				jsonArray.getJSONObject(i).put("email", newEmail);
 				jsonArray.getJSONObject(i).put("firstname", newFirstName);
 				jsonArray.getJSONObject(i).put("surname", newLastName);
+
 			}
 		}
 
-		// try-with-resources statement based on post comment below :)
-		try (FileWriter file = new FileWriter("./assets/database.json")) {
+		// Write JSON Object to file:
+		try (FileWriter file = new FileWriter(database)) {
 			file.write(obj.toString());
-			System.out.println("Successfully Copied JSON Object to File...");
-			System.out.println("\nJSON Object: " + obj);
+			System.out.println("Successfully updated JSON Object in File...");
+		}
+
+	}
+
+	public static void registerNewUser(User user) throws JSONException, IOException {
+		String userID = user.getUserID();
+		String email = user.getEmail();
+		String password = user.getPassword();
+		String firstName = user.getFirstName();
+		String lastName = user.getLastName();
+
+		JSONObject obj = JSONUtils.getJSONObjectFromFile(database);
+		JSONArray jsonArray = obj.getJSONArray("LoginDetails");
+
+		JSONObject userObject = new JSONObject();
+		JSONObject bookings = new JSONObject();
+		userObject.put("userID", userID);
+		userObject.put("email", email);
+		userObject.put("password", password);
+		userObject.put("firstname", firstName);
+		userObject.put("surname", lastName);
+		userObject.put("type", "C");
+		userObject.put("bookings", bookings);
+
+		jsonArray.put(userObject); // Add new user to array
+		
+		// Write JSON Object to file:
+		try (FileWriter file = new FileWriter(database)) {
+			file.write(obj.toString());
+			System.out.println("Successfully updated JSON Object in File...");
 		}
 	}
 
@@ -138,7 +167,7 @@ public class TextFileManager {
 	 * @throws JSONException
 	 */
 	public static void updateListing(Listing listing) throws JSONException, IOException {
-		JSONObject obj = JSONUtils.getJSONObjectFromFile(TextFileManager.database);
+		JSONObject obj = JSONUtils.getJSONObjectFromFile(database);
 		JSONArray jsonArray = obj.getJSONArray("FilmTimes");
 		String[][] seats = listing.getSeats();
 
@@ -158,12 +187,12 @@ public class TextFileManager {
 			}
 		}
 
-		// Write object to database file
-		try (FileWriter file = new FileWriter("./assets/database.json")) {
+		// Write JSON Object to file:
+		try (FileWriter file = new FileWriter(database)) {
 			file.write(obj.toString());
 			System.out.println("Successfully updated JSON Object in File...");
-			System.out.println("\nJSON Object: " + obj);
 		}
+
 	}
 
 	/**
@@ -175,7 +204,7 @@ public class TextFileManager {
 	 * @throws JSONException
 	 */
 	public static void updateBookingHistory(Booking booking) throws JSONException, IOException {
-		JSONObject obj = JSONUtils.getJSONObjectFromFile(TextFileManager.database);
+		JSONObject obj = JSONUtils.getJSONObjectFromFile(database);
 		JSONArray jsonArray = obj.getJSONArray("LoginDetails");
 		JSONArray seatInfo;
 		try {
@@ -202,12 +231,12 @@ public class TextFileManager {
 
 			}
 		}
-		// Write object to database file
-		try (FileWriter file = new FileWriter("./assets/database.json")) {
+		// Write JSON Object to file:
+		try (FileWriter file = new FileWriter(database)) {
 			file.write(obj.toString());
-			System.out.println("Successfully updated Booking History in File...");
-			System.out.println("\nJSON Object: " + obj);
+			System.out.println("Successfully updated JSON Object in File...");
 		}
+
 	}
 
 	/**
@@ -224,7 +253,7 @@ public class TextFileManager {
 		// Steps: remove listing from user's part of database
 		// Find steps inside listing part of database and reset them to "Free"
 
-		JSONObject obj = JSONUtils.getJSONObjectFromFile(TextFileManager.database);
+		JSONObject obj = JSONUtils.getJSONObjectFromFile(database);
 		JSONArray loginArray = obj.getJSONArray("LoginDetails");
 		JSONArray listingsArray = obj.getJSONArray("FilmTimes");
 		JSONObject listingToBeChanged = null;
@@ -268,11 +297,10 @@ public class TextFileManager {
 			}
 		}
 
-		// Write object to database file
-		try (FileWriter file = new FileWriter("./assets/database.json")) {
+		// Write JSON Object to file:
+		try (FileWriter file = new FileWriter(database)) {
 			file.write(obj.toString());
-			System.out.println("Successfully updated Booking History in File...");
-			System.out.println("\nJSON Object: " + obj);
+			System.out.println("Successfully updated JSON Object in File...");
 		}
 
 	}
@@ -291,10 +319,9 @@ public class TextFileManager {
 
 		String letterNumberCombo = seat.split(" ")[1];
 		row = (char) (letterNumberCombo.charAt(0) - 17);
-		
+
 		colAsNumber = Integer.parseInt(letterNumberCombo.substring(1, letterNumberCombo.length())) - 1;
 		col = colAsNumber.toString();
-		
 
 		return ((Character) (row)).toString() + col;
 	}
@@ -312,8 +339,8 @@ public class TextFileManager {
 		String image = newmovie.getImage();
 		String description = newmovie.getDescription();
 
-		JSONObject obj = JSONUtils.getJSONObjectFromFile(TextFileManager.database); // works! Switched to database 1
-																					// (mark)
+		JSONObject obj = JSONUtils.getJSONObjectFromFile(database); // works! Switched to database 1
+																	// (mark)
 
 		JSONArray jsonArray = obj.getJSONArray("FilmList");
 
@@ -324,11 +351,10 @@ public class TextFileManager {
 		templist.put("description", description);
 		jsonArray.put(templist);
 
-		// // try-with-resources statement based on post comment below :)
-		try (FileWriter file = new FileWriter("./assets/database.json")) {
+		// Write JSON Object to file:
+		try (FileWriter file = new FileWriter(database)) {
 			file.write(obj.toString());
-			System.out.println("Successfully Added JSON Object to File...");
-			System.out.println("\nJSON Object: " + obj);
+			System.out.println("Successfully updated JSON Object in File...");
 		}
 
 	}
@@ -345,10 +371,10 @@ public class TextFileManager {
 		String date = newlisting.getDate();
 		String time = newlisting.getTime();
 
-		JSONObject obj = JSONUtils.getJSONObjectFromFile(TextFileManager.database); // testing
-																					// in
-																					// database
-																					// 2
+		JSONObject obj = JSONUtils.getJSONObjectFromFile(database); // testing
+																	// in
+																	// database
+																	// 2
 		JSONArray jsonArray = obj.getJSONArray("FilmTimes");
 
 		JSONObject seatList = new JSONObject();
@@ -371,11 +397,10 @@ public class TextFileManager {
 
 		jsonArray.put(templist);
 
-		// // try-with-resources statement based on post comment below :)
-		try (FileWriter file = new FileWriter("./assets/database.json")) {
+		// Write JSON Object to file:
+		try (FileWriter file = new FileWriter(database)) {
 			file.write(obj.toString());
-			System.out.println("Successfully Added JSON Object to File...");
-			System.out.println("\nJSON Object: " + obj);
+			System.out.println("Successfully updated JSON Object in File...");
 		}
 
 	}
@@ -402,7 +427,7 @@ public class TextFileManager {
 	 */
 	public static List<String[]> loginDetailsToArrayList() throws IOException {
 
-		JSONObject obj = JSONUtils.getJSONObjectFromFile(TextFileManager.database);
+		JSONObject obj = JSONUtils.getJSONObjectFromFile(database);
 		JSONArray jsonArray = obj.getJSONArray("LoginDetails");
 		List<String[]> loginDetails = new ArrayList<String[]>();
 
@@ -429,7 +454,7 @@ public class TextFileManager {
 	 * @throws IOException
 	 */
 	public static List<String[]> filmListToArrayList() throws IOException {
-		JSONObject obj = JSONUtils.getJSONObjectFromFile(TextFileManager.database);
+		JSONObject obj = JSONUtils.getJSONObjectFromFile(database);
 		JSONArray jsonArray = obj.getJSONArray("FilmList");
 		List<String[]> filmList = new ArrayList<String[]>();
 
@@ -454,7 +479,7 @@ public class TextFileManager {
 	 * @throws IOException
 	 */
 	public static List<String[]> filmTimesToArrayList() throws IOException {
-		JSONObject obj = JSONUtils.getJSONObjectFromFile(TextFileManager.database);
+		JSONObject obj = JSONUtils.getJSONObjectFromFile(database);
 		JSONArray jsonArray = obj.getJSONArray("FilmTimes");
 		List<String[]> filmTimes = new ArrayList<String[]>();
 
@@ -482,7 +507,7 @@ public class TextFileManager {
 	 */
 	public static List<String> filmsFilteredByDate(String date) throws IOException {
 
-		JSONObject obj = JSONUtils.getJSONObjectFromFile(TextFileManager.database);
+		JSONObject obj = JSONUtils.getJSONObjectFromFile(database);
 		JSONArray filmTimesArray = obj.getJSONArray("FilmTimes");
 		List<String> films = new ArrayList<String>();
 
@@ -507,7 +532,7 @@ public class TextFileManager {
 	 * @throws IOException
 	 */
 	public static List<String> timesFilteredByDateAndFilm(String date, String film) throws IOException {
-		JSONObject obj = JSONUtils.getJSONObjectFromFile(TextFileManager.database);
+		JSONObject obj = JSONUtils.getJSONObjectFromFile(database);
 		JSONArray filmTimesArray = obj.getJSONArray("FilmTimes");
 		List<String> times = new ArrayList<String>();
 
@@ -553,7 +578,7 @@ public class TextFileManager {
 	 * @throws IOException
 	 */
 	public static List<String[]> getFilmTitles() throws IOException {
-		JSONObject obj = JSONUtils.getJSONObjectFromFile(TextFileManager.database);
+		JSONObject obj = JSONUtils.getJSONObjectFromFile(database);
 		JSONArray jsonArray = obj.getJSONArray("FilmList");
 		List<String[]> filmListofTitles = new ArrayList<String[]>();
 		for (int i = 0; i < jsonArray.length(); i++) {
@@ -580,18 +605,6 @@ public class TextFileManager {
 				filmListofTimings[i] = i + ":00";
 			}
 		}
-		// filmListofTimings[0] = "12:00";
-		// filmListofTimings[1] = "13:00";
-		// filmListofTimings[2] = "14:00";
-		// filmListofTimings[3] = "15:00";
-		// filmListofTimings[4] = "16:00";
-		// filmListofTimings[5] = "17:00";
-		// filmListofTimings[6] = "18:00";
-		// filmListofTimings[7] = "19:00";
-		// filmListofTimings[8] = "20:00";
-		// filmListofTimings[9] = "21:00";
-		// filmListofTimings[10] = "22:00";
-		// filmListofTimings[11] = "23:00";
 		return filmListofTimings;
 	}
 

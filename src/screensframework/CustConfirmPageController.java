@@ -20,19 +20,7 @@ public class CustConfirmPageController implements Initializable, ControlledScree
     //Labels to change
     
     @FXML
-    private Label lblTitle;
-    
-    @FXML
-    private Label lblDate;
-    
-    @FXML
-    private Label lblTime;
-    
-    @FXML
-    private Label lblNoOfSeats;
-    
-    @FXML
-    private Label lblOverallPrice;
+    private Label lblTitle, lblDate, lblTime, lblNoOfSeats, lblOverallPrice, lblStatus;
     
     //Buttons
     
@@ -77,7 +65,24 @@ public class CustConfirmPageController implements Initializable, ControlledScree
 	private void book(ActionEvent event) throws JSONException, IOException {
 		TextFileManager.updateListing(CustHomeController.LISTING);
 		TextFileManager.updateBookingHistory(CustHomeController.BOOKING);
+		lblStatus.setText("Booked!");
 		System.out.println("Booked!");
+		
+		// Unload screens:
+		myController.unloadScreen(ScreensFramework.custHomeID);
+		myController.unloadScreen(ScreensFramework.custProfilePageID);
+		myController.unloadScreen(ScreensFramework.custBookFilmPageID);
+		myController.unloadScreen(ScreensFramework.custConfirmPageID);
+		
+		// Reload screens:
+		myController.loadScreen(ScreensFramework.custHomeID, ScreensFramework.custHomeFile);
+		myController.loadScreen(ScreensFramework.custProfilePageID,
+				ScreensFramework.custProfilePageFile);
+		myController.loadScreen(ScreensFramework.custBookingHistoryPageID,
+				ScreensFramework.custBookingHistoryPageFile);
+		
+		// Return to Customer Home:
+		myController.setScreen(ScreensFramework.custHomeID);
 	}
 	
 	
@@ -129,7 +134,6 @@ public class CustConfirmPageController implements Initializable, ControlledScree
 		myController.unloadScreen(ScreensFramework.bookingSummaryID);
 		myController.unloadScreen(ScreensFramework.addFilmPageID);
 		myController.unloadScreen(ScreensFramework.addFilmListingsID);
-		myController.unloadScreen(ScreensFramework.staffChoiceID);
 
 		myController.loadScreen(ScreensFramework.loginID, ScreensFramework.loginFile);
 		myController.setScreen(ScreensFramework.loginID);

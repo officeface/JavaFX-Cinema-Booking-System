@@ -43,10 +43,10 @@ public class StaffExportController implements Initializable, ControlledScreen {
 
 	// Toolbar variables
 	@FXML
-	private Button btnLogout;
+	private Button btnSLogout;
 
 	@FXML
-	private Button btnHome;
+	private Button btnSHome;
 
 	@FXML
 	private Button btnGoToBookingSummary;
