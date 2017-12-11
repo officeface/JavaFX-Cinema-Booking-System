@@ -1,5 +1,6 @@
 package screensframework;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -36,35 +37,34 @@ public class LoginController implements Initializable, ControlledScreen {
 
 	@FXML
 	private PasswordField txtPassword; // Password
-	
-	private String databasePath; // Path for the JSON database
+
+	File currentDir = new File(".");
+	File parentDir = currentDir.getAbsoluteFile().getParentFile();
+	File newFile = new File(parentDir, "database.json");
 
 	/**
 	 * Initializes the controller class.
 	 */
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-		// Initialise the database JSON file:
-//		try {
-//			JSONObject obj = JSONUtils.getJSONObjectFromFile("../database.json");
-//			System.out.println(obj.getJSONArray("LoginDetails"));
-//		} catch (Exception e) { // the database could not be found
-//			System.out.println("File 'database.json' not found.");
-//			
-//			// Create the database inside the directory the project is stored in:
-//			try {
-//				InputStream in = getClass().getResourceAsStream("/database.json");
-//				JSONObject obj = JSONUtils.getJSONObjectFromFile(in);
-//				FileWriter write = new FileWriter("../database.json");
-//				write.write(obj.toString());
-//				write.close();
-//			} catch (Exception e1) {
-//				System.out.println(e1);
-//			}
-//		}
-//		
-		databasePath = "../database.json";
-	
+
+		try {
+			// Initialise the database JSON file:
+			if (!newFile.exists()) {
+				System.out.println("current " + currentDir.getAbsolutePath());
+				System.out.println(parentDir.getAbsolutePath());
+				System.out.println("database.json does not exist in parent directory, creating now!");
+
+				InputStream in = getClass().getResourceAsStream("/database.json");
+				JSONObject obj = JSONUtils.getJSONObjectFromFile(in);
+				FileWriter write = new FileWriter(newFile);
+				write.write(obj.toString());
+				write.close();
+			}
+		} catch (IOException e) {
+			System.out.println(e);
+		}
+
 	}
 
 	@Override
