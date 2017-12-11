@@ -79,7 +79,7 @@ public class ScreensFramework extends Application {
 		primaryStage.show();
 		
 		
-		//Defining the stylesheet 
+		// Defining the stylesheet 
 		// load the stylesheet
 		String style = getClass().getResource("ScreensFramework.css").toExternalForm();
 		// apply stylesheet to the scene graph
