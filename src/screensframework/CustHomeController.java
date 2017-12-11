@@ -14,6 +14,7 @@ import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Accordion;
@@ -23,6 +24,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TitledPane;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
@@ -96,6 +98,26 @@ public class CustHomeController extends ToolbarController implements Initializab
 						Label info = new Label(listing[1]);
 						Label seatsLeft = new Label(listing[0]);
 						Button btn = new Button(listing[3]);
+						btn.setStyle("-fx-background-color: rgb(85,209,255); -fx-text-fill: white; "); // Sets the style of the buttons
+						
+						// Two events handlers if the user hovers over the buttons
+						btn.setOnMouseExited(new EventHandler<MouseEvent>
+					    () {
+
+					        @Override
+					        public void handle(MouseEvent t) {
+					           btn.setStyle("-fx-background-color: rgb(85,209,255); -fx-text-fill: white;");
+					        }
+					    });
+
+					    btn.setOnMouseEntered(new EventHandler<MouseEvent>
+					    () {
+
+					        @Override
+					        public void handle(MouseEvent t) {
+					           btn.setStyle("-fx-background-color: rgb(0,144,254); -fx-text-fill: white;");
+					        }
+					    });
 						
 						// For spacing:
 						Region region = new Region();
