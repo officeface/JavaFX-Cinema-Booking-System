@@ -61,6 +61,11 @@ public class AddFilmPageController implements Initializable, ControlledScreen {
 	@FXML
 	private Button btnGoToNewListing;
 
+	// Image destination file:
+	File currentDir = new File(".");
+	File parentDir = currentDir.getAbsoluteFile().getParentFile();
+	File assets = new File(parentDir, "assets");
+
 	/**
 	 * Initialises the controller class.
 	 */
@@ -76,9 +81,10 @@ public class AddFilmPageController implements Initializable, ControlledScreen {
 	}
 
 	/**
-	 * Opens up a window to choose an image. Specific files ending in jpeg or png can only be chosen.
-	 * The pathway of the image is then stored - to then be added to the database if the user 
-	 * executes the add film method. 
+	 * Opens up a window to choose an image. Specific files ending in jpeg or png
+	 * can only be chosen. The pathway of the image is then stored - to then be
+	 * added to the database if the user executes the add film method.
+	 * 
 	 * @author frazahmad
 	 * @param event
 	 * @throws IOException
@@ -94,16 +100,16 @@ public class AddFilmPageController implements Initializable, ControlledScreen {
 			FileChooser.ExtensionFilter extFilterPNG = new FileChooser.ExtensionFilter("PNG files (*.png)", "*.PNG");
 			fileChooser.getExtensionFilters().addAll(extFilterJPG, extFilterPNG);
 
-			fileChooser.setTitle("Open Resource File"); 
+			fileChooser.setTitle("Open Resource File");
 			File file = fileChooser.showOpenDialog(null);
 
 			try {
 				BufferedImage bufferedImage = ImageIO.read(file); // Used to select images
-				Image image = SwingFXUtils.toFXImage(bufferedImage, null); 
+				Image image = SwingFXUtils.toFXImage(bufferedImage, null);
 				imgViewFilmImage.setImage(image); // Sets selected image to the image view
 
 				String imagePathway = file.getAbsolutePath(); // Returns the pathway of an image that has been selected
-				this.imagePathway = imagePathway; 
+				this.imagePathway = imagePathway;
 
 			} catch (IOException ex) {
 				System.out.println("Could not upload image");
@@ -115,10 +121,12 @@ public class AddFilmPageController implements Initializable, ControlledScreen {
 			this.lblAddFilmChecker.setText("Try again!");
 		}
 	}
-	
+
 	/**
-	 * Allows the user to add a film to the database. A new movie class is initialised and transferred to 
-	 * addFilmDetails in the textfilemanager. Prevents against empty fields being added to the database.
+	 * Allows the user to add a film to the database. A new movie class is
+	 * initialised and transferred to addFilmDetails in the textfilemanager.
+	 * Prevents against empty fields being added to the database.
+	 * 
 	 * @author frazahmad
 	 * @param event
 	 * @throws JSONException
@@ -126,11 +134,11 @@ public class AddFilmPageController implements Initializable, ControlledScreen {
 	 */
 	@FXML
 	private void addFilm(ActionEvent event) throws JSONException, IOException {
-		
+
 		// Checks if the fields are not empty
 		if (!this.txtNameFilm.getText().isEmpty() && !this.txtAreaFilmDescription.getText().isEmpty()) {
 
-			// New movie class initialised 
+			// New movie class initialised
 			Movie newMovie = new Movie(this.txtNameFilm.getText(), imagePathway, this.txtAreaFilmDescription.getText());
 			TextFileManager.addFilmDetails(newMovie); // Update information in database
 
@@ -160,7 +168,6 @@ public class AddFilmPageController implements Initializable, ControlledScreen {
 		myController.unloadScreen(ScreensFramework.bookingSummaryID);
 		myController.unloadScreen(ScreensFramework.addFilmPageID);
 		myController.unloadScreen(ScreensFramework.addFilmListingsID);
-		myController.unloadScreen(ScreensFramework.staffChoiceID);
 
 		myController.loadScreen(ScreensFramework.loginID, ScreensFramework.loginFile);
 		myController.setScreen(ScreensFramework.loginID);
@@ -168,7 +175,7 @@ public class AddFilmPageController implements Initializable, ControlledScreen {
 
 	@FXML
 	private void goToAddListings(ActionEvent event) {
-		
+
 		// Unloads and reloads to update the page in case a new film was presently added
 		myController.unloadScreen(ScreensFramework.addFilmListingsID);
 		myController.loadScreen(ScreensFramework.addFilmListingsID, ScreensFramework.addFilmListingsFile);

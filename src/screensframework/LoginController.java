@@ -42,6 +42,7 @@ public class LoginController implements Initializable, ControlledScreen {
 	File currentDir = new File(".");
 	File parentDir = currentDir.getAbsoluteFile().getParentFile();
 	File database = new File(parentDir, "database.json");
+	File assets = new File(parentDir, "assets");
 
 	/**
 	 * Initializes the controller class.
@@ -65,6 +66,15 @@ public class LoginController implements Initializable, ControlledScreen {
 				write.write(obj.toString());
 				write.close();
 			}
+			
+			// Folder for images:
+			// if (assets.exists() && assets.isDirectory()) {
+			// System.out.println("Assets folder exists!");
+			// } else {
+			// new File(parentDir, "assets").mkdir();
+			//
+			// }
+
 		} catch (IOException e) {
 			System.out.println(e);
 		}
@@ -230,7 +240,7 @@ public class LoginController implements Initializable, ControlledScreen {
 			}
 		}
 	}
-	
+
 	@FXML
 	private void goToRegistrationPage(ActionEvent event) {
 		myController.loadScreen(ScreensFramework.registrationID, ScreensFramework.registrationFile);

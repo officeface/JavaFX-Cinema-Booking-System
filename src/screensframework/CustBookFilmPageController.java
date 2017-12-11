@@ -279,7 +279,6 @@ public class CustBookFilmPageController implements Initializable, ControlledScre
 		myController.unloadScreen(ScreensFramework.bookingSummaryID);
 		myController.unloadScreen(ScreensFramework.addFilmPageID);
 		myController.unloadScreen(ScreensFramework.addFilmListingsID);
-		myController.unloadScreen(ScreensFramework.staffChoiceID);
 
 		myController.loadScreen(ScreensFramework.loginID, ScreensFramework.loginFile);
 		myController.setScreen(ScreensFramework.loginID);
