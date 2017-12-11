@@ -34,14 +34,14 @@ public class AddFilmListingsController implements Initializable, ControlledScree
 																					// for
 																					// film
 																					// titles
-	private String selectedFilmForListing; // Holds selected Film
+	private String selectedFilmForListing; // Holds selected film
 
 	@FXML
 	private ComboBox<String> comboChooseTime; // Select appropriate times
 	private ObservableList<String> timesAvailable = FXCollections.observableArrayList(); // Container
 																							// for
 																							// timings
-	private String selectedTimeForListing;
+	private String selectedTimeForListing;// Holds selected time
 
 	@FXML
 	private DatePicker listingsDatePicker; // Select a date
@@ -54,7 +54,7 @@ public class AddFilmListingsController implements Initializable, ControlledScree
 									// to records
 
 	@FXML
-	private Label lblFeedback;
+	private Label lblFeedback; // Feedback label - provides users with feedback based on their actions
 
 	// Toolbar variables
 	@FXML
@@ -72,29 +72,31 @@ public class AddFilmListingsController implements Initializable, ControlledScree
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
+		// Adds current list of films from the database to the comboBox - choose film
 		List<String[]> filmList = null;
 		try {
-			filmList = TextFileManager.getFilmTitles();
+			filmList = TextFileManager.getFilmTitles(); // Method to retrieve the film titles
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
 		for (int i = 0; i < filmList.size(); i++) {
-			filmNames.addAll(filmList.get(i));
+			filmNames.addAll(filmList.get(i)); // Intermediate storage
 		}
-		comboSelectFilm.setItems(filmNames);
+		comboSelectFilm.setItems(filmNames); // Sets comboBox the film titles
 
+		// Adds list of timings from the database to the comboBox - choose time 
 		String[] timeList = null;
 		try {
-			timeList = TextFileManager.getFilmTimings();
+			timeList = TextFileManager.getFilmTimings(); // Method to retrieve the timings 
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
 		for (int i = 0; i < timeList.length; i++) {
-			timesAvailable.add(timeList[i]);
+			timesAvailable.add(timeList[i]); // Intermediate storage
 		}
-		comboChooseTime.setItems(timesAvailable);
+		comboChooseTime.setItems(timesAvailable); // Sets comboBox the timings 
 
 	}
 
@@ -103,43 +105,69 @@ public class AddFilmListingsController implements Initializable, ControlledScree
 		myController = screenParent;
 	}
 
+	
+	/**
+	 * Gets the value of the selected film from the list of films
+	 * @author frazahmad
+	 * @param event
+	 * @throws IOException
+	 */
 	@FXML
 	private void getSelectedFilm(ActionEvent event) throws IOException {
 		this.selectedFilmForListing = comboSelectFilm.getValue();
 		System.out.println(selectedFilmForListing);
 	}
 
+	/**
+	 * Gets the value of the selected date from date picker
+	 * @author frazahmad
+	 * @param event
+	 * @throws IOException
+	 */
 	@FXML
 	private void getSelectedDate(ActionEvent event) throws IOException {
 		this.selectedDateForListing = dateTimeFormatter.format(listingsDatePicker.getValue());
 		System.out.println(selectedDateForListing);
 	}
 
+	/**
+	 * Gets the value of the selected time from the list of times
+	 * @author frazahmad
+	 * @param event
+	 * @throws IOException
+	 */
 	@FXML
 	private void getSelectedTime(ActionEvent event) throws IOException {
 		this.selectedTimeForListing = comboChooseTime.getValue();
 		System.out.println(selectedTimeForListing);
 	}
 
+	/**
+	 * Creates a new film listing based on user's action. The values are then transferred to the textfilemanager.
+	 * @author frazahmad
+	 * @param event
+	 * @throws IOException
+	 */
 	@FXML
 	private void addFilmListing(ActionEvent event) throws IOException {
-
+		
+		// Conditional statements are used so no empty fields can be added.
 		if (readyToSelect() && showingTimeIsFree(this.selectedDateForListing, this.selectedTimeForListing)) {
 
-			// New seating ID
+			// New showing ID
 			JSONObject obj = JSONUtils.getJSONObjectFromFile(TextFileManager.database);
 			JSONArray jsonArray = obj.getJSONArray("FilmTimes");
-			int filmTimeslength = jsonArray.length();
-			Integer newShowingIDNumber = filmTimeslength + 1;
-			String newShowingID = newShowingIDNumber.toString();
+			int filmTimeslength = jsonArray.length(); // Scans the database for the length to get n showingID's
+			Integer newShowingIDNumber = filmTimeslength + 1; // New showingID is length of FilmTimes array + 1
+			String newShowingID = newShowingIDNumber.toString(); // Integer to string
 
 			Listing newListing = new Listing(newShowingID, this.selectedFilmForListing, this.selectedDateForListing,
-					this.selectedTimeForListing, null);
+					this.selectedTimeForListing, null); // New class made with parameters from the get methods
 
 			TextFileManager.addFilmListings(newListing); // Update film listing
 															// in database
 
-			this.lblFeedback.setText("Added Film Listing!");
+			this.lblFeedback.setText("Added Film Listing!"); // Label to inform user action
 		} else if (!readyToSelect()) {
 
 			this.lblFeedback.setText("No fields should be empty!");
@@ -166,7 +194,7 @@ public class AddFilmListingsController implements Initializable, ControlledScree
 
 		for (int i = 0; i < filmTimes.size(); i++) {
 			if (filmTimes.get(i)[2].equals(date) && filmTimes.get(i)[3].equals(time)) {
-				return false;
+				return false; // Checks if the showing time is free
 			}
 		}
 		return true;
