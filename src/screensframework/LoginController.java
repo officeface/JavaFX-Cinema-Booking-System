@@ -1,10 +1,14 @@
 package screensframework;
 
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+
+import org.json.JSONObject;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -32,13 +36,35 @@ public class LoginController implements Initializable, ControlledScreen {
 
 	@FXML
 	private PasswordField txtPassword; // Password
+	
+	private String databasePath; // Path for the JSON database
 
 	/**
 	 * Initializes the controller class.
 	 */
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-		// TODO
+		// Initialise the database JSON file:
+//		try {
+//			JSONObject obj = JSONUtils.getJSONObjectFromFile("../database.json");
+//			System.out.println(obj.getJSONArray("LoginDetails"));
+//		} catch (Exception e) { // the database could not be found
+//			System.out.println("File 'database.json' not found.");
+//			
+//			// Create the database inside the directory the project is stored in:
+//			try {
+//				InputStream in = getClass().getResourceAsStream("/database.json");
+//				JSONObject obj = JSONUtils.getJSONObjectFromFile(in);
+//				FileWriter write = new FileWriter("../database.json");
+//				write.write(obj.toString());
+//				write.close();
+//			} catch (Exception e1) {
+//				System.out.println(e1);
+//			}
+//		}
+//		
+		databasePath = "../database.json";
+	
 	}
 
 	@Override

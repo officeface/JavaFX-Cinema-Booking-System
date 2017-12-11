@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,8 +27,12 @@ public class TextFileManager {
 	// static String filePath = new File("").getAbsolutePath();
 	// static File database = new File(filePath +
 	// "/CinemaBookingSystem/assets/database.json");
-	static File database = new File("./assets/database.json");
-	static File database2 = new File("./assets/database2.json");
+//	static URL url = TextFileManager.class.getResource("/database.json");
+//	static File database = new File(url.getFile());
+//	static File database2 = new File("./assets/database2.json");
+	static URL url = TextFileManager.class.getResource("/database.json");
+	static String database = "/database.json";
+	
 
 	public TextFileManager() throws IOException {
 		this.loginDetails = loginDetailsToArrayList();
@@ -108,6 +113,7 @@ public class TextFileManager {
 		String newEmail = user.getEmail();
 		String newFirstName = user.getFirstName();
 		String newLastName = user.getLastName();
+		
 
 		JSONObject obj = JSONUtils.getJSONObjectFromFile(TextFileManager.database);
 		JSONArray jsonArray = obj.getJSONArray("LoginDetails");
@@ -121,7 +127,7 @@ public class TextFileManager {
 		}
 
 		// try-with-resources statement based on post comment below :)
-		try (FileWriter file = new FileWriter("./assets/database.json")) {
+		try (FileWriter file = new FileWriter("/database.json")) {
 			file.write(obj.toString());
 			System.out.println("Successfully Copied JSON Object to File...");
 			System.out.println("\nJSON Object: " + obj);
