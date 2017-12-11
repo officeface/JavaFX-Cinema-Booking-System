@@ -230,4 +230,10 @@ public class LoginController implements Initializable, ControlledScreen {
 			}
 		}
 	}
+	
+	@FXML
+	private void goToRegistrationPage(ActionEvent event) {
+		myController.loadScreen(ScreensFramework.registrationID, ScreensFramework.registrationFile);
+		myController.setScreen(ScreensFramework.registrationID);
+	}
 }

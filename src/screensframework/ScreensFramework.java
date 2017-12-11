@@ -10,6 +10,10 @@ public class ScreensFramework extends Application {
 	// Declaring the LOGIN
 	public static String loginID = "main";
 	public static String loginFile = "Login.fxml";
+	
+	// Registration
+	public static String registrationID = "registrationPage";
+	public static String registrationFile = "RegistrationPage.fxml";
 
 	// Customer only files
 	public static String custHomeID = "custHome";

@@ -138,6 +138,7 @@ public class CustBookingHistoryPageController extends ToolbarController implemen
 
 		// Unload screens:
 		myController.unloadScreen(ScreensFramework.loginID);
+		myController.unloadScreen(ScreensFramework.registrationID);
 		myController.unloadScreen(ScreensFramework.staffHomeID);
 		myController.unloadScreen(ScreensFramework.custHomeID);
 		myController.unloadScreen(ScreensFramework.custProfilePageID);

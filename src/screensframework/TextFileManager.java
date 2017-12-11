@@ -116,6 +116,7 @@ public class TextFileManager {
 				jsonArray.getJSONObject(i).put("email", newEmail);
 				jsonArray.getJSONObject(i).put("firstname", newFirstName);
 				jsonArray.getJSONObject(i).put("surname", newLastName);
+
 			}
 		}
 
@@ -125,6 +126,35 @@ public class TextFileManager {
 			System.out.println("Successfully updated JSON Object in File...");
 		}
 
+	}
+
+	public static void registerNewUser(User user) throws JSONException, IOException {
+		String userID = user.getUserID();
+		String email = user.getEmail();
+		String password = user.getPassword();
+		String firstName = user.getFirstName();
+		String lastName = user.getLastName();
+
+		JSONObject obj = JSONUtils.getJSONObjectFromFile(database);
+		JSONArray jsonArray = obj.getJSONArray("LoginDetails");
+
+		JSONObject userObject = new JSONObject();
+		JSONObject bookings = new JSONObject();
+		userObject.put("userID", userID);
+		userObject.put("email", email);
+		userObject.put("password", password);
+		userObject.put("firstname", firstName);
+		userObject.put("surname", lastName);
+		userObject.put("type", "C");
+		userObject.put("bookings", bookings);
+
+		jsonArray.put(userObject); // Add new user to array
+		
+		// Write JSON Object to file:
+		try (FileWriter file = new FileWriter(database)) {
+			file.write(obj.toString());
+			System.out.println("Successfully updated JSON Object in File...");
+		}
 	}
 
 	/**
