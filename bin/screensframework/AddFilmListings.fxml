@@ -2,7 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
@@ -30,7 +29,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="30.0" prefWidth="250.0">
                <children>
-              <Label fx:id="lblTitleTag" alignment="CENTER" text="Add listings">
+              <Label fx:id="lblTitleTag" alignment="CENTER" text="Add listing">
                 <font>
                   <Font size="18.0" />
                 </font>
@@ -74,15 +73,6 @@
                   <Font size="22.0" />
                </font>
             </Label>
-            <ButtonBar prefHeight="63.0" prefWidth="566.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-              <buttons>
-                <Button fx:id="btnAddListings" minWidth="26.0" mnemonicParsing="false" onAction="#addFilmListing" prefHeight="13.0" text="ADD LISTINGS" />
-                  <ComboBox fx:id="comboChooseTime" onAction="#getSelectedTime" prefHeight="27.0" prefWidth="258.0" promptText="Choose available time slot" />
-              </buttons>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </ButtonBar>
             <Label fx:id="lblSelectTime" text="SELECT TIME" GridPane.rowIndex="2">
                <font>
                   <Font size="22.0" />
@@ -93,6 +83,8 @@
                   <Font size="15.0" />
                </font>
             </Label>
+          <Button fx:id="btnAddListings" minWidth="26.0" mnemonicParsing="false" onAction="#addFilmListing" prefHeight="27.0" prefWidth="328.0" text="ADD LISTING" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <ComboBox fx:id="comboChooseTime" onAction="#getSelectedTime" prefHeight="27.0" prefWidth="331.0" promptText="Choose available time slot" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
       </GridPane>
    </children>

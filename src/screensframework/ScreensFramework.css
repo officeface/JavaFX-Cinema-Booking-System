@@ -6,7 +6,7 @@
 
 /*
  * 
- *    
+ *          
  * 
  */
 
@@ -15,47 +15,21 @@
 /*-----------------------------------------------------------------FOR ALL PAGES-----------------------------------------------------------------------------------*/
 /*----------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-/* ACCORDIAN 1
-.accordion .titled-pane{
-    -fx-background-color: transparent ;
+/* TOOLBAR good colours: powerblue /silver / steelblue  */
+
+.tool-bar {
+        -fx-background-color:  linear-gradient(to left, steelblue, white ) ;
+        
+}
+
+.tool-bar .label {
     -fx-text-fill: white;
-    
-}
+    -fx-font-weight: 900;    
 
-.accordion .titled-pane > *.content{
-    -fx-background-color: transparent ;
-    -fx-text-fill: white;
-}
-
-.accordion .titled-pane .title {
-    -fx-background-color: linear-gradient(to right, rgb(85,209,255), white ) ;
-    -fx-text-fill: white;
-    -fx-background-radius: 6, 6, 6;   
-}
-.accordion .titled-pane:focused {
-       -fx-text-fill: white;
-}
-.accordion .titled-pane > .title > .arrow-button {
--fx-background-color: transparent;
--fx-background-insets: 0;
--fx-background-radius: 0;
 }
 
 
-.accordion .titled-pane > .title > .arrow-button .arrow 
-{
--fx-background-color: blue, blue;
--fx-background-insets: 1 0 -1 0, 0;
--fx-padding: 0.25em 0.3125em 0.25em 0.3125em; 
--fx-shape: "M 0 0 h 7 l -3.5 4 z";
-}
-
-.accordion .titled-pane:focused > .title > .arrow-button .arrow {
--fx-background-color: white;
-}
- */
-
-/* ACCORDIAN 2 */
+/* ACCORDIAN */
 .accordion .titled-pane{
     -fx-background-color: transparent ;
     -fx-text-fill: white;
@@ -151,6 +125,9 @@
     -fx-background-color: #d3d3d3;
     -fx-text-fill: #1d1d1d;
 }
+
+
+
 
 
 /*DATEPICKER */
@@ -305,6 +282,15 @@
 
 /*REGISTRATION */
 
+#btnBackToLogin {
+	-fx-background-color: rgb(242,166,27);
+    -fx-text-fill: white;
+    -fx-background-radius: 16px;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
+}
+#btnBackToLogin:hover {
+	-fx-background-color: rgb(216,157,66);
+}
 
 
 

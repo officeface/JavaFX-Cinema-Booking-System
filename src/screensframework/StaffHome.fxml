@@ -43,7 +43,7 @@
 			</font>
 		</Label>
 		<Button fx:id="btnAddFilm" layoutX="214.0" layoutY="192.0" mnemonicParsing="false" onAction="#goToAddFilmPage" prefHeight="60.0" prefWidth="160.0" text="ADD NEW FILM" />
-		<Button fx:id="btnAddListings" layoutX="432.0" layoutY="192.0" mnemonicParsing="false" onAction="#goToAddListings" prefHeight="60.0" prefWidth="160.0" text="ADD NEW LISTINGS" />
+		<Button fx:id="btnAddListings" layoutX="432.0" layoutY="192.0" mnemonicParsing="false" onAction="#goToAddListings" prefHeight="60.0" prefWidth="160.0" text="ADD NEW LISTING" />
 		<Button fx:id="btnBookingSummary" layoutX="216.0" layoutY="319.0" mnemonicParsing="false" onAction="#goToBookingSummary" prefHeight="60.0" prefWidth="373.0" text="BOOKING SUMMARY" />
 		<Button fx:id="btnExportFilms" layoutX="216.0" layoutY="434.0" mnemonicParsing="false" onAction="#goToStaffExport" prefHeight="60.0" prefWidth="373.0" text="EXPORT FILMS TO FILE" />
 	</children>
