@@ -149,7 +149,7 @@ public class TextFileManager {
 		userObject.put("bookings", bookings);
 
 		jsonArray.put(userObject); // Add new user to array
-		
+
 		// Write JSON Object to file:
 		try (FileWriter file = new FileWriter(database)) {
 			file.write(obj.toString());
@@ -333,23 +333,37 @@ public class TextFileManager {
 	 */
 	public static void addFilmDetails(Movie newmovie) throws JSONException, IOException {
 
-		// TEST OF ADDING A NEW FILM IN - - DATABASE 2! - moved now to database 1 since
-		// it works! (mark)
 		String title = newmovie.getTitle();
 		String image = newmovie.getImage();
 		String description = newmovie.getDescription();
+		Boolean filmAlreadyExists = false;
 
-		JSONObject obj = JSONUtils.getJSONObjectFromFile(database); // works! Switched to database 1
-																	// (mark)
+		JSONObject obj = JSONUtils.getJSONObjectFromFile(database);
 
 		JSONArray jsonArray = obj.getJSONArray("FilmList");
 
-		// APPENDS TO THE END OF THE FILELIST! - HOWEVER DB GOES CRAZY
-		JSONObject templist = new JSONObject();
-		templist.put("title", title);
-		templist.put("image", image);
-		templist.put("description", description);
-		jsonArray.put(templist);
+		// Check if the movie already exists in the database, in which case we will
+		// merely update it:
+		for (int i = 0; i < jsonArray.length(); i++) {
+
+			if (jsonArray.getJSONObject(i).getString("title").equals(title)) {
+				filmAlreadyExists = true;
+
+				jsonArray.getJSONObject(i).put("title", title);
+				jsonArray.getJSONObject(i).put("image", image);
+				jsonArray.getJSONObject(i).put("description", description);
+
+			}
+		}
+
+		if (!filmAlreadyExists) {
+			// APPENDS TO THE END OF THE FILELIST
+			JSONObject templist = new JSONObject();
+			templist.put("title", title);
+			templist.put("image", image);
+			templist.put("description", description);
+			jsonArray.put(templist);
+		}
 
 		// Write JSON Object to file:
 		try (FileWriter file = new FileWriter(database)) {
