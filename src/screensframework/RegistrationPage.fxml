@@ -16,19 +16,19 @@
          <children>
             <Label text="Register">
                <font>
-                  <Font size="36.0" />
+                  <Font name="Helvetica Neue Light" size="35.0" />
                </font>
             </Label>
             <HBox alignment="CENTER" prefHeight="60.0" prefWidth="600.0" spacing="20.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="50.0" prefWidth="300.0" text="Email/Username*:">
+                  <Label alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="300.0" text="Email/Username">
                      <font>
-                        <Font size="22.0" />
+                        <Font name="Helvetica Neue Light" size="22.0" />
                      </font>
                   </Label>
                   <TextField fx:id="txtEmail" prefHeight="50.0" prefWidth="300.0">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Helvetica Neue" size="18.0" />
                      </font>
                   </TextField>
                   <Label fx:id="lblEmail" alignment="CENTER" prefHeight="50.0" prefWidth="100.0" textFill="#777777">
@@ -40,9 +40,9 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="60.0" prefWidth="600.0" spacing="20.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="50.0" prefWidth="300.0" text="Password*:">
+                  <Label alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="300.0" text="Password">
                      <font>
-                        <Font size="22.0" />
+                        <Font name="Helvetica Neue Light" size="22.0" />
                      </font>
                   </Label>
                   <PasswordField fx:id="txtPassword" prefHeight="50.0" prefWidth="300.0">
@@ -59,9 +59,9 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="60.0" prefWidth="600.0" spacing="20.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="50.0" prefWidth="300.0" text="Repeat password*:">
+                  <Label alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="300.0" text="Repeat password">
                      <font>
-                        <Font size="22.0" />
+                        <Font name="Helvetica Neue Light" size="22.0" />
                      </font>
                   </Label>
                   <PasswordField fx:id="txtPasswordRepeat" prefHeight="50.0" prefWidth="300.0">
@@ -78,14 +78,14 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="60.0" prefWidth="600.0" spacing="20.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="50.0" prefWidth="300.0" text="First name*:">
+                  <Label alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="300.0" text="First name">
                      <font>
-                        <Font size="22.0" />
+                        <Font name="Helvetica Neue Light" size="22.0" />
                      </font>
                   </Label>
                   <TextField fx:id="txtFirstName" prefHeight="50.0" prefWidth="300.0">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Helvetica Neue" size="18.0" />
                      </font>
                   </TextField>
                   <Label fx:id="lblFirstName" alignment="CENTER" prefHeight="50.0" prefWidth="100.0" textFill="#777777">
@@ -97,14 +97,14 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="60.0" prefWidth="600.0" spacing="20.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="50.0" prefWidth="300.0" text="Last name*:">
+                  <Label alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="300.0" text="Last name">
                      <font>
-                        <Font size="22.0" />
+                        <Font name="Helvetica Neue Light" size="22.0" />
                      </font>
                   </Label>
                   <TextField fx:id="txtLastName" prefHeight="50.0" prefWidth="300.0">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Helvetica Neue" size="18.0" />
                      </font>
                   </TextField>
                   <Label fx:id="lblLastName" alignment="CENTER" prefHeight="50.0" prefWidth="100.0" textFill="#777777">
@@ -118,7 +118,7 @@
                <children>
                   <Button fx:id="btnBackToLogin" mnemonicParsing="false" onAction="#returnToLogin" prefHeight="50.0" prefWidth="140.0" text="Back">
                      <font>
-                        <Font size="20.0" />
+                        <Font name="Helvetica Neue Light" size="20.0" />
                      </font>
                   </Button>
                   <Label fx:id="lblStatus" alignment="CENTER" prefHeight="50.0" prefWidth="175.0" textFill="#8a8686">
@@ -128,7 +128,7 @@
                   </Label>
                   <Button fx:id="btnRegister" mnemonicParsing="false" onAction="#register" prefHeight="50.0" prefWidth="141.0" text="Register">
                      <font>
-                        <Font size="20.0" />
+                        <Font name="Helvetica Neue Bold Italic" size="20.0" />
                      </font>
                   </Button>
                </children>

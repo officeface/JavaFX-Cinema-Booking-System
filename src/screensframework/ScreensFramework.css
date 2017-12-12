@@ -15,6 +15,8 @@
 /*-----------------------------------------------------------------FOR ALL PAGES-----------------------------------------------------------------------------------*/
 /*----------------------------------------------------------------------------------------------------------------------------------------------------*/
 
+
+
 /* TOOLBAR good colours: powerblue /silver / steelblue  */
 
 .tool-bar {
@@ -287,13 +289,23 @@
     -fx-text-fill: white;
     -fx-background-radius: 16px;
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
+    
+   
 }
 #btnBackToLogin:hover {
 	-fx-background-color: rgb(216,157,66);
 }
 
+/* registration label */ 
+#txtPasswordRepeat {
+    -fx-background-color: #a9a9a9 , white , white;
+    -fx-background-insets: 0 -1 -1 -1, 0 0 0 0, 0 -1 3 -1;
+}
 
-
+#txtPasswordRepeat:focused {
+    -fx-background-color: #a9a9a9 , white , white;
+    -fx-background-insets: 0 -1 -1 -1, 0 0 0 0, 0 -1 3 -1;
+}
 
 
   

@@ -16,8 +16,14 @@
 			<items>
 				<HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="250.0" spacing="30.0">
 					<children>
-						<Button fx:id="btnSLogout" mnemonicParsing="false" onAction="#goToLogin" prefWidth="80.0" text="Logout" />
-						<Button fx:id="btnSHome" disable="true" mnemonicParsing="false" prefWidth="80.0" text="Home" />
+						<Button fx:id="btnSLogout" mnemonicParsing="false" onAction="#goToLogin" prefWidth="80.0" text="Logout">
+                     <font>
+                        <Font name="Helvetica Neue" size="13.0" />
+                     </font></Button>
+						<Button fx:id="btnSHome" disable="true" mnemonicParsing="false" prefWidth="80.0" text="Home">
+                     <font>
+                        <Font name="Helvetica Neue" size="13.0" />
+                     </font></Button>
 					</children>
 					<padding>
 						<Insets left="30.0" />
@@ -25,7 +31,7 @@
 				</HBox>
 				<HBox alignment="CENTER" prefHeight="30.0" prefWidth="250.0">
 					<children>
-						<Label fx:id="lblHomePage" alignment="CENTER" text="Staff Home">
+						<Label fx:id="lblHomePage" alignment="CENTER" contentDisplay="CENTER" text="Home" textAlignment="CENTER">
 							<font>
 								<Font size="18.0" />
 							</font>
@@ -37,14 +43,26 @@
 		</ToolBar>
 
 
-		<Label fx:id="lblStaffHome" layoutX="295.0" layoutY="78.0" text="STAFF HOME">
+		<Label fx:id="lblStaffHome" alignment="CENTER" layoutX="282.0" layoutY="95.0" text="STAFF HOME" textAlignment="CENTER" textFill="#000000a6">
 			<font>
-				<Font size="36.0" />
+				<Font name="Helvetica Neue Light" size="40.0" />
 			</font>
 		</Label>
-		<Button fx:id="btnAddFilm" layoutX="214.0" layoutY="192.0" mnemonicParsing="false" onAction="#goToAddFilmPage" prefHeight="60.0" prefWidth="160.0" text="ADD NEW FILM" />
-		<Button fx:id="btnAddListings" layoutX="432.0" layoutY="192.0" mnemonicParsing="false" onAction="#goToAddListings" prefHeight="60.0" prefWidth="160.0" text="ADD NEW LISTING" />
-		<Button fx:id="btnBookingSummary" layoutX="216.0" layoutY="319.0" mnemonicParsing="false" onAction="#goToBookingSummary" prefHeight="60.0" prefWidth="373.0" text="BOOKING SUMMARY" />
-		<Button fx:id="btnExportFilms" layoutX="216.0" layoutY="434.0" mnemonicParsing="false" onAction="#goToStaffExport" prefHeight="60.0" prefWidth="373.0" text="EXPORT FILMS TO FILE" />
+		<Button fx:id="btnAddFilm" layoutX="214.0" layoutY="199.0" mnemonicParsing="false" onAction="#goToAddFilmPage" prefHeight="60.0" prefWidth="160.0" text="ADD NEW FILM">
+         <font>
+            <Font name="Helvetica Neue" size="15.0" />
+         </font></Button>
+		<Button fx:id="btnAddListings" layoutX="432.0" layoutY="199.0" mnemonicParsing="false" onAction="#goToAddListings" prefHeight="60.0" prefWidth="160.0" text="ADD NEW LISTING">
+         <font>
+            <Font name="Helvetica Neue" size="15.0" />
+         </font></Button>
+		<Button fx:id="btnBookingSummary" layoutX="216.0" layoutY="319.0" mnemonicParsing="false" onAction="#goToBookingSummary" prefHeight="60.0" prefWidth="373.0" text="BOOKING SUMMARY">
+         <font>
+            <Font name="Helvetica Neue" size="15.0" />
+         </font></Button>
+		<Button fx:id="btnExportFilms" layoutX="216.0" layoutY="434.0" mnemonicParsing="false" onAction="#goToStaffExport" prefHeight="60.0" prefWidth="373.0" text="EXPORT FILMS TO FILE">
+         <font>
+            <Font name="Helvetica Neue" size="15.0" />
+         </font></Button>
 	</children>
 </AnchorPane>

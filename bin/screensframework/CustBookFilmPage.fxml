@@ -50,7 +50,7 @@
 				<Image url="@../testimg/testimage.png" />
 			</image>
 		</ImageView>
-		<Label layoutX="31.0" layoutY="76.0" text="Film:">
+		<Label layoutX="30.0" layoutY="81.0" text="Film:">
 			<font>
 				<Font size="18.0" />
 			</font>
@@ -75,7 +75,7 @@
 				<Font size="18.0" />
 			</font>
 		</Label>
-		<Label fx:id="lblFilmSelected" layoutX="78.0" layoutY="76.0">
+		<Label fx:id="lblFilmSelected" layoutX="77.0" layoutY="81.0">
 			<font>
 				<Font size="18.0" />
 			</font>
@@ -96,12 +96,12 @@
 				<Font size="18.0" />
 			</font>
 		</Label>
-		<Label layoutX="578.0" layoutY="271.0" prefHeight="27.0" prefWidth="126.0" text="Summary">
+		<Label layoutX="578.0" layoutY="271.0" prefHeight="27.0" prefWidth="126.0" text="Selected seats">
 			<font>
 				<Font size="18.0" />
 			</font>
 		</Label>
-		<Label layoutX="368.0" layoutY="544.0" text="Subtotal: ">
+		<Label layoutX="318.0" layoutY="544.0" text="Your subtotal: ">
 			<font>
 				<Font size="20.0" />
 			</font>
