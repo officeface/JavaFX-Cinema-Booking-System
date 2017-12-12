@@ -19,6 +19,9 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import objects.Customer;
+import objects.Employee;
+import objects.User;
 
 /**
  * FXML Controller class

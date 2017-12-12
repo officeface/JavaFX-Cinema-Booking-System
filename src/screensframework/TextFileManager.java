@@ -11,6 +11,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import objects.Booking;
+import objects.Listing;
+import objects.Movie;
+import objects.User;
+
 /**
  * This class manages the various text files of the application by reading their
  * contents and storing them inside ArrayLists for usage from other classes.
@@ -26,7 +31,7 @@ public class TextFileManager {
 
 	static File currentDir = new File(".");
 	static File parentDir = currentDir.getAbsoluteFile().getParentFile();
-	static File database = new File(parentDir, "database.json");
+	public static File database = new File(parentDir, "database.json");
 
 	public TextFileManager() throws IOException {
 		this.loginDetails = loginDetailsToArrayList();

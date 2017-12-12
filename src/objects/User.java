@@ -1,4 +1,4 @@
-package screensframework;
+package objects;
 
 /**
  * Generic user with email, password, first name and last name

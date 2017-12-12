@@ -25,7 +25,8 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Region;
+import objects.Customer;
+import objects.Listing;
 
 public class CustBookingHistoryPageController extends ToolbarController implements Initializable, ControlledScreen {
  
@@ -112,11 +113,16 @@ public class CustBookingHistoryPageController extends ToolbarController implemen
 					pane.setGraphicTextGap(10);
 					
 				} else {
-					// For Alignment purposes:
-					Region region = new Region();
-					region.setPrefWidth(120);
-					pane.setGraphic(region);
+					
+					Button btnDeleteListing = new Button("Old Listing");
+					btnDeleteListing.setDisable(true);
+					btnDeleteListing.setStyle("-fx-background-color: rgb(85,209,255); -fx-text-fill: white; "); // Sets the style of the buttons
+					
+					// Alignment of button:
+					btnDeleteListing.setPrefWidth(120);
+					pane.setGraphic(btnDeleteListing);
 					pane.setGraphicTextGap(10);
+					
 				}
 				
 				

@@ -1,7 +1,9 @@
-package screensframework;
+package objects;
 
 import java.io.IOException;
 import java.util.List;
+
+import screensframework.TextFileManager;
 
 /**
  * Class contains a specific listing of a film, the date that the film will be

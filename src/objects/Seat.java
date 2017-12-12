@@ -1,4 +1,4 @@
-package screensframework;
+package objects;
 
 public class Seat {
 

@@ -7,7 +7,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import javax.imageio.ImageIO;
-import javax.swing.JFileChooser;
 
 import org.json.JSONException;
 
@@ -21,7 +20,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.stage.FileChooser;;
+import javafx.stage.FileChooser;
+import objects.Movie;;
 
 /**
  * FXML Controller class

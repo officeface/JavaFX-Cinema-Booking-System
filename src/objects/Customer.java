@@ -1,4 +1,4 @@
-package screensframework;
+package objects;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,6 +10,9 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import screensframework.JSONUtils;
+import screensframework.TextFileManager;
 
 /**
  * Customer inherits basic properties from User and can also make/modify movie
