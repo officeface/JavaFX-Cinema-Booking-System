@@ -80,6 +80,7 @@ public class ScreensFramework extends Application {
 		root.getChildren().addAll(mainContainer);
 		Scene scene = new Scene(root);
 		primaryStage.setScene(scene);
+		primaryStage.setResizable(false);
 		primaryStage.show();
 		
 		
