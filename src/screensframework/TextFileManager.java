@@ -89,7 +89,8 @@ public class TextFileManager {
 
 					}
 				}
-
+				
+				ScreensFramework.LOGGER.info("Loaded booking data for " + title);
 				System.out.println("Loaded information for " + title);
 				break;
 			}
@@ -128,6 +129,7 @@ public class TextFileManager {
 		// Write JSON Object to file:
 		try (FileWriter file = new FileWriter(database)) {
 			file.write(obj.toString());
+			ScreensFramework.LOGGER.info("Successfully updated database.json with new information.");
 			System.out.println("Successfully updated JSON Object in File...");
 		}
 
@@ -158,6 +160,7 @@ public class TextFileManager {
 		// Write JSON Object to file:
 		try (FileWriter file = new FileWriter(database)) {
 			file.write(obj.toString());
+			ScreensFramework.LOGGER.info("Successfully updated database.json with new information.");
 			System.out.println("Successfully updated JSON Object in File...");
 		}
 	}
@@ -196,6 +199,8 @@ public class TextFileManager {
 		try (FileWriter file = new FileWriter(database)) {
 			file.write(obj.toString());
 			System.out.println("Successfully updated JSON Object in File...");
+			ScreensFramework.LOGGER.info("Successfully updated database.json with new information.");
+
 		}
 
 	}
@@ -226,7 +231,6 @@ public class TextFileManager {
 			seatInfo = new JSONArray();
 		}
 		for (int i = 0; i < booking.getSeats().size(); i++) {
-			System.out.println(booking.getSeats().get(i));
 			seatInfo.put(booking.getSeats().get(i));
 		}
 
@@ -240,6 +244,8 @@ public class TextFileManager {
 		try (FileWriter file = new FileWriter(database)) {
 			file.write(obj.toString());
 			System.out.println("Successfully updated JSON Object in File...");
+			ScreensFramework.LOGGER.info("Successfully updated database.json with new information.");
+
 		}
 
 	}
@@ -285,7 +291,6 @@ public class TextFileManager {
 
 				// Modify listing's seats by setting each of this user's seats to "Free":
 				for (int j = 0; j < seats.length(); j++) {
-					System.out.println(seatToCoordinate(seats.get(j).toString()));
 					String seatToChange = seatToCoordinate(seats.getString(j).toString());
 					listingSeats.put(seatToChange, "Free");
 
@@ -305,6 +310,7 @@ public class TextFileManager {
 		// Write JSON Object to file:
 		try (FileWriter file = new FileWriter(database)) {
 			file.write(obj.toString());
+			ScreensFramework.LOGGER.info("Successfully updated database.json with new information.");
 			System.out.println("Successfully updated JSON Object in File...");
 		}
 
@@ -373,6 +379,7 @@ public class TextFileManager {
 		// Write JSON Object to file:
 		try (FileWriter file = new FileWriter(database)) {
 			file.write(obj.toString());
+			ScreensFramework.LOGGER.info("Successfully updated database.json with new information.");
 			System.out.println("Successfully updated JSON Object in File...");
 		}
 
@@ -419,6 +426,7 @@ public class TextFileManager {
 		// Write JSON Object to file:
 		try (FileWriter file = new FileWriter(database)) {
 			file.write(obj.toString());
+			ScreensFramework.LOGGER.info("Successfully updated database.json with new information.");
 			System.out.println("Successfully updated JSON Object in File...");
 		}
 

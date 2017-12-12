@@ -66,7 +66,7 @@ public class CustConfirmPageController implements Initializable, ControlledScree
 		TextFileManager.updateListing(CustHomeController.LISTING);
 		TextFileManager.updateBookingHistory(CustHomeController.BOOKING);
 		lblStatus.setText("Booked!");
-		System.out.println("Booked!");
+		ScreensFramework.LOGGER.info("Film booked!");
 		
 		// Unload screens:
 		myController.unloadScreen(ScreensFramework.custHomeID);

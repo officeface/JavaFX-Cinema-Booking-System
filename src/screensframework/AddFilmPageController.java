@@ -116,6 +116,7 @@ public class AddFilmPageController implements Initializable, ControlledScreen {
 					this.imagePathway = imagePathway;
 
 				} catch (IOException ex) {
+					ScreensFramework.LOGGER.warning("Could not upload image!");
 					System.out.println("Could not upload image");
 				}
 

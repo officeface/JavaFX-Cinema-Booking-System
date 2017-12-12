@@ -42,9 +42,11 @@ public class ScreensController  extends StackPane {
             ControlledScreen myScreenController = ((ControlledScreen) myLoader.getController());
             myScreenController.setScreenParent(this);
             addScreen(name, loadScreen);
+            ScreensFramework.LOGGER.info(name + " was loaded.");
             System.out.println(name + " was loaded.");
             return true;
         } catch (Exception e) {
+        	ScreensFramework.LOGGER.warning("Failed to load: " + e.getMessage());
             System.err.println("Failed to load: " + e.getMessage());
             return false;
         }
@@ -84,6 +86,7 @@ public class ScreensController  extends StackPane {
             }
             return true;
         } else {
+        	ScreensFramework.LOGGER.warning(name + " hasn't been loaded.");
             System.err.println(name + " hasn't been loaded.");
             return false;
         }
@@ -93,9 +96,11 @@ public class ScreensController  extends StackPane {
     //This method will remove the screen with the given name from the collection of screens
     public boolean unloadScreen(String name) {
         if (screens.remove(name) == null) {
+        	ScreensFramework.LOGGER.warning(name + " wasn't open.");
             System.out.println(name + " wasn't open.");
             return false;
         } else {
+        	ScreensFramework.LOGGER.info(name + " was closed.");
         	System.out.println(name + " was closed.");
             return true;
         }

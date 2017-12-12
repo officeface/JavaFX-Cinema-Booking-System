@@ -56,6 +56,7 @@ public class LoginController implements Initializable, ControlledScreen {
 		try {
 			// Initialise the database JSON file:
 			if (!database.exists()) {
+				ScreensFramework.LOGGER.info("Database does not exist in parent directory, creating now.");
 				System.out.println("database.json does not exist in parent directory, creating now!"); // If the
 																										// database is
 																										// not currently
@@ -72,6 +73,7 @@ public class LoginController implements Initializable, ControlledScreen {
 			
 			// Folder for images:
 			// if (assets.exists() && assets.isDirectory()) {
+			// ScreensFramework.LOGGER.info("Assets folder exists!");
 			// System.out.println("Assets folder exists!");
 			// } else {
 			// new File(parentDir, "assets").mkdir();
@@ -79,6 +81,7 @@ public class LoginController implements Initializable, ControlledScreen {
 			// }
 
 		} catch (IOException e) {
+			ScreensFramework.LOGGER.warning(e.getMessage());
 			System.out.println(e);
 		}
 
@@ -160,6 +163,7 @@ public class LoginController implements Initializable, ControlledScreen {
 				lblStatus.setText("Login failed"); // If email/password pair not found
 			}
 		} catch (FileNotFoundException e) {
+			ScreensFramework.LOGGER.warning(e.getMessage());
 			System.out.println(e);
 		}
 	}
@@ -239,6 +243,7 @@ public class LoginController implements Initializable, ControlledScreen {
 					lblStatus.setText("Login failed");
 				}
 			} catch (FileNotFoundException e) {
+				ScreensFramework.LOGGER.warning(e.getMessage());
 				System.out.println(e);
 			}
 		}

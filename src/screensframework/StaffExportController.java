@@ -181,6 +181,7 @@ public class StaffExportController implements Initializable, ControlledScreen {
 				FileUtils.writeStringToFile(savedFile, o, "UTF-8"); // New csv file created - previous string (which was
 																	// json) written to new text file
 
+				ScreensFramework.LOGGER.info(this.selectedFilmForExport + " information has been exported!");
 				System.out.println(this.selectedFilmForExport + " information has been exported!");
 			}
 		}
@@ -282,6 +283,7 @@ public class StaffExportController implements Initializable, ControlledScreen {
 			String z = (CDL.toString(new JSONArray(obj2.get("SeatsInfo").toString())));
 			Files.write(Paths.get(savedfilepath), z.getBytes(), StandardOpenOption.APPEND);
 
+			ScreensFramework.LOGGER.info("Database has been exported!");
 			System.out.println("Database has been exported!");
 		}
 

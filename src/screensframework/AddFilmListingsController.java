@@ -116,6 +116,7 @@ public class AddFilmListingsController implements Initializable, ControlledScree
 	@FXML
 	private void getSelectedFilm(ActionEvent event) throws IOException {
 		this.selectedFilmForListing = comboSelectFilm.getValue();
+		ScreensFramework.LOGGER.info(selectedFilmForListing + " selected.");
 		System.out.println(selectedFilmForListing);
 	}
 
@@ -129,6 +130,7 @@ public class AddFilmListingsController implements Initializable, ControlledScree
 	@FXML
 	private void getSelectedDate(ActionEvent event) throws IOException {
 		this.selectedDateForListing = dateTimeFormatter.format(listingsDatePicker.getValue());
+		ScreensFramework.LOGGER.info(selectedDateForListing + " selected.");
 		System.out.println(selectedDateForListing);
 	}
 
@@ -142,6 +144,7 @@ public class AddFilmListingsController implements Initializable, ControlledScree
 	@FXML
 	private void getSelectedTime(ActionEvent event) throws IOException {
 		this.selectedTimeForListing = comboChooseTime.getValue();
+		ScreensFramework.LOGGER.info(selectedTimeForListing + " selected.");
 		System.out.println(selectedTimeForListing);
 	}
 
@@ -224,6 +227,7 @@ public class AddFilmListingsController implements Initializable, ControlledScree
 			}
 
 		} catch (Exception e) {
+			ScreensFramework.LOGGER.warning(e.getMessage());
 			System.out.println(e);
 			return false;
 		}

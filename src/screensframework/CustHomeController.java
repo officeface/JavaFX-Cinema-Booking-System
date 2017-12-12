@@ -159,7 +159,7 @@ public class CustHomeController extends ToolbarController implements Initializab
 
 								myController.setScreen(ScreensFramework.custBookFilmPageID);
 							} catch (IOException e1) {
-								System.out.println(e1);
+								ScreensFramework.LOGGER.warning(e1.getMessage());
 							}
 
 						});
@@ -277,7 +277,7 @@ public class CustHomeController extends ToolbarController implements Initializab
 					myController.setScreen(ScreensFramework.custBookFilmPageID);
 
 				} catch (Exception e) {
-					System.out.println(e);
+					ScreensFramework.LOGGER.warning(e.getMessage());
 				}
 			} else {
 				lblStatus.setText("You cannot pick a date before today!");
@@ -295,7 +295,7 @@ public class CustHomeController extends ToolbarController implements Initializab
 		Date timeListing = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(date + " " + time);
 
 		if (timeListing.before(timeNow)) {
-			System.out.println("Can't book a film listed before today.");
+			ScreensFramework.LOGGER.warning("Customer tried to book a film listed before today's date.");
 			return false;
 		}
 

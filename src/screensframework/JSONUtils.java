@@ -23,6 +23,7 @@ public class JSONUtils {
 			in.close();
 			return json;
 		} catch (IOException e) {
+			ScreensFramework.LOGGER.warning(e.getMessage());
 			System.out.println(e);
 		}
 		return null;

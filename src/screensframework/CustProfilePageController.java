@@ -48,7 +48,7 @@ public class CustProfilePageController extends ToolbarController implements Init
 			this.txtFirstName.setText(LoginController.USER.getFirstName());
 			this.txtLastName.setText(LoginController.USER.getLastName());
 		} catch (Exception e) {
-			System.out.println(e);
+			ScreensFramework.LOGGER.warning(e.getMessage());
 		}
 	}
 

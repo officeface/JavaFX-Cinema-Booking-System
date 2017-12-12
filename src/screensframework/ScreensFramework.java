@@ -1,11 +1,19 @@
 package screensframework;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import logging.MyLogger;
 
 public class ScreensFramework extends Application {
+	
+	// For logging:
+	public final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
 	// Declaring the LOGIN
 	public static String loginID = "main";
@@ -42,47 +50,24 @@ public class ScreensFramework extends Application {
 	public static String addFilmListingsFile = "AddFilmListings.fxml";
 
 	@Override
-	public void start(Stage primaryStage) {
+	public void start(Stage primaryStage) throws IOException {
+		
+		// Set up the logging:
+		MyLogger.setup();
+		LOGGER.setLevel(Level.INFO);
 
 		ScreensController mainContainer = new ScreensController();
 		mainContainer.loadScreen(ScreensFramework.loginID, ScreensFramework.loginFile);
 
-		// for customer screens
-		// mainContainer.loadScreen(ScreensFramework.custHomeID,
-		// ScreensFramework.custHomeFile);
-		// mainContainer.loadScreen(ScreensFramework.custProfilePageID,
-		// ScreensFramework.custProfilePageFile);
-		// mainContainer.loadScreen(ScreensFramework.custBookFilmPageID,
-		// ScreensFramework.custBookFilmPageFile);
-		// mainContainer.loadScreen(ScreensFramework.custConfirmPageID,
-		// ScreensFramework.custConfirmPageFile);
-
-		// for staff screens
-		// mainContainer.loadScreen(ScreensFramework.staffChoiceID,
-		// ScreensFramework.staffChoiceFile);
-		// mainContainer.loadScreen(ScreensFramework.staffHomeID,
-		// ScreensFramework.staffHomeFile);
-		// mainContainer.loadScreen(ScreensFramework.staffExportID,
-		// ScreensFramework.staffExportFile);
-		// mainContainer.loadScreen(ScreensFramework.bookingSummaryID,
-		// ScreensFramework.bookingSummaryFile);
-		// mainContainer.loadScreen(ScreensFramework.addFilmPageID,
-		// ScreensFramework.addFilmPageFile);
-		// mainContainer.loadScreen(ScreensFramework.addFilmListingsID,
-		// ScreensFramework.addFilmListingsFile);
-
 		// First loading screen
 		mainContainer.setScreen(ScreensFramework.loginID);
 		
-		
-
 		Group root = new Group();
 		root.getChildren().addAll(mainContainer);
 		Scene scene = new Scene(root);
 		primaryStage.setScene(scene);
 		primaryStage.setResizable(false);
 		primaryStage.show();
-		
 		
 		// Defining the stylesheet 
 		// load the stylesheet

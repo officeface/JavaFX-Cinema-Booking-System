@@ -55,7 +55,7 @@ public class RegistrationPageController implements Initializable, ControlledScre
 	private String generateCustID(int number) {
 
 		if (number < 0 || number > 999) {
-			System.out.println("Number should be between 0 and 1000");
+			ScreensFramework.LOGGER.warning("Customer ID outside of allowed number-range was attempted.");
 			return null;
 		} else if (number < 10) {
 			return "00" + number;
