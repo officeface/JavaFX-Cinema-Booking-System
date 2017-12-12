@@ -85,10 +85,10 @@ public class AddFilmListingsController implements Initializable, ControlledScree
 		}
 		comboSelectFilm.setItems(filmNames); // Sets comboBox the film titles
 
-		// Adds list of timings from the database to the comboBox - choose time 
+		// Adds list of timings from the database to the comboBox - choose time
 		String[] timeList = null;
 		try {
-			timeList = TextFileManager.getFilmTimings(); // Method to retrieve the timings 
+			timeList = TextFileManager.getFilmTimings(); // Method to retrieve the timings
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -96,7 +96,7 @@ public class AddFilmListingsController implements Initializable, ControlledScree
 		for (int i = 0; i < timeList.length; i++) {
 			timesAvailable.add(timeList[i]); // Intermediate storage
 		}
-		comboChooseTime.setItems(timesAvailable); // Sets comboBox the timings 
+		comboChooseTime.setItems(timesAvailable); // Sets comboBox the timings
 
 	}
 
@@ -105,9 +105,9 @@ public class AddFilmListingsController implements Initializable, ControlledScree
 		myController = screenParent;
 	}
 
-	
 	/**
 	 * Gets the value of the selected film from the list of films
+	 * 
 	 * @author frazahmad
 	 * @param event
 	 * @throws IOException
@@ -120,6 +120,7 @@ public class AddFilmListingsController implements Initializable, ControlledScree
 
 	/**
 	 * Gets the value of the selected date from date picker
+	 * 
 	 * @author frazahmad
 	 * @param event
 	 * @throws IOException
@@ -132,6 +133,7 @@ public class AddFilmListingsController implements Initializable, ControlledScree
 
 	/**
 	 * Gets the value of the selected time from the list of times
+	 * 
 	 * @author frazahmad
 	 * @param event
 	 * @throws IOException
@@ -143,14 +145,16 @@ public class AddFilmListingsController implements Initializable, ControlledScree
 	}
 
 	/**
-	 * Creates a new film listing based on user's action. The values are then transferred to the textfilemanager.
+	 * Creates a new film listing based on user's action. The values are then
+	 * transferred to the textfilemanager.
+	 * 
 	 * @author frazahmad
 	 * @param event
 	 * @throws IOException
 	 */
 	@FXML
 	private void addFilmListing(ActionEvent event) throws IOException {
-		
+
 		// Conditional statements are used so no empty fields can be added.
 		if (readyToSelect() && showingTimeIsFree(this.selectedDateForListing, this.selectedTimeForListing)) {
 
@@ -167,7 +171,9 @@ public class AddFilmListingsController implements Initializable, ControlledScree
 			TextFileManager.addFilmListings(newListing); // Update film listing
 															// in database
 
-			this.lblFeedback.setText("Added Film Listing!"); // Label to inform user action
+			this.lblFeedback.setText("Added new listing!\nTitle: " + this.selectedFilmForListing + "\nDate: "
+					+ this.selectedDateForListing + ",  Time: " + this.selectedTimeForListing); // Label to inform user
+																								// action
 		} else if (!readyToSelect()) {
 
 			this.lblFeedback.setText("No fields should be empty!");
