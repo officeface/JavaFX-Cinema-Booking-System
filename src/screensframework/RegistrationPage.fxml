@@ -31,7 +31,7 @@
                         <Font size="18.0" />
                      </font>
                   </TextField>
-                  <Label fx:id="lblEmail" alignment="CENTER" prefHeight="50.0" prefWidth="300.0" textFill="#777777">
+                  <Label fx:id="lblEmail" alignment="CENTER" prefHeight="50.0" prefWidth="100.0" textFill="#777777">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -50,7 +50,7 @@
                         <Font size="18.0" />
                      </font>
                   </PasswordField>
-                  <Label fx:id="lblPassword" alignment="CENTER" prefHeight="50.0" prefWidth="300.0" textFill="#777777">
+                  <Label fx:id="lblPassword" alignment="CENTER" prefHeight="50.0" prefWidth="100.0" textFill="#777777">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -69,7 +69,7 @@
                         <Font size="18.0" />
                      </font>
                   </PasswordField>
-                  <Label fx:id="lblPasswordRepeat" alignment="CENTER" prefHeight="50.0" prefWidth="300.0" textFill="#777777">
+                  <Label fx:id="lblPasswordRepeat" alignment="CENTER" prefHeight="50.0" prefWidth="100.0" textFill="#777777">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -88,7 +88,7 @@
                         <Font size="18.0" />
                      </font>
                   </TextField>
-                  <Label fx:id="lblFirstName" alignment="CENTER" prefHeight="50.0" prefWidth="300.0" textFill="#777777">
+                  <Label fx:id="lblFirstName" alignment="CENTER" prefHeight="50.0" prefWidth="100.0" textFill="#777777">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -107,26 +107,26 @@
                         <Font size="18.0" />
                      </font>
                   </TextField>
-                  <Label fx:id="lblLastName" alignment="CENTER" prefHeight="50.0" prefWidth="300.0" textFill="#777777">
+                  <Label fx:id="lblLastName" alignment="CENTER" prefHeight="50.0" prefWidth="100.0" textFill="#777777">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="60.0" prefWidth="281.0" spacing="20.0">
+            <HBox alignment="CENTER" prefHeight="60.0" prefWidth="645.0" spacing="20.0">
                <children>
-                  <Button fx:id="btnBackToLogin" mnemonicParsing="false" onAction="#returnToLogin" prefHeight="50.0" prefWidth="300.0" text="Back">
+                  <Button fx:id="btnBackToLogin" mnemonicParsing="false" onAction="#returnToLogin" prefHeight="50.0" prefWidth="140.0" text="Back">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Button>
-                  <Label fx:id="lblStatus" alignment="CENTER" prefHeight="50.0" prefWidth="300.0" textFill="#8a8686">
+                  <Label fx:id="lblStatus" alignment="CENTER" prefHeight="50.0" prefWidth="175.0" textFill="#8a8686">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Button fx:id="btnRegister" mnemonicParsing="false" onAction="#register" prefHeight="50.0" prefWidth="300.0" text="Register">
+                  <Button fx:id="btnRegister" mnemonicParsing="false" onAction="#register" prefHeight="50.0" prefWidth="141.0" text="Register">
                      <font>
                         <Font size="20.0" />
                      </font>

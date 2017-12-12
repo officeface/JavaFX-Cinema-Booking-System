@@ -71,7 +71,7 @@ public class CustBookingHistoryPageController extends ToolbarController implemen
 				
 				if (timeNow.before(timeListing)) { // Checks if the listing is able to be deleted:
 				
-					Button btnDeleteListing = new Button("Delete Listing");
+					Button btnDeleteListing = new Button("Delete Booking");
 					btnDeleteListing.setStyle("-fx-background-color: rgb(85,209,255); -fx-text-fill: white; "); // Sets the style of the buttons
 					
 					// Two events handlers if the user hovers over the buttons
@@ -114,7 +114,7 @@ public class CustBookingHistoryPageController extends ToolbarController implemen
 					
 				} else {
 					
-					Button btnDeleteListing = new Button("Old Listing");
+					Button btnDeleteListing = new Button("Old Booking");
 					btnDeleteListing.setDisable(true);
 					btnDeleteListing.setStyle("-fx-background-color: rgb(85,209,255); -fx-text-fill: white; "); // Sets the style of the buttons
 					
