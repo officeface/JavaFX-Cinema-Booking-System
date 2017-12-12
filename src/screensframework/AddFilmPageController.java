@@ -7,6 +7,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import javax.imageio.ImageIO;
+import javax.swing.JFileChooser;
 
 import org.json.JSONException;
 
@@ -103,19 +104,23 @@ public class AddFilmPageController implements Initializable, ControlledScreen {
 			fileChooser.setTitle("Open Resource File");
 			File file = fileChooser.showOpenDialog(null);
 
-			try {
-				BufferedImage bufferedImage = ImageIO.read(file); // Used to select images
-				Image image = SwingFXUtils.toFXImage(bufferedImage, null);
-				imgViewFilmImage.setImage(image); // Sets selected image to the image view
+			if (file != null) { // Cancel the following if User clicks 'cancel'
 
-				String imagePathway = file.getAbsolutePath(); // Returns the pathway of an image that has been selected
-				this.imagePathway = imagePathway;
+				try {
+					BufferedImage bufferedImage = ImageIO.read(file); // Used to select images
+					Image image = SwingFXUtils.toFXImage(bufferedImage, null);
+					imgViewFilmImage.setImage(image); // Sets selected image to the image view
 
-			} catch (IOException ex) {
-				System.out.println("Could not upload image");
+					String imagePathway = file.getAbsolutePath(); // Returns the pathway of an image that has been
+																	// selected
+					this.imagePathway = imagePathway;
+
+				} catch (IOException ex) {
+					System.out.println("Could not upload image");
+				}
+
+				this.lblAddFilmChecker.setText("Uploaded Image!");
 			}
-
-			this.lblAddFilmChecker.setText("Uploaded Image!");
 
 		} else {
 			this.lblAddFilmChecker.setText("Try again!");
@@ -143,6 +148,20 @@ public class AddFilmPageController implements Initializable, ControlledScreen {
 			TextFileManager.addFilmDetails(newMovie); // Update information in database
 
 			this.lblAddFilmChecker.setText("Added Film!");
+
+			// Reset labels and return to Staff Home:
+			myController.unloadScreen(ScreensFramework.addFilmPageID);
+			myController.unloadScreen(ScreensFramework.addFilmListingsID);
+			myController.unloadScreen(ScreensFramework.staffExportID);
+			myController.unloadScreen(ScreensFramework.bookingSummaryID);
+
+			myController.loadScreen(ScreensFramework.staffExportID, ScreensFramework.staffExportFile);
+			myController.loadScreen(ScreensFramework.bookingSummaryID, ScreensFramework.bookingSummaryFile);
+			myController.loadScreen(ScreensFramework.addFilmPageID, ScreensFramework.addFilmPageFile);
+			myController.loadScreen(ScreensFramework.addFilmListingsID, ScreensFramework.addFilmListingsFile);
+
+			// Open staff home upon successful staff login
+			myController.setScreen(ScreensFramework.staffHomeID);
 		} else {
 			this.lblAddFilmChecker.setText("Field missing! Try again.");
 		}
