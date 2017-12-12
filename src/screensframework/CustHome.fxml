@@ -47,14 +47,28 @@
 			<children>
 				<VBox prefHeight="100.0" prefWidth="800.0">
 					<children>
-						<Label text="See all films playing on a certain date:">
-							<VBox.margin>
-								<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-							</VBox.margin>
-							<font>
-								<Font size="16.0" />
-							</font>
-						</Label>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="400.0">
+                           <children>
+            						<Label text="See all films playing on a certain date:">
+            							<font>
+            								<Font size="16.0" />
+            							</font>
+            						</Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="400.0">
+                           <children>
+                              <Label fx:id="lblStatus" textFill="#7f7b7b">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
 						<HBox prefHeight="100.0" prefWidth="800.0">
 							<children>
 								<HBox alignment="CENTER" prefHeight="100.0" prefWidth="250.0" spacing="10.0">

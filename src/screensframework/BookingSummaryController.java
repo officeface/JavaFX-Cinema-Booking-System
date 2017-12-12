@@ -162,67 +162,69 @@ public class BookingSummaryController implements Initializable, ControlledScreen
 	@FXML
 	public void getScreenInfo(ActionEvent event) throws IOException {
 
-		String title = this.comboListOfFilms.getValue();
-		String date = dateTimeFormatter.format(datePickerSelector.getValue());
-		String time = this.comboTimeSelector.getValue();
-		String listingID = Listing.findShowingID(title, date, time); // Based on user input the listing ID is found
-		String[][] seats = TextFileManager.getSeatInformation(listingID); // String array of seats is found based on
-																			// listing
+		if (datePickerSelector.getValue() != null && !comboListOfFilms.getSelectionModel().isEmpty()
+				&& !comboTimeSelector.getSelectionModel().isEmpty()) { // Check that a selection has been made
 
-		// Initialisation of the booked and free seats counter
-		Integer bookedSeatsCounter = 0;
-		Integer freeSeatsCounter = 0;
+			String title = this.comboListOfFilms.getValue();
+			String date = dateTimeFormatter.format(datePickerSelector.getValue());
+			String time = this.comboTimeSelector.getValue();
+			String listingID = Listing.findShowingID(title, date, time); // Based on user input the listing ID is found
+			String[][] seats = TextFileManager.getSeatInformation(listingID); // String array of seats is found based on
+																				// listing
 
-		// Generate the seats according to the listing information:
-		for (int i = 0; i < 6; i++) {
-			for (int j = 0; j < 10; j++) {
-				Button btn = new Button(); // New buttons generated
-				Integer I = (Integer) i; // Conversion to 'Integer' formats
-				Integer J = (Integer) j;
-				seatLayout.add(btn, j, i); // Adding buttons to gridlayout
-				btn.setPrefSize(58, 28); // Setting preferred size
-				btn.setId(getSeatName(I, J)); // Setting btn ID
+			// Initialisation of the booked and free seats counter
+			Integer bookedSeatsCounter = 0;
+			Integer freeSeatsCounter = 0;
 
-				// Seats labels
-				String seatLabel = getSeatName(I, J);
-				btn.setText(seatLabel); // Setting seat name to the button
+			// Generate the seats according to the listing information:
+			for (int i = 0; i < 6; i++) {
+				for (int j = 0; j < 10; j++) {
+					Button btn = new Button(); // New buttons generated
+					Integer I = (Integer) i; // Conversion to 'Integer' formats
+					Integer J = (Integer) j;
+					seatLayout.add(btn, j, i); // Adding buttons to gridlayout
+					btn.setPrefSize(58, 28); // Setting preferred size
+					btn.setId(getSeatName(I, J)); // Setting btn ID
 
-				// Check if seat is available:
-				if (seats[i][j].equals("Free")) {
-					// Tooltip:
-					btn.setTooltip(new Tooltip("Seat is free"));
-					
-					btn.setStyle("-fx-base: lightgreen;"); // Sets button to lightgreen if free
-					freeSeatsCounter = freeSeatsCounter + 1; // Updates free seats counter
-					
+					// Seats labels
+					String seatLabel = getSeatName(I, J);
+					btn.setText(seatLabel); // Setting seat name to the button
 
-				} else {
-					// Get customer's name for extra information:
-					TextFileManager fileManager = new TextFileManager();
-					List<String[]> loginDetails = fileManager.getLoginDetails();
-					for (int k = 0; k < loginDetails.size(); k++) {
-						if (loginDetails.get(k)[0].equals(seats[i][j])) {
-							// Tooltip over button for extra information:
-							btn.setTooltip(new Tooltip("Customer " + seats[i][j] + "\n" + loginDetails.get(k)[4] + " "
-									+ loginDetails.get(k)[5]));
+					// Check if seat is available:
+					if (seats[i][j].equals("Free")) {
+						// Tooltip:
+						btn.setTooltip(new Tooltip("Seat is free"));
+
+						btn.setStyle("-fx-base: lightgreen;"); // Sets button to lightgreen if free
+						freeSeatsCounter = freeSeatsCounter + 1; // Updates free seats counter
+
+					} else {
+						// Get customer's name for extra information:
+						TextFileManager fileManager = new TextFileManager();
+						List<String[]> loginDetails = fileManager.getLoginDetails();
+						for (int k = 0; k < loginDetails.size(); k++) {
+							if (loginDetails.get(k)[0].equals(seats[i][j])) {
+								// Tooltip over button for extra information:
+								btn.setTooltip(new Tooltip("Customer " + seats[i][j] + "\n" + loginDetails.get(k)[4]
+										+ " " + loginDetails.get(k)[5]));
+							}
 						}
-					}
 
-					btn.setStyle("-fx-base: lightpink;"); // Sets button to lightpink if booked
-					bookedSeatsCounter = bookedSeatsCounter + 1; // Updates free seats counter
+						btn.setStyle("-fx-base: lightpink;"); // Sets button to lightpink if booked
+						bookedSeatsCounter = bookedSeatsCounter + 1; // Updates free seats counter
+
+					}
 
 				}
 
 			}
+			
 
+			// Setting the labels to their respective numbers + conversion from integer to
+			// string
+			lblBookedSeats.setText(bookedSeatsCounter.toString());
+			lblFreeSeats.setText(freeSeatsCounter.toString());
 		}
-		;
-
-		// Setting the labels to their respective numbers + conversion from integer to
-		// string
-		lblBookedSeats.setText(bookedSeatsCounter.toString());
-		lblFreeSeats.setText(freeSeatsCounter.toString());
-
 	}
 
 	/**

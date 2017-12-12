@@ -36,7 +36,7 @@ import javafx.scene.layout.Region;
 public class CustHomeController extends ToolbarController implements Initializable, ControlledScreen {
 
 	@FXML
-	private Label lblHomePage;
+	private Label lblHomePage, lblStatus;
 
 	@FXML
 	private Button btnLogout, btnHome, btnMyProfile, btnMyBookings;
@@ -98,46 +98,46 @@ public class CustHomeController extends ToolbarController implements Initializab
 						Label info = new Label(listing[1]);
 						Label seatsLeft = new Label(listing[0]);
 						Button btn = new Button(listing[3]);
-						btn.setStyle("-fx-background-color: rgb(85,209,255); -fx-text-fill: white; "); // Sets the style of the buttons
-						
+						btn.setStyle("-fx-background-color: rgb(85,209,255); -fx-text-fill: white; "); // Sets the style
+																										// of the
+																										// buttons
+
 						// Two events handlers if the user hovers over the buttons
-						btn.setOnMouseExited(new EventHandler<MouseEvent>
-					    () {
+						btn.setOnMouseExited(new EventHandler<MouseEvent>() {
 
-					        @Override
-					        public void handle(MouseEvent t) {
-					           btn.setStyle("-fx-background-color: rgb(85,209,255); -fx-text-fill: white;");
-					        }
-					    });
+							@Override
+							public void handle(MouseEvent t) {
+								btn.setStyle("-fx-background-color: rgb(85,209,255); -fx-text-fill: white;");
+							}
+						});
 
-					    btn.setOnMouseEntered(new EventHandler<MouseEvent>
-					    () {
+						btn.setOnMouseEntered(new EventHandler<MouseEvent>() {
 
-					        @Override
-					        public void handle(MouseEvent t) {
-					           btn.setStyle("-fx-background-color: rgb(0,144,254); -fx-text-fill: white;");
-					        }
-					    });
-						
+							@Override
+							public void handle(MouseEvent t) {
+								btn.setStyle("-fx-background-color: rgb(0,144,254); -fx-text-fill: white;");
+							}
+						});
+
 						// For spacing:
 						Region region = new Region();
 						region.setPrefWidth(50);
 						Region region1 = new Region();
-				        HBox.setHgrow(region1, Priority.ALWAYS);
-				        Region region2 = new Region();
-				        region2.setPrefWidth(100);
-				        
-				        // Seat information for listing on display:
-				        int freeSeatCount = 0;
-				        String[][] seats = TextFileManager.getSeatInformation(listing[0]);
-				        for (String[] row : seats) {
-				        	for (String seat : row) {
-				        		if (seat.equals("Free")) {
-				        			freeSeatCount++;
-				        		}
-				        	}
-				        }
-				        seatsLeft.setText(freeSeatCount + " seats left.");
+						HBox.setHgrow(region1, Priority.ALWAYS);
+						Region region2 = new Region();
+						region2.setPrefWidth(100);
+
+						// Seat information for listing on display:
+						int freeSeatCount = 0;
+						String[][] seats = TextFileManager.getSeatInformation(listing[0]);
+						for (String[] row : seats) {
+							for (String seat : row) {
+								if (seat.equals("Free")) {
+									freeSeatCount++;
+								}
+							}
+						}
+						seatsLeft.setText(freeSeatCount + " seats left.");
 
 						btn.setOnAction((ActionEvent e) -> {
 							try {
@@ -145,7 +145,7 @@ public class CustHomeController extends ToolbarController implements Initializab
 								String title = listing[1];
 								String time = listing[3];
 								String listingID = Listing.findShowingID(title, date, time);
-								//String[][] seats = TextFileManager.getSeatInformation(listingID);
+								// String[][] seats = TextFileManager.getSeatInformation(listingID);
 
 								LISTING = new Listing(listingID, title, date, time, seats);
 								BOOKING = new Booking(PlaceHolderBookingID, LISTING, null,
@@ -160,7 +160,7 @@ public class CustHomeController extends ToolbarController implements Initializab
 							}
 
 						});
-						
+
 						HBox container = new HBox(info, region1, seatsLeft, region, btn, region2);
 						filmList.add(container);
 					}
@@ -253,36 +253,38 @@ public class CustHomeController extends ToolbarController implements Initializab
 
 	@FXML
 	public void goToCustBookFilmPage(ActionEvent event) throws ParseException {
-		if (isValidListingSelection(selectDate.getValue().toString(), selectFilm.getValue(),
-				selectTime.getValue())) { // If the selections have been made AND the date is not in the past
-			try {
+		if (selectDate.getValue() != null && !selectFilm.getSelectionModel().isEmpty()
+				&& !selectTime.getSelectionModel().isEmpty()) { // If selections have been made
+			if (isValidListingSelection(selectDate.getValue().toString(), selectFilm.getValue(),
+					selectTime.getValue())) { // If the selected date is in the future
+				try {
 
-				int PlaceHolderBookingID = 0;
-				String title = this.selectFilm.getValue();
-				String date = dateTimeFormatter.format(selectDate.getValue());
-				String time = this.selectTime.getValue();
-				String listingID = Listing.findShowingID(title, date, time);
-				String[][] seats = TextFileManager.getSeatInformation(listingID);
+					int PlaceHolderBookingID = 0;
+					String title = this.selectFilm.getValue();
+					String date = dateTimeFormatter.format(selectDate.getValue());
+					String time = this.selectTime.getValue();
+					String listingID = Listing.findShowingID(title, date, time);
+					String[][] seats = TextFileManager.getSeatInformation(listingID);
 
-				LISTING = new Listing(listingID, title, date, time, seats);
-				BOOKING = new Booking(PlaceHolderBookingID, LISTING, null, (Customer) LoginController.USER);
+					LISTING = new Listing(listingID, title, date, time, seats);
+					BOOKING = new Booking(PlaceHolderBookingID, LISTING, null, (Customer) LoginController.USER);
 
-				myController.loadScreen(ScreensFramework.custBookFilmPageID, ScreensFramework.custBookFilmPageFile);
+					myController.loadScreen(ScreensFramework.custBookFilmPageID, ScreensFramework.custBookFilmPageFile);
 
-				myController.setScreen(ScreensFramework.custBookFilmPageID);
+					myController.setScreen(ScreensFramework.custBookFilmPageID);
 
-			} catch (Exception e) {
-				System.out.println(e);
+				} catch (Exception e) {
+					System.out.println(e);
+				}
+			} else {
+				lblStatus.setText("You cannot pick a date before today!");
 			}
+		} else {
+			lblStatus.setText("You must select a value for every box!");
 		}
 	}
 
 	private Boolean isValidListingSelection(String date, String movie, String time) throws ParseException {
-		
-		// Missing values:
-		if (date.equals(null) || movie.equals(null) || time.equals(null)) {
-			return false;
-		}
 
 		String timeNowString = new SimpleDateFormat("dd/MM/yyyy HH:mm").format(new Date());
 		date = dateTimeFormatter.format(selectDate.getValue());
