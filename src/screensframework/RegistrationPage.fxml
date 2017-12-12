@@ -31,9 +31,9 @@
                         <Font size="18.0" />
                      </font>
                   </TextField>
-                  <Label fx:id="lblEmail" alignment="CENTER" prefHeight="50.0" prefWidth="300.0">
+                  <Label fx:id="lblEmail" alignment="CENTER" prefHeight="50.0" prefWidth="300.0" textFill="#777777">
                      <font>
-                        <Font size="22.0" />
+                        <Font size="16.0" />
                      </font>
                   </Label>
                </children>
@@ -50,9 +50,9 @@
                         <Font size="18.0" />
                      </font>
                   </PasswordField>
-                  <Label fx:id="lblPassword" alignment="CENTER" prefHeight="50.0" prefWidth="300.0">
+                  <Label fx:id="lblPassword" alignment="CENTER" prefHeight="50.0" prefWidth="300.0" textFill="#777777">
                      <font>
-                        <Font size="22.0" />
+                        <Font size="16.0" />
                      </font>
                   </Label>
                </children>
@@ -69,9 +69,9 @@
                         <Font size="18.0" />
                      </font>
                   </PasswordField>
-                  <Label fx:id="lblPasswordRepeat" alignment="CENTER" prefHeight="50.0" prefWidth="300.0">
+                  <Label fx:id="lblPasswordRepeat" alignment="CENTER" prefHeight="50.0" prefWidth="300.0" textFill="#777777">
                      <font>
-                        <Font size="22.0" />
+                        <Font size="16.0" />
                      </font>
                   </Label>
                </children>
@@ -88,9 +88,9 @@
                         <Font size="18.0" />
                      </font>
                   </TextField>
-                  <Label fx:id="lblFirstName" alignment="CENTER" prefHeight="50.0" prefWidth="300.0">
+                  <Label fx:id="lblFirstName" alignment="CENTER" prefHeight="50.0" prefWidth="300.0" textFill="#777777">
                      <font>
-                        <Font size="22.0" />
+                        <Font size="16.0" />
                      </font>
                   </Label>
                </children>
@@ -107,9 +107,9 @@
                         <Font size="18.0" />
                      </font>
                   </TextField>
-                  <Label fx:id="lblLastName" alignment="CENTER" prefHeight="50.0" prefWidth="300.0">
+                  <Label fx:id="lblLastName" alignment="CENTER" prefHeight="50.0" prefWidth="300.0" textFill="#777777">
                      <font>
-                        <Font size="22.0" />
+                        <Font size="16.0" />
                      </font>
                   </Label>
                </children>

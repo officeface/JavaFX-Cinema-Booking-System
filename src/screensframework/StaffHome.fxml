@@ -16,8 +16,8 @@
 			<items>
 				<HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="250.0" spacing="30.0">
 					<children>
-						<Button fx:id="btnSLogout" mnemonicParsing="false" onAction="#goToLogin" text="Logout" />
-						<Button fx:id="btnSHome" disable="true" mnemonicParsing="false" text="Go to Staff Home" />
+						<Button fx:id="btnSLogout" mnemonicParsing="false" onAction="#goToLogin" prefWidth="80.0" text="Logout" />
+						<Button fx:id="btnSHome" disable="true" mnemonicParsing="false" prefWidth="80.0" text="Home" />
 					</children>
 					<padding>
 						<Insets left="30.0" />
@@ -25,7 +25,7 @@
 				</HBox>
 				<HBox alignment="CENTER" prefHeight="30.0" prefWidth="250.0">
 					<children>
-						<Label fx:id="lblHomePage" alignment="CENTER" text="Staff Home Page">
+						<Label fx:id="lblHomePage" alignment="CENTER" text="Staff Home">
 							<font>
 								<Font size="18.0" />
 							</font>
@@ -37,14 +37,14 @@
 		</ToolBar>
 
 
-		<Label fx:id="lblStaffHome" layoutX="284.0" layoutY="77.0" text="STAFF HOME">
+		<Label fx:id="lblStaffHome" layoutX="295.0" layoutY="78.0" text="STAFF HOME">
 			<font>
 				<Font size="36.0" />
 			</font>
 		</Label>
 		<Button fx:id="btnAddFilm" layoutX="214.0" layoutY="192.0" mnemonicParsing="false" onAction="#goToAddFilmPage" prefHeight="60.0" prefWidth="160.0" text="ADD NEW FILM" />
-		<Button fx:id="btnAddListings" layoutX="432.0" layoutY="189.0" mnemonicParsing="false" onAction="#goToAddListings" prefHeight="60.0" prefWidth="160.0" text="ADD NEW LISTINGS" />
-		<Button fx:id="btnBookingSummary" layoutX="218.0" layoutY="319.0" mnemonicParsing="false" onAction="#goToBookingSummary" prefHeight="60.0" prefWidth="373.0" text="BOOKING SUMMARY" />
-		<Button fx:id="btnExportFilms" layoutX="216.0" layoutY="434.0" mnemonicParsing="false" onAction="#goToStaffExport" prefHeight="60.0" prefWidth="373.0" text="EXPORT FILMS" />
+		<Button fx:id="btnAddListings" layoutX="432.0" layoutY="192.0" mnemonicParsing="false" onAction="#goToAddListings" prefHeight="60.0" prefWidth="160.0" text="ADD NEW LISTINGS" />
+		<Button fx:id="btnBookingSummary" layoutX="216.0" layoutY="319.0" mnemonicParsing="false" onAction="#goToBookingSummary" prefHeight="60.0" prefWidth="373.0" text="BOOKING SUMMARY" />
+		<Button fx:id="btnExportFilms" layoutX="216.0" layoutY="434.0" mnemonicParsing="false" onAction="#goToStaffExport" prefHeight="60.0" prefWidth="373.0" text="EXPORT FILMS TO FILE" />
 	</children>
 </AnchorPane>

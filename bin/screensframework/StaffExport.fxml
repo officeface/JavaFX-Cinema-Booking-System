@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Accordion?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="screensframework.StaffExportController">
    <children>
@@ -22,8 +17,8 @@
         <items>
             <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="250.0" spacing="30.0">
                <children>
-              <Button fx:id="btnSLogout" mnemonicParsing="false" onAction="#goToLogin" text="Logout" />
-                  <Button fx:id="btnSHome" mnemonicParsing="false" onAction="#goToStaffHome" text="Go to Staff Home" />
+              <Button fx:id="btnSLogout" mnemonicParsing="false" onAction="#goToLogin" prefWidth="80.0" text="Logout" />
+                  <Button fx:id="btnSHome" mnemonicParsing="false" onAction="#goToStaffHome" prefWidth="80.0" text="Home" />
                </children>
                <padding>
                   <Insets left="30.0" />
@@ -40,18 +35,18 @@
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="250.0" spacing="30.0">
                <children>
-                <Button fx:id="btnGoToBookingSummary" mnemonicParsing="false" onAction="#goToBookingSummary" text="Booking summary of films" />
+                <Button fx:id="btnGoToBookingSummary" mnemonicParsing="false" onAction="#goToBookingSummary" prefWidth="180.0" text="Booking summary of films" />
                </children>
             </HBox>
         </items>
       </ToolBar>
       
       
-      <Button fx:id="btnExportSelectedFilm" layoutX="300.0" layoutY="298.0" mnemonicParsing="false"  onAction="#getSelectedFilmDetailsToCSV" text="Export film" />
-      <Button fx:id="btnExportAll" layoutX="413.0" layoutY="298.0" mnemonicParsing="false"  onAction="#getDatabaseToCSV" text="Export all films" />
-      <ComboBox fx:id="filmDropDown" layoutX="358.0" layoutY="237.0" prefWidth="150.0" />
-      <Label fx:id="lblSelectFilm" layoutX="277.0" layoutY="244.0" text="Select film" />
-      <Label fx:id="lblExport" layoutX="314.0" layoutY="192.0" text="EXPORT FILM DETAILS">
+      <Button fx:id="btnExportSelectedFilm" layoutX="479.0" layoutY="237.0" mnemonicParsing="false" onAction="#getSelectedFilmDetailsToCSV" prefWidth="150.0" text="Export selected film" />
+      <Button fx:id="btnExportAll" layoutX="479.0" layoutY="300.0" mnemonicParsing="false" onAction="#getDatabaseToCSV" prefHeight="60.0" prefWidth="150.0" text="Export all films" />
+      <ComboBox fx:id="filmDropDown" layoutX="286.0" layoutY="237.0" prefWidth="180.0" />
+      <Label fx:id="lblSelectFilm" layoutX="204.0" layoutY="241.0" text="Select film:" />
+      <Label fx:id="lblExport" layoutX="311.0" layoutY="180.0" text="EXPORT FILM DETAILS">
          <font>
             <Font size="18.0" />
          </font>

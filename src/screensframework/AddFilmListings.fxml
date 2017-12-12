@@ -1,27 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Accordion?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.TitledPane?>
-<?import javafx.scene.control.ToolBar?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="screensframework.AddFilmListingsController">
    <children>
@@ -30,8 +21,8 @@
         <items>
             <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="250.0" spacing="30.0">
                <children>
-              <Button fx:id="btnSLogout" mnemonicParsing="false" onAction="#goToLogin" text="Logout" />
-                  <Button fx:id="btnSHome" mnemonicParsing="false" onAction="#goToStaffHome" text="Go to Staff Home" />
+              <Button fx:id="btnSLogout" mnemonicParsing="false" onAction="#goToLogin" prefWidth="80.0" text="Logout" />
+                  <Button fx:id="btnSHome" mnemonicParsing="false" onAction="#goToStaffHome" prefWidth="80.0" text="Home" />
                </children>
                <padding>
                   <Insets left="30.0" />
@@ -39,7 +30,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="30.0" prefWidth="250.0">
                <children>
-              <Label fx:id="lblTitleTag" alignment="CENTER" text="Add new film listings">
+              <Label fx:id="lblTitleTag" alignment="CENTER" text="Add listings">
                 <font>
                   <Font size="18.0" />
                 </font>
@@ -48,13 +39,13 @@
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="250.0" spacing="30.0">
                <children>
-                <Button fx:id="btnGoToNewFilm" mnemonicParsing="false" onAction="#goToAddFilmPage" text="Add new films" />
+                <Button fx:id="btnGoToNewFilm" mnemonicParsing="false" onAction="#goToAddFilmPage" prefWidth="180.0" text="Add new films" />
                </children>
             </HBox>
         </items>
       </ToolBar>
    
-      <Label fx:id="lblAddFilmListings" layoutX="231.0" layoutY="81.0" text="ADD FILM LISTINGS">
+      <Label fx:id="lblAddFilmListings" layoutX="231.0" layoutY="81.0" text="ADD A NEW LISTING">
          <font>
             <Font size="32.0" />
          </font>
@@ -85,9 +76,12 @@
             </Label>
             <ButtonBar prefHeight="63.0" prefWidth="566.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
               <buttons>
-                  <ComboBox fx:id="comboChooseTime" onAction="#getSelectedTime" prefHeight="27.0" prefWidth="258.0" promptText="Choose available time slot" />
                 <Button fx:id="btnAddListings" minWidth="26.0" mnemonicParsing="false" onAction="#addFilmListing" prefHeight="13.0" text="ADD LISTINGS" />
+                  <ComboBox fx:id="comboChooseTime" onAction="#getSelectedTime" prefHeight="27.0" prefWidth="258.0" promptText="Choose available time slot" />
               </buttons>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
             </ButtonBar>
             <Label fx:id="lblSelectTime" text="SELECT TIME" GridPane.rowIndex="2">
                <font>

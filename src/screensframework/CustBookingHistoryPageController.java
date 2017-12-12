@@ -25,6 +25,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Region;
 
 public class CustBookingHistoryPageController extends ToolbarController implements Initializable, ControlledScreen {
  
@@ -67,7 +68,7 @@ public class CustBookingHistoryPageController extends ToolbarController implemen
 				Date timeNow = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(timeNowString);
 				Date timeListing = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(timeListingString);
 				
-				if (timeNow.before(timeListing)) {
+				if (timeNow.before(timeListing)) { // Checks if the listing is able to be deleted:
 				
 					Button btnDeleteListing = new Button("Delete Listing");
 					btnDeleteListing.setStyle("-fx-background-color: rgb(85,209,255); -fx-text-fill: white; "); // Sets the style of the buttons
@@ -90,6 +91,7 @@ public class CustBookingHistoryPageController extends ToolbarController implemen
 				        	btnDeleteListing.setStyle("-fx-background-color: rgb(0,144,254); -fx-text-fill: white;");
 				        }
 				    });
+					
 					// Add ActionEvent for delete button:
 					btnDeleteListing.setOnAction((ActionEvent e) -> {
 						try {
@@ -104,8 +106,17 @@ public class CustBookingHistoryPageController extends ToolbarController implemen
 						this.bookingAccordion.getPanes().remove(pane);
 					});
 					
+					// Alignment of button:
+					btnDeleteListing.setPrefWidth(120);
 					pane.setGraphic(btnDeleteListing);
+					pane.setGraphicTextGap(10);
 					
+				} else {
+					// For Alignment purposes:
+					Region region = new Region();
+					region.setPrefWidth(120);
+					pane.setGraphic(region);
+					pane.setGraphicTextGap(10);
 				}
 				
 				
