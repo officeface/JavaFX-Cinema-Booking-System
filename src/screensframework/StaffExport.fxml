@@ -43,7 +43,7 @@
       
       
       <Button fx:id="btnExportSelectedFilm" layoutX="479.0" layoutY="237.0" mnemonicParsing="false" onAction="#getSelectedFilmDetailsToCSV" prefWidth="150.0" text="Export selected film" />
-      <Button fx:id="btnExportAll" layoutX="479.0" layoutY="300.0" mnemonicParsing="false" onAction="#getDatabaseToCSV" prefHeight="60.0" prefWidth="150.0" text="Export all films" />
+      <Button fx:id="btnExportAll" layoutX="205.0" layoutY="295.0" mnemonicParsing="false" onAction="#getDatabaseToCSV" prefHeight="52.0" prefWidth="423.0" text="Export all films" />
       <ComboBox fx:id="filmDropDown" layoutX="286.0" layoutY="237.0" prefWidth="180.0" />
       <Label fx:id="lblSelectFilm" layoutX="204.0" layoutY="241.0" text="Select film:" />
       <Label fx:id="lblExport" layoutX="311.0" layoutY="180.0" text="EXPORT FILM DETAILS">
@@ -51,5 +51,9 @@
             <Font size="18.0" />
          </font>
       </Label>
+      <Label fx:id="lblFeedback" layoutX="206.0" layoutY="370.0" prefHeight="47.0" prefWidth="423.0" textAlignment="CENTER">
+         <font>
+            <Font size="9.0" />
+         </font></Label>
    </children>
 </AnchorPane>

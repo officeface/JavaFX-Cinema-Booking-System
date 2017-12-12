@@ -21,6 +21,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.stage.FileChooser;
 import javafx.stage.Window;
 
@@ -48,6 +49,9 @@ public class StaffExportController implements Initializable, ControlledScreen {
 
 	@FXML
 	private Button btnGoToBookingSummary;
+	
+	@FXML
+	private Label lblFeedback; 
 
 	/**
 	 * Initialises the controller class.
@@ -182,7 +186,10 @@ public class StaffExportController implements Initializable, ControlledScreen {
 																	// json) written to new text file
 
 				ScreensFramework.LOGGER.info(this.selectedFilmForExport + " information has been exported!");
-				System.out.println(this.selectedFilmForExport + " information has been exported!");
+//				System.out.println(this.selectedFilmForExport + " information has been exported!");
+				lblFeedback.setText((this.selectedFilmForExport + " information has been exported!"));
+
+				
 			}
 		}
 	}
@@ -284,7 +291,8 @@ public class StaffExportController implements Initializable, ControlledScreen {
 			Files.write(Paths.get(savedfilepath), z.getBytes(), StandardOpenOption.APPEND);
 
 			ScreensFramework.LOGGER.info("Database has been exported!");
-			System.out.println("Database has been exported!");
+//			System.out.println("Database has been exported!");
+			lblFeedback.setText("Database has been exported!");
 		}
 
 	}// End of overall method
