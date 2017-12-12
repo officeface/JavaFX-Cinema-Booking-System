@@ -15,6 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tooltip;
 import javafx.scene.layout.GridPane;
 
 /**
@@ -39,7 +40,7 @@ public class BookingSummaryController implements Initializable, ControlledScreen
 	@FXML
 	private Button btnScreenInfo; // Once form is filled, pressing button will show the summary data
 
-	// To store data from TextFileManager methods 
+	// To store data from TextFileManager methods
 	private ObservableList<String> filmNames = FXCollections.observableArrayList(); // Container for film titles
 	private ObservableList<String> timeList = FXCollections.observableArrayList(); // Container for film times
 	private DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy"); // Formatting dates
@@ -114,6 +115,7 @@ public class BookingSummaryController implements Initializable, ControlledScreen
 	/**
 	 * Sets the films list after a date has been selected. Films are those that will
 	 * be showing on the specified date.
+	 * 
 	 * @param event
 	 *            date selection from DatePicker box
 	 * @throws IOException
@@ -125,7 +127,7 @@ public class BookingSummaryController implements Initializable, ControlledScreen
 		try {
 			List<String> filmList = getFilmList();
 			for (int i = 0; i < filmList.size(); i++) {
-				filmNames.add(filmList.get(i)); // Intermediate 
+				filmNames.add(filmList.get(i)); // Intermediate
 			}
 			comboListOfFilms.setItems(filmNames); // Sets the film list comboBox
 		} catch (IOException e) {
@@ -140,19 +142,19 @@ public class BookingSummaryController implements Initializable, ControlledScreen
 		try {
 			List<String> times = getTimesList();
 			for (int i = 0; i < times.size(); i++) {
-				timeList.add(times.get(i)); // Intermediate 
+				timeList.add(times.get(i)); // Intermediate
 			}
-			comboTimeSelector.setItems(timeList); // Sets the time list comboBox 
+			comboTimeSelector.setItems(timeList); // Sets the time list comboBox
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
-
 	/**
-	 * Once the user sets the film showing based on data, if the user presses the 
-	 * btnScreenInfo, information will be updated such as number of booked and free seats 
-	 * as well as a graphical representation of the cinema screen seating. 
+	 * Once the user sets the film showing based on data, if the user presses the
+	 * btnScreenInfo, information will be updated such as number of booked and free
+	 * seats as well as a graphical representation of the cinema screen seating.
+	 * 
 	 * @author frazahmad / mark
 	 * @param event
 	 * @throws IOException
@@ -164,7 +166,8 @@ public class BookingSummaryController implements Initializable, ControlledScreen
 		String date = dateTimeFormatter.format(datePickerSelector.getValue());
 		String time = this.comboTimeSelector.getValue();
 		String listingID = Listing.findShowingID(title, date, time); // Based on user input the listing ID is found
-		String[][] seats = TextFileManager.getSeatInformation(listingID); // String array of seats is found based on listing
+		String[][] seats = TextFileManager.getSeatInformation(listingID); // String array of seats is found based on
+																			// listing
 
 		// Initialisation of the booked and free seats counter
 		Integer bookedSeatsCounter = 0;
@@ -177,19 +180,34 @@ public class BookingSummaryController implements Initializable, ControlledScreen
 				Integer I = (Integer) i; // Conversion to 'Integer' formats
 				Integer J = (Integer) j;
 				seatLayout.add(btn, j, i); // Adding buttons to gridlayout
-				btn.setPrefSize(58, 28); // Setting preferred size 
+				btn.setPrefSize(58, 28); // Setting preferred size
 				btn.setId(getSeatName(I, J)); // Setting btn ID
 
 				// Seats labels
-				String seatLabel = getSeatName(I, J); 
-				btn.setText(seatLabel); // Setting seat name to the button 
+				String seatLabel = getSeatName(I, J);
+				btn.setText(seatLabel); // Setting seat name to the button
 
 				// Check if seat is available:
 				if (seats[i][j].equals("Free")) {
+					// Tooltip:
+					btn.setTooltip(new Tooltip("Seat is free"));
+					
 					btn.setStyle("-fx-base: lightgreen;"); // Sets button to lightgreen if free
 					freeSeatsCounter = freeSeatsCounter + 1; // Updates free seats counter
+					
 
 				} else {
+					// Get customer's name for extra information:
+					TextFileManager fileManager = new TextFileManager();
+					List<String[]> loginDetails = fileManager.getLoginDetails();
+					for (int k = 0; k < loginDetails.size(); k++) {
+						if (loginDetails.get(k)[0].equals(seats[i][j])) {
+							// Tooltip over button for extra information:
+							btn.setTooltip(new Tooltip("Customer " + seats[i][j] + "\n" + loginDetails.get(k)[4] + " "
+									+ loginDetails.get(k)[5]));
+						}
+					}
+
 					btn.setStyle("-fx-base: lightpink;"); // Sets button to lightpink if booked
 					bookedSeatsCounter = bookedSeatsCounter + 1; // Updates free seats counter
 
@@ -200,7 +218,8 @@ public class BookingSummaryController implements Initializable, ControlledScreen
 		}
 		;
 
-		// Setting the labels to their respective numbers + conversion from integer to string
+		// Setting the labels to their respective numbers + conversion from integer to
+		// string
 		lblBookedSeats.setText(bookedSeatsCounter.toString());
 		lblFreeSeats.setText(freeSeatsCounter.toString());
 
