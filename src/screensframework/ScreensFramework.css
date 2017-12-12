@@ -20,7 +20,9 @@
 /* TOOLBAR good colours: powerblue /silver / steelblue  */
 
 .tool-bar {
-        -fx-background-color:  linear-gradient(to left, steelblue, white ) ;
+        /*-fx-background-color:  linear-gradient(to left, steelblue, white ) ;*/
+        -fx-background-color: silver ;
+        
         
 }
 
@@ -320,148 +322,148 @@
 /* Staff toolbar */
 
 #btnSLogout{
-	-fx-background-color: rgb(59,243,131);
+	-fx-background-color: rgb(42,228,13);
     -fx-text-fill: white;
     -fx-background-radius: 16px;
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
     
 }
 #btnSLogout:hover {
-	-fx-background-color: rgb(42,228,13);
+	-fx-background-color: rgb(74, 160, 43);
 }
 
 #btnSHome{
-	-fx-background-color: rgb(59,243,131);
+	-fx-background-color: rgb(42,228,13);
     -fx-text-fill: white;
     -fx-background-radius: 16px;
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
 }
 #btnSHome:hover {
-	-fx-background-color: rgb(42,228,13);
+	-fx-background-color: rgb(74, 160, 43);
 }
 
 #btnGoToNewListing{
-	-fx-background-color: rgb(59,243,131);
+	-fx-background-color: rgb(42,228,13);
     -fx-text-fill: white;
     -fx-background-radius: 16px;
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
 }
 #btnGoToNewListing:hover {
-	-fx-background-color: rgb(42,228,13);
+	-fx-background-color: rgb(74, 160, 43);
 }
 
 #btnGoToNewFilm{
-	-fx-background-color: rgb(59,243,131);
+	-fx-background-color: rgb(42,228,13);
     -fx-text-fill: white;
     -fx-background-radius: 16px;
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
 }
 #btnGoToNewFilm:hover {
-	-fx-background-color: rgb(42,228,13);
+	-fx-background-color: rgb(74, 160, 43);
 }
 
 #btnGoToBookingSummary{
-	-fx-background-color: rgb(59,243,131);
+	-fx-background-color: rgb(42,228,13);
     -fx-text-fill: white;
     -fx-background-radius: 16px;
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
 }
 #btnGoToBookingSummary:hover {
-	-fx-background-color: rgb(42,228,13);
+	-fx-background-color: rgb(74, 160, 43);
 }
 
 #btnGoToExport{
-	-fx-background-color: rgb(59,243,131);
+	-fx-background-color: rgb(42,228,13);
     -fx-text-fill: white;
     -fx-background-radius: 16px;
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
 }
 #btnGoToExport:hover {
-	-fx-background-color: rgb(42,228,13);
+	-fx-background-color: rgb(74, 160, 43);
 }
 
 /* staff home */
 
 #btnAddFilm{
-	-fx-background-color: rgb(59,243,131);
+	-fx-background-color: rgb(42,228,13);
     -fx-text-fill: white;
     -fx-background-radius: 16px;
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
 }
 #btnAddFilm:hover {
-	-fx-background-color: rgb(42,228,13);
+	-fx-background-color: rgb(74, 160, 43);
 }
 #btnAddListings{
-	-fx-background-color: rgb(59,243,131);
+	-fx-background-color: rgb(42,228,13);
     -fx-text-fill: white;
     -fx-background-radius: 16px;
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
 }
 #btnAddListings:hover {
-	-fx-background-color: rgb(42,228,13);
+	-fx-background-color: rgb(74, 160, 43);
 }
 #btnBookingSummary{
-	-fx-background-color: rgb(59,243,131);
+	-fx-background-color: rgb(42,228,13);
     -fx-text-fill: white;
     -fx-background-radius: 16px;
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
 }
 #btnBookingSummary:hover {
-	-fx-background-color: rgb(42,228,13);
+	-fx-background-color: rgb(74, 160, 43);
 }
 #btnExportFilms{
-	-fx-background-color: rgb(59,243,131);
+	-fx-background-color: rgb(42,228,13);
     -fx-text-fill: white;
     -fx-background-radius: 16px;
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
 }
 #btnExportFilms:hover {
-	-fx-background-color: rgb(42,228,13);
+	-fx-background-color: rgb(74, 160, 43);
 }
 
 /* staff add film */
 
 #btnSelectImg{
-	-fx-background-color: rgb(59,243,131);
+	-fx-background-color: rgb(42,228,13);
     -fx-text-fill: white;
     -fx-background-radius: 16px;
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
 }
 #btnSelectImg:hover {
-	-fx-background-color: rgb(42,228,13);
+	-fx-background-color: rgb(74, 160, 43);
 }
 
 /* staff booking summary */
 
 #btnScreenInfo{
-	-fx-background-color: rgb(59,243,131);
+	-fx-background-color: rgb(42,228,13);
     -fx-text-fill: white;
     -fx-background-radius: 16px;
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
 }
 #btnScreenInfo:hover {
-	-fx-background-color: rgb(42,228,13);
+	-fx-background-color: rgb(74, 160, 43);
 }
 /* staff export */
 
 #btnExportSelectedFilm{
-	-fx-background-color: rgb(59,243,131);
+	-fx-background-color: rgb(42,228,13);
     -fx-text-fill: white;
     -fx-background-radius: 16px;
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
 }
 #btnExportSelectedFilm:hover {
-	-fx-background-color: rgb(42,228,13);
+	-fx-background-color: rgb(74, 160, 43);
 }
 
 #btnExportAll{
-	-fx-background-color: rgb(59,243,131);
+	-fx-background-color: rgb(42,228,13);
     -fx-text-fill: white;
     -fx-background-radius: 16px;
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
 }
 #btnExportAll:hover {
-	-fx-background-color: rgb(42,228,13);
+	-fx-background-color: rgb(74, 160, 43);
 }
 
 

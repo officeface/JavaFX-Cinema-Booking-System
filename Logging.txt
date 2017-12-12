@@ -1,46 +1,126 @@
-Dec 12, 2017 8:06:25 PM screensframework.ScreensController loadScreen
+Dec 12, 2017 8:38:35 PM screensframework.ScreensController loadScreen
 INFO: main was loaded.
-Dec 12, 2017 8:06:27 PM screensframework.ScreensController loadScreen
+Dec 12, 2017 8:38:38 PM screensframework.ScreensController loadScreen
 INFO: staffHome was loaded.
-Dec 12, 2017 8:06:27 PM screensframework.ScreensController loadScreen
+Dec 12, 2017 8:38:38 PM screensframework.ScreensController loadScreen
 INFO: staffExport was loaded.
-Dec 12, 2017 8:06:27 PM screensframework.ScreensController loadScreen
+Dec 12, 2017 8:38:38 PM screensframework.ScreensController loadScreen
 INFO: bookingSummary was loaded.
-Dec 12, 2017 8:06:27 PM screensframework.ScreensController loadScreen
+Dec 12, 2017 8:38:38 PM screensframework.ScreensController loadScreen
 INFO: addFilmPage was loaded.
-Dec 12, 2017 8:06:27 PM screensframework.ScreensController loadScreen
+Dec 12, 2017 8:38:38 PM screensframework.ScreensController loadScreen
 INFO: addFilmListings was loaded.
-Dec 12, 2017 8:06:30 PM screensframework.ScreensController unloadScreen
+Dec 12, 2017 8:38:50 PM screensframework.ScreensController unloadScreen
 INFO: addFilmListings was closed.
-Dec 12, 2017 8:06:30 PM screensframework.ScreensController loadScreen
+Dec 12, 2017 8:38:50 PM screensframework.ScreensController loadScreen
 INFO: addFilmListings was loaded.
-Dec 12, 2017 8:06:33 PM screensframework.ScreensController unloadScreen
-INFO: addFilmListings was closed.
-Dec 12, 2017 8:06:33 PM screensframework.ScreensController loadScreen
-INFO: addFilmListings was loaded.
-Dec 12, 2017 8:06:38 PM screensframework.ScreensController unloadScreen
-INFO: staffExport was closed.
-Dec 12, 2017 8:06:38 PM screensframework.ScreensController loadScreen
-INFO: staffExport was loaded.
-Dec 12, 2017 8:06:57 PM screensframework.ScreensController unloadScreen
+Dec 12, 2017 8:39:03 PM screensframework.ScreensController unloadScreen
 INFO: main was closed.
-Dec 12, 2017 8:06:57 PM screensframework.ScreensController unloadScreen
+Dec 12, 2017 8:39:03 PM screensframework.ScreensController unloadScreen
 INFO: staffHome was closed.
-Dec 12, 2017 8:06:57 PM screensframework.ScreensController unloadScreen
+Dec 12, 2017 8:39:03 PM screensframework.ScreensController unloadScreen
 WARNING: custHome wasn't open.
-Dec 12, 2017 8:06:57 PM screensframework.ScreensController unloadScreen
+Dec 12, 2017 8:39:03 PM screensframework.ScreensController unloadScreen
 WARNING: custProfilePage wasn't open.
-Dec 12, 2017 8:06:57 PM screensframework.ScreensController unloadScreen
+Dec 12, 2017 8:39:03 PM screensframework.ScreensController unloadScreen
 WARNING: custBookFilmPage wasn't open.
-Dec 12, 2017 8:06:57 PM screensframework.ScreensController unloadScreen
+Dec 12, 2017 8:39:03 PM screensframework.ScreensController unloadScreen
 WARNING: custConfirmPage wasn't open.
-Dec 12, 2017 8:06:57 PM screensframework.ScreensController unloadScreen
+Dec 12, 2017 8:39:03 PM screensframework.ScreensController unloadScreen
 INFO: staffExport was closed.
-Dec 12, 2017 8:06:57 PM screensframework.ScreensController unloadScreen
+Dec 12, 2017 8:39:03 PM screensframework.ScreensController unloadScreen
 INFO: bookingSummary was closed.
-Dec 12, 2017 8:06:57 PM screensframework.ScreensController unloadScreen
+Dec 12, 2017 8:39:03 PM screensframework.ScreensController unloadScreen
 INFO: addFilmPage was closed.
-Dec 12, 2017 8:06:57 PM screensframework.ScreensController unloadScreen
+Dec 12, 2017 8:39:03 PM screensframework.ScreensController unloadScreen
 INFO: addFilmListings was closed.
-Dec 12, 2017 8:06:57 PM screensframework.ScreensController loadScreen
+Dec 12, 2017 8:39:03 PM screensframework.ScreensController unloadScreen
+WARNING: staffChoice wasn't open.
+Dec 12, 2017 8:39:03 PM screensframework.ScreensController loadScreen
+INFO: main was loaded.
+Dec 12, 2017 8:39:07 PM screensframework.ScreensController loadScreen
+INFO: staffHome was loaded.
+Dec 12, 2017 8:39:07 PM screensframework.ScreensController loadScreen
+INFO: staffExport was loaded.
+Dec 12, 2017 8:39:07 PM screensframework.ScreensController loadScreen
+INFO: bookingSummary was loaded.
+Dec 12, 2017 8:39:07 PM screensframework.ScreensController loadScreen
+INFO: addFilmPage was loaded.
+Dec 12, 2017 8:39:07 PM screensframework.ScreensController loadScreen
+INFO: addFilmListings was loaded.
+Dec 12, 2017 8:39:10 PM screensframework.ScreensController unloadScreen
+INFO: main was closed.
+Dec 12, 2017 8:39:10 PM screensframework.ScreensController unloadScreen
+INFO: staffHome was closed.
+Dec 12, 2017 8:39:10 PM screensframework.ScreensController unloadScreen
+WARNING: custHome wasn't open.
+Dec 12, 2017 8:39:10 PM screensframework.ScreensController unloadScreen
+WARNING: custProfilePage wasn't open.
+Dec 12, 2017 8:39:10 PM screensframework.ScreensController unloadScreen
+WARNING: custBookFilmPage wasn't open.
+Dec 12, 2017 8:39:10 PM screensframework.ScreensController unloadScreen
+WARNING: custConfirmPage wasn't open.
+Dec 12, 2017 8:39:10 PM screensframework.ScreensController unloadScreen
+INFO: staffExport was closed.
+Dec 12, 2017 8:39:10 PM screensframework.ScreensController unloadScreen
+INFO: bookingSummary was closed.
+Dec 12, 2017 8:39:10 PM screensframework.ScreensController unloadScreen
+INFO: addFilmPage was closed.
+Dec 12, 2017 8:39:10 PM screensframework.ScreensController unloadScreen
+INFO: addFilmListings was closed.
+Dec 12, 2017 8:39:10 PM screensframework.ScreensController unloadScreen
+WARNING: staffChoice wasn't open.
+Dec 12, 2017 8:39:10 PM screensframework.ScreensController loadScreen
+INFO: main was loaded.
+Dec 12, 2017 8:39:14 PM screensframework.TextFileManager getSeatInformation
+INFO: Loaded booking data for Gerald Bond - The Movie
+Dec 12, 2017 8:39:14 PM screensframework.TextFileManager getSeatInformation
+INFO: Loaded booking data for Gerald Bond - The Movie
+Dec 12, 2017 8:39:14 PM screensframework.TextFileManager getSeatInformation
+INFO: Loaded booking data for True Romance
+Dec 12, 2017 8:39:14 PM screensframework.TextFileManager getSeatInformation
+INFO: Loaded booking data for True Romance
+Dec 12, 2017 8:39:14 PM screensframework.TextFileManager getSeatInformation
+INFO: Loaded booking data for Goodfellas
+Dec 12, 2017 8:39:14 PM screensframework.TextFileManager getSeatInformation
+INFO: Loaded booking data for True Romance
+Dec 12, 2017 8:39:14 PM screensframework.TextFileManager getSeatInformation
+INFO: Loaded booking data for Star Wars: Episode V - The Empire Strikes Back
+Dec 12, 2017 8:39:14 PM screensframework.TextFileManager getSeatInformation
+INFO: Loaded booking data for True Romance
+Dec 12, 2017 8:39:14 PM screensframework.TextFileManager getSeatInformation
+INFO: Loaded booking data for Casa Del Fascio
+Dec 12, 2017 8:39:14 PM screensframework.TextFileManager getSeatInformation
+INFO: Loaded booking data for Casa Del Fascio
+Dec 12, 2017 8:39:14 PM screensframework.TextFileManager getSeatInformation
+INFO: Loaded booking data for Casa Del Fascio
+Dec 12, 2017 8:39:14 PM screensframework.ScreensController loadScreen
+INFO: custHome was loaded.
+Dec 12, 2017 8:39:14 PM screensframework.ScreensController loadScreen
+INFO: custProfilePage was loaded.
+Dec 12, 2017 8:39:14 PM screensframework.ScreensController loadScreen
+INFO: custBookingHistoryPage was loaded.
+Dec 12, 2017 8:39:24 PM screensframework.ScreensController unloadScreen
+INFO: main was closed.
+Dec 12, 2017 8:39:24 PM screensframework.ScreensController unloadScreen
+WARNING: registrationPage wasn't open.
+Dec 12, 2017 8:39:24 PM screensframework.ScreensController unloadScreen
+WARNING: staffHome wasn't open.
+Dec 12, 2017 8:39:24 PM screensframework.ScreensController unloadScreen
+INFO: custHome was closed.
+Dec 12, 2017 8:39:24 PM screensframework.ScreensController unloadScreen
+INFO: custProfilePage was closed.
+Dec 12, 2017 8:39:24 PM screensframework.ScreensController unloadScreen
+WARNING: custBookFilmPage wasn't open.
+Dec 12, 2017 8:39:24 PM screensframework.ScreensController unloadScreen
+WARNING: custConfirmPage wasn't open.
+Dec 12, 2017 8:39:24 PM screensframework.ScreensController unloadScreen
+WARNING: staffExport wasn't open.
+Dec 12, 2017 8:39:24 PM screensframework.ScreensController unloadScreen
+WARNING: bookingSummary wasn't open.
+Dec 12, 2017 8:39:24 PM screensframework.ScreensController unloadScreen
+WARNING: addFilmPage wasn't open.
+Dec 12, 2017 8:39:24 PM screensframework.ScreensController unloadScreen
+WARNING: addFilmListings wasn't open.
+Dec 12, 2017 8:39:24 PM screensframework.ScreensController loadScreen
 INFO: main was loaded.
