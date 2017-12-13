@@ -96,17 +96,16 @@ public class CustBookFilmPageController implements Initializable, ControlledScre
 		// Load image:
 		try {
 			this.lblDescription.setText(getDescription(CustHomeController.BOOKING.getMovie().getTitle()));
-			
+
 			String imagePath = getImage(CustHomeController.BOOKING.getMovie().getTitle());
 			File file = new File(imagePath);
-			if (imagePath.startsWith("/")) { // One of the built-in images
+			if (imagePath.startsWith("/")) { // One of the built-in images, does not have an absolute filepath listed
 				Image image = new Image(getClass().getResourceAsStream(imagePath));
 				this.imgShowFilmImage.setImage(image);
 			} else { // image has been added by Employee
 				Image image = new Image(file.toURI().toString());
 				this.imgShowFilmImage.setImage(image);
 			}
-			
 
 		} catch (IOException e) {
 			ScreensFramework.LOGGER.warning("Image URL could not be found.  Please update in Employee's side.");
@@ -195,7 +194,9 @@ public class CustBookFilmPageController implements Initializable, ControlledScre
 
 	/**
 	 * Progresses to the Confirmation page if the Customer has selected some seats.
-	 * @param event Customer selects "Continue"
+	 * 
+	 * @param event
+	 *            Customer selects "Continue"
 	 */
 	@FXML
 	public void goToCustConfirmPage(ActionEvent event) {
@@ -217,9 +218,12 @@ public class CustBookFilmPageController implements Initializable, ControlledScre
 
 	/**
 	 * Finds the description for a specified movie.
-	 * @param title the title of the movie.
+	 * 
+	 * @param title
+	 *            the title of the movie.
 	 * @return the description of the movie as a String.
-	 * @throws IOException if the database file cannot be found.
+	 * @throws IOException
+	 *             if the database file cannot be found.
 	 */
 	public static String getDescription(String title) throws IOException {
 		TextFileManager fileManager = new TextFileManager();
@@ -235,9 +239,12 @@ public class CustBookFilmPageController implements Initializable, ControlledScre
 
 	/**
 	 * Finds the image url for a specified movie.
-	 * @param title the title of the movie.
+	 * 
+	 * @param title
+	 *            the title of the movie.
 	 * @return the image url of the movie as a String.
-	 * @throws IOException if the database file cannot be found.
+	 * @throws IOException
+	 *             if the database file cannot be found.
 	 */
 	public static String getImage(String title) throws IOException {
 		TextFileManager fileManager = new TextFileManager();
@@ -250,7 +257,6 @@ public class CustBookFilmPageController implements Initializable, ControlledScre
 		}
 		return null;
 	}
-
 
 	// Toolbar methods
 
