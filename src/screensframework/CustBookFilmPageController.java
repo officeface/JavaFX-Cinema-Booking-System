@@ -99,7 +99,7 @@ public class CustBookFilmPageController implements Initializable, ControlledScre
 
 			String imagePath = getImage(CustHomeController.BOOKING.getMovie().getTitle());
 			File file = new File(imagePath);
-			if (imagePath.startsWith("/")) { // One of the built-in images, does not have an absolute filepath listed
+			if (!imagePath.startsWith("/Users/") && imagePath.startsWith("/")) { // One of the built-in images, does not have an absolute filepath listed
 				Image image = new Image(getClass().getResourceAsStream(imagePath));
 				this.imgShowFilmImage.setImage(image);
 			} else { // image has been added by Employee
