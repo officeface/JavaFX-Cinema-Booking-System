@@ -51,7 +51,8 @@ public class TextFileManager {
 			InputStream inputStream = TextFileManager.class.getResourceAsStream(path);
 			return inputStream;
 		} catch (Exception e) {
-			e.printStackTrace();
+			ScreensFramework.LOGGER.warning(e.getMessage());
+
 		}
 		return null;
 	}
@@ -64,7 +65,9 @@ public class TextFileManager {
 	 *         If the seat is free, its value will be "Free". If the seat is booked,
 	 *         its value will be the User ID of the user who has booked it.
 	 * @throws JSONException
+	 *             the JSON object cannot be found.
 	 * @throws IOException
+	 *             the database file cannot be found.
 	 */
 	public static String[][] getSeatInformation(String id) throws JSONException, IOException {
 
@@ -89,7 +92,7 @@ public class TextFileManager {
 
 					}
 				}
-				
+
 				ScreensFramework.LOGGER.info("Loaded booking data for " + title);
 				System.out.println("Loaded information for " + title);
 				break;
@@ -106,7 +109,9 @@ public class TextFileManager {
 	 * @param user
 	 *            Customer whose details are to be updated
 	 * @throws JSONException
+	 *             the JSON object cannot be found.
 	 * @throws IOException
+	 *             the database file cannot be found.
 	 */
 	public static void updateUserDetails(User user) throws JSONException, IOException {
 		String userID = user.getUserID();
@@ -135,6 +140,16 @@ public class TextFileManager {
 
 	}
 
+	/**
+	 * Adds a new Customer to the database.
+	 * 
+	 * @param user
+	 *            the Customer to be added.
+	 * @throws JSONException
+	 *             if the JSON object cannot be found.
+	 * @throws IOException
+	 *             if the database file cannot be found.
+	 */
 	public static void registerNewUser(User user) throws JSONException, IOException {
 		String userID = user.getUserID();
 		String email = user.getEmail();
@@ -172,7 +187,9 @@ public class TextFileManager {
 	 * @param listing
 	 *            the Listing to be updated
 	 * @throws IOException
+	 *             the database file cannot be found.
 	 * @throws JSONException
+	 *             the JSON object cannot be found.
 	 */
 	public static void updateListing(Listing listing) throws JSONException, IOException {
 		JSONObject obj = JSONUtils.getJSONObjectFromFile(database);
@@ -211,7 +228,9 @@ public class TextFileManager {
 	 * @param booking
 	 *            The Booking to be added
 	 * @throws IOException
+	 *             the database file cannot be found.
 	 * @throws JSONException
+	 *             the JSON object cannot be found.
 	 */
 	public static void updateBookingHistory(Booking booking) throws JSONException, IOException {
 		JSONObject obj = JSONUtils.getJSONObjectFromFile(database);
@@ -228,6 +247,7 @@ public class TextFileManager {
 			}
 
 		} catch (Exception e) {
+			ScreensFramework.LOGGER.warning(e.getMessage());
 			seatInfo = new JSONArray();
 		}
 		for (int i = 0; i < booking.getSeats().size(); i++) {
@@ -258,7 +278,9 @@ public class TextFileManager {
 	 * @param listingID
 	 *            The ID for the listing to be removes
 	 * @throws IOException
+	 *             the database file cannot be found.
 	 * @throws JSONException
+	 *             the JSON object cannot be found.
 	 */
 	public static void removeBooking(User user, String listingID) throws JSONException, IOException {
 		// Steps: remove listing from user's part of database
@@ -339,14 +361,20 @@ public class TextFileManager {
 
 	/**
 	 * 
-	 * @return Adds films to the database - IN THIS CASE DATABASE 2
+	 * Adds a new film as a JSONObject to the database file.
+	 * 
+	 * @param newMovie
+	 *            the new film to be added.
 	 * @throws IOException
+	 *             the database file cannot be found.
+	 * @throws JSONException
+	 *             the JSON Object cannot be found.
 	 */
-	public static void addFilmDetails(Movie newmovie) throws JSONException, IOException {
+	public static void addFilmDetails(Movie newMovie) throws JSONException, IOException {
 
-		String title = newmovie.getTitle();
-		String image = newmovie.getImage();
-		String description = newmovie.getDescription();
+		String title = newMovie.getTitle();
+		String image = newMovie.getImage();
+		String description = newMovie.getDescription();
 		Boolean filmAlreadyExists = false;
 
 		JSONObject obj = JSONUtils.getJSONObjectFromFile(database);
@@ -387,15 +415,20 @@ public class TextFileManager {
 
 	/**
 	 * 
-	 * @return Adds film listing to the database - IN THIS CASE DATABASE 1
+	 * Adds a new film listing as a JSONObject to the database. The seats are stored
+	 * as 60 "Free" key:value pairs.
+	 * @param newListing the new listing to be added.
 	 * @throws IOException
+	 *             the database file cannot be found.
+	 * @throws JSONException
+	 *             the JSON Object cannot be found.
 	 */
-	public static void addFilmListings(Listing newlisting) throws JSONException, IOException {
+	public static void addFilmListings(Listing newListing) throws JSONException, IOException {
 
-		String showingID = newlisting.getShowingID();
-		String title = newlisting.getTitle();
-		String date = newlisting.getDate();
-		String time = newlisting.getTime();
+		String showingID = newListing.getShowingID();
+		String title = newListing.getTitle();
+		String date = newListing.getDate();
+		String time = newListing.getTime();
 
 		JSONObject obj = JSONUtils.getJSONObjectFromFile(database); // testing
 																	// in
@@ -432,17 +465,6 @@ public class TextFileManager {
 
 	}
 
-	// public static void ExportAllFilmDetails () throws JSONException,
-	// IOException {
-	// JSONObject obj =
-	// JSONUtils.getJSONObjectFromFile(TextFileManager.database);
-	// JSONArray jsonArray = obj.getJSONArray("FilmList");
-	//
-	// File file=new File("/tmp2/fromJSON.csv");
-	// String csv = CDL.toString(jsonArray);
-	//
-	// }
-
 	/**
 	 * 
 	 * @return An array of login details for users of the cinema booking system. The
@@ -450,7 +472,8 @@ public class TextFileManager {
 	 *         staff/customer choice that tells the system to point the user in the
 	 *         correct direction.
 	 * @throws IOException
-	 *             if an input/output exception occurs
+	 *             the database file cannot be found.
+	 * 
 	 */
 	public static List<String[]> loginDetailsToArrayList() throws IOException {
 
@@ -479,6 +502,7 @@ public class TextFileManager {
 	 * 
 	 * @return The list of films, their img URLs and descriptions in an array list.
 	 * @throws IOException
+	 *             the database file cannot be found.
 	 */
 	public static List<String[]> filmListToArrayList() throws IOException {
 		JSONObject obj = JSONUtils.getJSONObjectFromFile(database);
@@ -504,6 +528,7 @@ public class TextFileManager {
 	 * @return The list of film showings in an array list. Each film has a
 	 *         collection of dates and times attributed to it.
 	 * @throws IOException
+	 *             the database file cannot be found.
 	 */
 	public static List<String[]> filmTimesToArrayList() throws IOException {
 		JSONObject obj = JSONUtils.getJSONObjectFromFile(database);
@@ -531,6 +556,7 @@ public class TextFileManager {
 	 *            in the format dd/MM/yyyy
 	 * @return A list of film titles that are playing on a specified date
 	 * @throws IOException
+	 *             the database file cannot be found.
 	 */
 	public static List<String> filmsFilteredByDate(String date) throws IOException {
 
@@ -557,6 +583,7 @@ public class TextFileManager {
 	 *            Title of the film listing
 	 * @return All times that this film is showing on this date
 	 * @throws IOException
+	 *             the database file cannot be found.
 	 */
 	public static List<String> timesFilteredByDateAndFilm(String date, String film) throws IOException {
 		JSONObject obj = JSONUtils.getJSONObjectFromFile(database);
@@ -603,6 +630,7 @@ public class TextFileManager {
 	 * 
 	 * @return Lists of all film titles in the database
 	 * @throws IOException
+	 *             the database file cannot be found.
 	 */
 	public static List<String[]> getFilmTitles() throws IOException {
 		JSONObject obj = JSONUtils.getJSONObjectFromFile(database);
@@ -620,6 +648,7 @@ public class TextFileManager {
 	 * 
 	 * @return Lists of all timings available by the cinema
 	 * @throws IOException
+	 *             the database file cannot be found.
 	 */
 	public static String[] getFilmTimings() throws IOException {
 		//

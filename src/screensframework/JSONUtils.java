@@ -100,7 +100,7 @@ public class JSONUtils {
 
 	/**
 	 * Returns the JSON Object inside a JSON file.
-	 * @param path the path of the file.
+	 * @param in the path of the file.
 	 * @return the JSON Object inside the file.
 	 * @throws JSONException if the JSON Object cannot be returned.
 	 * @throws IOException if the file cannot be found.
@@ -111,7 +111,7 @@ public class JSONUtils {
 
 	/**
 	 * Returns the JSON Object inside a JSON file.
-	 * @param path the path of the file.
+	 * @param jsonFile the file.
 	 * @return the JSON Object inside the file.
 	 * @throws JSONException if the JSON Object cannot be returned.
 	 * @throws IOException if the file cannot be found.

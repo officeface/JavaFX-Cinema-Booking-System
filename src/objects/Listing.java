@@ -41,7 +41,7 @@ public class Listing {
 	 * @param time
 	 *            Time of listing
 	 * @return The Listing's ID as a String
-	 * @throws IOException
+	 * @throws IOException if the database file cannot be found.
 	 */
 	public static String findShowingID(String title, String date, String time) throws IOException {
 

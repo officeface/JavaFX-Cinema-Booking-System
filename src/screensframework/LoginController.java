@@ -70,7 +70,7 @@ public class LoginController implements Initializable, ControlledScreen {
 				write.write(obj.toString());
 				write.close();
 			}
-			
+
 			// Folder for images:
 			// if (assets.exists() && assets.isDirectory()) {
 			// ScreensFramework.LOGGER.info("Assets folder exists!");
@@ -181,7 +181,9 @@ public class LoginController implements Initializable, ControlledScreen {
 	 * screen depending on their permission level. Triggered by pressing Enter.
 	 * 
 	 * @param ke
-	 * @throws IOException
+	 *            any time a key is pressed. Specifically listens for the "Enter"
+	 *            key.
+	 * @throws IOException if the database file could not be found.
 	 */
 	@FXML
 	public void buttonPressed(KeyEvent ke) throws IOException {
