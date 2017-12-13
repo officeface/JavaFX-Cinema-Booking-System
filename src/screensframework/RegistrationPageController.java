@@ -14,6 +14,13 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import objects.Customer;
 
+/**
+ * FXML Controller for the Registration page. Allows a User to register as a new
+ * Customer, then sends them to the Customer homepage.
+ * 
+ * @author mark
+ *
+ */
 public class RegistrationPageController implements Initializable, ControlledScreen {
 
 	ScreensController myController;
@@ -44,6 +51,7 @@ public class RegistrationPageController implements Initializable, ControlledScre
 	}
 
 	/**
+	 * Generates a new Customer ID for the Customer.
 	 * 
 	 * @param number
 	 *            Length of the customer database, as an integer.
@@ -66,6 +74,15 @@ public class RegistrationPageController implements Initializable, ControlledScre
 		}
 	}
 
+	/**
+	 * Checks the Registration conditions. If all these are met, creates a new
+	 * Customer object and sends the Customer to the homepage.
+	 * 
+	 * @param event
+	 *            "Register" button clicked.
+	 * @throws IOException
+	 *             the database file could not be found.
+	 */
 	@FXML
 	private void register(ActionEvent event) throws IOException {
 
@@ -103,19 +120,18 @@ public class RegistrationPageController implements Initializable, ControlledScre
 			// Create new user object:
 			LoginController.USER = new Customer(custID, txtEmail.getText(), txtPassword.getText(),
 					txtFirstName.getText(), txtLastName.getText());
-			
+
 			// Add user to the database:
 			TextFileManager.registerNewUser(LoginController.USER);
-			
+
 			// Load Customer home page:
 			myController.loadScreen(ScreensFramework.custHomeID, ScreensFramework.custHomeFile);
-			myController.loadScreen(ScreensFramework.custProfilePageID,
-					ScreensFramework.custProfilePageFile);
+			myController.loadScreen(ScreensFramework.custProfilePageID, ScreensFramework.custProfilePageFile);
 			myController.loadScreen(ScreensFramework.custBookingHistoryPageID,
 					ScreensFramework.custBookingHistoryPageFile);
-			
+
 			myController.setScreen(ScreensFramework.custHomeID);
-			
+
 		} else {
 			lblStatus.setText("Registration failed.");
 		}
@@ -123,6 +139,7 @@ public class RegistrationPageController implements Initializable, ControlledScre
 	}
 
 	/**
+	 * Checks whether the email is currently in use.
 	 * 
 	 * @param email
 	 *            the requested new email address
@@ -151,6 +168,8 @@ public class RegistrationPageController implements Initializable, ControlledScre
 	}
 
 	/**
+	 * Checks whether the password contains acceptable characters. The acceptable
+	 * values must be alphanumeric.
 	 * 
 	 * @param password
 	 *            Password input.
@@ -174,7 +193,7 @@ public class RegistrationPageController implements Initializable, ControlledScre
 	}
 
 	/**
-	 * 
+	 * Checks whether the second password entered matches the first.
 	 * @param passwordRepeat
 	 *            Repeated password
 	 * @return Checks both passwords match. Returns true if they do and false if
@@ -196,6 +215,11 @@ public class RegistrationPageController implements Initializable, ControlledScre
 		}
 	}
 
+	/**
+	 * Checks whether the requested first name contains only letters. 
+	 * @param name the name entered.
+	 * @return true if the name just contains letters, false otherwise.
+	 */
 	private Boolean firstNameCheck(String name) {
 
 		if (name.length() == 0) {
@@ -212,6 +236,11 @@ public class RegistrationPageController implements Initializable, ControlledScre
 		}
 	}
 
+	/**
+	 * Checks whether the requested last name contains only letters. 
+	 * @param name the name entered.
+	 * @return true if the name just contains letters, false otherwise.
+	 */
 	private Boolean lastNameCheck(String name) {
 
 		if (name.length() == 0) {

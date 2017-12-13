@@ -161,8 +161,8 @@ public class AddFilmPageController implements Initializable, ControlledScreen {
 			myController.loadScreen(ScreensFramework.addFilmPageID, ScreensFramework.addFilmPageFile);
 			myController.loadScreen(ScreensFramework.addFilmListingsID, ScreensFramework.addFilmListingsFile);
 
-			// Open staff home upon successful staff login
-			myController.setScreen(ScreensFramework.staffHomeID);
+			// Go to "Add listings" page by default
+			myController.setScreen(ScreensFramework.addFilmListingsID);
 		} else {
 			this.lblAddFilmChecker.setText("Field missing! Try again.");
 		}
