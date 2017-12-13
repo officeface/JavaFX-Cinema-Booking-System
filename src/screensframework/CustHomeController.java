@@ -356,12 +356,6 @@ public class CustHomeController extends ToolbarController implements Initializab
 
 	@Override
 	@FXML
-	public void goToStaffChoicePage(ActionEvent event) {
-		myController.setScreen(ScreensFramework.staffChoiceID);
-	}
-
-	@Override
-	@FXML
 	public void goToCustHome(ActionEvent event) {
 		myController.setScreen(ScreensFramework.custHomeID);
 	}

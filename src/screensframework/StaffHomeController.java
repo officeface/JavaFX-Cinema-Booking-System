@@ -11,9 +11,10 @@ import javafx.scene.control.Button;
 /**
  * FXML Controller class for the Staff Homepage.
  * 
- * This page provides an overview and portal to the cinema's employee functionalities.
- * Through this page, the employee may enter: add film, add listing, booking summary
- * and export film details pages. The staff toolbar methods are also functional. 
+ * This page provides an overview and portal to the cinema's employee
+ * functionalities. Through this page, the employee may enter: add film, add
+ * listing, booking summary and export film details pages. The staff toolbar
+ * methods are also functional.
  * 
  * @author Fraz Ahmad
  *
@@ -56,9 +57,10 @@ public class StaffHomeController implements Initializable, ControlledScreen {
 	}
 
 	// METHODS
-	
+
 	/**
 	 * Redirects employee to add film page once button is pressed
+	 * 
 	 * @author Fraz Ahmad
 	 * @param event
 	 */
@@ -67,9 +69,9 @@ public class StaffHomeController implements Initializable, ControlledScreen {
 		myController.setScreen(ScreensFramework.addFilmPageID);
 	}
 
-	
 	/**
 	 * Redirects employee to add listing page once button is pressed
+	 * 
 	 * @author Fraz Ahmad
 	 * @param event
 	 */
@@ -78,9 +80,9 @@ public class StaffHomeController implements Initializable, ControlledScreen {
 		myController.setScreen(ScreensFramework.addFilmListingsID);
 	}
 
-
 	/**
 	 * Redirects employee to booking summary page once button is pressed
+	 * 
 	 * @author Fraz Ahmad
 	 * @param event
 	 */
@@ -89,9 +91,9 @@ public class StaffHomeController implements Initializable, ControlledScreen {
 		myController.setScreen(ScreensFramework.bookingSummaryID);
 	}
 
-
 	/**
 	 * Redirects employee to staff export once button is pressed
+	 * 
 	 * @author Fraz Ahmad
 	 * @param event
 	 */
@@ -120,7 +122,6 @@ public class StaffHomeController implements Initializable, ControlledScreen {
 		myController.unloadScreen(ScreensFramework.bookingSummaryID);
 		myController.unloadScreen(ScreensFramework.addFilmPageID);
 		myController.unloadScreen(ScreensFramework.addFilmListingsID);
-		myController.unloadScreen(ScreensFramework.staffChoiceID);
 
 		myController.loadScreen(ScreensFramework.loginID, ScreensFramework.loginFile);
 		myController.setScreen(ScreensFramework.loginID);

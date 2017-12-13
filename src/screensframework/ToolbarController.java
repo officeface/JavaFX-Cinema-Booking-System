@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 
 /**
  * Contains the main methods for the Customer-side toolbar interaction.
+ * 
  * @author mark
  *
  */
@@ -42,19 +43,9 @@ public class ToolbarController implements Initializable, ControlledScreen {
 		myController.unloadScreen(ScreensFramework.bookingSummaryID);
 		myController.unloadScreen(ScreensFramework.addFilmPageID);
 		myController.unloadScreen(ScreensFramework.addFilmListingsID);
-		myController.unloadScreen(ScreensFramework.staffChoiceID);
 
 		myController.loadScreen(ScreensFramework.loginID, ScreensFramework.loginFile);
 		myController.setScreen(ScreensFramework.loginID);
-	}
-
-	@FXML
-	public void goToStaffChoicePage(ActionEvent event) {
-		// myController.unloadScreen(ScreensFramework.staffChoiceID);
-		// myController.loadScreen(ScreensFramework.staffChoiceID,
-		// ScreensFramework.staffChoiceFile);
-
-		myController.setScreen(ScreensFramework.staffChoiceID);
 	}
 
 	@FXML

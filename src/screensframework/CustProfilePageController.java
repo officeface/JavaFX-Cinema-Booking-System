@@ -94,12 +94,6 @@ public class CustProfilePageController extends ToolbarController implements Init
 
 	@Override
 	@FXML
-	public void goToStaffChoicePage(ActionEvent event) {
-		myController.setScreen(ScreensFramework.staffChoiceID);
-	}
-
-	@Override
-	@FXML
 	public void goToCustHome(ActionEvent event) {
 		myController.setScreen(ScreensFramework.custHomeID);
 	}
@@ -135,7 +129,6 @@ public class CustProfilePageController extends ToolbarController implements Init
 		myController.unloadScreen(ScreensFramework.bookingSummaryID);
 		myController.unloadScreen(ScreensFramework.addFilmPageID);
 		myController.unloadScreen(ScreensFramework.addFilmListingsID);
-		myController.unloadScreen(ScreensFramework.staffChoiceID);
 
 		myController.loadScreen(ScreensFramework.loginID, ScreensFramework.loginFile);
 		myController.setScreen(ScreensFramework.loginID);

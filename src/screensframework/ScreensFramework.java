@@ -50,8 +50,6 @@ public class ScreensFramework extends Application {
 	public static String custConfirmPageFile = "CustConfirmPage.fxml";
 
 	// Staff only files
-	public static String staffChoiceID = "staffChoice";
-	public static String staffChoiceFile = "StaffChoicePage.fxml";
 	public static String staffHomeID = "staffHome";
 	public static String staffHomeFile = "StaffHome.fxml";
 	public static String staffExportID = "staffExport";
@@ -81,7 +79,7 @@ public class ScreensFramework extends Application {
 		Scene scene = new Scene(root);
 		primaryStage.setScene(scene);
 		primaryStage.setResizable(false); // Prevent user from resizing screen
-		primaryStage.setOnCloseRequest(event -> { 
+		primaryStage.setOnCloseRequest(event -> {
 			LOGGER.info("Program exited."); // Set logging event for program exit
 		});
 		primaryStage.show();

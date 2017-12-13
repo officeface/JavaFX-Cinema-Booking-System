@@ -20,14 +20,14 @@ import javafx.scene.layout.GridPane;
 import objects.Listing;
 
 /**
- * FXML Controller class for the Booking Summary page. 
+ * FXML Controller class for the Booking Summary page.
  * 
- * This page shows a summary of bookings for a given film listing, which 
- * is based on the date, film and time selected. The number of free and 
- * booked seats for a given listing is also displayed.   
+ * This page shows a summary of bookings for a given film listing, which is
+ * based on the date, film and time selected. The number of free and booked
+ * seats for a given listing is also displayed.
  * 
- * Hovering over booked seats provides individual customer information 
- * for that seat.
+ * Hovering over booked seats provides individual customer information for that
+ * seat.
  * 
  * @author Fraz Ahmad
  *
@@ -97,6 +97,7 @@ public class BookingSummaryController implements Initializable, ControlledScreen
 	/**
 	 * @return A list of films that are playing on a specified date.
 	 * @throws IOException
+	 *             if the database file could not be found.
 	 */
 	public List<String> getFilmList() throws IOException {
 		try {
@@ -110,6 +111,7 @@ public class BookingSummaryController implements Initializable, ControlledScreen
 	/**
 	 * @return A list of times for a given date and film.
 	 * @throws IOException
+	 *             if the database file could not be found.
 	 */
 	public List<String> getTimesList() throws IOException {
 		try {
@@ -144,7 +146,6 @@ public class BookingSummaryController implements Initializable, ControlledScreen
 		}
 	}
 
-	
 	/**
 	 * Sets the times list.
 	 * 
@@ -169,12 +170,15 @@ public class BookingSummaryController implements Initializable, ControlledScreen
 
 	/**
 	 * Once the user sets the film showing based on data, if the user presses the
-	 * screen info button, information will be updated such as number of booked and free
-	 * seats as well as a graphical representation of the cinema's screen seating.
+	 * screen info button, information will be updated such as number of booked and
+	 * free seats as well as a graphical representation of the cinema's screen
+	 * seating.
 	 * 
 	 * @author Fraz Ahmad and Mark Backhouse
 	 * @param event
+	 *            the user clicked "Get info" button.
 	 * @throws IOException
+	 *             if the database file could not be found.
 	 */
 	@FXML
 	public void getScreenInfo(ActionEvent event) throws IOException {
@@ -245,7 +249,7 @@ public class BookingSummaryController implements Initializable, ControlledScreen
 
 	/**
 	 * 
-	 * @author Mark Backhouse 
+	 * @author Mark Backhouse
 	 * 
 	 * @param row
 	 *            Seat's row number

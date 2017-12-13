@@ -94,7 +94,7 @@ public class TextFileManager {
 				}
 
 				ScreensFramework.LOGGER.info("Loaded booking data for " + title);
-				System.out.println("Loaded information for " + title);
+				//System.out.println("Loaded information for " + title);
 				break;
 			}
 		}
@@ -135,7 +135,7 @@ public class TextFileManager {
 		try (FileWriter file = new FileWriter(database)) {
 			file.write(obj.toString());
 			ScreensFramework.LOGGER.info("Successfully updated database.json with new information.");
-			System.out.println("Successfully updated JSON Object in File...");
+			// System.out.println("Successfully updated JSON Object in File...");
 		}
 
 	}
@@ -176,7 +176,7 @@ public class TextFileManager {
 		try (FileWriter file = new FileWriter(database)) {
 			file.write(obj.toString());
 			ScreensFramework.LOGGER.info("Successfully updated database.json with new information.");
-			System.out.println("Successfully updated JSON Object in File...");
+			//System.out.println("Successfully updated JSON Object in File...");
 		}
 	}
 
@@ -215,7 +215,7 @@ public class TextFileManager {
 		// Write JSON Object to file:
 		try (FileWriter file = new FileWriter(database)) {
 			file.write(obj.toString());
-			System.out.println("Successfully updated JSON Object in File...");
+			//System.out.println("Successfully updated JSON Object in File...");
 			ScreensFramework.LOGGER.info("Successfully updated database.json with new information.");
 
 		}
@@ -263,7 +263,7 @@ public class TextFileManager {
 		// Write JSON Object to file:
 		try (FileWriter file = new FileWriter(database)) {
 			file.write(obj.toString());
-			System.out.println("Successfully updated JSON Object in File...");
+			//System.out.println("Successfully updated JSON Object in File...");
 			ScreensFramework.LOGGER.info("Successfully updated database.json with new information.");
 
 		}
@@ -333,7 +333,7 @@ public class TextFileManager {
 		try (FileWriter file = new FileWriter(database)) {
 			file.write(obj.toString());
 			ScreensFramework.LOGGER.info("Successfully updated database.json with new information.");
-			System.out.println("Successfully updated JSON Object in File...");
+			//System.out.println("Successfully updated JSON Object in File...");
 		}
 
 	}
@@ -408,7 +408,7 @@ public class TextFileManager {
 		try (FileWriter file = new FileWriter(database)) {
 			file.write(obj.toString());
 			ScreensFramework.LOGGER.info("Successfully updated database.json with new information.");
-			System.out.println("Successfully updated JSON Object in File...");
+			//System.out.println("Successfully updated JSON Object in File...");
 		}
 
 	}
@@ -460,7 +460,7 @@ public class TextFileManager {
 		try (FileWriter file = new FileWriter(database)) {
 			file.write(obj.toString());
 			ScreensFramework.LOGGER.info("Successfully updated database.json with new information.");
-			System.out.println("Successfully updated JSON Object in File...");
+			//System.out.println("Successfully updated JSON Object in File...");
 		}
 
 	}
