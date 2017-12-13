@@ -20,9 +20,14 @@ import javafx.scene.layout.GridPane;
 import objects.Listing;
 
 /**
- * Controller class for the Booking Summary page. Shows a summary of bookings
- * for a given film listing. Hovering over booked seats provides individual
- * customer information for that seat.
+ * FXML Controller class for the Booking Summary page. 
+ * 
+ * This page shows a summary of bookings for a given film listing, which 
+ * is based on the date, film and time selected. The number of free and 
+ * booked seats for a given listing is also displayed.   
+ * 
+ * Hovering over booked seats provides individual customer information 
+ * for that seat.
  * 
  * @author Fraz Ahmad
  *
@@ -139,6 +144,14 @@ public class BookingSummaryController implements Initializable, ControlledScreen
 		}
 	}
 
+	
+	/**
+	 * Sets the times list.
+	 * 
+	 * @param event
+	 *            time selection from time comboBox
+	 * @throws IOException
+	 */
 	@FXML
 	private void setTimesList(ActionEvent event) throws IOException {
 		comboTimeSelector.getItems().clear();
@@ -156,10 +169,10 @@ public class BookingSummaryController implements Initializable, ControlledScreen
 
 	/**
 	 * Once the user sets the film showing based on data, if the user presses the
-	 * btnScreenInfo, information will be updated such as number of booked and free
-	 * seats as well as a graphical representation of the cinema screen seating.
+	 * screen info button, information will be updated such as number of booked and free
+	 * seats as well as a graphical representation of the cinema's screen seating.
 	 * 
-	 * @author frazahmad / mark
+	 * @author Fraz Ahmad and Mark Backhouse
 	 * @param event
 	 * @throws IOException
 	 */
@@ -231,6 +244,8 @@ public class BookingSummaryController implements Initializable, ControlledScreen
 	}
 
 	/**
+	 * 
+	 * @author Mark Backhouse 
 	 * 
 	 * @param row
 	 *            Seat's row number

@@ -24,7 +24,20 @@ import javafx.stage.FileChooser;
 import objects.Movie;;
 
 /**
- * FXML Controller class
+ * FXML Controller class for the add film page. 
+ * 
+ * This page allows the employee to add films using a films title, image and 
+ * its brief description. Both the films title and description are entered using 
+ * a textfield and textarea respectively. When the user prompts the 'upload image'
+ * button on the page, a filechooser will be prompted allowing them to select an
+ * image. The image's absolute path, title and description are then added to the 
+ * database using the object class: movie and methods within the textfilemanager 
+ * class. Moreover, if the add film title field matches a title in the database,
+ * the details of that film will be updated. Also, if the film image is uploaded 
+ * correctly, the image will be displayed alongside the entered fields. Feedback 
+ * is also provided.
+ * 
+ * @author Fraz Ahmad with additions from Mark Backhouse
  *
  */
 
@@ -82,13 +95,15 @@ public class AddFilmPageController implements Initializable, ControlledScreen {
 	}
 
 	/**
+	 * When the 'upload image' button is pressed, this method is initialised. 
+	 * 
 	 * Opens up a window to choose an image. Specific files ending in jpeg or png
 	 * can only be chosen. The pathway of the image is then stored - to then be
 	 * added to the database if the user executes the add film method.
 	 * 
-	 * @author frazahmad
-	 * @param event
-	 * @throws IOException
+	 * @author Fraz Ahmad
+	 * @param event of 'upload image button being pressed' 
+	 * @throws IOException when image could not be uploaded.
 	 */
 	@FXML
 	private void uploadImg(ActionEvent event) throws IOException {
@@ -119,7 +134,8 @@ public class AddFilmPageController implements Initializable, ControlledScreen {
 					ScreensFramework.LOGGER.warning("Could not upload image!");
 					System.out.println("Could not upload image");
 				}
-
+				
+				// Feedback label updated
 				this.lblAddFilmChecker.setText("Uploaded Image!");
 			}
 
@@ -129,14 +145,17 @@ public class AddFilmPageController implements Initializable, ControlledScreen {
 	}
 
 	/**
-	 * Allows the user to add a film to the database. A new movie class is
-	 * initialised and transferred to addFilmDetails in the textfilemanager.
-	 * Prevents against empty fields being added to the database.
 	 * 
-	 * @author frazahmad
-	 * @param event
-	 * @throws JSONException
-	 * @throws IOException
+	 * When the add film button is pressed.
+	 * 
+	 * Allows the user to add a film to the database. A new movie class is
+	 * initialised and transferred to addFilmDetails in the textfilemanager class.
+	 * It also prevents against empty fields being added to the database.
+	 * 
+	 * @author Fraz Ahmad 
+	 * @param event of 'add film' button being pressed
+	 * @throws JSONException - when fields are not compatible with the database. 
+	 * @throws IOException 
 	 */
 	@FXML
 	private void addFilm(ActionEvent event) throws JSONException, IOException {
