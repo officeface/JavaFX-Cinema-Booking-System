@@ -24,7 +24,9 @@ import objects.Employee;
 import objects.User;
 
 /**
- * FXML Controller class
+ * FXML Controller class for the Login page. Allows a user to enter their login
+ * details, determines whether or not they exist in the database and then sends
+ * them the correct way based on their type (Customer or Employee).
  *
  */
 public class LoginController implements Initializable, ControlledScreen {
@@ -48,7 +50,8 @@ public class LoginController implements Initializable, ControlledScreen {
 	File assets = new File(parentDir, "assets");
 
 	/**
-	 * Initializes the controller class.
+	 * Initializes the controller class. Sets up the database file if it does not
+	 * already exist.
 	 */
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
@@ -183,7 +186,8 @@ public class LoginController implements Initializable, ControlledScreen {
 	 * @param ke
 	 *            any time a key is pressed. Specifically listens for the "Enter"
 	 *            key.
-	 * @throws IOException if the database file could not be found.
+	 * @throws IOException
+	 *             if the database file could not be found.
 	 */
 	@FXML
 	public void buttonPressed(KeyEvent ke) throws IOException {

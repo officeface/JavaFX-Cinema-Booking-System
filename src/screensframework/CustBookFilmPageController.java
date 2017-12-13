@@ -9,15 +9,11 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.beans.binding.Bindings;
-import javafx.beans.binding.BooleanBinding;
-import javafx.beans.property.ReadOnlyObjectWrapper;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
@@ -100,10 +96,17 @@ public class CustBookFilmPageController implements Initializable, ControlledScre
 		// Load image:
 		try {
 			this.lblDescription.setText(getDescription(CustHomeController.BOOKING.getMovie().getTitle()));
-
-			File file = new File(getImage(CustHomeController.BOOKING.getMovie().getTitle()));
-			Image image = new Image(file.toURI().toString());
-			this.imgShowFilmImage.setImage(image);
+			
+			String imagePath = getImage(CustHomeController.BOOKING.getMovie().getTitle());
+			File file = new File(imagePath);
+			if (imagePath.startsWith("/")) { // One of the built-in images
+				Image image = new Image(getClass().getResourceAsStream(imagePath));
+				this.imgShowFilmImage.setImage(image);
+			} else { // image has been added by Employee
+				Image image = new Image(file.toURI().toString());
+				this.imgShowFilmImage.setImage(image);
+			}
+			
 
 		} catch (IOException e) {
 			ScreensFramework.LOGGER.warning("Image URL could not be found.  Please update in Employee's side.");
