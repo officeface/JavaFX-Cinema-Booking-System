@@ -112,6 +112,20 @@ public class CustHomeController extends ToolbarController implements Initializab
 						btn.setStyle("-fx-background-color: rgb(85,209,255); -fx-text-fill: white; "); // Sets the style
 																										// of the
 																										// buttons
+						// Disable the button if the screening time has already passed:
+						try {
+							String timeNowString = new SimpleDateFormat("dd/MM/yyyy HH:mm").format(new Date());
+							String timeListingString = listing[2] + " " + listing[3];
+							Date timeNow = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(timeNowString);
+							Date timeListing = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(timeListingString);
+							
+							if(timeNow.after(timeListing)) {
+								btn.setDisable(true);
+							}
+							
+						} catch (ParseException e2) {
+							ScreensFramework.LOGGER.warning(e2.getMessage());
+						}
 
 						// Two events handlers if the user hovers over the buttons
 						btn.setOnMouseExited(new EventHandler<MouseEvent>() {

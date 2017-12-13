@@ -124,7 +124,7 @@
 				</Label>
 			</children>
 		</GridPane>
-		<Label fx:id="lblStatus" layoutX="340.0" layoutY="516.0" text="Confirm booking:" textFill="#000000b2">
+		<Label fx:id="lblStatus" layoutX="340.0" layoutY="516.0" textFill="#000000b2">
 			<font>
 				<Font name="Helvetica Neue Light" size="27.0" />
 			</font>

@@ -24,6 +24,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
+import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseEvent;
 import objects.Customer;
 import objects.Listing;
@@ -81,7 +82,7 @@ public class CustBookingHistoryPageController extends ToolbarController implemen
 
 				if (timeNow.before(timeListing)) { // Checks if the listing is able to be deleted:
 
-					Button btnDeleteListing = new Button("Delete Booking");
+					Button btnDeleteListing = new Button("Delete");
 					btnDeleteListing.setStyle("-fx-background-color: rgb(85,209,255); -fx-text-fill: white; "); // Sets
 																												// the
 																												// style
@@ -127,7 +128,7 @@ public class CustBookingHistoryPageController extends ToolbarController implemen
 
 				} else {
 
-					Button btnDeleteListing = new Button("Old Booking");
+					Button btnDeleteListing = new Button("Expired");
 					btnDeleteListing.setDisable(true);
 					btnDeleteListing.setStyle("-fx-background-color: rgb(85,209,255); -fx-text-fill: white; "); // Sets
 																												// the
@@ -138,6 +139,9 @@ public class CustBookingHistoryPageController extends ToolbarController implemen
 
 					// Alignment of button:
 					btnDeleteListing.setPrefWidth(120);
+					//Tooltip:
+					btnDeleteListing.setTooltip(
+							new Tooltip("Booking expired!\nYou can only delete bookings that have not yet occurred."));
 					pane.setGraphic(btnDeleteListing);
 					pane.setGraphicTextGap(10);
 

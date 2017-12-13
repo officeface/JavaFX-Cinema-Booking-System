@@ -56,7 +56,7 @@
 				</HBox>
 			</items>
 		</ToolBar>
-		<VBox layoutY="41.0" prefHeight="570.0" prefWidth="800.0">
+		<VBox layoutY="41.0" prefHeight="560.0" prefWidth="800.0">
 			<children>
             <Line endX="697.4" startX="-100.0" stroke="#0090fe" strokeWidth="3.5" />
 				<VBox prefHeight="100.0" prefWidth="800.0">
