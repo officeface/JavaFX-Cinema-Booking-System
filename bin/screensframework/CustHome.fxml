@@ -19,8 +19,14 @@
 			<items>
 				<HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="250.0" spacing="30.0">
 					<children>
-						<Button fx:id="btnLogout" mnemonicParsing="false" onAction="#goToLogin" text="Logout" />
-						<Button fx:id="btnHome" disable="true" mnemonicParsing="false" text="Home" />
+						<Button fx:id="btnLogout" mnemonicParsing="false" onAction="#goToLogin" text="Logout">
+                     <font>
+                        <Font name="Helvetica Neue" size="13.0" />
+                     </font></Button>
+						<Button fx:id="btnHome" disable="true" mnemonicParsing="false" text="Home">
+                     <font>
+                        <Font name="Helvetica Neue" size="13.0" />
+                     </font></Button>
 					</children>
 					<padding>
 						<Insets left="30.0" />
@@ -37,8 +43,14 @@
 				</HBox>
 				<HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="250.0" spacing="30.0">
 					<children>
-						<Button fx:id="btnMyProfile" mnemonicParsing="false" onAction="#goToCustProfilePage" text="My Profile" />
-						<Button fx:id="btnMyBookings" mnemonicParsing="false" onAction="#goToCustBookingHistoryPage" text="My Bookings" />
+						<Button fx:id="btnMyProfile" mnemonicParsing="false" onAction="#goToCustProfilePage" text="My Profile">
+                     <font>
+                        <Font name="Helvetica Neue" size="13.0" />
+                     </font></Button>
+						<Button fx:id="btnMyBookings" mnemonicParsing="false" onAction="#goToCustBookingHistoryPage" text="My Bookings">
+                     <font>
+                        <Font name="Helvetica Neue" size="13.0" />
+                     </font></Button>
 					</children>
 				</HBox>
 			</items>
@@ -49,16 +61,16 @@
 					<children>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="400.0">
+                        <HBox alignment="CENTER_LEFT" prefHeight="48.0" prefWidth="392.0">
                            <children>
-            						<Label text="See all films playing on a certain date:">
+            						<Label text="  Welcome! See all films playing on a certain date..." textFill="#000000b3">
             							<font>
-            								<Font size="16.0" />
+            								<Font name="Helvetica Neue Light" size="18.0" />
             							</font>
             						</Label>
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="400.0">
+                        <HBox alignment="CENTER_RIGHT" prefHeight="48.0" prefWidth="306.0">
                            <children>
                               <Label fx:id="lblStatus" textFill="#7f7b7b">
                                  <font>
@@ -73,25 +85,37 @@
 							<children>
 								<HBox alignment="CENTER" prefHeight="100.0" prefWidth="250.0" spacing="10.0">
 									<children>
-										<Label text="Date:" />
+										<Label text="Date:" textFill="#000000a9">
+                                 <font>
+                                    <Font name="Helvetica Neue Bold" size="17.0" />
+                                 </font></Label>
 										<DatePicker fx:id="selectDate" onAction="#setFilmList" prefWidth="150.0" />
 									</children>
 								</HBox>
 								<HBox alignment="CENTER" prefHeight="100.0" prefWidth="250.0" spacing="10.0">
 									<children>
-										<Label text="Film:" />
+										<Label text="Film:" textFill="#000000a9">
+                                 <font>
+                                    <Font name="Helvetica Neue Bold" size="17.0" />
+                                 </font></Label>
 										<ComboBox fx:id="selectFilm" onAction="#setTimesList" prefWidth="150.0" />
 									</children>
 								</HBox>
 								<HBox alignment="CENTER" prefHeight="100.0" prefWidth="250.0" spacing="10.0">
 									<children>
-										<Label text="Time:" />
+										<Label text="Time:" textFill="#000000a9">
+                                 <font>
+                                    <Font name="Helvetica Neue Bold" size="17.0" />
+                                 </font></Label>
 										<ComboBox fx:id="selectTime" layoutX="147.0" layoutY="24.0" prefWidth="150.0" />
 									</children>
 								</HBox>
-								<HBox alignment="CENTER" prefHeight="100.0" prefWidth="50.0">
+								<HBox alignment="CENTER" prefHeight="48.0" prefWidth="144.0">
 									<children>
-										<Button fx:id="btnGo" mnemonicParsing="false" onAction="#goToCustBookFilmPage" prefWidth="50.0" text="Go" />
+										<Button fx:id="btnGo" mnemonicParsing="false" onAction="#goToCustBookFilmPage" prefHeight="27.0" prefWidth="95.0" text="GO!">
+                                 <font>
+                                    <Font name="Helvetica Neue" size="13.0" />
+                                 </font></Button>
 									</children>
 								</HBox>
 							</children>
@@ -101,7 +125,7 @@
 						<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
 					</VBox.margin>
 				</VBox>
-				<Label text="Or see what's on this week:">
+				<Label text="Or see what's on this week..." textFill="#000000b3">
 					<padding>
 						<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
 					</padding>
@@ -109,7 +133,7 @@
 						<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
 					</VBox.margin>
 					<font>
-						<Font size="16.0" />
+						<Font name="Helvetica Neue Light" size="16.0" />
 					</font>
 				</Label>
 				<Accordion fx:id="accWeeklyFilms" prefHeight="400.0" prefWidth="800.0">
@@ -118,36 +142,57 @@
 							<content>
 								<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
 							</content>
+                     <font>
+                        <Font name="Helvetica Neue Bold" size="13.0" />
+                     </font>
 						</TitledPane>
 						<TitledPane fx:id="day2Label" animated="false" prefHeight="200.0" prefWidth="780.0">
 							<content>
 								<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
 							</content>
+                     <font>
+                        <Font name="Helvetica Neue Bold" size="13.0" />
+                     </font>
 						</TitledPane>
 						<TitledPane fx:id="day3Label" animated="false" prefHeight="200.0" prefWidth="780.0">
 							<content>
 								<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
 							</content>
+                     <font>
+                        <Font name="Helvetica Neue Bold" size="13.0" />
+                     </font>
 						</TitledPane>
 						<TitledPane fx:id="day4Label" animated="false" prefHeight="200.0" prefWidth="780.0">
 							<content>
 								<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
 							</content>
+                     <font>
+                        <Font name="Helvetica Neue Bold" size="13.0" />
+                     </font>
 						</TitledPane>
 						<TitledPane fx:id="day5Label" animated="false" prefHeight="200.0" prefWidth="780.0">
 							<content>
 								<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
 							</content>
+                     <font>
+                        <Font name="Helvetica Neue Bold" size="13.0" />
+                     </font>
 						</TitledPane>
 						<TitledPane fx:id="day6Label" animated="false" prefHeight="200.0" prefWidth="780.0">
 							<content>
 								<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
 							</content>
+                     <font>
+                        <Font name="Helvetica Neue Bold" size="13.0" />
+                     </font>
 						</TitledPane>
 						<TitledPane fx:id="day7Label" animated="false" prefHeight="200.0" prefWidth="780.0">
 							<content>
 								<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
 							</content>
+                     <font>
+                        <Font name="Helvetica Neue Bold" size="13.0" />
+                     </font>
 						</TitledPane>
 					</panes>
 					<padding>

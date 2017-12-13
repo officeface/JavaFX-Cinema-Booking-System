@@ -15,8 +15,14 @@
 			<items>
 				<HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="250.0" spacing="30.0">
 					<children>
-						<Button fx:id="btnLogout" mnemonicParsing="false" onAction="#goToLogin" text="Logout" />
-						<Button fx:id="btnHome" mnemonicParsing="false" onAction="#goToCustHome" text="Home" />
+						<Button fx:id="btnLogout" mnemonicParsing="false" onAction="#goToLogin" text="Logout">
+                     <font>
+                        <Font name="Helvetica Neue" size="13.0" />
+                     </font></Button>
+						<Button fx:id="btnHome" mnemonicParsing="false" onAction="#goToCustHome" text="Home">
+                     <font>
+                        <Font name="Helvetica Neue" size="13.0" />
+                     </font></Button>
 					</children>
 					<padding>
 						<Insets left="30.0" />
@@ -33,8 +39,14 @@
 				</HBox>
 				<HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="250.0" spacing="30.0">
 					<children>
-						<Button fx:id="btnMyProfile" mnemonicParsing="false" onAction="#goToCustProfilePage" text="My Profile" />
-						<Button fx:id="btnMyBookings" disable="true" mnemonicParsing="false" text="My Bookings" />
+						<Button fx:id="btnMyProfile" mnemonicParsing="false" onAction="#goToCustProfilePage" text="My Profile">
+                     <font>
+                        <Font name="Helvetica Neue" size="13.0" />
+                     </font></Button>
+						<Button fx:id="btnMyBookings" disable="true" mnemonicParsing="false" text="My Bookings">
+                     <font>
+                        <Font name="Helvetica Neue" size="13.0" />
+                     </font></Button>
 					</children>
 				</HBox>
 			</items>

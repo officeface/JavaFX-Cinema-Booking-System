@@ -18,8 +18,14 @@
 			<items>
 				<HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="250.0" spacing="30.0">
 					<children>
-						<Button fx:id="btnLogout" mnemonicParsing="false" onAction="#goToLogin" text="Logout" />
-						<Button fx:id="btnHome" mnemonicParsing="false" onAction="#goToCustHome" text="Home" />
+						<Button fx:id="btnLogout" mnemonicParsing="false" onAction="#goToLogin" text="Logout">
+                     <font>
+                        <Font name="Helvetica Neue" size="13.0" />
+                     </font></Button>
+						<Button fx:id="btnHome" mnemonicParsing="false" onAction="#goToCustHome" text="Home">
+                     <font>
+                        <Font name="Helvetica Neue" size="13.0" />
+                     </font></Button>
 					</children>
 					<padding>
 						<Insets left="30.0" />
@@ -36,15 +42,21 @@
 				</HBox>
 				<HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="250.0" spacing="30.0">
 					<children>
-						<Button fx:id="btnMyProfile" disable="true" mnemonicParsing="false" text="My Profile" />
-						<Button fx:id="btnMyBookings" mnemonicParsing="false" onAction="#goToCustBookingHistoryPage" text="My Bookings" />
+						<Button fx:id="btnMyProfile" disable="true" mnemonicParsing="false" text="My Profile">
+                     <font>
+                        <Font name="Helvetica Neue" size="13.0" />
+                     </font></Button>
+						<Button fx:id="btnMyBookings" mnemonicParsing="false" onAction="#goToCustBookingHistoryPage" text="My Bookings">
+                     <font>
+                        <Font name="Helvetica Neue" size="13.0" />
+                     </font></Button>
 					</children>
 				</HBox>
 			</items>
 		</ToolBar>
-		<GridPane alignment="CENTER" layoutX="100.0" layoutY="100.0" prefHeight="400.0" prefWidth="600.0">
+		<GridPane alignment="CENTER" layoutX="90.0" layoutY="155.0" prefHeight="400.0" prefWidth="600.0">
 			<columnConstraints>
-				<ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+				<ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
 				<ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
 			</columnConstraints>
 			<rowConstraints>
@@ -57,53 +69,58 @@
 				<Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
 			</padding>
 			<children>
-				<Label alignment="CENTER" contentDisplay="CENTER" text="Email/Username:">
+				<Label alignment="CENTER" contentDisplay="CENTER" text="Email/Username: " textFill="#000000b3">
 					<font>
-						<Font size="23.0" />
+						<Font name="Helvetica Neue Light" size="23.0" />
 					</font>
 				</Label>
-				<Label alignment="CENTER" contentDisplay="CENTER" text="First name:" GridPane.rowIndex="1">
+				<Label alignment="CENTER" contentDisplay="CENTER" text="First name: " textFill="#000000b3" GridPane.rowIndex="1">
 					<font>
-						<Font size="23.0" />
+						<Font name="Helvetica Neue Light" size="23.0" />
 					</font>
 				</Label>
-				<Label alignment="CENTER" contentDisplay="CENTER" text="Last name:" GridPane.rowIndex="2">
+				<Label alignment="CENTER" contentDisplay="CENTER" text="Last name: " textFill="#000000b3" GridPane.rowIndex="2">
 					<font>
-						<Font size="23.0" />
+						<Font name="Helvetica Neue Light" size="23.0" />
 					</font>
 				</Label>
 				<TextField fx:id="txtEmail" prefHeight="50.0" GridPane.columnIndex="1">
 					<font>
-						<Font size="18.0" />
+						<Font name="Helvetica Neue" size="23.0" />
 					</font>
 				</TextField>
 				<TextField fx:id="txtFirstName" prefHeight="50.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
 					<font>
-						<Font size="18.0" />
+						<Font name="Helvetica Neue" size="23.0" />
 					</font>
 				</TextField>
 				<TextField fx:id="txtLastName" prefHeight="50.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
 					<font>
-						<Font size="18.0" />
+						<Font name="Helvetica Neue" size="23.0" />
 					</font>
 				</TextField>
 				<Button fx:id="btnUpdate" mnemonicParsing="false" onAction="#update" prefWidth="200.0" text="Update" GridPane.columnIndex="1" GridPane.rowIndex="3">
 					<font>
-						<Font size="24.0" />
+						<Font name="Helvetica Neue" size="26.0" />
 					</font>
 				</Button>
-				<Label fx:id="lblUpdateStatus" GridPane.rowIndex="3">
+				<Label fx:id="lblUpdateStatus" text=" " textFill="#000000b3" GridPane.rowIndex="3">
 					<font>
-						<Font size="24.0" />
+						<Font name="Helvetica Neue Light" size="23.0" />
 					</font>
 				</Label>
 			</children>
 		</GridPane>
-		<Button fx:id="btnRefresh" layoutX="327.0" layoutY="61.0" mnemonicParsing="false" onAction="#getDetails" text="Refresh my details">
+		<Button fx:id="btnRefresh" layoutX="304.0" layoutY="128.0" mnemonicParsing="false" onAction="#getDetails" text="Refresh my details">
 			<font>
-				<Font size="17.0" />
+				<Font name="Helvetica Neue" size="17.0" />
 			</font>
 		</Button>
+      <Label layoutX="306.0" layoutY="64.0" text="Your profile" textFill="#000000b2">
+         <font>
+            <Font name="Helvetica Neue Light" size="33.0" />
+         </font>
+      </Label>
 
 
 

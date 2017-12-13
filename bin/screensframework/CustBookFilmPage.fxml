@@ -21,8 +21,14 @@
 			<items>
 				<HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="250.0" spacing="30.0">
 					<children>
-						<Button fx:id="btnLogout" mnemonicParsing="false" onAction="#goToLogin" text="Logout" />
-						<Button fx:id="btnHome" mnemonicParsing="false" onAction="#goToCustHome" text="Home" />
+						<Button fx:id="btnLogout" mnemonicParsing="false" onAction="#goToLogin" text="Logout">
+                     <font>
+                        <Font name="Helvetica Neue" size="13.0" />
+                     </font></Button>
+						<Button fx:id="btnHome" mnemonicParsing="false" onAction="#goToCustHome" text="Home">
+                     <font>
+                        <Font name="Helvetica Neue" size="13.0" />
+                     </font></Button>
 					</children>
 					<padding>
 						<Insets left="30.0" />
@@ -39,81 +45,87 @@
 				</HBox>
 				<HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="250.0" spacing="30.0">
 					<children>
-						<Button fx:id="btnMyProfile" mnemonicParsing="false" onAction="#goToCustProfilePage" text="My Profile" />
-						<Button fx:id="btnMyBookings" mnemonicParsing="false" onAction="#goToCustBookingHistoryPage" text="My Bookings" />
+						<Button fx:id="btnMyProfile" mnemonicParsing="false" onAction="#goToCustProfilePage" text="My Profile">
+                     <font>
+                        <Font name="Helvetica Neue" size="13.0" />
+                     </font></Button>
+						<Button fx:id="btnMyBookings" mnemonicParsing="false" onAction="#goToCustBookingHistoryPage" text="My Bookings">
+                     <font>
+                        <Font name="Helvetica Neue" size="13.0" />
+                     </font></Button>
 					</children>
 				</HBox>
 			</items>
 		</ToolBar>
-		<ImageView fx:id="imgShowFilmImage" fitHeight="213.0" fitWidth="292.0" layoutX="543.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
+		<ImageView fx:id="imgShowFilmImage" fitHeight="213.0" fitWidth="292.0" layoutX="565.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
 			<image>
 				<Image url="@../testimg/testimage.png" />
 			</image>
 		</ImageView>
-		<Label layoutX="30.0" layoutY="81.0" text="Film:">
+		<Label layoutX="30.0" layoutY="81.0" text="Film:" textFill="#000000cd">
 			<font>
-				<Font size="18.0" />
+				<Font name="Helvetica Neue Light" size="19.0" />
 			</font>
 		</Label>
-		<Label layoutX="31.0" layoutY="111.0" text="Date:">
+		<Label layoutX="31.0" layoutY="111.0" text="Date:" textFill="#000000cd">
 			<font>
-				<Font size="18.0" />
+				<Font name="Helvetica Neue Light" size="19.0" />
 			</font>
 		</Label>
-		<Label layoutX="246.0" layoutY="113.0" text="Time:">
+		<Label layoutX="246.0" layoutY="113.0" text="Time:" textFill="#000000cd">
 			<font>
-				<Font size="18.0" />
+				<Font name="Helvetica Neue Light" size="19.0" />
 			</font>
 		</Label>
-		<Label layoutX="30.0" layoutY="49.0" text="You have selected:">
+		<Label layoutX="30.0" layoutY="51.0" text="You have selected..." textFill="#000000cd">
 			<font>
-				<Font size="19.0" />
+				<Font name="Helvetica Neue Light" size="19.0" />
 			</font>
 		</Label>
-		<Label layoutX="31.0" layoutY="144.0" text="Description:">
+		<Label layoutX="31.0" layoutY="144.0" text="Description:" textFill="#000000cd">
 			<font>
-				<Font size="18.0" />
+				<Font name="Helvetica Neue Light" size="19.0" />
 			</font>
 		</Label>
-		<Label fx:id="lblFilmSelected" layoutX="77.0" layoutY="81.0">
+		<Label fx:id="lblFilmSelected" layoutX="72.0" layoutY="82.0" text="##">
 			<font>
-				<Font size="18.0" />
+				<Font name="Helvetica Neue Medium" size="18.0" />
 			</font>
 		</Label>
-		<Label fx:id="lblDateSelected" layoutX="81.0" layoutY="111.0">
+		<Label fx:id="lblDateSelected" layoutX="79.0" layoutY="112.0" text="##">
 			<font>
-				<Font size="18.0" />
+				<Font name="Helvetica Neue Medium" size="18.0" />
 			</font>
 		</Label>
-		<Label fx:id="lblTimeSelected" layoutX="310.0" layoutY="113.0">
+		<Label fx:id="lblTimeSelected" layoutX="296.0" layoutY="114.0" text="##">
 			<font>
-				<Font size="18.0" />
+				<Font name="Helvetica Neue Medium" size="18.0" />
 			</font>
 		</Label>
 		<Line endX="100.0" layoutX="-61.0" layoutY="262.0" startX="800.0" />
-		<Label layoutX="35.0" layoutY="271.0" text="Please choose available seats by clicking them">
+		<Label layoutX="35.0" layoutY="273.0" text="Please choose available seats by clicking them" textFill="#000000b3">
 			<font>
-				<Font size="18.0" />
+				<Font name="Helvetica Neue Light" size="18.0" />
 			</font>
 		</Label>
-		<Label layoutX="578.0" layoutY="271.0" prefHeight="27.0" prefWidth="126.0" text="Selected seats">
+		<Label layoutX="569.0" layoutY="269.0" prefHeight="27.0" prefWidth="126.0" text="Selected seats" textFill="#000000b2">
 			<font>
-				<Font size="18.0" />
+				<Font name="Helvetica Neue Medium" size="18.0" />
 			</font>
 		</Label>
-		<Label layoutX="318.0" layoutY="544.0" text="Your subtotal: ">
+		<Label layoutX="374.0" layoutY="555.0" text="Your subtotal is " textFill="#000000b2">
 			<font>
-				<Font size="20.0" />
+				<Font name="Helvetica Neue Medium" size="20.0" />
 			</font>
 		</Label>
-		<Label fx:id="lblSubtotal" layoutX="474.0" layoutY="544.0">
+		<Label fx:id="lblSubtotal" layoutX="528.0" layoutY="555.0" text="##">
 			<font>
-				<Font size="20.0" />
+				<Font name="Helvetica Neue" size="20.0" />
 			</font>
 		</Label>
-		<Button fx:id="btnContinue" layoutX="658.0" layoutY="540.0" mnemonicParsing="false" onAction="#goToCustConfirmPage" prefHeight="34.0" prefWidth="119.0" text="CONTINUE">
+		<Button fx:id="btnContinue" layoutX="636.0" layoutY="553.0" mnemonicParsing="false" onAction="#goToCustConfirmPage" prefHeight="23.0" prefWidth="119.0" text="CONTINUE">
 			<font>
-				<Font size="17.0" />
+				<Font name="Helvetica Neue Bold" size="15.0" />
 			</font>
 		</Button>
 		<GridPane fx:id="seatLayout" layoutX="39.0" layoutY="313.0">
@@ -138,12 +150,16 @@
 				<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
 			</rowConstraints>
 		</GridPane>
-		<Label layoutX="209.0" layoutY="495.0" text="Screen">
+		<Label layoutX="179.0" layoutY="506.0" text="Current seating plan" textFill="#000000b2">
 			<font>
-				<Font size="20.0" />
+				<Font name="Helvetica Neue Light" size="20.0" />
 			</font>
 		</Label>
-		<Label fx:id="lblDescription" layoutX="141.0" layoutY="152.0" prefHeight="100.0" prefWidth="383.0" wrapText="true" />
+		<Label fx:id="lblDescription" alignment="TOP_LEFT" layoutX="132.0" layoutY="149.0" prefHeight="102.0" prefWidth="383.0" text="##" wrapText="true">
+         <font>
+            <Font name="Helvetica Neue Medium" size="14.0" />
+         </font></Label>
 		<ListView fx:id="seatSummary" layoutX="507.0" layoutY="304.0" prefHeight="200.0" prefWidth="248.0" />
+      <Line endX="100.0" layoutX="-61.0" layoutY="541.0" startX="800.0" />
 	</children>
 </AnchorPane>
