@@ -1,5 +1,5 @@
 /**
- * Authors: Fraz and Mark
+ * Authors: Fraz Ahmad and Mark Backhouse
  * Style sheet for this application. The login/staff/customer pages are styled separately. 
  * 
  */
@@ -16,18 +16,23 @@
 /*----------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 
+/* Cinema screen style*/
+#recScreen {
+    -fx-stroke: transparent;
+    -fx-stroke-width: 0;
+}
 
-/* TOOLBAR good colours: powerblue /silver / steelblue  */
+/* TOOLBAR good colours: black powerblue /silver / steelblue  */
 
 .tool-bar {
         /*-fx-background-color:  linear-gradient(to left, steelblue, white ) ;*/
-        -fx-background-color: silver ;
+        -fx-background-color: transparent ;
         
         
 }
 
 .tool-bar .label {
-    -fx-text-fill: white;
+    -fx-text-fill: rgb(120, 120, 120);
     -fx-font-weight: 900;    
 
 }
@@ -245,7 +250,6 @@
 	-fx-background-color: rgb(85,209,255);
     -fx-text-fill: white;
     -fx-background-radius: 16px;
-    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
 }
 #btnlogin:hover {
 	-fx-background-color: rgb(0,144,254);
@@ -256,7 +260,6 @@
 	-fx-background-color: rgb(242,166,27);
     -fx-text-fill: white;
     -fx-background-radius: 16px;
-    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
 }
 #btnRegister:hover {
 	-fx-background-color: rgb(216,157,66);
@@ -290,7 +293,6 @@
 	-fx-background-color: rgb(242,166,27);
     -fx-text-fill: white;
     -fx-background-radius: 16px;
-    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
     
    
 }
@@ -325,7 +327,6 @@
 	-fx-background-color: rgb(42,228,13);
     -fx-text-fill: white;
     -fx-background-radius: 16px;
-    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
     
 }
 #btnSLogout:hover {
@@ -336,7 +337,6 @@
 	-fx-background-color: rgb(42,228,13);
     -fx-text-fill: white;
     -fx-background-radius: 16px;
-    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
 }
 #btnSHome:hover {
 	-fx-background-color: rgb(74, 160, 43);
@@ -346,7 +346,6 @@
 	-fx-background-color: rgb(42,228,13);
     -fx-text-fill: white;
     -fx-background-radius: 16px;
-    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
 }
 #btnGoToNewListing:hover {
 	-fx-background-color: rgb(74, 160, 43);
@@ -356,7 +355,6 @@
 	-fx-background-color: rgb(42,228,13);
     -fx-text-fill: white;
     -fx-background-radius: 16px;
-    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
 }
 #btnGoToNewFilm:hover {
 	-fx-background-color: rgb(74, 160, 43);
@@ -366,7 +364,6 @@
 	-fx-background-color: rgb(42,228,13);
     -fx-text-fill: white;
     -fx-background-radius: 16px;
-    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
 }
 #btnGoToBookingSummary:hover {
 	-fx-background-color: rgb(74, 160, 43);
@@ -376,7 +373,6 @@
 	-fx-background-color: rgb(42,228,13);
     -fx-text-fill: white;
     -fx-background-radius: 16px;
-    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
 }
 #btnGoToExport:hover {
 	-fx-background-color: rgb(74, 160, 43);
@@ -388,7 +384,6 @@
 	-fx-background-color: rgb(42,228,13);
     -fx-text-fill: white;
     -fx-background-radius: 16px;
-    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
 }
 #btnAddFilm:hover {
 	-fx-background-color: rgb(74, 160, 43);
@@ -397,7 +392,6 @@
 	-fx-background-color: rgb(42,228,13);
     -fx-text-fill: white;
     -fx-background-radius: 16px;
-    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
 }
 #btnAddListings:hover {
 	-fx-background-color: rgb(74, 160, 43);
@@ -406,7 +400,6 @@
 	-fx-background-color: rgb(42,228,13);
     -fx-text-fill: white;
     -fx-background-radius: 16px;
-    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
 }
 #btnBookingSummary:hover {
 	-fx-background-color: rgb(74, 160, 43);
@@ -415,7 +408,6 @@
 	-fx-background-color: rgb(42,228,13);
     -fx-text-fill: white;
     -fx-background-radius: 16px;
-    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
 }
 #btnExportFilms:hover {
 	-fx-background-color: rgb(74, 160, 43);
@@ -427,7 +419,6 @@
 	-fx-background-color: rgb(42,228,13);
     -fx-text-fill: white;
     -fx-background-radius: 16px;
-    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
 }
 #btnSelectImg:hover {
 	-fx-background-color: rgb(74, 160, 43);
@@ -439,7 +430,6 @@
 	-fx-background-color: rgb(42,228,13);
     -fx-text-fill: white;
     -fx-background-radius: 16px;
-    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
 }
 #btnScreenInfo:hover {
 	-fx-background-color: rgb(74, 160, 43);
@@ -450,7 +440,6 @@
 	-fx-background-color: rgb(42,228,13);
     -fx-text-fill: white;
     -fx-background-radius: 16px;
-    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
 }
 #btnExportSelectedFilm:hover {
 	-fx-background-color: rgb(74, 160, 43);
@@ -460,7 +449,6 @@
 	-fx-background-color: rgb(42,228,13);
     -fx-text-fill: white;
     -fx-background-radius: 16px;
-    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
 }
 #btnExportAll:hover {
 	-fx-background-color: rgb(74, 160, 43);
@@ -505,7 +493,6 @@
 	-fx-background-color: rgb(85,209,255);
     -fx-text-fill: white;
     -fx-background-radius: 16px;
-    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
 }
 #btnLogout:hover {
 	-fx-background-color: rgb(0,144,254);
@@ -515,7 +502,6 @@
 	-fx-background-color: rgb(85,209,255);
     -fx-text-fill: white;
     -fx-background-radius: 16px;
-    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
 }
 #btnHome:hover {
 	-fx-background-color: rgb(0,144,254);
@@ -525,7 +511,6 @@
 	-fx-background-color: rgb(85,209,255);
     -fx-text-fill: white;
     -fx-background-radius: 16px;
-    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
 }
 #btnMyProfile:hover {
 	-fx-background-color: rgb(0,144,254);
@@ -535,7 +520,6 @@
 	-fx-background-color: rgb(85,209,255);
     -fx-text-fill: white;
     -fx-background-radius: 16px;
-    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
 }
 #btnMyBookings:hover {
 	-fx-background-color: rgb(0,144,254);
@@ -546,7 +530,6 @@
 	-fx-background-color: rgb(85,209,255);
     -fx-text-fill: white;
     -fx-background-radius: 16px;
-    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
 }
 #btnGo:hover {
 	-fx-background-color: rgb(0,144,254);
@@ -557,7 +540,6 @@
 	-fx-background-color: rgb(85,209,255);
     -fx-text-fill: white;
     -fx-background-radius: 16px;
-    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
 }
 #btnResetSeats:hover {
 	-fx-background-color: rgb(0,144,254);
@@ -567,7 +549,6 @@
 	-fx-background-color: rgb(85,209,255);
     -fx-text-fill: white;
     -fx-background-radius: 16px;
-    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
 }
 #btnContinue:hover {
 	-fx-background-color: rgb(0,144,254);
@@ -579,7 +560,6 @@
 	-fx-background-color: rgb(85,209,255);
     -fx-text-fill: white;
     -fx-background-radius: 16px;
-    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
 }
 #btnBook:hover {
 	-fx-background-color: rgb(0,144,254);
@@ -589,7 +569,6 @@
 	-fx-background-color: rgb(85,209,255);
     -fx-text-fill: white;
     -fx-background-radius: 16px;
-    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
 }
 #btnBack:hover {
 	-fx-background-color: rgb(0,144,254);
@@ -601,7 +580,6 @@
 	-fx-background-color: rgb(85,209,255);
     -fx-text-fill: white;
     -fx-background-radius: 16px;
-    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
 }
 #btnUpdate:hover {
 	-fx-background-color: rgb(0,144,254);
@@ -611,7 +589,6 @@
 	-fx-background-color: rgb(85,209,255);
     -fx-text-fill: white;
     -fx-background-radius: 16px;
-    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 5,0,0,1 );
 }
 #btnRefresh:hover {
 	-fx-background-color: rgb(0,144,254);

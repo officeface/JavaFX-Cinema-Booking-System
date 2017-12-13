@@ -12,6 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="screensframework.BookingSummaryController">
@@ -137,10 +138,12 @@
         </rowConstraints>
       </GridPane>
       <DatePicker fx:id="datePickerSelector" layoutX="126.0" layoutY="137.0" onAction="#setFilmList" prefHeight="29.0" prefWidth="155.0" promptText="Pick date" />
-      <Label fx:id="lblScreentag" layoutX="284.0" layoutY="551.0" text="CINEMA SCREEN SEATING" textFill="#000000b3">
+      <Rectangle fx:id="recScreen" arcHeight="5.0" arcWidth="5.0" fill="#0000004d" height="40.0" layoutX="46.0" layoutY="544.0" stroke="BLACK" strokeType="INSIDE" width="702.0" />
+      <Label fx:id="lblScreentag" layoutX="362.0" layoutY="553.0" text="SCREEN" textFill="WHITE">
          <font>
-            <Font name="Helvetica Neue Light" size="20.0" />
+            <Font name="Helvetica Neue Bold" size="20.0" />
          </font>
       </Label>
+      <Line endX="697.4" layoutX="101.0" layoutY="43.0" startX="-100.0" stroke="#4aa02b" strokeWidth="3.5" />
    </children>
 </AnchorPane>

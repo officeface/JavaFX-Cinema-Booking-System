@@ -13,10 +13,12 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="screensframework.CustBookFilmPageController">
 	<children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0000003d" height="30.0" layoutX="37.0" layoutY="501.0" stroke="TRANSPARENT" strokeType="INSIDE" width="455.0" />
 		<ToolBar prefHeight="30.0" prefWidth="800.0">
 			<items>
 				<HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="250.0" spacing="30.0">
@@ -57,6 +59,7 @@
 				</HBox>
 			</items>
 		</ToolBar>
+		<Line endX="697.4" layoutX="101.0" layoutY="43.0" startX="-100.0" stroke="#0090fe" strokeWidth="3.5" />
 		<ImageView fx:id="imgShowFilmImage" fitHeight="213.0" fitWidth="292.0" layoutX="565.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
 			<image>
 				<Image url="@../testimg/testimage.png" />
@@ -150,9 +153,9 @@
 				<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
 			</rowConstraints>
 		</GridPane>
-		<Label layoutX="179.0" layoutY="506.0" text="Current seating plan" textFill="#000000b2">
+		<Label layoutX="225.0" layoutY="504.0" text="SCREEN" textFill="WHITE">
 			<font>
-				<Font name="Helvetica Neue Light" size="20.0" />
+				<Font name="Helvetica Neue Bold" size="20.0" />
 			</font>
 		</Label>
 		<Label fx:id="lblDescription" alignment="TOP_LEFT" layoutX="132.0" layoutY="149.0" prefHeight="102.0" prefWidth="383.0" text="##" wrapText="true">

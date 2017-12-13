@@ -12,6 +12,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="screensframework.AddFilmPageController">
@@ -103,5 +104,6 @@
 			</children>
 		</GridPane>
 		<ImageView fx:id="imgViewFilmImage" fitHeight="290.0" fitWidth="181.0" layoutX="607.0" layoutY="159.0" pickOnBounds="true" preserveRatio="true" />
+      <Line endX="697.4" layoutX="101.0" layoutY="43.0" startX="-100.0" stroke="#4aa02b" strokeWidth="3.5" />
 	</children>
 </AnchorPane>
