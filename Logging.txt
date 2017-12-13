@@ -1,4 +1,22 @@
-Dec 13, 2017 4:22:01 PM screensframework.ScreensController loadScreen
+Dec 13, 2017 4:52:07 PM screensframework.ScreensController loadScreen
 INFO: main was loaded.
-Dec 13, 2017 4:22:03 PM screensframework.ScreensFramework lambda$0
+Dec 13, 2017 4:52:19 PM screensframework.TextFileManager getSeatInformation
+INFO: Loaded booking data for True Romance
+Dec 13, 2017 4:52:19 PM screensframework.TextFileManager getSeatInformation
+INFO: Loaded booking data for True Romance
+Dec 13, 2017 4:52:19 PM screensframework.TextFileManager getSeatInformation
+INFO: Loaded booking data for Goodfellas
+Dec 13, 2017 4:52:19 PM screensframework.TextFileManager getSeatInformation
+INFO: Loaded booking data for True Romance
+Dec 13, 2017 4:52:19 PM screensframework.TextFileManager getSeatInformation
+INFO: Loaded booking data for Star Wars: Episode V - The Empire Strikes Back
+Dec 13, 2017 4:52:19 PM screensframework.TextFileManager getSeatInformation
+INFO: Loaded booking data for True Romance
+Dec 13, 2017 4:52:19 PM screensframework.ScreensController loadScreen
+INFO: custHome was loaded.
+Dec 13, 2017 4:52:19 PM screensframework.ScreensController loadScreen
+INFO: custProfilePage was loaded.
+Dec 13, 2017 4:52:19 PM screensframework.ScreensController loadScreen
+INFO: custBookingHistoryPage was loaded.
+Dec 13, 2017 4:52:23 PM screensframework.ScreensFramework lambda$0
 INFO: Program exited.

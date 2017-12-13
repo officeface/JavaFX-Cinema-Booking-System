@@ -1,5 +1,7 @@
 package screensframework;
 
+import java.awt.Toolkit;
+import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -7,6 +9,7 @@ import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import logging.MyLogger;
 
@@ -25,6 +28,8 @@ import logging.MyLogger;
  * @since 2017-12-13
  */
 public class ScreensFramework extends Application {
+	
+	
 
 	// For logging:
 	public final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
@@ -77,11 +82,15 @@ public class ScreensFramework extends Application {
 		Group root = new Group();
 		root.getChildren().addAll(mainContainer);
 		Scene scene = new Scene(root);
+		
 		primaryStage.setScene(scene);
 		primaryStage.setResizable(false); // Prevent user from resizing screen
 		primaryStage.setOnCloseRequest(event -> {
 			LOGGER.info("Program exited."); // Set logging event for program exit
 		});
+		
+		primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/icon.png")));
+		
 		primaryStage.show();
 
 		// Defining the stylesheet
