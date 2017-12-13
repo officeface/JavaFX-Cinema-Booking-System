@@ -25,6 +25,21 @@ import javafx.scene.control.Label;
 import javafx.stage.FileChooser;
 import javafx.stage.Window;
 
+/**
+ * FXML Controller class for the staff export page. 
+ * 
+ * This page provides two export functionalities.
+ * 
+ * 1) An employee may select a film and export it's json data to 
+ * a csv file. The number of free and booked seats are also calculated 
+ * for each listing as it is not available in the database.
+ * 
+ * 2) An employee may export all data from json to csv in addition to 
+ * all film listings and number of free and booked seats. 
+ * 
+ * @author Fraz Ahmad
+ *
+ */
 public class StaffExportController implements Initializable, ControlledScreen {
 
 	ScreensController myController;
@@ -55,8 +70,10 @@ public class StaffExportController implements Initializable, ControlledScreen {
 
 	/**
 	 * Initialises the controller class.
+	 *
+	 * A list of films is added to a film drop-down menu so that
+	 * a user may select a specific film to export. 
 	 */
-
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
@@ -84,7 +101,7 @@ public class StaffExportController implements Initializable, ControlledScreen {
 	 * Exports film details of a specified film from a json arrays to csv file.
 	 * Number of booked and free seats of a specified film are also calculated.
 	 * 
-	 * @author frazahmad
+	 * @author Fraz Ahmad 
 	 * @param event
 	 * @throws IOException
 	 */
@@ -198,7 +215,7 @@ public class StaffExportController implements Initializable, ControlledScreen {
 	 * Exports entire database into a csv file. Also the number of booked and free
 	 * seats for each of the films are also added.
 	 * 
-	 * @author frazahmad
+	 * @author Fraz Ahmad 
 	 * @param event
 	 * @throws IOException
 	 */

@@ -8,6 +8,16 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 
+/**
+ * FXML Controller class for the Staff Homepage.
+ * 
+ * This page provides an overview and portal to the cinema's employee functionalities.
+ * Through this page, the employee may enter: add film, add listing, booking summary
+ * and export film details pages. The staff toolbar methods are also functional. 
+ * 
+ * @author Fraz Ahmad
+ *
+ */
 public class StaffHomeController implements Initializable, ControlledScreen {
 
 	ScreensController myController;
@@ -46,26 +56,45 @@ public class StaffHomeController implements Initializable, ControlledScreen {
 	}
 
 	// METHODS
-	// go to add film
+	
+	/**
+	 * Redirects employee to add film page once button is pressed
+	 * @author Fraz Ahmad
+	 * @param event
+	 */
 	@FXML
 	private void goToAddFilmPage(ActionEvent event) {
 		myController.setScreen(ScreensFramework.addFilmPageID);
 	}
 
-	// go to add listings
+	
+	/**
+	 * Redirects employee to add listing page once button is pressed
+	 * @author Fraz Ahmad
+	 * @param event
+	 */
 	@FXML
 	private void goToAddListings(ActionEvent event) {
 		myController.setScreen(ScreensFramework.addFilmListingsID);
 	}
 
-	// go to booking summary
 
+	/**
+	 * Redirects employee to booking summary page once button is pressed
+	 * @author Fraz Ahmad
+	 * @param event
+	 */
 	@FXML
 	private void goToBookingSummary(ActionEvent event) {
 		myController.setScreen(ScreensFramework.bookingSummaryID);
 	}
 
-	// go to export films
+
+	/**
+	 * Redirects employee to staff export once button is pressed
+	 * @author Fraz Ahmad
+	 * @param event
+	 */
 	@FXML
 	private void goToStaffExport(ActionEvent event) {
 		myController.unloadScreen(ScreensFramework.staffExportID);
