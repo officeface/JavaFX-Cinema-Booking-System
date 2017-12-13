@@ -20,10 +20,13 @@ import javafx.scene.layout.GridPane;
 import objects.Listing;
 
 /**
- * FXML Controller class
+ * Controller class for the Booking Summary page. Shows a summary of bookings
+ * for a given film listing. Hovering over booked seats provides individual
+ * customer information for that seat.
+ * 
+ * @author Fraz Ahmad
  *
  */
-
 public class BookingSummaryController implements Initializable, ControlledScreen {
 
 	ScreensController myController;
@@ -219,7 +222,6 @@ public class BookingSummaryController implements Initializable, ControlledScreen
 				}
 
 			}
-			
 
 			// Setting the labels to their respective numbers + conversion from integer to
 			// string
@@ -256,6 +258,9 @@ public class BookingSummaryController implements Initializable, ControlledScreen
 
 	@FXML
 	public void goToLogin(ActionEvent event) {
+		// Unload the User:
+		LoginController.USER.clearDetails();
+		ScreensFramework.LOGGER.info("User logged out.");
 		// Unload screens:
 		myController.unloadScreen(ScreensFramework.loginID);
 		myController.unloadScreen(ScreensFramework.staffHomeID);

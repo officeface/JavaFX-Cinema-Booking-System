@@ -2,7 +2,7 @@ package objects;
 
 /**
  * Generic user with email, password, first name and last name
- * @author mark
+ * @author Mark Backhouse and Fraz Ahmad
  *
  */
 public class User {
@@ -62,12 +62,14 @@ public class User {
 		this.lastName = lastName;
 	}
 	
+	/**
+	 * Clear the User's details at the end of a session.
+	 */
 	public void clearDetails() {
 		setEmail(null);
 		setPassword(null);
 		setFirstName(null);
 		setLastName(null);
-		
 	}
 
 }

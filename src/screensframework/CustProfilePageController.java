@@ -13,6 +13,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
+/**
+ * Controller class for the Customer's profile page. Allows the Customer to see
+ * their username, firstname and lastname, as well as updating these details.
+ * 
+ * @author mark
+ *
+ */
 public class CustProfilePageController extends ToolbarController implements Initializable, ControlledScreen {
 
 	@FXML
@@ -41,6 +48,12 @@ public class CustProfilePageController extends ToolbarController implements Init
 		myController = screenParent;
 	}
 
+	/**
+	 * Refreshes the textfields with the User's information.
+	 * 
+	 * @param event
+	 *            the "Refresh" button is selected.
+	 */
 	@FXML
 	private void getDetails(ActionEvent event) {
 		try {
@@ -52,12 +65,17 @@ public class CustProfilePageController extends ToolbarController implements Init
 		}
 	}
 
-	
-	
-	
-	
-	
-	
+	/**
+	 * Tells the TextFileManager to update the database with the new Customer
+	 * information.
+	 * 
+	 * @param event
+	 *            the "Update" button is clicked.
+	 * @throws JSONException
+	 *             if the JSON object cannot be found.
+	 * @throws IOException
+	 *             if the database file cannot be found.
+	 */
 	@FXML
 	private void update(ActionEvent event) throws JSONException, IOException {
 		if (!this.txtEmail.getText().isEmpty() && !this.txtFirstName.getText().isEmpty()
@@ -65,28 +83,15 @@ public class CustProfilePageController extends ToolbarController implements Init
 			LoginController.USER.setEmail(this.txtEmail.getText());
 			LoginController.USER.setFirstName(this.txtFirstName.getText());
 			LoginController.USER.setLastName(this.txtLastName.getText());
-			
+
 			TextFileManager.updateUserDetails(LoginController.USER); // Update information in database
-			
+
 			this.lblUpdateStatus.setText("Updated details!");
 		} else {
 			this.lblUpdateStatus.setText("Field missing! Try again.");
 		}
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	@Override
 	@FXML
 	public void goToStaffChoicePage(ActionEvent event) {
@@ -104,19 +109,19 @@ public class CustProfilePageController extends ToolbarController implements Init
 	public void goToCustProfilePage(ActionEvent event) {
 		myController.setScreen(ScreensFramework.custProfilePageID);
 	}
-	
-	
+
 	@FXML
 	public void goToCustBookingHistoryPage(ActionEvent event) {
 		myController.setScreen(ScreensFramework.custBookingHistoryPageID);
 
 	}
 
-
 	@Override
 	@FXML
 	public void goToLogin(ActionEvent event) {
-
+		// Unload the User:
+		LoginController.USER.clearDetails();
+		ScreensFramework.LOGGER.info("User logged out.");
 		// Unload screens:
 		myController.unloadScreen(ScreensFramework.loginID);
 		myController.unloadScreen(ScreensFramework.registrationID);

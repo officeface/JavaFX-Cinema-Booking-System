@@ -9,6 +9,15 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
+/**
+ * Provides customised logging features. Taken from the Java Logging API
+ * Tutorial, by Lars Vogel.
+ * 
+ * @author Lars Vogel
+ * @since 2016-09-26
+ * @version 1.8
+ *
+ */
 public class MyLogger {
 	private static FileHandler fileTxt;
 	private static SimpleFormatter formatterTxt;

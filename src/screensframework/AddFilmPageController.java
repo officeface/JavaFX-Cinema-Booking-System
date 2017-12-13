@@ -177,6 +177,9 @@ public class AddFilmPageController implements Initializable, ControlledScreen {
 
 	@FXML
 	public void goToLogin(ActionEvent event) {
+		// Unload the User:
+		LoginController.USER.clearDetails();
+		ScreensFramework.LOGGER.info("User logged out.");
 		// Unload screens:
 		myController.unloadScreen(ScreensFramework.loginID);
 		myController.unloadScreen(ScreensFramework.staffHomeID);

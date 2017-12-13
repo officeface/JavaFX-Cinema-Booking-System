@@ -7,6 +7,16 @@ import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
 
+/**
+ * Provides HTML formatting for the Logging feature, so that the log records are
+ * recorded in an attractive way. Taken from the Java Logging API Tutorial, by
+ * Lars Vogel.
+ * 
+ * @author Lars Vogel
+ * @since 2016-09-26
+ * @version 1.8
+ *
+ */
 class MyHtmlFormatter extends Formatter {
 
 	// This method is called for every log record

@@ -60,11 +60,11 @@ public class Listing {
 	}
 
 	/**
-	 * 
+	 * Gets the title for a specific listing, given the listing's ID.
 	 * @param showingID
-	 *            The Listing's ID as a String
+	 *            the Listing's ID as a String
 	 * @return the title of the movie
-	 * @throws IOException
+	 * @throws IOException if the file cannot be found.
 	 */
 	public static String findMovieTitle(String showingID) throws IOException {
 
@@ -81,10 +81,11 @@ public class Listing {
 	}
 
 	/**
+	 * Gets the date and time for a specific listing, given the listing's ID.
 	 * 
-	 * @param showingID The Listing's ID as a String
+	 * @param showingID the Listing's ID as a String
 	 * @return the date and time of the listing, formatted. e.g. "12/11/2017, 19:00"
-	 * @throws IOException
+	 * @throws IOException if the file cannot be found.
 	 */
 	public static String findMovieDateAndTime(String showingID) throws IOException {
 

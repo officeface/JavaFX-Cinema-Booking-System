@@ -1,5 +1,12 @@
 package objects;
 
+/**
+ * Describes key features of a seat inside the Cinema. These include the seat's
+ * number, row and column.
+ * 
+ * @author Mark Backhouse and Fraz Ahmad
+ *
+ */
 public class Seat {
 
 	private int seatNumber;
@@ -19,14 +26,14 @@ public class Seat {
 	public void setSeatNumber(int seatNumber) {
 		this.seatNumber = seatNumber;
 	}
-	
+
 	public int[] getSeatLocation() {
 		int[] location = new int[2];
 		location[0] = seatRow;
 		location[1] = seatCol;
 		return location;
 	}
-	
+
 	public void setSeatLocation(int seatRow, int seatCol) {
 		this.seatRow = seatRow;
 		this.seatCol = seatCol;

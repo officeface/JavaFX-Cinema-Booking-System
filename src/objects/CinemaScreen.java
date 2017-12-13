@@ -2,6 +2,15 @@ package objects;
 
 import java.util.List;
 
+/**
+ * Describes a cinema screen inside the cinema, containing an associated list of
+ * listings (films that are showing on this screen) and seats. This class allows
+ * for the cinema application to be easily updated so as to contain multiple
+ * cinema screens, so that concurrent listings may be made.
+ * 
+ * @author Mark Backhouse and Fraz Ahmad
+ *
+ */
 public class CinemaScreen {
 
 	private List<Listing> listOfListings; // All the different shows that are showing

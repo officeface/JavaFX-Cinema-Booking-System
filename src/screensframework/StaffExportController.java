@@ -49,9 +49,9 @@ public class StaffExportController implements Initializable, ControlledScreen {
 
 	@FXML
 	private Button btnGoToBookingSummary;
-	
+
 	@FXML
-	private Label lblFeedback; 
+	private Label lblFeedback;
 
 	/**
 	 * Initialises the controller class.
@@ -186,10 +186,10 @@ public class StaffExportController implements Initializable, ControlledScreen {
 																	// json) written to new text file
 
 				ScreensFramework.LOGGER.info(this.selectedFilmForExport + " information has been exported!");
-//				System.out.println(this.selectedFilmForExport + " information has been exported!");
+				// System.out.println(this.selectedFilmForExport + " information has been
+				// exported!");
 				lblFeedback.setText((this.selectedFilmForExport + " information has been exported!"));
 
-				
 			}
 		}
 	}
@@ -291,7 +291,7 @@ public class StaffExportController implements Initializable, ControlledScreen {
 			Files.write(Paths.get(savedfilepath), z.getBytes(), StandardOpenOption.APPEND);
 
 			ScreensFramework.LOGGER.info("Database has been exported!");
-//			System.out.println("Database has been exported!");
+			// System.out.println("Database has been exported!");
 			lblFeedback.setText("Database has been exported!");
 		}
 
@@ -306,6 +306,9 @@ public class StaffExportController implements Initializable, ControlledScreen {
 
 	@FXML
 	public void goToLogin(ActionEvent event) {
+		// Unload the User:
+		LoginController.USER.clearDetails();
+		ScreensFramework.LOGGER.info("User logged out.");
 		// Unload screens:
 		myController.unloadScreen(ScreensFramework.loginID);
 		myController.unloadScreen(ScreensFramework.staffHomeID);

@@ -33,7 +33,13 @@ import objects.Customer;
 import objects.Listing;
 
 /**
- * FXML Controller class
+ * FXML Controller class for the Customer Homepage. This page contains selectors
+ * that allow the Customer to see all movies playing on a certain date, and then
+ * all times that the specified movie is playing on this date. Further, it
+ * provides a weekly snapshot of movies, so that the Customer can speedily
+ * select a film to watch that is playing over the next few days.
+ * 
+ * @author Mark Backhouse
  *
  */
 public class CustHomeController extends ToolbarController implements Initializable, ControlledScreen {
@@ -69,7 +75,8 @@ public class CustHomeController extends ToolbarController implements Initializab
 	public static Listing LISTING; // Film listing
 
 	/**
-	 * Initializes the controller class.
+	 * Initializes the controller class. The "films showing this week" accordion is
+	 * initialised using database information.
 	 */
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
@@ -89,12 +96,13 @@ public class CustHomeController extends ToolbarController implements Initializab
 
 			String date = dateTimeFormatter.format(LocalDate.now().plusDays(i));
 
-			try {
+			try { // If the database file can be found
 
 				TextFileManager fileManager = new TextFileManager();
 				List<String[]> filmTimes = fileManager.getFilmTimes();
 				List<HBox> filmList = new ArrayList<HBox>();
 
+				// Find any listing that is playing on the titlepane's date:
 				for (String[] listing : filmTimes) {
 					if (listing[2].equals(date)) {
 						// Labels, buttons:
@@ -142,13 +150,14 @@ public class CustHomeController extends ToolbarController implements Initializab
 						}
 						seatsLeft.setText(freeSeatCount + " seats left.");
 
+						// Take the customer to the book-film page for this listing if they click on the
+						// listing:
 						btn.setOnAction((ActionEvent e) -> {
 							try {
 								int PlaceHolderBookingID = 0;
 								String title = listing[1];
 								String time = listing[3];
 								String listingID = Listing.findShowingID(title, date, time);
-								// String[][] seats = TextFileManager.getSeatInformation(listingID);
 
 								LISTING = new Listing(listingID, title, date, time, seats);
 								BOOKING = new Booking(PlaceHolderBookingID, LISTING, null,
@@ -158,7 +167,7 @@ public class CustHomeController extends ToolbarController implements Initializab
 										ScreensFramework.custBookFilmPageFile);
 
 								myController.setScreen(ScreensFramework.custBookFilmPageID);
-							} catch (IOException e1) {
+							} catch (IOException e1) { // the database file could not be found
 								ScreensFramework.LOGGER.warning(e1.getMessage());
 							}
 
@@ -173,19 +182,28 @@ public class CustHomeController extends ToolbarController implements Initializab
 
 				ListView<HBox> filmsPlayingToday = new ListView<HBox>(oFilmList);
 
+				// Add the content to the TitledPane:
 				day.setContent(filmsPlayingToday);
-			} catch (IOException e) {
-				e.printStackTrace();
+
+			} catch (IOException e) { // the database file could not be found.
+				ScreensFramework.LOGGER.warning(e.getMessage());
 			}
 
-			i++;
+			i++; // Go to the next day
 		}
 	}
 
+	@Override
+	public void setScreenParent(ScreensController screenParent) {
+		myController = screenParent;
+	}
+
 	/**
+	 * Uses the date in the DatePicker box and returns the associated film list.
 	 * 
-	 * @return A list of films that are playing on a specified date.
+	 * @return the list of films that are playing on a specified date.
 	 * @throws IOException
+	 *             if the database file cannot be found.
 	 */
 	public List<String> getFilmList() throws IOException {
 		try {
@@ -197,9 +215,12 @@ public class CustHomeController extends ToolbarController implements Initializab
 	}
 
 	/**
+	 * Uses the DatePicker and film values to find the associated list of available
+	 * times.
 	 * 
 	 * @return A list of times for a given date and film.
 	 * @throws IOException
+	 *             if the database file cannot be found.
 	 */
 	public List<String> getTimesList() throws IOException {
 		try {
@@ -216,8 +237,9 @@ public class CustHomeController extends ToolbarController implements Initializab
 	 * be showing on the specified date.
 	 * 
 	 * @param event
-	 *            date selection from DatePicker box
+	 *            the date has been selected.
 	 * @throws IOException
+	 *             if the database file cannot be found.
 	 */
 	@FXML
 	private void setFilmList(ActionEvent event) throws IOException {
@@ -234,6 +256,15 @@ public class CustHomeController extends ToolbarController implements Initializab
 		}
 	}
 
+	/**
+	 * Sets the times list after a date and film have been selected. Times are those
+	 * that will be showing for the specified date and film.
+	 * 
+	 * @param event
+	 *            the film and date have been selected.
+	 * @throws IOException
+	 *             if the database file cannot be found.
+	 */
 	@FXML
 	private void setTimesList(ActionEvent event) throws IOException {
 		selectTime.getItems().clear();
@@ -249,11 +280,16 @@ public class CustHomeController extends ToolbarController implements Initializab
 		}
 	}
 
-	@Override
-	public void setScreenParent(ScreensController screenParent) {
-		myController = screenParent;
-	}
-
+	/**
+	 * Sends the Customer, along with User, Listing and Booking objects, to the
+	 * Booking page.
+	 * 
+	 * @param event
+	 *            the Customer clicks the "GO!" button after a selection has been
+	 *            made.
+	 * @throws ParseException
+	 *             if the date value cannot be parsed to the database's format.
+	 */
 	@FXML
 	public void goToCustBookFilmPage(ActionEvent event) throws ParseException {
 		if (selectDate.getValue() != null && !selectFilm.getSelectionModel().isEmpty()
@@ -280,6 +316,7 @@ public class CustHomeController extends ToolbarController implements Initializab
 					ScreensFramework.LOGGER.warning(e.getMessage());
 				}
 			} else {
+				ScreensFramework.LOGGER.info("Customer picked an out-of-date screening.");
 				lblStatus.setText("You cannot pick a date before today!");
 			}
 		} else {
@@ -287,6 +324,21 @@ public class CustHomeController extends ToolbarController implements Initializab
 		}
 	}
 
+	/**
+	 * Checks whether a selected listing was valid. Listings are only valid if they
+	 * have not yet taken place.
+	 * 
+	 * @param date
+	 *            the date of the listing.
+	 * @param movie
+	 *            the title of the listing.
+	 * @param time
+	 *            the time of the listing.
+	 * @return true if the listing is taking place in the future, false otherwise.
+	 * @throws ParseException
+	 *             if the input date cannot be converted into a format recognised by
+	 *             the database.
+	 */
 	private Boolean isValidListingSelection(String date, String movie, String time) throws ParseException {
 
 		String timeNowString = new SimpleDateFormat("dd/MM/yyyy HH:mm").format(new Date());
@@ -330,6 +382,9 @@ public class CustHomeController extends ToolbarController implements Initializab
 	@Override
 	@FXML
 	public void goToLogin(ActionEvent event) {
+		// Unload the User:
+		LoginController.USER.clearDetails();
+		ScreensFramework.LOGGER.info("User logged out.");
 		// Unload screens:
 		myController.unloadScreen(ScreensFramework.loginID);
 		myController.unloadScreen(ScreensFramework.registrationID);

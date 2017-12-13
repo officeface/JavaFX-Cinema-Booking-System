@@ -7,6 +7,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
+/**
+ * Contains the main methods for the Customer-side toolbar interaction.
+ * @author mark
+ *
+ */
 public class ToolbarController implements Initializable, ControlledScreen {
 
 	ScreensController myController = new ScreensController();

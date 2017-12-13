@@ -28,8 +28,15 @@ import javafx.scene.input.MouseEvent;
 import objects.Customer;
 import objects.Listing;
 
+/**
+ * Controller class for the Booking History page. Allows customers to see their
+ * past bookings and delete any bookings that haven't taken place yet.
+ * 
+ * @author Mark Backhouse
+ *
+ */
 public class CustBookingHistoryPageController extends ToolbarController implements Initializable, ControlledScreen {
- 
+
 	@FXML
 	private Button btnLogout, btnHome, btnMyProfile, btnMyBookings, btnUpdate;
 
@@ -38,17 +45,19 @@ public class CustBookingHistoryPageController extends ToolbarController implemen
 
 	@FXML
 	private Label lblUpdateStatus, lblFetchDetails;
-	
+
 	@FXML
 	private Accordion bookingAccordion = new Accordion();
 
 	ScreensController myController;
-	
+
 	// Booking History:
 	Map<String, List<String>> bookingHistory;
 
 	/**
-	 * Initializes the controller class.
+	 * Initializes the controller class. Populates the Customer's booking history
+	 * accordion with a list of their past bookings. These bookings can be deleted
+	 * if they have not yet taken place.
 	 */
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
@@ -58,41 +67,45 @@ public class CustBookingHistoryPageController extends ToolbarController implemen
 			Set<String> keys = bookingHistory.keySet();
 			int i = 0;
 			TitledPane[] bookings = new TitledPane[bookingHistory.size()];
-			
-			for(String key : keys) {
+
+			for (String key : keys) {
 				TitledPane pane = new TitledPane(); // Set title of pane
-				pane.setText(Listing.findMovieTitle(key) + "\n" + Listing.findMovieDateAndTime(key)); // Set date/time information
-				
+				pane.setText(Listing.findMovieTitle(key) + "\n" + Listing.findMovieDateAndTime(key)); // Set date/time
+																										// information
+
 				// Add delete button if the listing has not yet completed:
 				String timeNowString = new SimpleDateFormat("dd/MM/yyyy HH:mm").format(new Date());
 				String timeListingString = Listing.findMovieDateAndTime(key);
 				Date timeNow = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(timeNowString);
 				Date timeListing = new SimpleDateFormat("dd/MM/yyyy HH:mm").parse(timeListingString);
-				
+
 				if (timeNow.before(timeListing)) { // Checks if the listing is able to be deleted:
-				
+
 					Button btnDeleteListing = new Button("Delete Booking");
-					btnDeleteListing.setStyle("-fx-background-color: rgb(85,209,255); -fx-text-fill: white; "); // Sets the style of the buttons
-					
+					btnDeleteListing.setStyle("-fx-background-color: rgb(85,209,255); -fx-text-fill: white; "); // Sets
+																												// the
+																												// style
+																												// of
+																												// the
+																												// buttons
+
 					// Two events handlers if the user hovers over the buttons
-					btnDeleteListing.setOnMouseExited(new EventHandler<MouseEvent>
-				    () {
+					btnDeleteListing.setOnMouseExited(new EventHandler<MouseEvent>() {
 
-				        @Override
-				        public void handle(MouseEvent t) {
-				        	btnDeleteListing.setStyle("-fx-background-color: rgb(85,209,255); -fx-text-fill: white;");
-				        }
-				    });
+						@Override
+						public void handle(MouseEvent t) {
+							btnDeleteListing.setStyle("-fx-background-color: rgb(85,209,255); -fx-text-fill: white;");
+						}
+					});
 
-					btnDeleteListing.setOnMouseEntered(new EventHandler<MouseEvent>
-				    () {
+					btnDeleteListing.setOnMouseEntered(new EventHandler<MouseEvent>() {
 
-				        @Override
-				        public void handle(MouseEvent t) {
-				        	btnDeleteListing.setStyle("-fx-background-color: rgb(0,144,254); -fx-text-fill: white;");
-				        }
-				    });
-					
+						@Override
+						public void handle(MouseEvent t) {
+							btnDeleteListing.setStyle("-fx-background-color: rgb(0,144,254); -fx-text-fill: white;");
+						}
+					});
+
 					// Add ActionEvent for delete button:
 					btnDeleteListing.setOnAction((ActionEvent e) -> {
 						try {
@@ -106,48 +119,50 @@ public class CustBookingHistoryPageController extends ToolbarController implemen
 						}
 						this.bookingAccordion.getPanes().remove(pane);
 					});
-					
+
 					// Alignment of button:
 					btnDeleteListing.setPrefWidth(120);
 					pane.setGraphic(btnDeleteListing);
 					pane.setGraphicTextGap(10);
-					
+
 				} else {
-					
+
 					Button btnDeleteListing = new Button("Old Booking");
 					btnDeleteListing.setDisable(true);
-					btnDeleteListing.setStyle("-fx-background-color: rgb(85,209,255); -fx-text-fill: white; "); // Sets the style of the buttons
-					
+					btnDeleteListing.setStyle("-fx-background-color: rgb(85,209,255); -fx-text-fill: white; "); // Sets
+																												// the
+																												// style
+																												// of
+																												// the
+																												// buttons
+
 					// Alignment of button:
 					btnDeleteListing.setPrefWidth(120);
 					pane.setGraphic(btnDeleteListing);
 					pane.setGraphicTextGap(10);
-					
+
 				}
-				
-				
-				
-				
+
 				// Set pane contents:
 				List<String> seatsArrayList = bookingHistory.get(key);
-				String totalCost = "Total cost: £" + 5*seatsArrayList.size() + ".00"; 	// Set booking total cost
+				String totalCost = "Total cost: £" + 5 * seatsArrayList.size() + ".00"; // Set booking total cost
 				seatsArrayList.add(totalCost);
 				ObservableList<String> seatsObservableList = FXCollections.observableArrayList(seatsArrayList);
 				ListView<String> seatsListView = new ListView<String>(seatsObservableList);
 				pane.setContent(seatsListView);
-					
+
 				bookings[i] = pane; // Add pane to list of bookings
 				i++; // Go to next index of bookings array
 			}
-			
+
 			this.bookingAccordion.getPanes().addAll(bookings);
-			
-		} catch(ParseException e) {
-			e.printStackTrace();
+
+		} catch (ParseException e) {
+			ScreensFramework.LOGGER.warning(e.getMessage());
 		} catch (JSONException e) {
-			e.printStackTrace();
+			ScreensFramework.LOGGER.warning(e.getMessage());
 		} catch (IOException e) {
-			e.printStackTrace();
+			ScreensFramework.LOGGER.warning(e.getMessage());
 		}
 	}
 
@@ -155,9 +170,6 @@ public class CustBookingHistoryPageController extends ToolbarController implemen
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
 	}
-
-	
-	
 
 	@Override
 	@FXML
@@ -174,7 +186,9 @@ public class CustBookingHistoryPageController extends ToolbarController implemen
 	@Override
 	@FXML
 	public void goToLogin(ActionEvent event) {
-
+		// Unload the User:
+		LoginController.USER.clearDetails();
+		ScreensFramework.LOGGER.info("User logged out.");
 		// Unload screens:
 		myController.unloadScreen(ScreensFramework.loginID);
 		myController.unloadScreen(ScreensFramework.registrationID);
