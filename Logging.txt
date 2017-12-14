@@ -1,88 +1,20 @@
-Dec 14, 2017 11:52:00 AM screensframework.LoginController initialize
-INFO: Creating Assets folder in User home directory
-Dec 14, 2017 11:52:00 AM screensframework.LoginController initialize
-INFO: Database does not exist in assets folder, creating now.
-Dec 14, 2017 11:52:00 AM screensframework.ScreensController loadScreen
-INFO: main was loaded.
-Dec 14, 2017 11:52:04 AM screensframework.ScreensController loadScreen
-INFO: staffHome was loaded.
-Dec 14, 2017 11:52:04 AM screensframework.ScreensController loadScreen
-INFO: staffExport was loaded.
-Dec 14, 2017 11:52:04 AM screensframework.ScreensController loadScreen
-INFO: bookingSummary was loaded.
-Dec 14, 2017 11:52:04 AM screensframework.ScreensController loadScreen
-INFO: addFilmPage was loaded.
-Dec 14, 2017 11:52:04 AM screensframework.ScreensController loadScreen
-INFO: addFilmListings was loaded.
-Dec 14, 2017 11:52:07 AM screensframework.StaffHomeController goToLogin
-INFO: User logged out.
-Dec 14, 2017 11:52:07 AM screensframework.ScreensController unloadScreen
-INFO: main was closed.
-Dec 14, 2017 11:52:07 AM screensframework.ScreensController unloadScreen
-INFO: staffHome was closed.
-Dec 14, 2017 11:52:07 AM screensframework.ScreensController unloadScreen
-WARNING: custHome wasn't open.
-Dec 14, 2017 11:52:07 AM screensframework.ScreensController unloadScreen
-WARNING: custProfilePage wasn't open.
-Dec 14, 2017 11:52:07 AM screensframework.ScreensController unloadScreen
-WARNING: custBookFilmPage wasn't open.
-Dec 14, 2017 11:52:07 AM screensframework.ScreensController unloadScreen
-WARNING: custConfirmPage wasn't open.
-Dec 14, 2017 11:52:07 AM screensframework.ScreensController unloadScreen
-INFO: staffExport was closed.
-Dec 14, 2017 11:52:07 AM screensframework.ScreensController unloadScreen
-INFO: bookingSummary was closed.
-Dec 14, 2017 11:52:07 AM screensframework.ScreensController unloadScreen
-INFO: addFilmPage was closed.
-Dec 14, 2017 11:52:07 AM screensframework.ScreensController unloadScreen
-INFO: addFilmListings was closed.
-Dec 14, 2017 11:52:07 AM screensframework.LoginController initialize
+Dec 14, 2017 1:25:24 PM screensframework.LoginController initialize
 INFO: Assets folder exists!
-Dec 14, 2017 11:52:07 AM screensframework.ScreensController loadScreen
+Dec 14, 2017 1:25:24 PM screensframework.ScreensController loadScreen
 INFO: main was loaded.
-Dec 14, 2017 11:52:09 AM screensframework.ScreensController loadScreen
+Dec 14, 2017 1:25:26 PM screensframework.ScreensController loadScreen
 INFO: staffHome was loaded.
-Dec 14, 2017 11:52:09 AM screensframework.ScreensController loadScreen
+Dec 14, 2017 1:25:26 PM screensframework.ScreensController loadScreen
 INFO: staffExport was loaded.
-Dec 14, 2017 11:52:09 AM screensframework.ScreensController loadScreen
+Dec 14, 2017 1:25:26 PM screensframework.ScreensController loadScreen
 INFO: bookingSummary was loaded.
-Dec 14, 2017 11:52:09 AM screensframework.ScreensController loadScreen
+Dec 14, 2017 1:25:26 PM screensframework.ScreensController loadScreen
 INFO: addFilmPage was loaded.
-Dec 14, 2017 11:52:09 AM screensframework.ScreensController loadScreen
+Dec 14, 2017 1:25:26 PM screensframework.ScreensController loadScreen
 INFO: addFilmListings was loaded.
-Dec 14, 2017 11:52:12 AM screensframework.ScreensController unloadScreen
-INFO: addFilmListings was closed.
-Dec 14, 2017 11:52:12 AM screensframework.ScreensController loadScreen
-INFO: addFilmListings was loaded.
-Dec 14, 2017 11:52:25 AM screensframework.ScreensController unloadScreen
+Dec 14, 2017 1:25:28 PM screensframework.ScreensController unloadScreen
 INFO: staffExport was closed.
-Dec 14, 2017 11:52:25 AM screensframework.ScreensController loadScreen
+Dec 14, 2017 1:25:28 PM screensframework.ScreensController loadScreen
 INFO: staffExport was loaded.
-Dec 14, 2017 11:52:29 AM screensframework.BookingSummaryController goToLogin
-INFO: User logged out.
-Dec 14, 2017 11:52:29 AM screensframework.ScreensController unloadScreen
-INFO: main was closed.
-Dec 14, 2017 11:52:29 AM screensframework.ScreensController unloadScreen
-INFO: staffHome was closed.
-Dec 14, 2017 11:52:29 AM screensframework.ScreensController unloadScreen
-WARNING: custHome wasn't open.
-Dec 14, 2017 11:52:29 AM screensframework.ScreensController unloadScreen
-WARNING: custProfilePage wasn't open.
-Dec 14, 2017 11:52:29 AM screensframework.ScreensController unloadScreen
-WARNING: custBookFilmPage wasn't open.
-Dec 14, 2017 11:52:29 AM screensframework.ScreensController unloadScreen
-WARNING: custConfirmPage wasn't open.
-Dec 14, 2017 11:52:29 AM screensframework.ScreensController unloadScreen
-INFO: staffExport was closed.
-Dec 14, 2017 11:52:29 AM screensframework.ScreensController unloadScreen
-INFO: bookingSummary was closed.
-Dec 14, 2017 11:52:29 AM screensframework.ScreensController unloadScreen
-INFO: addFilmPage was closed.
-Dec 14, 2017 11:52:29 AM screensframework.ScreensController unloadScreen
-INFO: addFilmListings was closed.
-Dec 14, 2017 11:52:29 AM screensframework.LoginController initialize
-INFO: Assets folder exists!
-Dec 14, 2017 11:52:29 AM screensframework.ScreensController loadScreen
-INFO: main was loaded.
-Dec 14, 2017 11:52:30 AM screensframework.ScreensFramework lambda$0
-INFO: Program exited.
+Dec 14, 2017 1:25:33 PM screensframework.TextFileManager getSeatInformation
+INFO: Loaded booking data for City Lights

@@ -24,6 +24,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.stage.FileChooser;
 import javafx.stage.Window;
+import objects.Listing;
 
 /**
  * FXML Controller class for the staff export page.
@@ -91,7 +92,7 @@ public class StaffExportController implements Initializable, ControlledScreen, S
 		}
 		filmDropDown.setItems(filmNames); // Setting film titles to the dropdown
 	}
-	
+
 	/**
 	 * {@inheritDoc}
 	 */
@@ -120,7 +121,6 @@ public class StaffExportController implements Initializable, ControlledScreen, S
 			JSONObject objSF = JSONUtils.getJSONObjectFromFile(TextFileManager.database); // New json object is the
 																							// database
 																							// for scanning
-
 			// New json object and array to hold title,free and bookseats info
 			JSONObject objSF2 = new JSONObject();
 			JSONArray seatsArraySF = new JSONArray();
@@ -152,7 +152,8 @@ public class StaffExportController implements Initializable, ControlledScreen, S
 					String[] tempTimeArraySF = new String[1];
 					tempTimeArraySF[0] = jsonArraySF.getJSONObject(z).getString("time");
 
-					Integer getSeatInfoSF = z + 1; // Position of seat info
+					String getSeatInfoSF = Listing.findShowingID(tempTitleArraySF[0], tempDateArraySF[0],
+							tempTimeArraySF[0]); // Position of seat info
 					String[][] seats = TextFileManager.getSeatInformation(getSeatInfoSF.toString()); // getting seats
 																										// info
 					// Initialising book/free seat variable
@@ -161,6 +162,7 @@ public class StaffExportController implements Initializable, ControlledScreen, S
 					// Generate the seats according to the listing information:
 					for (int i = 0; i < 6; i++) {
 						for (int j = 0; j < 10; j++) {
+							System.out.println(seats[i][j]);
 							// Check if seat is available:
 							if (seats[i][j].equals("Free")) {
 								freeSeatsCounterSF = freeSeatsCounterSF + 1; // Updates free seats counter
