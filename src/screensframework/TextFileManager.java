@@ -31,7 +31,7 @@ public class TextFileManager {
 
 	static File currentDir = new File(".");
 	static File parentDir = currentDir.getAbsoluteFile().getParentFile();
-	public static File database = new File(parentDir, "database.json");
+	public static File database = new File(System.getProperty("user.home") + "/assets/", "database.json");
 
 	public TextFileManager() throws IOException {
 		this.loginDetails = loginDetailsToArrayList();

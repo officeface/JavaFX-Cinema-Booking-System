@@ -46,8 +46,8 @@ public class LoginController implements Initializable, ControlledScreen {
 	// Setting up the database file location:
 	File currentDir = new File(".");
 	File parentDir = currentDir.getAbsoluteFile().getParentFile();
-	File database = new File(parentDir, "database.json");
-	File assets = new File(parentDir, "assets");
+	File database = new File(System.getProperty("user.home") + "/assets/", "database.json");
+	File assets = new File(System.getProperty("user.home"), "assets");
 
 	/**
 	 * Initializes the controller class. Sets up the database file if it does not
@@ -75,13 +75,11 @@ public class LoginController implements Initializable, ControlledScreen {
 			}
 
 			// Folder for images:
-			// if (assets.exists() && assets.isDirectory()) {
-			// ScreensFramework.LOGGER.info("Assets folder exists!");
-			// System.out.println("Assets folder exists!");
-			// } else {
-			// new File(parentDir, "assets").mkdir();
-			//
-			// }
+			if (assets.exists() && assets.isDirectory()) {
+				ScreensFramework.LOGGER.info("Assets folder exists!");
+			} else {
+				new File(System.getProperty("user.home"), "assets").mkdir();
+			}
 
 		} catch (IOException e) {
 			ScreensFramework.LOGGER.warning(e.getMessage());

@@ -4,6 +4,10 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.FileAlreadyExistsException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ResourceBundle;
 
 import javax.imageio.ImageIO;
@@ -128,13 +132,21 @@ public class AddFilmPageController implements Initializable, ControlledScreen {
 					Image image = SwingFXUtils.toFXImage(bufferedImage, null);
 					imgViewFilmImage.setImage(image); // Sets selected image to the image view
 
-					String imagePathway = file.getAbsolutePath(); // Returns the pathway of an image that has been
-																	// selected
-					this.imagePathway = imagePathway;
+					Path from = Paths.get(file.toURI());
+					Path to = Paths.get(System.getProperty("user.home") + "/assets/" + file.getName());
+					Files.copy(from, to);
 
+					//String imagePathway = file.getAbsolutePath(); // Returns the pathway of an image that has been
+																	// selected
+					
+					this.imagePathway = "/assets/" + file.getName();
+
+				} catch (FileAlreadyExistsException fae) {
+					this.imagePathway = "/assets/" + file.getName();
+					ScreensFramework.LOGGER.warning("/" + file.getName() + " - File already exists!");
 				} catch (IOException ex) {
 					ScreensFramework.LOGGER.warning("Could not upload image!");
-					//System.out.println("Could not upload image");
+					System.out.println(ex);
 				}
 
 				// Feedback label updated
