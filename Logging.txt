@@ -1,0 +1,4 @@
+Dec 14, 2017 12:27:50 AM screensframework.LoginController initialize
+INFO: Database does not exist in parent directory, creating now.
+Dec 14, 2017 12:27:50 AM screensframework.ScreensController loadScreen
+INFO: main was loaded.

@@ -79,11 +79,6 @@ public class AddFilmPageController implements Initializable, ControlledScreen {
 	@FXML
 	private Button btnGoToNewListing;
 
-	// Image destination file:
-	File currentDir = new File(".");
-	File parentDir = currentDir.getAbsoluteFile().getParentFile();
-	File assets = new File(parentDir, "assets");
-
 	/**
 	 * Initialises the controller class.
 	 */

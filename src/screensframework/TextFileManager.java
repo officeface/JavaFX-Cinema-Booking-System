@@ -29,8 +29,6 @@ public class TextFileManager {
 	private List<String[]> filmList;
 	private List<String[]> filmTimes;
 
-	static File currentDir = new File(".");
-	static File parentDir = currentDir.getAbsoluteFile().getParentFile();
 	public static File database = new File(System.getProperty("user.home") + "/assets/", "database.json");
 
 	public TextFileManager() throws IOException {

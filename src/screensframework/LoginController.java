@@ -44,8 +44,6 @@ public class LoginController implements Initializable, ControlledScreen {
 	private PasswordField txtPassword; // Password
 
 	// Setting up the database file location:
-	File currentDir = new File(".");
-	File parentDir = currentDir.getAbsoluteFile().getParentFile();
 	File database = new File(System.getProperty("user.home") + "/assets/", "database.json");
 	File assets = new File(System.getProperty("user.home"), "assets");
 
@@ -57,6 +55,14 @@ public class LoginController implements Initializable, ControlledScreen {
 	public void initialize(URL url, ResourceBundle rb) {
 
 		try {
+
+			// Folder for images and database:
+			if (assets.exists() && assets.isDirectory()) {
+				ScreensFramework.LOGGER.info("Assets folder exists!");
+			} else {
+				new File(System.getProperty("user.home"), "assets").mkdir();
+			}
+
 			// Initialise the database JSON file:
 			if (!database.exists()) {
 				ScreensFramework.LOGGER.info("Database does not exist in parent directory, creating now.");
@@ -72,13 +78,6 @@ public class LoginController implements Initializable, ControlledScreen {
 																// created database
 				write.write(obj.toString());
 				write.close();
-			}
-
-			// Folder for images:
-			if (assets.exists() && assets.isDirectory()) {
-				ScreensFramework.LOGGER.info("Assets folder exists!");
-			} else {
-				new File(System.getProperty("user.home"), "assets").mkdir();
 			}
 
 		} catch (IOException e) {

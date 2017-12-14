@@ -79,11 +79,6 @@ public class CustBookFilmPageController implements Initializable, ControlledScre
 	@FXML
 	private Label lblBookFilmPage;
 
-	// Image source file:
-	File currentDir = new File(".");
-	File parentDir = currentDir.getAbsoluteFile().getParentFile();
-	File assets = new File(parentDir, "assets");
-
 	/**
 	 * Initialises the controller class. Sets up the seating layout for the listing.
 	 */
@@ -103,14 +98,6 @@ public class CustBookFilmPageController implements Initializable, ControlledScre
 			this.lblDescription.setText(getDescription(CustHomeController.BOOKING.getMovie().getTitle()));
 
 			String imagePath = getImage(CustHomeController.BOOKING.getMovie().getTitle());
-//			File file = new File(imagePath);
-
-//			int slashCount = 0;
-//			for (int i = 0; i < imagePath.length(); i++) {
-//				if (imagePath.charAt(i) == '/' || imagePath.charAt(i) == '\\') {
-//					slashCount++;
-//				}
-//			}
 
 			if (imagePath.startsWith("/assets/")) {
 				Image image = new Image(new File(System.getProperty("user.home") + imagePath).toURI().toString());
