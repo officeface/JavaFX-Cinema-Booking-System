@@ -42,7 +42,7 @@ import objects.Listing;
  * @author Mark Backhouse
  *
  */
-public class CustHomeController extends ToolbarController implements Initializable, ControlledScreen {
+public class CustHomeController implements Initializable, ControlledScreen, CustToolbar {
 
 	@FXML
 	private Label lblHomePage, lblStatus;
@@ -67,11 +67,25 @@ public class CustHomeController extends ToolbarController implements Initializab
 
 	ScreensController myController;
 
+	/**
+	 * An Observable List containing a list of film names.
+	 */
 	private ObservableList<String> filmNames = FXCollections.observableArrayList(); // Container for film titles
+	
+	/**
+	 * An Observable List containing a list of film times.
+	 */
 	private ObservableList<String> timeList = FXCollections.observableArrayList(); // Container for film times
 	private DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy"); // Formatting dates
 
+	/**
+	 * The Customer's movie booking object.
+	 */
 	public static Booking BOOKING; // Customer's booking
+	
+	/**
+	 * The Listing object for the selected movie booking object.
+	 */
 	public static Listing LISTING; // Film listing
 
 	/**
@@ -207,6 +221,9 @@ public class CustHomeController extends ToolbarController implements Initializab
 		}
 	}
 
+	/**
+	 * Sets the screen parent.
+	 */
 	@Override
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
@@ -367,27 +384,36 @@ public class CustHomeController extends ToolbarController implements Initializab
 
 		return true;
 	}
-
-	@Override
+	
+	/**
+	 * {@inheritDoc}
+	 */
 	@FXML
 	public void goToCustHome(ActionEvent event) {
 		myController.setScreen(ScreensFramework.custHomeID);
 	}
 
-	@Override
+	/**
+	 * {@inheritDoc}
+	 */
 	@FXML
 	public void goToCustProfilePage(ActionEvent event) {
 		myController.setScreen(ScreensFramework.custProfilePageID);
 
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@FXML
 	public void goToCustBookingHistoryPage(ActionEvent event) {
 		myController.setScreen(ScreensFramework.custBookingHistoryPageID);
 
 	}
-
-	@Override
+	
+	/**
+	 * {@inheritDoc}
+	 */
 	@FXML
 	public void goToLogin(ActionEvent event) {
 		// Unload the User:

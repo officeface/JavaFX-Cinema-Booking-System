@@ -18,7 +18,7 @@ import objects.Customer;
  * FXML Controller for the Registration page. Allows a User to register as a new
  * Customer, then sends them to the Customer homepage.
  * 
- * @author mark
+ * @author Mark Backhouse
  *
  */
 public class RegistrationPageController implements Initializable, ControlledScreen {
@@ -45,6 +45,9 @@ public class RegistrationPageController implements Initializable, ControlledScre
 
 	}
 
+	/**
+	 * Sets the screen parent.
+	 */
 	@Override
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
@@ -144,7 +147,7 @@ public class RegistrationPageController implements Initializable, ControlledScre
 	 * @param email
 	 *            the requested new email address
 	 * @return True if the email is valid and not currently in use by another user.
-	 * @throws IOException
+	 * @throws IOException if the database file cannot be found.
 	 */
 	private Boolean emailCheck(String email) throws IOException {
 		// Makes sure user types something here
@@ -257,6 +260,10 @@ public class RegistrationPageController implements Initializable, ControlledScre
 		}
 	}
 
+	/**
+	 * Returns to the Login page
+	 * @param event "Back" button clicked.
+	 */
 	@FXML
 	private void returnToLogin(ActionEvent event) {
 

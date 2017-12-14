@@ -29,7 +29,7 @@ import javafx.scene.layout.GridPane;
  * @author Mark Backhouse
  *
  */
-public class CustBookFilmPageController implements Initializable, ControlledScreen {
+public class CustBookFilmPageController implements Initializable, ControlledScreen, CustToolbar {
 
 	ScreensController myController;
 
@@ -51,7 +51,9 @@ public class CustBookFilmPageController implements Initializable, ControlledScre
 	private ImageView imgShowFilmImage;
 	Image image;
 
-	// Seating
+	/**
+	 * A summary of the booked/unbooked seats for the selected Listing.
+	 */
 	String[][] seats = CustHomeController.LISTING.getSeats();
 
 	@FXML
@@ -166,6 +168,9 @@ public class CustBookFilmPageController implements Initializable, ControlledScre
 
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
@@ -260,23 +265,35 @@ public class CustBookFilmPageController implements Initializable, ControlledScre
 
 	// Toolbar methods
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@FXML
 	public void goToCustHome(ActionEvent event) {
 		myController.setScreen(ScreensFramework.custHomeID);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@FXML
 	public void goToCustProfilePage(ActionEvent event) {
 		myController.setScreen(ScreensFramework.custProfilePageID);
 
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@FXML
 	public void goToCustBookingHistoryPage(ActionEvent event) {
 		myController.setScreen(ScreensFramework.custBookingHistoryPageID);
 
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@FXML
 	public void goToLogin(ActionEvent event) {
 		// Unload the User:

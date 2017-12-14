@@ -32,7 +32,7 @@ import objects.Listing;
  * @author Fraz Ahmad
  *
  */
-public class BookingSummaryController implements Initializable, ControlledScreen {
+public class BookingSummaryController implements Initializable, ControlledScreen, StaffToolbar {
 
 	ScreensController myController;
 
@@ -88,6 +88,9 @@ public class BookingSummaryController implements Initializable, ControlledScreen
 
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
@@ -130,6 +133,7 @@ public class BookingSummaryController implements Initializable, ControlledScreen
 	 * @param event
 	 *            date selection from DatePicker box
 	 * @throws IOException
+	 *             if the database file cannot be found.
 	 */
 	@FXML
 	private void setFilmList(ActionEvent event) throws IOException {
@@ -152,6 +156,7 @@ public class BookingSummaryController implements Initializable, ControlledScreen
 	 * @param event
 	 *            time selection from time comboBox
 	 * @throws IOException
+	 *             if the database file cannot be found.
 	 */
 	@FXML
 	private void setTimesList(ActionEvent event) throws IOException {
@@ -269,12 +274,17 @@ public class BookingSummaryController implements Initializable, ControlledScreen
 	}
 
 	// Toolbar methods
-
+	/**
+	 * {@inheritDoc}
+	 */
 	@FXML
 	public void goToStaffHome(ActionEvent event) {
 		myController.setScreen(ScreensFramework.staffHomeID);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@FXML
 	public void goToLogin(ActionEvent event) {
 		// Unload the User:
@@ -296,9 +306,33 @@ public class BookingSummaryController implements Initializable, ControlledScreen
 		myController.setScreen(ScreensFramework.loginID);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@FXML
-	private void goToStaffExport(ActionEvent event) {
+	public void goToStaffExport(ActionEvent event) {
 		myController.setScreen(ScreensFramework.staffExportID);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void goToAddFilmPage(ActionEvent event) {
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void goToAddListings(ActionEvent event) {
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void goToBookingSummary(ActionEvent event) {
 	}
 
 }

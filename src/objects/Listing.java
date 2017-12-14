@@ -51,7 +51,6 @@ public class Listing {
 		for (int i = 0; i < filmTimes.size(); i++) {
 			if (filmTimes.get(i)[1].equals(title) && filmTimes.get(i)[2].equals(date)
 					&& filmTimes.get(i)[3].equals(time)) {
-				System.out.println("Successfully found ID");
 				return filmTimes.get(i)[0];
 			}
 		}

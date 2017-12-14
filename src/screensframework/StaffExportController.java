@@ -40,7 +40,7 @@ import javafx.stage.Window;
  * @author Fraz Ahmad
  *
  */
-public class StaffExportController implements Initializable, ControlledScreen {
+public class StaffExportController implements Initializable, ControlledScreen, StaffToolbar {
 
 	ScreensController myController;
 
@@ -91,7 +91,10 @@ public class StaffExportController implements Initializable, ControlledScreen {
 		}
 		filmDropDown.setItems(filmNames); // Setting film titles to the dropdown
 	}
-
+	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
@@ -319,12 +322,17 @@ public class StaffExportController implements Initializable, ControlledScreen {
 	}// End of overall method
 
 	// Toolbar methods
-
+	/**
+	 * {@inheritDoc}
+	 */
 	@FXML
 	public void goToStaffHome(ActionEvent event) {
 		myController.setScreen(ScreensFramework.staffHomeID);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@FXML
 	public void goToLogin(ActionEvent event) {
 		// Unload the User:
@@ -346,9 +354,33 @@ public class StaffExportController implements Initializable, ControlledScreen {
 		myController.setScreen(ScreensFramework.loginID);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@FXML
-	private void goToBookingSummary(ActionEvent event) {
+	public void goToBookingSummary(ActionEvent event) {
 		myController.setScreen(ScreensFramework.bookingSummaryID);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void goToAddFilmPage(ActionEvent event) {
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void goToAddListings(ActionEvent event) {
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void goToStaffExport(ActionEvent event) {
 	}
 
 }

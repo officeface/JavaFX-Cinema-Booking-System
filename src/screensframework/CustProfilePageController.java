@@ -17,10 +17,10 @@ import javafx.scene.control.TextField;
  * Controller class for the Customer's profile page. Allows the Customer to see
  * their username, firstname and lastname, as well as updating these details.
  * 
- * @author mark
+ * @author Mark Backhouse
  *
  */
-public class CustProfilePageController extends ToolbarController implements Initializable, ControlledScreen {
+public class CustProfilePageController implements Initializable, ControlledScreen, CustToolbar {
 
 	@FXML
 	private Button btnLogout, btnHome, btnMyProfile, btnMyBookings, btnUpdate;
@@ -43,6 +43,9 @@ public class CustProfilePageController extends ToolbarController implements Init
 		this.txtLastName.setText(LoginController.USER.getLastName());
 	}
 
+	/**
+	 * Sets the screen parent.
+	 */
 	@Override
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
@@ -92,25 +95,34 @@ public class CustProfilePageController extends ToolbarController implements Init
 		}
 	}
 
-	@Override
+	/**
+	 * {@inheritDoc}
+	 */
 	@FXML
 	public void goToCustHome(ActionEvent event) {
 		myController.setScreen(ScreensFramework.custHomeID);
 	}
 
-	@Override
+	/**
+	 * {@inheritDoc}
+	 */
 	@FXML
 	public void goToCustProfilePage(ActionEvent event) {
 		myController.setScreen(ScreensFramework.custProfilePageID);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@FXML
 	public void goToCustBookingHistoryPage(ActionEvent event) {
 		myController.setScreen(ScreensFramework.custBookingHistoryPageID);
 
 	}
 
-	@Override
+	/**
+	 * {@inheritDoc}
+	 */
 	@FXML
 	public void goToLogin(ActionEvent event) {
 		// Unload the User:

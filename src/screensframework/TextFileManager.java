@@ -29,8 +29,17 @@ public class TextFileManager {
 	private List<String[]> filmList;
 	private List<String[]> filmTimes;
 
+	/**
+	 * The database file, stored in JSON format.
+	 */
 	public static File database = new File(System.getProperty("user.home") + "/assets/", "database.json");
 
+	/**
+	 * Initialises the Login Details, Film List and Film Times arrays.
+	 * 
+	 * @throws IOException
+	 *             if the database file canot be found.
+	 */
 	public TextFileManager() throws IOException {
 		this.loginDetails = loginDetailsToArrayList();
 		this.filmList = filmListToArrayList();
@@ -38,6 +47,7 @@ public class TextFileManager {
 	}
 
 	/**
+	 * Gets an input stream from a specified filepath.
 	 * 
 	 * @param path
 	 *            address of the file to be read
@@ -56,6 +66,7 @@ public class TextFileManager {
 	}
 
 	/**
+	 * Gets the seating information for a specified listing.
 	 * 
 	 * @param id
 	 *            Listing ID for a particular listing
@@ -92,7 +103,7 @@ public class TextFileManager {
 				}
 
 				ScreensFramework.LOGGER.info("Loaded booking data for " + title);
-				//System.out.println("Loaded information for " + title);
+				// System.out.println("Loaded information for " + title);
 				break;
 			}
 		}
@@ -174,7 +185,7 @@ public class TextFileManager {
 		try (FileWriter file = new FileWriter(database)) {
 			file.write(obj.toString());
 			ScreensFramework.LOGGER.info("Successfully updated database.json with new information.");
-			//System.out.println("Successfully updated JSON Object in File...");
+			// System.out.println("Successfully updated JSON Object in File...");
 		}
 	}
 
@@ -213,7 +224,7 @@ public class TextFileManager {
 		// Write JSON Object to file:
 		try (FileWriter file = new FileWriter(database)) {
 			file.write(obj.toString());
-			//System.out.println("Successfully updated JSON Object in File...");
+			// System.out.println("Successfully updated JSON Object in File...");
 			ScreensFramework.LOGGER.info("Successfully updated database.json with new information.");
 
 		}
@@ -261,7 +272,7 @@ public class TextFileManager {
 		// Write JSON Object to file:
 		try (FileWriter file = new FileWriter(database)) {
 			file.write(obj.toString());
-			//System.out.println("Successfully updated JSON Object in File...");
+			// System.out.println("Successfully updated JSON Object in File...");
 			ScreensFramework.LOGGER.info("Successfully updated database.json with new information.");
 
 		}
@@ -331,12 +342,14 @@ public class TextFileManager {
 		try (FileWriter file = new FileWriter(database)) {
 			file.write(obj.toString());
 			ScreensFramework.LOGGER.info("Successfully updated database.json with new information.");
-			//System.out.println("Successfully updated JSON Object in File...");
+			// System.out.println("Successfully updated JSON Object in File...");
 		}
 
 	}
 
 	/**
+	 * Converts a 'nice' String representation of a seat to numbered coordinates for
+	 * ease-of-use in the database.
 	 * 
 	 * @param seat
 	 *            A String in the form "Seat A7"
@@ -406,7 +419,7 @@ public class TextFileManager {
 		try (FileWriter file = new FileWriter(database)) {
 			file.write(obj.toString());
 			ScreensFramework.LOGGER.info("Successfully updated database.json with new information.");
-			//System.out.println("Successfully updated JSON Object in File...");
+			// System.out.println("Successfully updated JSON Object in File...");
 		}
 
 	}
@@ -415,7 +428,9 @@ public class TextFileManager {
 	 * 
 	 * Adds a new film listing as a JSONObject to the database. The seats are stored
 	 * as 60 "Free" key:value pairs.
-	 * @param newListing the new listing to be added.
+	 * 
+	 * @param newListing
+	 *            the new listing to be added.
 	 * @throws IOException
 	 *             the database file cannot be found.
 	 * @throws JSONException
@@ -458,13 +473,13 @@ public class TextFileManager {
 		try (FileWriter file = new FileWriter(database)) {
 			file.write(obj.toString());
 			ScreensFramework.LOGGER.info("Successfully updated database.json with new information.");
-			//System.out.println("Successfully updated JSON Object in File...");
+			// System.out.println("Successfully updated JSON Object in File...");
 		}
 
 	}
 
 	/**
-	 * 
+	 * Takes the Login Details from the database and inserts them into an Array List.
 	 * @return An array of login details for users of the cinema booking system. The
 	 *         array columns signify email-address/username, password and a
 	 *         staff/customer choice that tells the system to point the user in the
@@ -497,7 +512,7 @@ public class TextFileManager {
 	}
 
 	/**
-	 * 
+	 * Takes the Film List from the database and returns it in Array List format.
 	 * @return The list of films, their img URLs and descriptions in an array list.
 	 * @throws IOException
 	 *             the database file cannot be found.
@@ -522,7 +537,7 @@ public class TextFileManager {
 	}
 
 	/**
-	 * 
+	 * Takes the Film Times from the database and returns them in an Array List format.
 	 * @return The list of film showings in an array list. Each film has a
 	 *         collection of dates and times attributed to it.
 	 * @throws IOException
@@ -549,7 +564,7 @@ public class TextFileManager {
 	}
 
 	/**
-	 * 
+	 * Filters the list of films by a selected date.
 	 * @param date
 	 *            in the format dd/MM/yyyy
 	 * @return A list of film titles that are playing on a specified date
@@ -574,7 +589,7 @@ public class TextFileManager {
 	}
 
 	/**
-	 * 
+	 * Filters the available times for a given film and date.
 	 * @param date
 	 *            Date of the film listing
 	 * @param film
@@ -600,32 +615,56 @@ public class TextFileManager {
 		return times;
 	}
 
+	/**
+	 * Returns the Login Details
+	 * @return the Login Details
+	 */
 	public List<String[]> getLoginDetails() {
 		return loginDetails;
 	}
 
+	/**
+	 * Sets the Login Details
+	 * @param loginDetails the Login Details to be set.
+	 */
 	public void setLoginDetails(List<String[]> loginDetails) {
 		this.loginDetails = loginDetails;
 	}
 
+	/**
+	 * Returns the Film List
+	 * @return the Film List
+	 */
 	public List<String[]> getFilmList() {
 		return filmList;
 	}
 
+	/**
+	 * Sets the Film List
+	 * @param filmList the Film List to be set.
+	 */
 	public void setFilmList(List<String[]> filmList) {
 		this.filmList = filmList;
 	}
 
+	/**
+	 * Returns the Film Times
+	 * @return the Film Times
+	 */
 	public List<String[]> getFilmTimes() {
 		return filmTimes;
 	}
 
+	/** 
+	 * Sets the Film Times
+	 * @param filmTimes the Film Time to be set
+	 */
 	public void setFilmTimes(List<String[]> filmTimes) {
 		this.filmTimes = filmTimes;
 	}
 
 	/**
-	 * 
+	 * Returns a List of all film titles in the database.
 	 * @return Lists of all film titles in the database
 	 * @throws IOException
 	 *             the database file cannot be found.
@@ -643,7 +682,7 @@ public class TextFileManager {
 	}
 
 	/**
-	 * 
+	 * Returns a list of all Film Times in the database.
 	 * @return Lists of all timings available by the cinema
 	 * @throws IOException
 	 *             the database file cannot be found.

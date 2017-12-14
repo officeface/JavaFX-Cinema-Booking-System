@@ -35,7 +35,7 @@ import objects.Listing;
  * @author Fraz Ahmad
  *
  */
-public class AddFilmListingsController implements Initializable, ControlledScreen {
+public class AddFilmListingsController implements Initializable, ControlledScreen, StaffToolbar {
 
 	ScreensController myController;
 
@@ -117,7 +117,10 @@ public class AddFilmListingsController implements Initializable, ControlledScree
 		comboChooseTime.setItems(timesAvailable); // Sets comboBox the timings
 
 	}
-
+	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
@@ -128,7 +131,7 @@ public class AddFilmListingsController implements Initializable, ControlledScree
 	 * 
 	 * @author Fraz Ahmad
 	 * @param event - User selecting a film from the list.
-	 * @throws IOException
+	 * @throws IOException if the database file cannot be found.
 	 */
 	@FXML
 	private void getSelectedFilm(ActionEvent event) throws IOException {
@@ -141,7 +144,7 @@ public class AddFilmListingsController implements Initializable, ControlledScree
 	 * 
 	 * @author Fraz Ahmad
 	 * @param event - User selecting a date from the datepicker.
-	 * @throws IOException
+	 * @throws IOException if the database file cannot be found.
 	 */
 	@FXML
 	private void getSelectedDate(ActionEvent event) throws IOException {
@@ -154,7 +157,7 @@ public class AddFilmListingsController implements Initializable, ControlledScree
 	 * 
 	 * @author Fraz Ahmad 
 	 * @param event - User selecting a time from the list of times.
-	 * @throws IOException
+	 * @throws IOException if the database file cannot be found.
 	 */
 	@FXML
 	private void getSelectedTime(ActionEvent event) throws IOException {
@@ -258,17 +261,26 @@ public class AddFilmListingsController implements Initializable, ControlledScree
 	}
 
 	// Toolbar methods
-
+	
+	/**
+	 * {@inheritDoc}
+	 */
 	@FXML
 	public void goToStaffHome(ActionEvent event) {
 		myController.setScreen(ScreensFramework.staffHomeID);
 	}
-
+	
+	/**
+	 * {@inheritDoc}
+	 */
 	@FXML
-	private void goToAddFilmPage(ActionEvent event) {
+	public void goToAddFilmPage(ActionEvent event) {
 		myController.setScreen(ScreensFramework.addFilmPageID);
 	}
-
+	
+	/**
+	 * {@inheritDoc}
+	 */
 	@FXML
 	public void goToLogin(ActionEvent event) {
 		// Unload the User:
@@ -288,6 +300,27 @@ public class AddFilmListingsController implements Initializable, ControlledScree
 
 		myController.loadScreen(ScreensFramework.loginID, ScreensFramework.loginFile);
 		myController.setScreen(ScreensFramework.loginID);
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void goToAddListings(ActionEvent event) {
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void goToStaffExport(ActionEvent event) {
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void goToBookingSummary(ActionEvent event) {
 	}
 
 }

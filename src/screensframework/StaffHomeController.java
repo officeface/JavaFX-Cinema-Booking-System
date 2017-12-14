@@ -19,7 +19,7 @@ import javafx.scene.control.Button;
  * @author Fraz Ahmad
  *
  */
-public class StaffHomeController implements Initializable, ControlledScreen {
+public class StaffHomeController implements Initializable, ControlledScreen, StaffToolbar {
 
 	ScreensController myController;
 
@@ -47,10 +47,11 @@ public class StaffHomeController implements Initializable, ControlledScreen {
 	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
-
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
@@ -62,10 +63,10 @@ public class StaffHomeController implements Initializable, ControlledScreen {
 	 * Redirects employee to add film page once button is pressed
 	 * 
 	 * @author Fraz Ahmad
-	 * @param event
+	 * @param event the user chooses to navigate to the AddFilmPage
 	 */
 	@FXML
-	private void goToAddFilmPage(ActionEvent event) {
+	public void goToAddFilmPage(ActionEvent event) {
 		myController.setScreen(ScreensFramework.addFilmPageID);
 	}
 
@@ -73,10 +74,10 @@ public class StaffHomeController implements Initializable, ControlledScreen {
 	 * Redirects employee to add listing page once button is pressed
 	 * 
 	 * @author Fraz Ahmad
-	 * @param event
+	 * @param event the user chooses to navigate to the AddListingsPage
 	 */
 	@FXML
-	private void goToAddListings(ActionEvent event) {
+	public void goToAddListings(ActionEvent event) {
 		myController.setScreen(ScreensFramework.addFilmListingsID);
 	}
 
@@ -84,10 +85,10 @@ public class StaffHomeController implements Initializable, ControlledScreen {
 	 * Redirects employee to booking summary page once button is pressed
 	 * 
 	 * @author Fraz Ahmad
-	 * @param event
+	 * @param event the user chooses to navigate to the BookingSummary page
 	 */
 	@FXML
-	private void goToBookingSummary(ActionEvent event) {
+	public void goToBookingSummary(ActionEvent event) {
 		myController.setScreen(ScreensFramework.bookingSummaryID);
 	}
 
@@ -95,17 +96,19 @@ public class StaffHomeController implements Initializable, ControlledScreen {
 	 * Redirects employee to staff export once button is pressed
 	 * 
 	 * @author Fraz Ahmad
-	 * @param event
+	 * @param event the user chooses to navigate to the StaffExport page
 	 */
 	@FXML
-	private void goToStaffExport(ActionEvent event) {
+	public void goToStaffExport(ActionEvent event) {
 		myController.unloadScreen(ScreensFramework.staffExportID);
 		myController.loadScreen(ScreensFramework.staffExportID, ScreensFramework.staffExportFile);
 		myController.setScreen(ScreensFramework.staffExportID);
 	}
 
 	// TOOLBAR ACTIONS
-
+	/**
+	 * {@inheritDoc}
+	 */
 	@FXML
 	public void goToLogin(ActionEvent event) {
 		// Unload the User:
@@ -125,6 +128,14 @@ public class StaffHomeController implements Initializable, ControlledScreen {
 
 		myController.loadScreen(ScreensFramework.loginID, ScreensFramework.loginFile);
 		myController.setScreen(ScreensFramework.loginID);
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@FXML
+	public void goToStaffHome(ActionEvent event) {
+		
 	}
 
 }

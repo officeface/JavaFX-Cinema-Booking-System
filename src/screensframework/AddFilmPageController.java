@@ -45,7 +45,7 @@ import objects.Movie;;
  *
  */
 
-public class AddFilmPageController implements Initializable, ControlledScreen {
+public class AddFilmPageController implements Initializable, ControlledScreen, StaffToolbar {
 
 	ScreensController myController;
 
@@ -87,7 +87,10 @@ public class AddFilmPageController implements Initializable, ControlledScreen {
 		// TODO Auto-generated method stub
 
 	}
-
+	
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
@@ -166,7 +169,7 @@ public class AddFilmPageController implements Initializable, ControlledScreen {
 	 *            of 'add film' button being pressed
 	 * @throws JSONException
 	 *             - when fields are not compatible with the database.
-	 * @throws IOException
+	 * @throws IOException if the database file cannot be found.
 	 */
 	@FXML
 	private void addFilm(ActionEvent event) throws JSONException, IOException {
@@ -199,12 +202,18 @@ public class AddFilmPageController implements Initializable, ControlledScreen {
 	}
 
 	// Toolbar methods
-
+	
+	/**
+	 * {@inheritDoc}
+	 */
 	@FXML
 	public void goToStaffHome(ActionEvent event) {
 		myController.setScreen(ScreensFramework.staffHomeID);
 	}
-
+	
+	/**
+	 * {@inheritDoc}
+	 */
 	@FXML
 	public void goToLogin(ActionEvent event) {
 		// Unload the User:
@@ -225,14 +234,38 @@ public class AddFilmPageController implements Initializable, ControlledScreen {
 		myController.loadScreen(ScreensFramework.loginID, ScreensFramework.loginFile);
 		myController.setScreen(ScreensFramework.loginID);
 	}
-
+	
+	/**
+	 * {@inheritDoc}
+	 */
 	@FXML
-	private void goToAddListings(ActionEvent event) {
+	public void goToAddListings(ActionEvent event) {
 
 		// Unloads and reloads to update the page in case a new film was presently added
 		myController.unloadScreen(ScreensFramework.addFilmListingsID);
 		myController.loadScreen(ScreensFramework.addFilmListingsID, ScreensFramework.addFilmListingsFile);
 		myController.setScreen(ScreensFramework.addFilmListingsID);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@FXML
+	public void goToAddFilmPage(ActionEvent event) {
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@FXML
+	public void goToStaffExport(ActionEvent event) {
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@FXML
+	public void goToBookingSummary(ActionEvent event) {
 	}
 
 }

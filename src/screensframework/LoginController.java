@@ -32,6 +32,10 @@ import objects.User;
 public class LoginController implements Initializable, ControlledScreen {
 
 	ScreensController myController;
+	/**
+	 * The USER object for the session. Can be instantiated as either an Employee or
+	 * a Customer.
+	 */
 	public static User USER;
 
 	@FXML
@@ -43,8 +47,13 @@ public class LoginController implements Initializable, ControlledScreen {
 	@FXML
 	private PasswordField txtPassword; // Password
 
-	// Setting up the database file location:
+	/**
+	 * The database file, stored in the assets folder at the User's home directory.
+	 */
 	File database = new File(System.getProperty("user.home") + "/assets/", "database.json");
+	/**
+	 * The assets folder, stored in the User's home directory.
+	 */
 	File assets = new File(System.getProperty("user.home"), "assets");
 
 	/**
@@ -61,16 +70,12 @@ public class LoginController implements Initializable, ControlledScreen {
 				ScreensFramework.LOGGER.info("Assets folder exists!");
 			} else {
 				new File(System.getProperty("user.home"), "assets").mkdir();
+				ScreensFramework.LOGGER.info("Creating Assets folder in User home directory");
 			}
 
 			// Initialise the database JSON file:
 			if (!database.exists()) {
-				ScreensFramework.LOGGER.info("Database does not exist in parent directory, creating now.");
-				System.out.println("database.json does not exist in parent directory, creating now!"); // If the
-																										// database is
-																										// not currently
-																										// being stored
-																										// locally
+				ScreensFramework.LOGGER.info("Database does not exist in assets folder, creating now.");
 
 				InputStream in = getClass().getResourceAsStream("/database.json"); // database shell
 				JSONObject obj = JSONUtils.getJSONObjectFromFile(in);
@@ -86,7 +91,10 @@ public class LoginController implements Initializable, ControlledScreen {
 		}
 
 	}
-
+	
+	/**
+	 * Sets the screen parent.
+	 */
 	@Override
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
@@ -100,7 +108,9 @@ public class LoginController implements Initializable, ControlledScreen {
 	 * screen depending on their permission level. Triggered by clicking Login.
 	 * 
 	 * @param event
+	 *            the User clicks the "Login" button
 	 * @throws IOException
+	 *             if the database file cannot be found.
 	 */
 	@FXML
 	private void login(ActionEvent event) throws IOException {
@@ -167,7 +177,11 @@ public class LoginController implements Initializable, ControlledScreen {
 			System.out.println(e);
 		}
 	}
-
+	
+	/**
+	 * Sends the user to the staff home page.
+	 * @param event user requests to go to the Staff home page
+	 */
 	@FXML
 	private void goToStaffHomePage(ActionEvent event) {
 		myController.setScreen(ScreensFramework.staffHomeID);
@@ -251,7 +265,11 @@ public class LoginController implements Initializable, ControlledScreen {
 			}
 		}
 	}
-
+	
+	/**
+	 * Sends the User to the registration page.
+	 * @param event the User clicks the "Register" button.
+	 */
 	@FXML
 	private void goToRegistrationPage(ActionEvent event) {
 		myController.loadScreen(ScreensFramework.registrationID, ScreensFramework.registrationFile);

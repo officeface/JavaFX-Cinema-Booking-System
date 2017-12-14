@@ -36,7 +36,7 @@ import objects.Listing;
  * @author Mark Backhouse
  *
  */
-public class CustBookingHistoryPageController extends ToolbarController implements Initializable, ControlledScreen {
+public class CustBookingHistoryPageController implements Initializable, ControlledScreen, CustToolbar {
 
 	@FXML
 	private Button btnLogout, btnHome, btnMyProfile, btnMyBookings, btnUpdate;
@@ -52,7 +52,11 @@ public class CustBookingHistoryPageController extends ToolbarController implemen
 
 	ScreensController myController;
 
-	// Booking History:
+	/**
+	 * A Map of key:value pairs that will contain the Customer's Booking History.
+	 * The keys are the Listing IDs and the values are Lists of Strings of the names
+	 * of the seats the Customer has booked.
+	 */
 	Map<String, List<String>> bookingHistory;
 
 	/**
@@ -139,7 +143,7 @@ public class CustBookingHistoryPageController extends ToolbarController implemen
 
 					// Alignment of button:
 					btnDeleteListing.setPrefWidth(120);
-					//Tooltip:
+					// Tooltip:
 					btnDeleteListing.setTooltip(
 							new Tooltip("Booking expired!\nYou can only delete bookings that have not yet occurred."));
 					pane.setGraphic(btnDeleteListing);
@@ -170,24 +174,33 @@ public class CustBookingHistoryPageController extends ToolbarController implemen
 		}
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public void setScreenParent(ScreensController screenParent) {
 		myController = screenParent;
 	}
 
-	@Override
+	/**
+	 * {@inheritDoc}
+	 */
 	@FXML
 	public void goToCustHome(ActionEvent event) {
 		myController.setScreen(ScreensFramework.custHomeID);
 	}
 
-	@Override
+	/**
+	 * {@inheritDoc}
+	 */
 	@FXML
 	public void goToCustProfilePage(ActionEvent event) {
 		myController.setScreen(ScreensFramework.custProfilePageID);
 	}
 
-	@Override
+	/**
+	 * {@inheritDoc}
+	 */
 	@FXML
 	public void goToLogin(ActionEvent event) {
 		// Unload the User:
@@ -209,6 +222,14 @@ public class CustBookingHistoryPageController extends ToolbarController implemen
 
 		myController.loadScreen(ScreensFramework.loginID, ScreensFramework.loginFile);
 		myController.setScreen(ScreensFramework.loginID);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@FXML
+	public void goToCustBookingHistoryPage(ActionEvent event) {
+
 	}
 
 }

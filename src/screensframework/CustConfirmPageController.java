@@ -12,7 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
-public class CustConfirmPageController implements Initializable, ControlledScreen {
+public class CustConfirmPageController implements Initializable, ControlledScreen, CustToolbar {
 
 	ScreensController myController;
 
@@ -39,7 +39,6 @@ public class CustConfirmPageController implements Initializable, ControlledScree
 	/**
 	 * Initialises the controller class.
 	 */
-
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
@@ -50,6 +49,14 @@ public class CustConfirmPageController implements Initializable, ControlledScree
 		Integer numberOfSeats = (Integer) CustHomeController.BOOKING.getSeats().size();
 		this.lblNoOfSeats.setText(numberOfSeats.toString());
 		this.lblOverallPrice.setText("£" + 5 * numberOfSeats + ".00");
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void setScreenParent(ScreensController screenParent) {
+		myController = screenParent;
 	}
 
 	/**
@@ -82,11 +89,10 @@ public class CustConfirmPageController implements Initializable, ControlledScree
 		myController.setScreen(ScreensFramework.custHomeID);
 	}
 
-	@Override
-	public void setScreenParent(ScreensController screenParent) {
-		myController = screenParent;
-	}
-
+	/**
+	 * Sends the Customer back to the booking page.
+	 * @param event the Customer clicks the "Back" button.
+	 */
 	@FXML
 	public void goToCustBookFilmPage(ActionEvent event) {
 		myController.setScreen(ScreensFramework.custBookFilmPageID);
@@ -94,23 +100,35 @@ public class CustConfirmPageController implements Initializable, ControlledScree
 
 	// Toolbar methods
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@FXML
 	public void goToCustHome(ActionEvent event) {
 		myController.setScreen(ScreensFramework.custHomeID);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@FXML
 	public void goToCustProfilePage(ActionEvent event) {
 		myController.setScreen(ScreensFramework.custProfilePageID);
 
 	}
-
+	
+	/**
+	 * {@inheritDoc}
+	 */
 	@FXML
 	public void goToCustBookingHistoryPage(ActionEvent event) {
 		myController.setScreen(ScreensFramework.custBookingHistoryPageID);
 
 	}
-
+	
+	/**
+	 * {@inheritDoc}
+	 */
 	@FXML
 	public void goToLogin(ActionEvent event) {
 		// Unload the User:
